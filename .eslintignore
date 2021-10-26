@@ -1,0 +1,6 @@
+.cache
+build
+node_modules
+public
+storybook-static
+src/components/icons
