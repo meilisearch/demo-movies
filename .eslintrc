@@ -1,0 +1,46 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "cypress/globals": true
+  },
+  "extends": ["next", "prettier", "eslint:recommended", "plugin:cypress/recommended"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module",
+    "ecmaVersion": 12
+  },
+  "plugins": ["react", "prettier", "cypress"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "cypress/no-unnecessary-waiting": "off",
+    "react/jsx-closing-bracket-location": [2, "tag-aligned"],
+    "import/no-anonymous-default-export": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "^omit.*$"
+      }
+    ],
+    "array-callback-return": "off",
+    "arrow-parens": ["error", "as-needed"],
+    "prettier/prettier": [
+      "error",
+      {
+        "quoteProps": "consistent",
+        "semi": false,
+        "arrowParens": "avoid",
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "tabWidth": 2
+      }
+    ]
+  }
+}
