@@ -1,4 +1,5 @@
 import { appWithTranslation } from 'next-i18next'
+import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyle from 'theme/GlobalStyle'
 import theme from 'theme'
