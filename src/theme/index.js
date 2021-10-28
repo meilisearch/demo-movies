@@ -1,12 +1,10 @@
-import colors from './colors'
 import spacing from './spacing'
 import size from './size'
 import fontWeight from './fontWeight'
 import breakpoints from './breakpoints'
 import text from './text'
 
-const theme = {
-  colors,
+const common = {
   spacing,
   size,
   fontWeight,
@@ -14,4 +12,4 @@ const theme = {
   text,
 }
 
-export default theme
+export default common

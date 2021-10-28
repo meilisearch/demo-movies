@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/meilisearch/integration-guides/main/assets/logos/logo.svg" alt="MeiliSearch logo" width="200" height="200" />
+  <img src="public/images/logo-light-mode.svg" alt="MeiliSearch logo" width="200" height="200" />
 </p>
 
 <h1 align="center">Where to Watch</h1>

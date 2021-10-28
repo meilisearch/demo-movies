@@ -1,12 +1,9 @@
 import styled from 'styled-components'
 import Head from 'next/head'
-import get from 'utils/get'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const Content = styled.div`
-  padding: ${get('spacing.12')};
-  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
