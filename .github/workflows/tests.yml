@@ -49,7 +49,7 @@ jobs:
       - name: Test
         uses: cypress-io/github-action@v2
         with:
-          start: yarn dev
+          start: yarn ci:dev
           wait-on: 'http://localhost:3000'
           command: yarn cy:run
           config-file: cypress.json
