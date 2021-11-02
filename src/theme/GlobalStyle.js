@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
   * {
-    font-family: 'Work Sans';
+    font-family: Barlow;
     box-sizing: border-box;
   }
   a {
