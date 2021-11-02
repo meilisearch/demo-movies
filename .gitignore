@@ -37,6 +37,8 @@ yarn-error.log*
 /cypress/fixtures
 /cypress/plugins
 /cypress/support
+/cypress/screenshots
+/cypress/videos
 
 # storybook
 /storybook-static
