@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "ci:dev": "HOST=0.0.0.0:7700 API_KEY=masterKey next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint --ext .js .",
