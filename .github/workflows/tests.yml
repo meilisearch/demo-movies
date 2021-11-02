@@ -22,20 +22,14 @@ jobs:
         run: yarn --dev
       - name: Run style check
         run: yarn lint
-  cypress_run:
+  cypress-run:
     runs-on: ubuntu-latest
     container: cypress/browsers:node12.18.3-chrome87-ff82
-    services:
-      meilisearch:
-        image: getmeili/meilisearch:latest
-        env:
-          MEILI_MASTER_KEY: 'masterKey'
-          MEILI_NO_ANALYTICS: 'true'
-        ports:
-          - '7700:7700'
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
         with:
           node-version: '12.x'
       - name: Cache dependencies
@@ -46,7 +40,7 @@ jobs:
           key: ${{ hashFiles('yarn.lock') }}
       - name: Install dependencies
         run: yarn
-      - name: Test
+      - name: Browser tests
         uses: cypress-io/github-action@v2
         with:
           start: yarn dev
@@ -63,3 +57,4 @@ jobs:
         with:
           name: cypress-videos
           path: cypress/videos
+
