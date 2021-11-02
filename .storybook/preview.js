@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components'
 import theme from '../src/theme'
 import { I18nextProvider } from 'react-i18next'
 import i18n from './i18n'
+import 'theme/colors.css'
 
 const GlobalStyle = createGlobalStyle`
   html, body {
