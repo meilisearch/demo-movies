@@ -4,7 +4,7 @@ import fontWeight from './fontWeight'
 import breakpoints from './breakpoints'
 import text from './text'
 
-const common = {
+const theme = {
   spacing,
   size,
   fontWeight,
@@ -12,4 +12,4 @@ const common = {
   text,
 }
 
-export default common
+export default theme
