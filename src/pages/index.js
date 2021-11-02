@@ -4,9 +4,14 @@ import Head from 'next/head'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Toggle from 'components/Toggle'
+import get from 'utils/get'
 
 const Test = styled.div`
   background: var(--bg-button);
+`
+
+const Wrapper = styled.div`
+  padding: ${get('spacing.4')};
 `
 
 const Home = () => {
@@ -19,9 +24,11 @@ const Home = () => {
         <meta name="description" content={t('meta.description')} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>{t('title')}</div>
-      <Test>test</Test>
-      <Toggle />
+      <Wrapper>
+        <div>{t('title')}</div>
+        <Test>test</Test>
+        <Toggle />
+      </Wrapper>
     </>
   )
 }

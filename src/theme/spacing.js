@@ -1,5 +1,5 @@
 const spacing = {
-  big: '200px',
+  4: '1rem',
 }
 
 export default spacing
