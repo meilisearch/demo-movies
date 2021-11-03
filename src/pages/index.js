@@ -11,6 +11,7 @@ import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Toggle from 'components/Toggle'
+import Rating from 'components/Rating'
 import get from 'utils/get'
 import { ClientProvider } from 'context/ClientContext'
 
@@ -49,6 +50,7 @@ const Home = ({ host, apiKey }) => {
         <div>{t('title')}</div>
         <Test>test</Test>
         <Toggle />
+        <Rating rating={4.2} withText />
       </Wrapper>
       {client && (
         <InstantSearch indexName="movies" searchClient={client}>

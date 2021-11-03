@@ -11,6 +11,7 @@
     "lint:fix": "eslint --ext .js . --fix",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
+    "icons": "npx @svgr/cli --title-prop --no-dimensions --replace-attr-values \"#000=currentColor\" -d src/components/icons src/components/icons/svg",
     "test": "concurrently --kill-others -s first \"yarn dev\" \"cypress run\"",
     "test:watch": "concurrently --kill-others -s first \"yarn dev\" \"cypress open\"",
     "storybook": "start-storybook -p 6006 -s ./public",

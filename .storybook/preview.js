@@ -1,22 +1,10 @@
 import React, { Suspense } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { createGlobalStyle } from 'styled-components'
 import theme from '../src/theme'
 import { I18nextProvider } from 'react-i18next'
 import i18n from './i18n'
 import '../src/theme/colors.css'
-
-const GlobalStyle = createGlobalStyle`
-  html, body {
-    margin: 0;
-  }
-  * {
-    box-sizing: border-box;
-  }
-  a {
-    text-decoration: none;
-  }
-`
+import GlobalStyle from '../src/theme/GlobalStyle'
 
 export const decorators = [
   (Story) => (
