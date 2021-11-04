@@ -17,14 +17,20 @@
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  transition: color 300ms, background-color 300ms;
+}
+
+* {
+  transition: background-color 300ms;
 }
 
 body.light {
   --bg-color: var(--athensGray);
   --text-color: black;
   --bg-button: #74b9ff;
-  --card-title: var(--gray-800);
+  --800-100: var(--gray-800);
+  --filter-text: var(--gray-500);
+  --results-bg: white;
+  --h3: var(--gray-700);
 }
 
 body.dark {
@@ -32,5 +38,8 @@ body.dark {
   --bg-color: #0f0f1b;
   --text-color: white;
   --bg-button: #fab1a0;
-  --card-title: var(--gray-100);
+  --800-100: var(--gray-100);
+  --filter-text: var(--gray-100);
+  --results-bg: var(--gray-900);
+  --h3: var(--gray-100);
 }

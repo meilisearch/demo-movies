@@ -8,14 +8,10 @@ import get from 'utils/get'
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 111px;
-  @media (min-width: ${get('breakpoints.desktop')}) {
-    width: 150px;
-  }
 `
 
 const Title = styled(Typography)`
-  color: var(--card-title);
+  color: var(--800-100);
 `
 
 const ReleaseYear = styled(Typography)`
@@ -26,6 +22,7 @@ const ReleaseYear = styled(Typography)`
 const Info = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 `
 
 const Card = ({ poster_path, title, release_date, vote_average, ...props }) => {

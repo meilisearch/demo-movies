@@ -31,10 +31,48 @@ const variants = {
       }
     `,
   },
+  h2: {
+    tag: 'span',
+    style: css`
+      font-family: Asap Condensed;
+      font-weight: 600;
+      font-size: 42px;
+      line-height: 43px;
+      letter-spacing: 0.1px;
+      text-transform: uppercase;
+    `,
+  },
+  h3: {
+    tag: 'span',
+    style: css`
+      font-family: Asap Condensed;
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 43px;
+      letter-spacing: 0.1px;
+      text-transform: uppercase;
+      @media (min-width: ${get('breakpoints.desktop')}) {
+        font-size: 27px;
+        line-height: 36px;
+      }
+    `,
+  },
+  nbResults: {
+    tag: 'span',
+    style: css`
+      font-family: Barlow;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 22px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    `,
+  },
 }
 
 const StyledTypography = styled.span`
   margin: 0;
+  transition: color 300ms;
   ${p => p.$variant.style};
 `
 

@@ -1,40 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 import Head from 'next/head'
-import {
-  InstantSearch,
-  SearchBox,
-  Hits as ISHits,
-} from 'react-instantsearch-dom'
+import { InstantSearch } from 'react-instantsearch-dom'
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import Toggle from 'components/Toggle'
-import Card from 'components/Card'
-import get from 'utils/get'
 import { ClientProvider } from 'context/ClientContext'
+import get from 'utils/get'
+import Header from 'blocks/Header'
+import Filters from 'blocks/Filters'
+import Results from 'blocks/Results/index'
 
 const Wrapper = styled.div`
-  padding: ${get('spacing.4')};
-`
-
-const Hits = styled(ISHits)`
-  li {
-    list-style-type: none;
+  @media (min-width: ${get('breakpoints.desktop')}) {
+    padding: 0 50px;
   }
 `
-
-const Hit = ({ hit }) => {
-  const { poster_path, title, release_date, vote_average } = hit
-  return (
-    <Card
-      poster_path={poster_path}
-      title={title}
-      release_date={release_date}
-      vote_average={vote_average}
-    />
-  )
-}
 
 const Home = ({ host, apiKey }) => {
   const { t } = useTranslation('common')
@@ -45,7 +26,7 @@ const Home = ({ host, apiKey }) => {
       setClient(instantMeiliSearch(host, apiKey, { primaryKey: 'id' }))
   }, [host, apiKey])
 
-  if (!host || !apiKey) return <div>Connection to MeiliSearch failed</div>
+  if (!host || !apiKey) return <div>{t('connexionFailed')}</div>
 
   return (
     <ClientProvider value={{ client, setClient }}>
@@ -54,14 +35,13 @@ const Home = ({ host, apiKey }) => {
         <meta name="description" content={t('meta.description')} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Wrapper>
-        <div>{t('title')}</div>
-        <Toggle />
-      </Wrapper>
       {client && (
         <InstantSearch indexName="movies" searchClient={client}>
-          <SearchBox />
-          <Hits hitComponent={Hit} />
+          <Wrapper>
+            <Header />
+            <Filters />
+            <Results />
+          </Wrapper>
         </InstantSearch>
       )}
     </ClientProvider>
