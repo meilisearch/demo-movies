@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Toggle = () => {
+const Toggle = props => {
   const [currentTheme, setCurrentTheme] = React.useState()
 
   React.useEffect(() => {
@@ -15,6 +15,7 @@ const Toggle = () => {
         setCurrentTheme(getNextTheme())
         window.__setPreferredTheme(getNextTheme())
       }}
+      {...props}
     >
       {`Switch to ${getNextTheme()} mode`}
     </button>

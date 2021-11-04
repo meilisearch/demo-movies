@@ -5,6 +5,7 @@ import get from 'utils/get'
 const Poster = styled.img`
   border-radius: ${get('spacing.2')};
   object-fit: cover;
+  max-width: 100%;
 `
 
 Poster.propTypes = {

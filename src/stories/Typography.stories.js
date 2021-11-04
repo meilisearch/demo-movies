@@ -19,9 +19,29 @@ Default.args = {
 export const CardTitle = Template.bind({})
 CardTitle.args = {
   children: 'I’m the cardTitle variant',
+  variant: 'cardTitle',
 }
 
 export const Subtitle = Template.bind({})
 Subtitle.args = {
   children: 'I’m the subtitle variant',
+  variant: 'subtitle',
+}
+
+export const H2 = Template.bind({})
+H2.args = {
+  children: 'I’m the h2 variant',
+  variant: 'h2',
+}
+
+export const H3 = Template.bind({})
+H3.args = {
+  children: 'I’m the h3 variant',
+  variant: 'h3',
+}
+
+export const NbResults = Template.bind({})
+NbResults.args = {
+  children: 'I’m the nbResults variant',
+  variant: 'nbResults',
 }

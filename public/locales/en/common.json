@@ -2,5 +2,9 @@
   "title": "Where to Watch",
   "meta": {
     "description": ""
-  }
+  },
+  "connexionFailed": "Connexion to MeiliSearch failed",
+  "movies": "Movies",
+  "results": "Results",
+  "whatsTrending": "What’s Trending"
 }
