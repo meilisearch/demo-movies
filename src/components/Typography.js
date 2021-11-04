@@ -1,10 +1,35 @@
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
+import get from 'utils/get'
 
 const variants = {
   default: {
     tag: 'span',
     style: css``,
+  },
+  cardTitle: {
+    tag: 'span',
+    style: css`
+      font-family: Barlow;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 22px;
+      @media (min-width: ${get('breakpoints.desktop')}) {
+        font-size: 17px;
+      }
+    `,
+  },
+  subtitle: {
+    tag: 'span',
+    style: css`
+      font-family: Barlow;
+      font-weight: 500;
+      font-size: 11px;
+      line-height: 22px;
+      @media (min-width: ${get('breakpoints.desktop')}) {
+        font-size: 15px;
+      }
+    `,
   },
 }
 
@@ -25,7 +50,7 @@ Typography.propTypes = {
   /**
    * The variant name, used to display Typography with different styles
    */
-  variant: PropTypes.oneOf(['default']),
+  variant: PropTypes.oneOf(['default', 'cardTitle', 'subtitle']),
 }
 
 Typography.defaultProps = {
