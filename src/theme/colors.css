@@ -24,6 +24,7 @@ body.light {
   --bg-color: var(--athensGray);
   --text-color: black;
   --bg-button: #74b9ff;
+  --card-title: var(--gray-800);
 }
 
 body.dark {
@@ -31,4 +32,5 @@ body.dark {
   --bg-color: #0f0f1b;
   --text-color: white;
   --bg-button: #fab1a0;
+  --card-title: var(--gray-100);
 }

@@ -4,27 +4,36 @@ import Head from 'next/head'
 import {
   InstantSearch,
   SearchBox,
-  Hits,
-  Highlight,
+  Hits as ISHits,
 } from 'react-instantsearch-dom'
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Toggle from 'components/Toggle'
-import Rating from 'components/Rating'
+import Card from 'components/Card'
 import get from 'utils/get'
 import { ClientProvider } from 'context/ClientContext'
-
-const Test = styled.div`
-  background: var(--bg-button);
-`
 
 const Wrapper = styled.div`
   padding: ${get('spacing.4')};
 `
 
-function Hit(props) {
-  return <Highlight attribute="title" hit={props.hit} />
+const Hits = styled(ISHits)`
+  li {
+    list-style-type: none;
+  }
+`
+
+const Hit = ({ hit }) => {
+  const { poster_path, title, release_date, vote_average } = hit
+  return (
+    <Card
+      poster_path={poster_path}
+      title={title}
+      release_date={release_date}
+      vote_average={vote_average}
+    />
+  )
 }
 
 const Home = ({ host, apiKey }) => {
@@ -40,7 +49,6 @@ const Home = ({ host, apiKey }) => {
 
   return (
     <ClientProvider value={{ client, setClient }}>
-      {' '}
       <Head>
         <title>{t('title')}</title>
         <meta name="description" content={t('meta.description')} />
@@ -48,9 +56,7 @@ const Home = ({ host, apiKey }) => {
       </Head>
       <Wrapper>
         <div>{t('title')}</div>
-        <Test>test</Test>
         <Toggle />
-        <Rating rating={4.2} withText />
       </Wrapper>
       {client && (
         <InstantSearch indexName="movies" searchClient={client}>
