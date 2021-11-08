@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import Poster from 'components/Poster'
 
 export default {
@@ -9,11 +10,19 @@ export default {
   },
 }
 
-const Template = args => <Poster {...args} />
+// Workaround for Next/Image not working in Storybook
+const StyledPoster = styled(Poster)`
+  img {
+    object-fit: cover;
+    width: 100%;
+  }
+`
 
-export const Movie = Template.bind({})
-Movie.args = {
-  src: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hBak1pn5pbI4ycAbrgMMn1YI7P1.jpg',
+const Template = args => <StyledPoster {...args} />
+
+export const Default = Template.bind({})
+Default.args = {
+  src: 'https://image.tmdb.org/t/p/w780/fECBtHlr0RB3foNHDiCBXeg9Bv9.jpg',
   alt: 'Harry Potter et la Coupe de Feu',
   style: { height: 600 },
 }

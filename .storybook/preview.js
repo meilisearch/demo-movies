@@ -5,6 +5,8 @@ import { I18nextProvider } from 'react-i18next'
 import i18n from './i18n'
 import '../src/theme/colors.css'
 import GlobalStyle from '../src/theme/GlobalStyle'
+import * as nextImage from 'next/image';
+
 
 export const decorators = [
   (Story) => (
@@ -23,3 +25,9 @@ export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   layout: 'fullscreen',
 }
+
+// Workaround for Next/Image not working in Storybook
+Object.defineProperty(nextImage, 'default', {
+  configurable: true,
+  value: props => <img  {...props} />
+});
