@@ -10,4 +10,7 @@ module.exports = {
     return config
   },
   i18n,
+  images: {
+    domains: ['image.tmdb.org'],
+  },
 }
