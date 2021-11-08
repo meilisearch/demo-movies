@@ -1,12 +1,20 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import get from 'utils/get'
+import Image from 'next/image'
 
-const Poster = styled.img`
+const Wrapper = styled.div`
+  position: relative;
   border-radius: ${get('spacing.2')};
-  object-fit: cover;
-  max-width: 100%;
+  overflow: hidden;
+  aspect-ratio: 150/225;
 `
+
+const Poster = ({ src = '', alt = '', ...props }) => (
+  <Wrapper {...props}>
+    <Image src={src} alt={alt} layout={'fill'} objectFit="cover" />
+  </Wrapper>
+)
 
 Poster.propTypes = {
   /**
