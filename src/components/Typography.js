@@ -88,7 +88,14 @@ Typography.propTypes = {
   /**
    * The variant name, used to display Typography with different styles
    */
-  variant: PropTypes.oneOf(['default', 'cardTitle', 'subtitle']),
+  variant: PropTypes.oneOf([
+    'default',
+    'cardTitle',
+    'subtitle',
+    'h2',
+    'h3',
+    'nbResults',
+  ]),
 }
 
 Typography.defaultProps = {
