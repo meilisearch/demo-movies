@@ -13,7 +13,7 @@ import Results from 'blocks/Results/index'
 
 const Wrapper = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
-    padding: 0 50px;
+    padding: 0 50px 50px;
   }
 `
 

@@ -16,9 +16,7 @@ const Trending = styled(Typography)`
 const Wrapper = styled(Container)`
   display: flex;
   align-items: center;
-  height: 41px;
   color: var(--filter-text);
-  margin-top: ${get('spacing[2.5]')};
   @media (min-width: ${get('breakpoints.desktop')}) {
     padding: 0 80px;
     height: 140px;

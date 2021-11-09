@@ -1,8 +1,7 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
-import Color from 'color'
-import Cross from 'components/icons/Cross'
-import { Search as BaseSearch } from 'components/icons'
+import { Search as BaseSearch, Cross } from 'components/icons'
+import get from 'utils/get'
 
 const InputField = styled.input`
   height: 48px;
@@ -14,7 +13,7 @@ const InputField = styled.input`
   border-width: 1px;
   border-style: solid;
   border-radius: 8px;
-  box-shadow: 0px 4px 6px ${Color('#000').alpha(0.04)};
+  box-shadow: 0px 0px 64px rgba(0, 0, 0, 0.06);
   outline: none;
   color: var(----800-100);
   font-weight: 500;
@@ -54,33 +53,45 @@ const Search = styled(BaseSearch)`
 const InputContainer = styled.div`
   position: relative;
   width: 100%;
-  max-width: 660px;
-
+  @media (min-width: ${get('breakpoints.desktop')}) {
+    max-width: 660px;
+  }
   svg {
     color: var(--300-400);
     transition: color 300ms;
   }
 `
 
+const Wrapper = styled.div`
+  display: flex;
+  flex: 1;
+  @media (min-width: ${get('breakpoints.desktop')}) {
+    justify-content: center;
+    margin: 0 48px;
+  }
+`
+
 const Input = ({ ref, clear, type, value, ...props }) => {
   const input = useRef(null)
   return (
-    <InputContainer ref={ref}>
-      <Search width={20} />
-      <InputField value={value} type={type} ref={input} {...props} />
-      {type === 'search' && (
-        <ClearButton
-          aria-label="clear"
-          onClick={() => {
-            clear()
-            input.current.focus()
-          }}
-          style={{ display: value ? 'block' : 'none' }}
-        >
-          <Cross />
-        </ClearButton>
-      )}
-    </InputContainer>
+    <Wrapper {...props}>
+      <InputContainer ref={ref}>
+        <Search width={20} />
+        <InputField value={value} type={type} ref={input} />
+        {type === 'search' && (
+          <ClearButton
+            aria-label="clear"
+            onClick={() => {
+              clear()
+              input.current.focus()
+            }}
+            style={{ display: value ? 'block' : 'none' }}
+          >
+            <Cross />
+          </ClearButton>
+        )}
+      </InputContainer>
+    </Wrapper>
   )
 }
 
