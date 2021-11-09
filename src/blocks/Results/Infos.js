@@ -26,14 +26,7 @@ const H3 = styled(Typography)`
 const Wrapper = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-  }
-`
-const DisplayAllButton = styled.button`
-  display: none;
-  @media (min-width: ${get('breakpoints.desktop')}) {
-    display: inline-flex;
   }
 `
 
@@ -42,20 +35,17 @@ const Infos = ({ title }) => {
 
   return (
     <Wrapper>
-      <div>
-        <H3 variant="h3">{title}</H3>
-        <NbResults variant="nbResults">
-          <Stats
-            translations={{
-              stats(nbHits) {
-                return `${nbHits.toLocaleString()}`
-              },
-            }}
-          />
-        </NbResults>
-        <ResultsText variant="nbResults">{t('results')}</ResultsText>
-      </div>
-      <DisplayAllButton>Display all</DisplayAllButton>
+      <H3 variant="h3">{title}</H3>
+      <NbResults variant="nbResults">
+        <Stats
+          translations={{
+            stats(nbHits) {
+              return `${nbHits.toLocaleString()}`
+            },
+          }}
+        />
+      </NbResults>
+      <ResultsText variant="nbResults">{t('results')}</ResultsText>
     </Wrapper>
   )
 }
