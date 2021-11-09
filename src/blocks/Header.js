@@ -25,7 +25,7 @@ const Header = () => (
   <Wrapper>
     <img src="images/logo-light-mode.svg" alt="Where to Watch" />
     <SearchBox />
-    <Toggle />
+    <Toggle onChange={window.__setPreferredTheme} />
   </Wrapper>
 )
 

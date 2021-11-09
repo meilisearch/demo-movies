@@ -12,14 +12,12 @@
   --gray-900: #1b1b2a;
   --gray-1000: #10101e;
   --japonica: #d56a6a;
+  --koromiko: #ffc05d;
 }
 
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-}
-
-* {
   transition: background-color 300ms;
 }
 
@@ -28,9 +26,12 @@ body.light {
   --text-color: black;
   --bg-button: #74b9ff;
   --800-100: var(--gray-800);
+  --300-500: var(--gray-300);
+  --100-300: var(--gray-100);
   --filter-text: var(--gray-500);
   --results-bg: white;
   --h3: var(--gray-700);
+  --toggle-background: var(--gray-200);
 }
 
 body.dark {
@@ -39,7 +40,10 @@ body.dark {
   --text-color: white;
   --bg-button: #fab1a0;
   --800-100: var(--gray-100);
+  --300-500: var(--gray-500);
+  --100-300: var(--gray-300);
   --filter-text: var(--gray-100);
   --results-bg: var(--gray-900);
   --h3: var(--gray-100);
+  --toggle-background: var(--gray-700);
 }
