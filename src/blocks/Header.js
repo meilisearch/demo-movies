@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SearchBox } from 'react-instantsearch-dom'
 import BaseToggle from 'components/Toggle'
 import get from 'utils/get'
 import Container from 'components/Container'
+import Searchbox from 'components/Searchbox'
 
 const Toggle = styled(BaseToggle)`
   display: none;
@@ -24,7 +24,7 @@ const Wrapper = styled(Container)`
 const Header = () => (
   <Wrapper>
     <img src="images/logo-light-mode.svg" alt="Where to Watch" />
-    <SearchBox />
+    <Searchbox />
     <Toggle onChange={window.__setPreferredTheme} />
   </Wrapper>
 )

@@ -30,7 +30,6 @@ const Filters = () => {
   return (
     <Wrapper>
       <Trending variant="h2">{t('whatsTrending')}</Trending>
-      <Typography>Filters</Typography>
     </Wrapper>
   )
 }

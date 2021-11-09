@@ -11,6 +11,7 @@ const Label = styled.label`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
   position: relative;
   border-width: 2px;
   border-style: solid;
