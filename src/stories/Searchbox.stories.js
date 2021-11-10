@@ -1,0 +1,19 @@
+import React from 'react'
+import Searchbox from 'components/Searchbox'
+import { InstantSearch } from 'react-instantsearch-dom'
+
+export default {
+  title: 'Components/Searchbox',
+  component: Searchbox,
+  parameters: {
+    layout: 'padded',
+  },
+}
+
+export const Default = () => {
+  return (
+    <InstantSearch indexName="movies" searchClient={{}}>
+      <Searchbox />
+    </InstantSearch>
+  )
+}

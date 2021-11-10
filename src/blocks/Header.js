@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import BaseToggle from 'components/Toggle'
 import get from 'utils/get'
 import Container from 'components/Container'
-import Searchbox from 'components/Searchbox'
+import BaseSearchbox from 'components/Searchbox'
 
 const Toggle = styled(BaseToggle)`
   display: none;
@@ -18,6 +18,15 @@ const Wrapper = styled(Container)`
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+`
+
+const Searchbox = styled(BaseSearchbox)`
+  display: flex;
+  flex: 1;
+  @media (min-width: ${get('breakpoints.desktop')}) {
+    justify-content: center;
+    margin: 0 48px;
   }
 `
 
