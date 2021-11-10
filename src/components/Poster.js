@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 
 const Poster = ({ src = '', alt = '', ...props }) => (
   <Wrapper {...props}>
-    <Image src={src} alt={alt} layout={'fill'} />
+    <Image src={src} alt={alt} layout="fill" />
   </Wrapper>
 )
 

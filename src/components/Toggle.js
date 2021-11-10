@@ -108,7 +108,7 @@ Toggle.propTypes = {
   /**
    * Function to execute on toggle
    */
-  onChange: PropTypes.function,
+  onChange: PropTypes.func,
 }
 
 Toggle.defaultProps = {
