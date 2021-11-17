@@ -11,6 +11,7 @@
   --gray-800: #232333;
   --gray-900: #1b1b2a;
   --gray-1000: #10101e;
+  --gray-1000-rgb: 16, 16, 30;
   --japonica: #d56a6a;
   --koromiko: #ffc05d;
 }
@@ -36,11 +37,13 @@ body.light {
   --input-bg-color: white;
   --input-border: var(--gray-200);
   --input-border-focus: var(--gray-300);
+  --dialog-backdrop: rgba(var(--gray-1000-rgb), 0.4);
+  --dialog-bg-color: var(--gray-100);
 }
 
 body.dark {
   -webkit-font-smoothing: antialiased;
-  --bg-color: #0f0f1b;
+  --bg-color: var(--cinder);
   --text-color: white;
   --bg-button: #fab1a0;
   --800-100: var(--gray-100);
@@ -54,4 +57,6 @@ body.dark {
   --input-bg-color: var(--gray-900);
   --input-border: var(--gray-600);
   --input-border-focus: var(--gray-400);
+  --dialog-backdrop: rgba(var(--gray-1000-rgb), 0.9);
+  --dialog-bg-color: var(--gray-900);
 }
