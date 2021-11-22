@@ -34,11 +34,12 @@ yarn-error.log*
 .vercel
 
 # cypress
-/cypress/fixtures
 /cypress/plugins
-/cypress/support
 /cypress/screenshots
 /cypress/videos
 
 # storybook
 /storybook-static
+
+# meilisearch
+data.ms

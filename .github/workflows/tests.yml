@@ -48,6 +48,9 @@ jobs:
         run: yarn
       - name: Browser tests
         uses: cypress-io/github-action@v2
+        env:
+          CYPRESS_HOST: http://meilisearch:7700
+          CYPRESS_API_KEY: 'masterKey'
         with:
           start: yarn ci:dev
           wait-on: 'http://localhost:3000'
