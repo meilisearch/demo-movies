@@ -13,6 +13,7 @@ const Content = styled.div`
       }
     `};
 
+  outline: none;
   position: relative;
   width: 100%;
   height: 100%;
