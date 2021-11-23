@@ -1,10 +1,8 @@
 import React from 'react'
-import MovieLayout from 'components/MovieLayout'
 import { DesktopLayout, MobileLayout } from 'blocks/MovieLayout'
 
 export default {
   title: 'Blocks/MovieLayout',
-  component: MovieLayout,
 }
 
 const hit = {
