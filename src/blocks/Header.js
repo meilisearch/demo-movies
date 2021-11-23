@@ -6,33 +6,46 @@ import Container from 'components/Container'
 import BaseSearchbox from 'components/Searchbox'
 
 const Toggle = styled(BaseToggle)`
-  display: none;
+  display: flex;
+  order: 2;
+  margin-bottom: 32px;
   @media (min-width: ${get('breakpoints.desktop')}) {
-    display: flex;
+    order: 3;
+    margin-bottom: 0;
   }
 `
 
 const Wrapper = styled(Container)`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+
   @media (min-width: ${get('breakpoints.desktop')}) {
     height: 200px;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
   }
 `
 
 const Searchbox = styled(BaseSearchbox)`
   display: flex;
-  flex: 1;
+  order: 3;
   @media (min-width: ${get('breakpoints.desktop')}) {
+    order: 2;
+    flex: 1;
     justify-content: center;
     margin: 0 48px;
   }
 `
 
+const Logo = styled.img`
+  display: flex;
+  order: 1;
+`
+
 const Header = () => (
   <Wrapper>
-    <img src="images/logo-light-mode.svg" alt="Where to Watch" />
+    <Logo src="images/logo-light-mode.svg" alt="Where to Watch" />
     <Searchbox />
     <Toggle onChange={window.__setPreferredTheme} />
   </Wrapper>
