@@ -45,6 +45,8 @@ body.light {
   --icon-button-svg-focus-color: var(--gray-400);
   --tab-active-color: var(--gray-800);
   --tab-inactive-color: var(--gray-300);
+  --providers-bg-color: white;
+  --movie-content-bg-color-mobile: white;
 }
 
 body.dark {
@@ -71,4 +73,6 @@ body.dark {
   --icon-button-svg-focus-color: var(--gray-100);
   --tab-active-color: var(--gray-100);
   --tab-inactive-color: var(--gray-400);
+  --providers-bg-color: var(--gray-700);
+  --movie-content-bg-color-mobile: var(--gray-600);
 }
