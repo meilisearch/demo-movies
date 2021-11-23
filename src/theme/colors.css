@@ -43,6 +43,8 @@ body.light {
   --icon-button-focus-bg-color: var(--gray-400);
   --icon-button-svg-color: var(--gray-300);
   --icon-button-svg-focus-color: var(--gray-400);
+  --tab-active-color: var(--gray-800);
+  --tab-inactive-color: var(--gray-300);
 }
 
 body.dark {
@@ -67,4 +69,6 @@ body.dark {
   --icon-button-focus-bg-color: var(--gray-400);
   --icon-button-svg-color: var(--gray-300);
   --icon-button-svg-focus-color: var(--gray-100);
+  --tab-active-color: var(--gray-100);
+  --tab-inactive-color: var(--gray-400);
 }
