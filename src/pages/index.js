@@ -23,7 +23,12 @@ const Home = ({ host, apiKey }) => {
 
   React.useEffect(() => {
     if (host && apiKey)
-      setClient(instantMeiliSearch(host, apiKey, { primaryKey: 'id' }))
+      setClient(
+        instantMeiliSearch(host, apiKey, {
+          primaryKey: 'id',
+          paginationTotalHits: 24,
+        })
+      )
   }, [host, apiKey])
 
   if (!host || !apiKey) return <div>{t('connexionFailed')}</div>
