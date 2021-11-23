@@ -36,7 +36,7 @@ const Infos = ({ title }) => {
   return (
     <Wrapper>
       <H3 variant="h3">{title}</H3>
-      <NbResults variant="nbResults">
+      <NbResults variant="typo1">
         <Stats
           translations={{
             stats(nbHits) {
@@ -45,7 +45,7 @@ const Infos = ({ title }) => {
           }}
         />
       </NbResults>
-      <ResultsText variant="nbResults">{t('results')}</ResultsText>
+      <ResultsText variant="typo1">{t('results')}</ResultsText>
     </Wrapper>
   )
 }

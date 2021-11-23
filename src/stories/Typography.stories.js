@@ -40,8 +40,8 @@ H3.args = {
   variant: 'h3',
 }
 
-export const NbResults = Template.bind({})
-NbResults.args = {
-  children: 'I’m the nbResults variant',
-  variant: 'nbResults',
+export const Typo1 = Template.bind({})
+Typo1.args = {
+  children: 'I’m the typo1 variant',
+  variant: 'typo1',
 }

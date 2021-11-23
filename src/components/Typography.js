@@ -57,7 +57,7 @@ const variants = {
       }
     `,
   },
-  nbResults: {
+  typo1: {
     tag: 'span',
     style: css`
       font-family: Barlow;
@@ -65,7 +65,6 @@ const variants = {
       font-size: 15px;
       line-height: 22px;
       letter-spacing: 1px;
-      text-transform: uppercase;
     `,
   },
 }
@@ -94,7 +93,7 @@ Typography.propTypes = {
     'subtitle',
     'h2',
     'h3',
-    'nbResults',
+    'typo1',
   ]),
 }
 
