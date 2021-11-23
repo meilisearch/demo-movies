@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Card from 'components/Card'
 import IconButton from 'components/IconButton'
-import Typography from 'components/Typography'
 import { useDialogState } from 'reakit/Dialog'
 import {
   DialogDisclosure,
@@ -11,6 +10,7 @@ import {
 } from 'components/Dialog'
 import { Cross } from 'components/icons'
 import get from 'utils/get'
+import { DesktopLayout, MobileLayout } from 'blocks/MovieLayout'
 
 const Disclosure = styled(DialogDisclosure)`
   transform: scale(1);
@@ -32,6 +32,27 @@ const Close = styled(IconButton)`
   }
 `
 
+const MovieContent = ({ hit }) => {
+  const [mobile, setMobile] = React.useState(undefined)
+  const Layout = React.useMemo(
+    () => (mobile ? MobileLayout : DesktopLayout),
+    [mobile]
+  )
+  React.useEffect(() => {
+    const updateMobile = () => {
+      setMobile(window.innerWidth < 1024 ? true : false)
+    }
+
+    updateMobile()
+    window.addEventListener('resize', updateMobile)
+    return () => {
+      window.removeEventListener('resize', updateMobile)
+    }
+  }, [])
+
+  return typeof mobile !== 'undefined' ? <Layout hit={hit} /> : null
+}
+
 const Hit = ({ hit, ...props }) => {
   const dialog = useDialogState({ animated: true })
   return (
@@ -44,7 +65,7 @@ const Hit = ({ hit, ...props }) => {
           <Close rounded onClick={() => dialog.hide()}>
             <Cross width={15} />
           </Close>
-          <Typography>{`Where to watch ${hit.title}`}</Typography>
+          <MovieContent hit={hit} />
         </DialogContent>
       </DialogBackdrop>
     </div>

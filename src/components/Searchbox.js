@@ -60,6 +60,7 @@ const StyledSearchbox = styled(IsSearchbox)`
   button[type='reset'] {
     right: 16px;
     opacity: 1;
+    cursor: pointer;
     &[hidden] {
       opacity: 0;
     }

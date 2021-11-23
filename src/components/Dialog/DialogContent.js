@@ -26,7 +26,7 @@ const Content = styled.div`
     width: 70%;
     height: auto;
     inset: 50% 50%;
-    transform: translate(-50%, calc(-50% - 48px));
+    transform: translate(-50%, -50%);
     border-radius: 12px;
   }
 `
