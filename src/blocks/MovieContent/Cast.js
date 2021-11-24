@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  margin-top: 112px;
+`
 
 const Cast = ({ cast }) => {
   return (
     <Wrapper>
-      {cast.map(people => (
-        <div key={people.name}>{people.character}</div>
+      {cast.map((people, index) => (
+        <div key={index}>{people.character}</div>
       ))}
     </Wrapper>
   )

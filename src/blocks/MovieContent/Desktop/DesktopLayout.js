@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import Providers from './Providers'
-import MovieInfos from './MovieInfos'
-import Cast from './Cast'
+import Providers from '../Providers'
+import DesktopMovieInfos from './DesktopMovieInfos'
+import Cast from '../Cast'
 
 const Wrapper = styled.div`
-  display: grid;
   grid-template-columns: repeat(12, 1fr);
+  display: grid;
 `
 
-const Infos = styled.div`
+const RightSection = styled.div`
   grid-column: 3 / -1;
 `
 
@@ -22,10 +22,10 @@ const DesktopLayout = ({ hit }) => {
   return (
     <Wrapper>
       <StyledProviders providers={providers} />
-      <Infos>
-        <MovieInfos movie={movie} />
+      <RightSection>
+        <DesktopMovieInfos movie={movie} />
         <Cast cast={cast} />
-      </Infos>
+      </RightSection>
     </Wrapper>
   )
 }

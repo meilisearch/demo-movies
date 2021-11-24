@@ -9,7 +9,7 @@ import { ClientProvider } from 'context/ClientContext'
 import get from 'utils/get'
 import Header from 'blocks/Header'
 import Filters from 'blocks/Filters'
-import Results from 'blocks/Results/index'
+import MoviesList from 'blocks/MoviesList/index'
 
 const Wrapper = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
@@ -46,7 +46,7 @@ const Home = ({ host, apiKey }) => {
           <Wrapper>
             <Header />
             <Filters />
-            <Results />
+            <MoviesList />
           </Wrapper>
         </InstantSearch>
       )}
