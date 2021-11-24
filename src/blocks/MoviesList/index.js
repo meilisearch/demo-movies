@@ -5,7 +5,9 @@ import { useTranslation } from 'next-i18next'
 import get from 'utils/get'
 import Container from 'components/Container'
 import Infos from './Infos'
-import Hit from './Hit'
+import MovieCard from './MovieCard'
+import { useDialogState } from 'reakit/Dialog'
+import MovieModalContent from './MovieModalContent'
 
 const Hits = styled(ISHits)`
   ul {
@@ -36,19 +38,26 @@ const Wrapper = styled(Container)`
   }
 `
 
-const Movies = styled.div``
-
-const Results = () => {
+const MoviesList = () => {
   const { t } = useTranslation('common')
+  const [currentMovie, setCurrentMovie] = React.useState()
+  const dialog = useDialogState({ animated: true })
 
   return (
     <Wrapper>
-      <Movies>
-        <Infos title={t('movies')} />
-        <Hits hitComponent={Hit} />
-      </Movies>
+      <Infos title={t('movies')} />
+      <Hits
+        hitComponent={({ hit }) => (
+          <MovieCard
+            hit={hit}
+            setCurrentMovie={setCurrentMovie}
+            dialog={dialog}
+          />
+        )}
+      />
+      <MovieModalContent hit={currentMovie} dialog={dialog} />
     </Wrapper>
   )
 }
 
-export default Results
+export default MoviesList

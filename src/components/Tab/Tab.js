@@ -29,7 +29,7 @@ const StyledTab = styled(ReakitTab)`
       color: var(--tab-active-color);
 
       &:after {
-        background-color: white;
+        background-color: var(--tab-active-color);
       }
     `}
 `

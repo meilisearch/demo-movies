@@ -28,6 +28,12 @@ Subtitle.args = {
   variant: 'subtitle',
 }
 
+export const H1 = Template.bind({})
+H1.args = {
+  children: 'I’m the h1 variant',
+  variant: 'h1',
+}
+
 export const H2 = Template.bind({})
 H2.args = {
   children: 'I’m the h2 variant',
@@ -38,6 +44,12 @@ export const H3 = Template.bind({})
 H3.args = {
   children: 'I’m the h3 variant',
   variant: 'h3',
+}
+
+export const H5 = Template.bind({})
+H5.args = {
+  children: 'I’m the h5 variant',
+  variant: 'h5',
 }
 
 export const Typo1 = Template.bind({})

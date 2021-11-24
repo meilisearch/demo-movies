@@ -25,7 +25,13 @@ const Info = styled.div`
   flex-wrap: wrap;
 `
 
-const Card = ({ poster_path, title, release_date, vote_average, ...props }) => {
+const Card = ({
+  poster_path = '',
+  title = '',
+  release_date = '',
+  vote_average = '',
+  ...props
+}) => {
   const releaseYear = new Date(release_date).getFullYear()
   return (
     <Wrapper {...props}>
@@ -33,7 +39,7 @@ const Card = ({ poster_path, title, release_date, vote_average, ...props }) => {
       <Title variant="cardTitle">{title}</Title>
       <Info>
         <ReleaseYear variant="subtitle">{releaseYear}</ReleaseYear>
-        <Rating rating={vote_average} />
+        <Rating rating={Math.round((vote_average / 2) * 10) / 10} />
       </Info>
     </Wrapper>
   )

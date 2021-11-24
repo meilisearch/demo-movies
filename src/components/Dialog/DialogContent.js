@@ -15,16 +15,18 @@ const Content = styled.div`
 
   outline: none;
   position: relative;
+  overflow: hidden;
   width: 100%;
   height: 100%;
   inset: 0;
   background-color: var(--dialog-bg-color);
+  color: var(--movie-content-text-color);
   z-index: 999;
 
   @media (min-width: ${get('breakpoints.desktop')}) {
     max-width: 1480px;
-    width: 70%;
-    height: auto;
+    width: 90%;
+    height: 90%;
     inset: 50% 50%;
     transform: translate(-50%, -50%);
     border-radius: 12px;

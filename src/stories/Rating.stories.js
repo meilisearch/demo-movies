@@ -15,3 +15,17 @@ export const Default = Template.bind({})
 Default.args = {
   rating: 4.2,
 }
+
+export const WithText = Template.bind({})
+WithText.args = {
+  rating: 4.2,
+  withText: true,
+}
+
+export const Big = Template.bind({})
+Big.storyName = 'Size = big (mobile only)'
+Big.args = {
+  rating: 4.2,
+  withText: true,
+  size: 'big',
+}

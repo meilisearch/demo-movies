@@ -1,5 +1,6 @@
 import React from 'react'
-import { DesktopLayout, MobileLayout } from 'blocks/MovieLayout'
+import DesktopLayout from 'blocks/MovieContent/Desktop/DesktopLayout'
+import MobileLayout from 'blocks/MovieContent/Mobile/MobileLayout'
 
 export default {
   title: 'Blocks/MovieLayout',
