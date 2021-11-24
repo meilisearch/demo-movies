@@ -31,6 +31,21 @@ const variants = {
       }
     `,
   },
+  h1: {
+    tag: 'span',
+    style: css`
+      font-family: Asap Condensed;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 35px;
+      line-height: 35px;
+
+      @media (min-width: ${get('breakpoints.desktop')}) {
+        font-size: 65px;
+        line-height: 58px;
+      }
+    `,
+  },
   h2: {
     tag: 'span',
     style: css`
@@ -57,6 +72,16 @@ const variants = {
       }
     `,
   },
+  h5: {
+    tag: 'span',
+    style: css`
+      font-family: Barlow;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 22px;
+    `,
+  },
   typo1: {
     tag: 'span',
     style: css`
@@ -65,6 +90,15 @@ const variants = {
       font-size: 15px;
       line-height: 22px;
       letter-spacing: 1px;
+    `,
+  },
+  rating: {
+    tag: 'span',
+    style: css`
+      font-family: Barlow;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 22px;
     `,
   },
 }
@@ -91,9 +125,12 @@ Typography.propTypes = {
     'default',
     'cardTitle',
     'subtitle',
+    'h1',
     'h2',
     'h3',
+    'h5',
     'typo1',
+    'rating',
   ]),
 }
 
