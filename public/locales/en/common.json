@@ -6,5 +6,8 @@
   "connexionFailed": "Connexion to MeiliSearch failed",
   "movies": "Movies",
   "results": "Results",
-  "whatsTrending": "What’s Trending"
+  "whatsTrending": "What’s Trending",
+  "synopsis": "Synopsis",
+  "overview": "Overview",
+  "whereToWatch": "Where to Watch"
 }
