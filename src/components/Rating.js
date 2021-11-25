@@ -34,7 +34,7 @@ const Rating = ({ rating, withText, size = 'normal', ...props }) => (
     {[...Array(5)].map((e, i) => (
       <StarComponent key={i} $active={i < Math.round(rating)} $size={size} />
     ))}
-    {withText && <Text variant="rating">{rating}</Text>}
+    {withText && <Text variant="typo2">{rating}</Text>}
   </StarsContainer>
 )
 

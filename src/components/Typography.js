@@ -92,7 +92,7 @@ const variants = {
       letter-spacing: 1px;
     `,
   },
-  rating: {
+  typo2: {
     tag: 'span',
     style: css`
       font-family: Barlow;
@@ -130,7 +130,7 @@ Typography.propTypes = {
     'h3',
     'h5',
     'typo1',
-    'rating',
+    'typo2',
   ]),
 }
 

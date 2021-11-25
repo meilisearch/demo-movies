@@ -5,13 +5,7 @@ import Rating from 'components/Rating'
 import { useTranslation } from 'next-i18next'
 import Crews from '../Crews'
 import Socials from '../Socials'
-
-const Tags = styled.div`
-  display: flex;
-  > div + div {
-    margin-left: 10px;
-  }
-`
+import Tags from '../Tags'
 
 const Description = styled(Typography)`
   margin-top: 10px;
@@ -30,10 +24,9 @@ const TitleAndDate = styled.div`
 `
 
 const TagsAndDuration = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: baseline;
 `
 
 const Synopsis = styled.div`
@@ -74,11 +67,7 @@ const MovieInfos = ({ movie }) => {
         </Typography>
       </TitleAndDate>
       <TagsAndDuration>
-        <Tags>
-          {genres?.map(genre => (
-            <div key={genre}>{genre}</div>
-          ))}
-        </Tags>
+        <Tags tags={genres} />
         <Typography variant="h5" style={{ marginLeft: 26 }}>
           {movie_duration}
         </Typography>
