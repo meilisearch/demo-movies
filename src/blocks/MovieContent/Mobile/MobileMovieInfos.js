@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 
 const TitleAndDate = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: baseline;
   margin-top: 6px;
 `
 

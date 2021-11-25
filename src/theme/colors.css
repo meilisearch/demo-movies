@@ -58,6 +58,7 @@ body.light {
   --tag-border-color: var(--medium-purple);
   --tag-bg-color: rgba(var(--medium-purple-rgb), 0.2);
   --tag-text-color: var(--medium-purple);
+  --social-color: var(--gray-500);
 }
 
 body.dark {
@@ -91,4 +92,5 @@ body.dark {
   --tag-border-color: var(--royal-blue);
   --tag-bg-color: rgba(var(--royal-blue-rgb), 0.4);
   --tag-text-color: var(--gray-100);
+  --social-color: var(--gray-200);
 }
