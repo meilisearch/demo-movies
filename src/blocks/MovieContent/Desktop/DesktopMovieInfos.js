@@ -6,6 +6,7 @@ import Poster from 'components/Poster'
 import Crews from '../Crews'
 import Socials from '../Socials'
 import BackdropImage from '../BackdropImage'
+import Tags from '../Tags'
 
 const Descriptions = styled.div`
   margin-left: 40px;
@@ -16,13 +17,6 @@ const KeyInfos = styled.div`
   margin-top: 8px;
   display: flex;
   align-items: center;
-`
-
-const Tags = styled.div`
-  display: flex;
-  > div + div {
-    margin-left: 10px;
-  }
 `
 
 const Description = styled(Typography)`
@@ -79,11 +73,7 @@ const DesktopMovieInfos = ({ movie }) => {
               {movie_duration}
             </Typography>
           </KeyInfos>
-          <Tags>
-            {genres?.map(genre => (
-              <div key={genre}>{genre}</div>
-            ))}
-          </Tags>
+          <Tags tags={genres} />
           <Description>{movie.overview}</Description>
         </Descriptions>
         <AdditionalInfos>
