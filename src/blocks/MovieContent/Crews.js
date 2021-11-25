@@ -16,7 +16,7 @@ const Crew = styled.div`
   width: 50%;
   margin-top: 32px;
   @media (min-width: ${get('breakpoints.desktop')}) {
-    padding-left: 8px;
+    padding-right: 8px;
   }
 `
 
