@@ -52,7 +52,7 @@ const DesktopMovieInfos = ({ movie }) => {
 
   return (
     <BackdropImage
-      $image={`https://image.tmdb.org/t/p/w780/${movie.backdrop_path}`}
+      $image={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
     >
       <Infos>
         <Poster
