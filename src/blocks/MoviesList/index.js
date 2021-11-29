@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import styled from 'styled-components'
 import { Hits as ISHits } from 'react-instantsearch-dom'
@@ -5,9 +6,10 @@ import { useTranslation } from 'next-i18next'
 import get from 'utils/get'
 import Container from 'components/Container'
 import Infos from './Infos'
-import MovieCard from './MovieCard'
 import { useDialogState } from 'reakit/Dialog'
 import MovieModalContent from './MovieModalContent'
+import Card from 'components/Card'
+import { DialogDisclosure } from 'components/Dialog'
 
 const Hits = styled(ISHits)`
   ul {
@@ -38,21 +40,44 @@ const Wrapper = styled(Container)`
   }
 `
 
+const Disclosure = styled(DialogDisclosure)`
+  transform: scale(1);
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
+  transition: transform 300ms;
+`
+
 const MoviesList = () => {
   const { t } = useTranslation('common')
   const [currentMovie, setCurrentMovie] = React.useState()
-  const dialog = useDialogState({ animated: true })
+  const dialog = useDialogState()
+  const cardsRef = React.useRef([])
+
+  React.useEffect(() => {
+    if (currentMovie && !dialog.visible) {
+      const timer = setTimeout(() => {
+        cardsRef.current[currentMovie.objectID].focus()
+      }, 0)
+      return () => clearTimeout(timer)
+    }
+  }, [dialog.visible])
 
   return (
     <Wrapper>
       <Infos title={t('movies')} />
       <Hits
         hitComponent={({ hit }) => (
-          <MovieCard
-            hit={hit}
-            setCurrentMovie={setCurrentMovie}
-            dialog={dialog}
-          />
+          <Disclosure
+            ref={ref => (cardsRef.current[hit.objectID] = ref)}
+            {...dialog}
+            onClick={() => {
+              setCurrentMovie(hit)
+            }}
+          >
+            <Card {...hit} />
+          </Disclosure>
         )}
       />
       <MovieModalContent hit={currentMovie} dialog={dialog} />
