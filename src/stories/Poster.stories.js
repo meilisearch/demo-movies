@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Poster from 'components/Poster'
 
 export default {
@@ -10,15 +9,7 @@ export default {
   },
 }
 
-// Workaround for Next/Image not working in Storybook
-const StyledPoster = styled(Poster)`
-  img {
-    object-fit: cover;
-    width: 100%;
-  }
-`
-
-const Template = args => <StyledPoster {...args} />
+const Template = args => <Poster {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
