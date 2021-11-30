@@ -60,6 +60,12 @@ Typo1.args = {
 
 export const Typo2 = Template.bind({})
 Typo2.args = {
-  children: 'I’m the typo1 variant',
+  children: 'I’m the typo2 variant',
   variant: 'typo2',
+}
+
+export const Typo3 = Template.bind({})
+Typo3.args = {
+  children: 'I’m the typo3 variant',
+  variant: 'typo3',
 }

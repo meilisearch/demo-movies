@@ -59,6 +59,10 @@ body.light {
   --tag-bg-color: rgba(var(--medium-purple-rgb), 0.2);
   --tag-text-color: var(--medium-purple);
   --social-color: var(--gray-500);
+  --cast-people-name: var(--gray-400);
+  --cast-character-name: var(--gray-300);
+  --cast-section-title-desktop: var(--gray-400);
+  --cast-section-title-mobile: var(--gray-400);
 }
 
 body.dark {
@@ -93,4 +97,8 @@ body.dark {
   --tag-bg-color: rgba(var(--royal-blue-rgb), 0.4);
   --tag-text-color: var(--gray-100);
   --social-color: var(--gray-200);
+  --cast-people-name: var(--gray-100);
+  --cast-character-name: var(--gray-200);
+  --cast-section-title-desktop: var(--gray-100);
+  --cast-section-title-mobile: var(--gray-400);
 }
