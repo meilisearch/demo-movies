@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Card from 'components/Card'
 
 export default {
@@ -10,15 +9,7 @@ export default {
   },
 }
 
-// Workaround for Next/Image not working in Storybook
-const StyledCard = styled(Card)`
-  img {
-    object-fit: cover;
-    width: 100%;
-  }
-`
-
-const Template = args => <StyledCard {...args} />
+const Template = args => <Card {...args} />
 
 export const Movie = Template.bind({})
 Movie.args = {
