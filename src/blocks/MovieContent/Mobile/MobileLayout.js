@@ -50,6 +50,26 @@ const Content = styled.div`
   background-color: var(--movie-content-bg-color-mobile);
 `
 
+const CastWrapper = styled.div`
+  padding: 48px 32px;
+`
+
+const CastTitle = styled(Typography)`
+  color: var(--cast-section-title-mobile);
+  text-transform: uppercase;
+`
+
+const CastSection = ({ cast }) => {
+  const { t } = useTranslation('common')
+
+  return (
+    <CastWrapper>
+      <CastTitle variant="typo1">{t('cast')}</CastTitle>
+      <Cast style={{ marginTop: 16 }} cast={cast} />
+    </CastWrapper>
+  )
+}
+
 const MobileLayout = ({ hit }) => {
   const tab = useTabState()
   const { cast = [], providers = {} } = hit
@@ -59,7 +79,7 @@ const MobileLayout = ({ hit }) => {
       <Content>
         <TabPanel {...tab}>
           <MobileMovieInfos movie={hit} />
-          <Cast cast={cast} />
+          <CastSection cast={cast} />
         </TabPanel>
         <TabPanel {...tab}>
           <Providers providers={providers} />

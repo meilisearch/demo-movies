@@ -101,6 +101,17 @@ const variants = {
       line-height: 22px;
     `,
   },
+  typo3: {
+    tag: 'span',
+    style: css`
+      font-family: Asap Condensed;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 27px;
+      line-height: 36px;
+      letter-spacing: 0.1px;
+    `,
+  },
 }
 
 const StyledTypography = styled.span`
@@ -131,6 +142,7 @@ Typography.propTypes = {
     'h5',
     'typo1',
     'typo2',
+    'typo3',
   ]),
 }
 

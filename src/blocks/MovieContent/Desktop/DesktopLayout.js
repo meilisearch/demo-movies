@@ -3,10 +3,13 @@ import styled from 'styled-components'
 import Providers from '../Providers'
 import DesktopMovieInfos from './DesktopMovieInfos'
 import Cast from '../Cast'
+import Typography from 'components/Typography'
+import { useTranslation } from 'next-i18next'
 
 const Wrapper = styled.div`
   grid-template-columns: repeat(12, 1fr);
   display: grid;
+  padding-bottom: 70px;
 `
 
 const RightSection = styled.div`
@@ -17,6 +20,26 @@ const StyledProviders = styled(Providers)`
   background-color: var(--providers-bg-color);
 `
 
+const CastWrapper = styled.div`
+  padding: 112px 50px 0;
+`
+
+const CastTitle = styled(Typography)`
+  color: var(--cast-section-title-desktop);
+  text-transform: uppercase;
+`
+
+const CastSection = ({ cast }) => {
+  const { t } = useTranslation('common')
+
+  return (
+    <CastWrapper>
+      <CastTitle variant="typo3">{t('cast')}</CastTitle>
+      <Cast cast={cast} />
+    </CastWrapper>
+  )
+}
+
 const DesktopLayout = ({ hit }) => {
   const { cast = [], providers = {}, ...movie } = hit
   return (
@@ -24,7 +47,7 @@ const DesktopLayout = ({ hit }) => {
       <StyledProviders providers={providers} />
       <RightSection>
         <DesktopMovieInfos movie={movie} />
-        <Cast cast={cast} />
+        <CastSection cast={cast} />
       </RightSection>
     </Wrapper>
   )
