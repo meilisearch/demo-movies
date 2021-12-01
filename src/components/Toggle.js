@@ -30,6 +30,7 @@ const Input = styled(Checkbox)`
   width: 0;
   height: 0;
   margin: 0;
+  margin-left: 5px;
   border-radius: 60px;
   position: absolute;
   transform: translate(18px);
@@ -41,7 +42,7 @@ const Input = styled(Checkbox)`
     content: '';
     position: absolute;
     top: -15px;
-    left: 0;
+    left: -5px;
     right: 0;
     bottom: 0;
     width: 30px;
