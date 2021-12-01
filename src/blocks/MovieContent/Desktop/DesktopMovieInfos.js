@@ -33,7 +33,6 @@ const AdditionalInfos = styled.div`
 `
 
 const Infos = styled.div`
-  height: 360px;
   display: flex;
   flex-direction: row;
 `

@@ -9,11 +9,11 @@ import { useTranslation } from 'next-i18next'
 const Wrapper = styled.div`
   grid-template-columns: repeat(12, 1fr);
   display: grid;
-  padding-bottom: 70px;
 `
 
 const RightSection = styled.div`
   grid-column: 3 / -1;
+  padding-bottom: 70px;
 `
 
 const StyledProviders = styled(Providers)`
