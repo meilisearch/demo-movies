@@ -65,7 +65,7 @@ const MoviesList = () => {
   }, [dialog.visible])
 
   return (
-    <Wrapper>
+    <Wrapper as="section">
       <Infos title={t('movies')} />
       <Hits
         hitComponent={({ hit }) => (

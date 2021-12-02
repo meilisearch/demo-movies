@@ -65,10 +65,10 @@ const DesktopMovieInfos = ({ movie }) => {
           </Typography>
           <KeyInfos>
             <Rating rating={Math.round((vote_average / 2) * 10) / 10} />
-            <Typography variant="h5" style={{ marginLeft: 20 }}>
+            <Typography variant="typo4" style={{ marginLeft: 20 }}>
               {release_year}
             </Typography>
-            <Typography variant="h5" style={{ marginLeft: 26 }}>
+            <Typography variant="typo4" style={{ marginLeft: 26 }}>
               {movie_duration}
             </Typography>
           </KeyInfos>

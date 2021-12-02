@@ -45,7 +45,9 @@ const Logo = styled.img`
 
 const Header = () => (
   <Wrapper>
-    <Logo src="images/logo-light-mode.svg" alt="Where to Watch" />
+    <h1 style={{ margin: 0 }}>
+      <Logo src="images/logo-light-mode.svg" alt="Where to Watch" />
+    </h1>
     <Searchbox />
     <Toggle onChange={window.__setPreferredTheme} />
   </Wrapper>

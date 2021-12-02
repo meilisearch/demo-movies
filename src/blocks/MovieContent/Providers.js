@@ -33,7 +33,7 @@ const providersList = {
   'Epix': 'https://www.epix.com/',
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   grid-column: 1 / 3;
   padding: 56px 28px;
 `
@@ -43,7 +43,7 @@ const ListTitleText = styled(Typography)`
   margin-left: 16px;
 `
 
-const TitleWrapper = styled.div`
+const TitleWrapper = styled.h3`
   display: flex;
 `
 
@@ -89,7 +89,7 @@ const List = ({ title, icon, providers }) => (
   <ListWrapper>
     <TitleWrapper>
       {icon}
-      <ListTitleText variant="h5">{title}</ListTitleText>
+      <ListTitleText variant="typo4">{title}</ListTitleText>
     </TitleWrapper>
     <ProviderList>
       {providers?.map(provider => (

@@ -24,8 +24,8 @@ const Crews = ({ crew }) => (
   <CrewsWrapper>
     {crew.map((people, index) => (
       <Crew key={index}>
-        <CrewName variant="h5">{people.name}</CrewName>
-        <Typography variant="h5">{people.job}</Typography>
+        <CrewName variant="typo4">{people.name}</CrewName>
+        <Typography variant="typo4">{people.job}</Typography>
       </Crew>
     ))}
   </CrewsWrapper>

@@ -32,7 +32,7 @@ const variants = {
     `,
   },
   h1: {
-    tag: 'span',
+    tag: 'h1',
     style: css`
       font-family: Asap Condensed;
       font-style: normal;
@@ -47,7 +47,7 @@ const variants = {
     `,
   },
   h2: {
-    tag: 'span',
+    tag: 'h2',
     style: css`
       font-family: Asap Condensed;
       font-weight: 600;
@@ -58,7 +58,7 @@ const variants = {
     `,
   },
   h3: {
-    tag: 'span',
+    tag: 'h3',
     style: css`
       font-family: Asap Condensed;
       font-weight: 600;
@@ -70,16 +70,6 @@ const variants = {
         font-size: 27px;
         line-height: 36px;
       }
-    `,
-  },
-  h5: {
-    tag: 'span',
-    style: css`
-      font-family: Barlow;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 15px;
-      line-height: 22px;
     `,
   },
   typo1: {
@@ -112,6 +102,16 @@ const variants = {
       letter-spacing: 0.1px;
     `,
   },
+  typo4: {
+    tag: 'span',
+    style: css`
+      font-family: Barlow;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 22px;
+    `,
+  },
 }
 
 const StyledTypography = styled.span`
@@ -139,10 +139,10 @@ Typography.propTypes = {
     'h1',
     'h2',
     'h3',
-    'h5',
     'typo1',
     'typo2',
     'typo3',
+    'typo4',
   ]),
 }
 
