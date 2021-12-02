@@ -21,7 +21,7 @@ const StyledProviders = styled(Providers)`
 `
 
 const CastWrapper = styled.div`
-  padding: 112px 50px 0;
+  padding: 56px 50px 0;
 `
 
 const CastTitle = styled(Typography)`
