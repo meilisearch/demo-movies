@@ -20,13 +20,14 @@ const StyledProviders = styled(Providers)`
   background-color: var(--providers-bg-color);
 `
 
-const CastWrapper = styled.div`
+const CastWrapper = styled.section`
   padding: 56px 50px 0;
 `
 
 const CastTitle = styled(Typography)`
   color: var(--cast-section-title-desktop);
   text-transform: uppercase;
+  margin: 0;
 `
 
 const CastSection = ({ cast }) => {
@@ -34,7 +35,9 @@ const CastSection = ({ cast }) => {
 
   return (
     <CastWrapper>
-      <CastTitle variant="typo3">{t('cast')}</CastTitle>
+      <CastTitle as="h2" variant="typo3">
+        {t('cast')}
+      </CastTitle>
       <Cast cast={cast} />
     </CastWrapper>
   )

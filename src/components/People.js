@@ -48,8 +48,8 @@ const People = ({ people, ...props }) => {
         height={100}
       />
       <Text>
-        <PeopleName variant="h5">{name}</PeopleName>
-        <CharacterName variant="h5">{character}</CharacterName>
+        <PeopleName variant="typo4">{name}</PeopleName>
+        <CharacterName variant="typo4">{character}</CharacterName>
       </Text>
     </Wrapper>
   )

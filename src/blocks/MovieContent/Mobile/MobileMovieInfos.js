@@ -62,13 +62,13 @@ const MovieInfos = ({ movie }) => {
         <Typography variant="h1" style={{ textTransform: 'uppercase' }}>
           {title}
         </Typography>
-        <Typography variant="h5" style={{ marginLeft: 8 }}>
+        <Typography variant="typo4" style={{ marginLeft: 8 }}>
           {release_year}
         </Typography>
       </TitleAndDate>
       <TagsAndDuration>
         <Tags tags={genres} />
-        <Typography variant="h5" style={{ marginLeft: 26 }}>
+        <Typography variant="typo4" style={{ marginLeft: 26 }}>
           {movie_duration}
         </Typography>
       </TagsAndDuration>

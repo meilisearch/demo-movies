@@ -46,12 +46,6 @@ H3.args = {
   variant: 'h3',
 }
 
-export const H5 = Template.bind({})
-H5.args = {
-  children: 'I’m the h5 variant',
-  variant: 'h5',
-}
-
 export const Typo1 = Template.bind({})
 Typo1.args = {
   children: 'I’m the typo1 variant',
@@ -68,4 +62,10 @@ export const Typo3 = Template.bind({})
 Typo3.args = {
   children: 'I’m the typo3 variant',
   variant: 'typo3',
+}
+
+export const Typo4 = Template.bind({})
+Typo4.args = {
+  children: 'I’m the typo4 variant',
+  variant: 'typo4',
 }
