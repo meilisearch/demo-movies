@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 const Tags = ({ tags, ...props }) => (
   <Wrapper {...props}>
     {tags?.map(tag => (
-      <Tag key={tag} tag={tag} />
+      <Tag key={tag} tag={tag} data-genre={tag} />
     ))}
   </Wrapper>
 )

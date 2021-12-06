@@ -25,8 +25,8 @@ Cypress.Commands.add('addDocuments', async (uid, documents) => {
       apiKey: API_KEY,
     })
     const index = client.index(uid)
-    const res = await index.addDocuments(documents)
-    await index.waitForPendingUpdate(res.updateId)
+    const { updateId } = await index.addDocuments(documents)
+    await index.waitForPendingUpdate(updateId)
   } catch (e) {
     console.log({ e })
   }

@@ -19,22 +19,34 @@ const Socials = ({ socials }) => {
   return (
     <Wrapper style={{ marginTop: 22 }}>
       {imdb_id && (
-        <IconLink link={`https://www.imdb.com/title/${imdb_id}`}>
+        <IconLink
+          link={`https://www.imdb.com/title/${imdb_id}`}
+          data-socials="imdb"
+        >
           <ImdbLogo height={30} />
         </IconLink>
       )}
       {instagram_id && (
-        <IconLink link={`https://www.instagram.com/${instagram_id}`}>
+        <IconLink
+          link={`https://www.instagram.com/${instagram_id}`}
+          data-socials="instagram"
+        >
           <InstagramLogo height={30} />
         </IconLink>
       )}
       {twitter_id && (
-        <IconLink link={`https://twitter.com/${twitter_id}`}>
+        <IconLink
+          link={`https://twitter.com/${twitter_id}`}
+          data-socials="twitter"
+        >
           <TwitterLogo height={30} />
         </IconLink>
       )}
       {facebook_id && (
-        <IconLink link={`https://www.facebook.com/${facebook_id}`}>
+        <IconLink
+          link={`https://www.facebook.com/${facebook_id}`}
+          data-socials="facebook"
+        >
           <FacebookLogo height={30} />
         </IconLink>
       )}
