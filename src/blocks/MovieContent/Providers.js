@@ -85,15 +85,24 @@ const Provider = ({ provider }) => {
   )
 }
 
-const List = ({ title, icon, providers }) => (
+const List = ({
+  title,
+  icon,
+  providers,
+  'data-provider-type': dataProviderType,
+}) => (
   <ListWrapper>
     <TitleWrapper>
       {icon}
       <ListTitleText variant="typo4">{title}</ListTitleText>
     </TitleWrapper>
-    <ProviderList>
+    <ProviderList data-provider-type={dataProviderType}>
       {providers?.map(provider => (
-        <Provider key={provider.name} provider={provider} />
+        <Provider
+          key={provider.name}
+          provider={provider}
+          data-provider={provider.name}
+        />
       ))}
     </ProviderList>
   </ListWrapper>
@@ -116,6 +125,7 @@ const Providers = ({ providers, ...props }) => {
             title={t('stream')}
             icon={<Stream height={20} />}
             providers={stream}
+            data-provider-type="stream"
           />
         )}
         {rent.length > 0 && (
@@ -123,10 +133,16 @@ const Providers = ({ providers, ...props }) => {
             title={t('rent')}
             icon={<Rent height={20} />}
             providers={rent}
+            data-provider-type="rent"
           />
         )}
         {buy.length > 0 && (
-          <List title={t('buy')} icon={<Buy height={20} />} providers={buy} />
+          <List
+            title={t('buy')}
+            icon={<Buy height={20} />}
+            providers={buy}
+            data-provider-type="buy"
+          />
         )}
       </div>
     </Wrapper>

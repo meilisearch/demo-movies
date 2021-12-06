@@ -23,7 +23,7 @@ const Crew = styled.div`
 const Crews = ({ crew }) => (
   <CrewsWrapper>
     {crew.map((people, index) => (
-      <Crew key={index}>
+      <Crew key={index} data-crew={people.name}>
         <CrewName variant="typo4">{people.name}</CrewName>
         <Typography variant="typo4">{people.job}</Typography>
       </Crew>
