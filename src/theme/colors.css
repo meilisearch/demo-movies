@@ -63,6 +63,7 @@ body.light {
   --cast-character-name: var(--gray-300);
   --cast-section-title-desktop: var(--gray-400);
   --cast-section-title-mobile: var(--gray-400);
+  --people-placeholder: var(--gray-200);
 }
 
 body.dark {
@@ -101,4 +102,5 @@ body.dark {
   --cast-character-name: var(--gray-200);
   --cast-section-title-desktop: var(--gray-100);
   --cast-section-title-mobile: var(--gray-400);
+  --people-placeholder: var(--gray-500);
 }
