@@ -7,7 +7,7 @@ import get from 'utils/get'
 
 const Wrapper = styled.div`
   @media (max-width: ${get('breakpoints.desktop')}) {
-    padding: ${get('spacing.12')} ${get('spacing[2.5]')} 0;
+    padding: 48px 10px 0;
   }
 `
 

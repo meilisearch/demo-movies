@@ -19,7 +19,7 @@ const ResultsText = styled(Typography)`
 `
 
 const H3 = styled(Typography)`
-  margin-right: ${get('spacing.4')};
+  margin-right: 16px;
   color: var(--h3);
 `
 
