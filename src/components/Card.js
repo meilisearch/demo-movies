@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Poster from 'components/Poster'
 import Typography from 'components/Typography'
 import Rating from 'components/Rating'
-import get from 'utils/get'
 
 const Wrapper = styled.div`
   display: flex;
@@ -16,7 +15,7 @@ const Title = styled(Typography)`
 
 const ReleaseYear = styled(Typography)`
   color: var(--gray-300);
-  margin-right: ${get('spacing.4')};
+  margin-right: 16px;
 `
 
 const Info = styled.div`

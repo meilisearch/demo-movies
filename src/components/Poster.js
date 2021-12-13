@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import get from 'utils/get'
 import Image from 'next/image'
 
 const Wrapper = styled.div`
   position: relative;
-  border-radius: ${get('spacing.2')};
+  border-radius: 8px;
   overflow: hidden;
   aspect-ratio: 150/225;
 `
