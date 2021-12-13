@@ -18,7 +18,11 @@ const Peoples = styled.div`
 const Cast = ({ cast, ...props }) => (
   <Peoples {...props}>
     {cast.map((people, index) => (
-      <People key={index} people={people} data-cast={people?.name} />
+      <People
+        key={`${people?.name}-${people?.character || index}`}
+        people={people}
+        data-cast={people?.name}
+      />
     ))}
   </Peoples>
 )
