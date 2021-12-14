@@ -38,7 +38,6 @@ const Home = ({ host, apiKey }) => {
       <Head>
         <title>{t('title')}</title>
         <meta name="description" content={t('meta.description')} />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       {client && (
         <InstantSearch indexName="movies" searchClient={client}>
