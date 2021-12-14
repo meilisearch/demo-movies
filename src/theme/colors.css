@@ -20,6 +20,7 @@
   --royal-blue-rgb: 75, 90, 216;
   --medium-purple: #7a6de5;
   --medium-purple-rgb: 122, 109, 229;
+  --deep-blush: #e56d8c;
 }
 
 body {
@@ -64,6 +65,7 @@ body.light {
   --cast-section-title-desktop: var(--gray-400);
   --cast-section-title-mobile: var(--gray-400);
   --people-placeholder: var(--gray-200);
+  --text-404: var(--gray-700);
 }
 
 body.dark {
@@ -103,4 +105,5 @@ body.dark {
   --cast-section-title-desktop: var(--gray-100);
   --cast-section-title-mobile: var(--gray-400);
   --people-placeholder: var(--gray-500);
+  --text-404: white;
 }

@@ -2,12 +2,36 @@ import styled from 'styled-components'
 import Head from 'next/head'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import Image from 'next/image'
+import Container from 'components/Container'
+import Typography from 'components/Typography'
+import LinkButton from 'components/LinkButton'
+
+const Grid = styled(Container)`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 20px;
+  height: 100vh;
+  align-items: center;
+`
 
 const Content = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  grid-column: 4 / 10;
+  text-align: center;
+  color: var(--text-404);
+`
+
+const Title = styled(Typography)`
+  text-transform: uppercase;
+`
+
+const Description = styled(Typography)`
+  margin-top: 4px;
+  display: block;
+`
+
+const Cta = styled(LinkButton)`
+  margin-top: 46px;
 `
 
 const Custom404 = () => {
@@ -19,10 +43,22 @@ const Custom404 = () => {
         <title>{t('title')}</title>
         <meta name="description" content={t('meta.description')} />
       </Head>
-      <Content>
-        <div>404</div>
-        <div>{t('title')}</div>
-      </Content>
+      <Grid>
+        <Content>
+          <Image
+            src="/images/404.svg"
+            alt="404"
+            layout="responsive"
+            width={933}
+            height={448}
+          />
+          <Title variant="h1">{t('notFoundTitle')}</Title>
+          <Description variant="typo1">{t('notFoundDescription')}</Description>
+          <Cta href="/">
+            <Typography>{t('notFoundCta')}</Typography>
+          </Cta>
+        </Content>
+      </Grid>
     </>
   )
 }
