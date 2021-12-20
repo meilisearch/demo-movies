@@ -41,7 +41,7 @@ const Home = ({ host, apiKey }) => {
       </Head>
       {client && (
         <InstantSearch indexName="movies" searchClient={client}>
-          <Configure hitsPerPage={24} />
+          <Configure hitsPerPage={24} attributesToHighlight={['title']} />
           <Wrapper>
             <Header />
             <Filters />
