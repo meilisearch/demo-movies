@@ -1,21 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
-import BaseToggle from 'components/Toggle'
+import Toggle from 'components/Toggle'
 import get from 'utils/get'
 import Container from 'components/Container'
 import Typography from 'components/Typography'
 import BaseSearchbox from 'components/Searchbox'
-
-const Toggle = styled(BaseToggle)`
-  display: flex;
-  order: 2;
-  margin-bottom: 32px;
-  @media (min-width: ${get('breakpoints.desktop')}) {
-    order: 3;
-    margin-bottom: 0;
-  }
-`
 
 const Wrapper = styled(Container)`
   display: flex;
@@ -56,6 +46,24 @@ const ByMeiliSearch = styled.a`
   color: var(--gray-300);
 `
 
+const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+  order: 2;
+  margin-bottom: 32px;
+  @media (min-width: ${get('breakpoints.desktop')}) {
+    order: 3;
+    margin-bottom: 0;
+  }
+`
+
+const Github = styled.a`
+  color: var(--gray-300);
+  margin-left: 21px;
+  display: flex;
+  align-items: center;
+`
+
 const Header = () => (
   <Wrapper>
     <Logos>
@@ -74,7 +82,25 @@ const Header = () => (
       </ByMeiliSearch>
     </Logos>
     <Searchbox />
-    <Toggle onChange={window.__setPreferredTheme} />
+    <RightSection>
+      <Toggle onChange={window.__setPreferredTheme} />
+      <Github
+        href="https://github.com/meilisearch/MeiliSearch"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Image
+          src="/images/github.svg"
+          alt="Github logo"
+          layout="fixed"
+          width={16}
+          height={16}
+        />
+        <Typography variant="subtitle" style={{ marginLeft: 6 }}>
+          Github
+        </Typography>
+      </Github>
+    </RightSection>
   </Wrapper>
 )
 
