@@ -1,8 +1,10 @@
 import React from 'react'
+import Image from 'next/image'
 import styled from 'styled-components'
 import BaseToggle from 'components/Toggle'
 import get from 'utils/get'
 import Container from 'components/Container'
+import Typography from 'components/Typography'
 import BaseSearchbox from 'components/Searchbox'
 
 const Toggle = styled(BaseToggle)`
@@ -30,6 +32,7 @@ const Wrapper = styled(Container)`
 const Searchbox = styled(BaseSearchbox)`
   display: flex;
   order: 3;
+  margin-top: 20px;
   @media (min-width: ${get('breakpoints.desktop')}) {
     order: 2;
     flex: 1;
@@ -40,14 +43,36 @@ const Searchbox = styled(BaseSearchbox)`
 
 const Logo = styled.img`
   display: flex;
+`
+
+const Logos = styled.div`
   order: 1;
+`
+
+const ByMeiliSearch = styled.a`
+  display: flex;
+  align-items: baseline;
+  margin-left: 8px;
+  color: var(--gray-300);
 `
 
 const Header = () => (
   <Wrapper>
-    <h1 style={{ margin: 0 }}>
-      <Logo src="images/logo-light-mode.svg" alt="Where to Watch" />
-    </h1>
+    <Logos>
+      <h1 style={{ margin: 0 }}>
+        <Logo src="images/logo-light-mode.svg" alt="Where to Watch" />
+      </h1>
+      <ByMeiliSearch href="https://www.meilisearch.com/" target="_blank">
+        <Typography style={{ marginRight: 4 }}>by</Typography>
+        <Image
+          src="/images/meilisearch.svg"
+          alt="MeiliSearch logo"
+          layout="fixed"
+          width={87}
+          height={12}
+        />
+      </ByMeiliSearch>
+    </Logos>
     <Searchbox />
     <Toggle onChange={window.__setPreferredTheme} />
   </Wrapper>
