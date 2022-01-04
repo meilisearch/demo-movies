@@ -30,22 +30,37 @@ const Wrapper = styled.div`
   }
 `
 
+const ProcessingTime = styled(Typography)`
+  margin-left: 15px;
+  color: var(--gray-400);
+  font-style: italic;
+`
+
 const Infos = ({ title }) => {
   const { t } = useTranslation('common')
 
   return (
     <Wrapper>
       <H3 variant="h3">{title}</H3>
-      <NbResults variant="typo1">
-        <Stats
-          translations={{
-            stats(nbHits) {
-              return `${nbHits.toLocaleString()}`
-            },
-          }}
-        />
-      </NbResults>
-      <ResultsText variant="typo1">{t('results')}</ResultsText>
+      <Stats
+        translations={{
+          stats(nbHits, processingTimeMS) {
+            return (
+              <div style={{ display: 'flex' }}>
+                <NbResults variant="typo1">
+                  {`${nbHits.toLocaleString()}`}
+                </NbResults>
+                <ResultsText variant="typo1">{t('results')}</ResultsText>
+                <ProcessingTime variant="typo4">
+                  {t('processingTime', {
+                    processingTime: processingTimeMS.toLocaleString(),
+                  })}
+                </ProcessingTime>
+              </div>
+            )
+          },
+        }}
+      />
     </Wrapper>
   )
 }
