@@ -41,7 +41,7 @@ const Logos = styled.div`
 
 const ByMeiliSearch = styled.a`
   display: flex;
-  align-items: baseline;
+  align-items: center;
   margin-left: 8px;
   color: var(--gray-300);
 `
@@ -76,8 +76,8 @@ const Header = () => (
           src="/images/meilisearch.svg"
           alt="MeiliSearch logo"
           layout="fixed"
-          width={87}
-          height={12}
+          width={120}
+          height={19}
         />
       </ByMeiliSearch>
     </Logos>
