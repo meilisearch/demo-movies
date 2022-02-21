@@ -46,6 +46,6 @@
     "eslint-plugin-cypress": "^2.11.3",
     "eslint-plugin-prettier": "^3.4.0",
     "prettier": "^2.3.2",
-    "storybook-dark-mode": "^1.0.8"
+    "storybook-dark-mode": "^1.0.9"
   }
 }
