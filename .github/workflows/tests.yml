@@ -24,7 +24,7 @@ jobs:
         run: yarn lint
   cypress-run:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node14.19.0-chrome100-ff99-edge
+    container: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
     services:
       meilisearch:
         image: getmeili/meilisearch:v0.24.0
