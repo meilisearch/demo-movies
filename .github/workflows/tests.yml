@@ -44,7 +44,7 @@ jobs:
       - name: Install dependencies
         run: yarn
       - name: Browser tests
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4
         env:
           CYPRESS_HOST: http://meilisearch:7700
           CYPRESS_API_KEY: 'masterKey'
