@@ -55,7 +55,7 @@ jobs:
           start: yarn ci:dev
           wait-on: 'http://localhost:3000'
           command: yarn cy:run
-          config-file: cypress.json
+          config-file: cypress.config.js
       - uses: actions/upload-artifact@v1
         if: failure()
         with:

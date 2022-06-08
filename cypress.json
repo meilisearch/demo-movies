@@ -1,9 +1,0 @@
-{
-  "baseUrl": "http://localhost:3000",
-  "viewportWidth": 1440,
-  "viewportHeight": 900,
-  "env": {
-    "HOST": "http://0.0.0.0:7700",
-    "API_KEY": "masterKey"
-  }
-}
