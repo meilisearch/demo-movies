@@ -74,7 +74,7 @@ const Header = () => (
         <Typography style={{ marginRight: 4 }}>by</Typography>
         <Image
           src="/images/meilisearch.svg"
-          alt="MeiliSearch logo"
+          alt="Meilisearch logo"
           layout="fixed"
           width={120}
           height={19}
@@ -85,19 +85,19 @@ const Header = () => (
     <RightSection>
       <Toggle onChange={window.__setPreferredTheme} />
       <Github
-        href="https://github.com/meilisearch/MeiliSearch"
+        href="https://github.com/meilisearch/meilisearch"
         target="_blank"
         rel="noreferrer"
       >
         <Image
           src="/images/github.svg"
-          alt="Github logo"
+          alt="GitHub logo"
           layout="fixed"
           width={16}
           height={16}
         />
         <Typography variant="subtitle" style={{ marginLeft: 6 }}>
-          Github
+          GitHub
         </Typography>
       </Github>
     </RightSection>
