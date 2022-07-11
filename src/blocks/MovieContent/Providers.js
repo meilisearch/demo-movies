@@ -67,6 +67,12 @@ const ProviderImage = styled.img`
   border-radius: 11px;
 `
 
+const NoProviderMessage = styled(Typography)`
+  margin: 34px 0;
+  text-align: center;
+  display: block;
+`
+
 const Provider = ({ provider }) => {
   const externalLink = providersList[provider.name]
   const ProviderTag = externalLink ? 'a' : 'div'
@@ -111,6 +117,8 @@ const List = ({
 const Providers = ({ providers, ...props }) => {
   const { t } = useTranslation('common')
   const { buy = [], rent = [], flatrate: stream = [] } = providers
+  const isProviderAvailable =
+    buy.length > 0 || rent.length > 0 || stream.length > 0
   return (
     <Wrapper {...props}>
       <Typography
@@ -120,6 +128,11 @@ const Providers = ({ providers, ...props }) => {
         {t('title')}
       </Typography>
       <div>
+        {!isProviderAvailable && (
+          <NoProviderMessage variant="typo1">
+            No provider found
+          </NoProviderMessage>
+        )}
         {stream.length > 0 && (
           <List
             title={t('stream')}
