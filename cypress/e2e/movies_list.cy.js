@@ -18,7 +18,7 @@ describe(`Home page`, () => {
 
   it('Should contain movies', () => {
     cy.contains('What’s Trending')
-    cy.get('ul.ais-Hits-list').children().should('have.length', 11)
+    cy.get('ul.ais-Hits-list').children().should('have.length', 12)
   })
 
   it('Should search for a movie', () => {
@@ -28,7 +28,7 @@ describe(`Home page`, () => {
 
   it('Should clear the input field', () => {
     cy.get('input[type="search"]').clear()
-    cy.get('ul.ais-Hits-list').children().should('have.length', 11)
+    cy.get('ul.ais-Hits-list').children().should('have.length', 12)
   })
 
   it('Should have dark mode', () => {
