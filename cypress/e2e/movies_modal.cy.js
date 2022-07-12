@@ -101,6 +101,11 @@ describe(`Home page`, () => {
       })
   })
 
+  it('Should show `No provider found` when no providers available', () => {
+    cy.get('li').last().click()
+    cy.contains('No provider found')
+  })
+
   after(() => {
     cy.deleteAllIndexes()
     cy.wait(WAITING_TIME)
