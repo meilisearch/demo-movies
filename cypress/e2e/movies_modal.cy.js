@@ -31,14 +31,14 @@ describe(`Home page`, () => {
   })
 
   it('Should have the movie description inside the modal', () => {
-    cy.get('li').first().click()
+    cy.get('li').contains('Léon: The Professional').click()
     cy.contains(
       'Léon, the top hit man in New York, has earned a rep as an effective "cleaner".'
     )
   })
 
   it('Should have the movie genres inside the modal', () => {
-    cy.get('li').first().click()
+    cy.get('li').contains('Léon: The Professional').click()
     cy.get('div[data-genre]').should($p => {
       expect($p).to.have.length(3)
       expect($p).to.contain('Crime')
@@ -48,7 +48,7 @@ describe(`Home page`, () => {
   })
 
   it('Should have social links inside the modal', () => {
-    cy.get('li').first().click()
+    cy.get('li').contains('Léon: The Professional').click()
     cy.get('a[data-socials]').should($p => {
       expect($p).to.have.length(1)
       expect($p).to.have.attr('href', 'https://www.imdb.com/title/tt0110413')
@@ -56,7 +56,7 @@ describe(`Home page`, () => {
   })
 
   it('Should have the crew list inside the modal', () => {
-    cy.get('li').first().click()
+    cy.get('li').contains('Léon: The Professional').click()
     cy.get('div[data-crew]').should($p => {
       expect($p).to.have.length(2)
       expect($p).to.contain('Luc Besson')
@@ -65,14 +65,14 @@ describe(`Home page`, () => {
   })
 
   it('Should have the cast list inside the modal', () => {
-    cy.get('li').first().click()
+    cy.get('li').contains('Léon: The Professional').click()
     cy.get('div[data-cast]').should($p => {
       expect($p).to.have.length(8)
     })
   })
 
   it('Should have the stream providers inside the modal', () => {
-    cy.get('li').first().click()
+    cy.get('li').contains('Léon: The Professional').click()
     cy.contains('Stream')
     cy.get('div[data-provider-type="stream"]')
       .children()
@@ -82,7 +82,7 @@ describe(`Home page`, () => {
   })
 
   it('Should have the rent providers inside the modal', () => {
-    cy.get('li').first().click()
+    cy.get('li').contains('Léon: The Professional').click()
     cy.contains('Rent')
     cy.get('div[data-provider-type="rent"]')
       .children()
@@ -92,7 +92,7 @@ describe(`Home page`, () => {
   })
 
   it('Should have the buy providers inside the modal', () => {
-    cy.get('li').first().click()
+    cy.get('li').contains('Léon: The Professional').click()
     cy.contains('Buy')
     cy.get('div[data-provider-type="buy"]')
       .children()
@@ -102,7 +102,7 @@ describe(`Home page`, () => {
   })
 
   it('Should show `No provider found` when no providers available', () => {
-    cy.get('li').last().click()
+    cy.get('li').contains('Just Retired').click()
     cy.contains('No provider found')
   })
 
