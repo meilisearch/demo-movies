@@ -27,52 +27,51 @@ describe(`Home page`, () => {
 
   it('Should have the movie title inside the modal', () => {
     cy.get('li').first().click()
-    cy.contains('Léon: The Professional')
+    cy.contains('12 Angry Men')
   })
 
   it('Should have the movie description inside the modal', () => {
-    cy.get('li').contains('Léon: The Professional').click()
+    cy.get('li').first().click()
     cy.contains(
-      'Léon, the top hit man in New York, has earned a rep as an effective "cleaner".'
+      'The defense and the prosecution have rested and the jury is filing into the jury room to decide if a young Spanish-American is guilty or innocent of murdering his father. '
     )
   })
 
   it('Should have the movie genres inside the modal', () => {
-    cy.get('li').contains('Léon: The Professional').click()
+    cy.get('li').first().click()
     cy.get('div[data-genre]').should($p => {
-      expect($p).to.have.length(3)
-      expect($p).to.contain('Crime')
+      expect($p).to.have.length(1)
       expect($p).to.contain('Drama')
-      expect($p).to.contain('Action')
     })
   })
 
   it('Should have social links inside the modal', () => {
-    cy.get('li').contains('Léon: The Professional').click()
+    cy.get('li').first().click()
     cy.get('a[data-socials]').should($p => {
       expect($p).to.have.length(1)
-      expect($p).to.have.attr('href', 'https://www.imdb.com/title/tt0110413')
+      expect($p).to.have.attr('href', 'https://www.imdb.com/title/tt0050083')
     })
   })
 
   it('Should have the crew list inside the modal', () => {
-    cy.get('li').contains('Léon: The Professional').click()
+    cy.get('li').first().click()
     cy.get('div[data-crew]').should($p => {
-      expect($p).to.have.length(2)
-      expect($p).to.contain('Luc Besson')
-      expect($p).to.contain('Patrice Ledoux')
+      expect($p).to.have.length(3)
+      expect($p).to.contain('Henry Fonda')
+      expect($p).to.contain('Sidney Lumet')
+      expect($p).to.contain('Reginald Rose')
     })
   })
 
   it('Should have the cast list inside the modal', () => {
-    cy.get('li').contains('Léon: The Professional').click()
+    cy.get('li').first().click()
     cy.get('div[data-cast]').should($p => {
       expect($p).to.have.length(8)
     })
   })
 
   it('Should have the stream providers inside the modal', () => {
-    cy.get('li').contains('Léon: The Professional').click()
+    cy.get('li').first().click()
     cy.contains('Stream')
     cy.get('div[data-provider-type="stream"]')
       .children()
@@ -82,27 +81,27 @@ describe(`Home page`, () => {
   })
 
   it('Should have the rent providers inside the modal', () => {
-    cy.get('li').contains('Léon: The Professional').click()
+    cy.get('li').first().click()
     cy.contains('Rent')
     cy.get('div[data-provider-type="rent"]')
+      .children()
+      .should($p => {
+        expect($p).to.have.length(8)
+      })
+  })
+
+  it('Should have the buy providers inside the modal', () => {
+    cy.get('li').first().click()
+    cy.contains('Buy')
+    cy.get('div[data-provider-type="buy"]')
       .children()
       .should($p => {
         expect($p).to.have.length(7)
       })
   })
 
-  it('Should have the buy providers inside the modal', () => {
-    cy.get('li').contains('Léon: The Professional').click()
-    cy.contains('Buy')
-    cy.get('div[data-provider-type="buy"]')
-      .children()
-      .should($p => {
-        expect($p).to.have.length(9)
-      })
-  })
-
   it('Should show `No provider found` when no providers available', () => {
-    cy.get('li').contains('Just Retired').click()
+    cy.get('li').last().click()
     cy.contains('No provider found')
   })
 
