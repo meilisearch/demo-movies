@@ -100,7 +100,7 @@ describe(`Home page`, () => {
       })
   })
 
-  it('Should show `No provider found` when no providers available', () => {
+  it('Should show `No provider found` when there is no provider', () => {
     cy.get('li').last().click()
     cy.contains('No provider found')
   })
