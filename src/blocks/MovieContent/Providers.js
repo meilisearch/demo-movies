@@ -117,8 +117,7 @@ const List = ({
 const Providers = ({ providers, ...props }) => {
   const { t } = useTranslation('common')
   const { buy = [], rent = [], flatrate: stream = [] } = providers
-  const isProviderAvailable =
-    buy.length > 0 || rent.length > 0 || stream.length > 0
+  const hasProvider = buy.length > 0 || rent.length > 0 || stream.length > 0
   return (
     <Wrapper {...props}>
       <Typography
@@ -128,7 +127,7 @@ const Providers = ({ providers, ...props }) => {
         {t('title')}
       </Typography>
       <div>
-        {!isProviderAvailable && (
+        {!hasProvider && (
           <NoProviderMessage variant="typo1">
             No provider found
           </NoProviderMessage>
