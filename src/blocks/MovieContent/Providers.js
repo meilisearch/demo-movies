@@ -129,7 +129,7 @@ const Providers = ({ providers, ...props }) => {
       <div>
         {!hasProvider && (
           <NoProviderMessage variant="typo1">
-            No provider found
+            {t('noProviderFound')}
           </NoProviderMessage>
         )}
         {stream.length > 0 && (
