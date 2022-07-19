@@ -17,5 +17,6 @@
   "notFoundTitle": "Page not found",
   "notFoundDescription": "We can’t seem to find the page you’re looking for.",
   "notFoundCta": "Bring me home",
-  "processingTime": "in {{processingTime}}ms"
+  "processingTime": "in {{processingTime}}ms",
+  "noProviderFound": "No provider found"
 }
