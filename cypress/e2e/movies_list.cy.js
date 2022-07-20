@@ -4,7 +4,7 @@ describe(`Home page`, () => {
   before(() => {
     localStorage.setItem('theme', 'dark')
     cy.fixture('movies.json').then(movies => {
-      cy.addDocuments('movies', movies)
+      cy.addDocuments('movies-en-US', movies)
       cy.wait(WAITING_TIME)
     })
   })
