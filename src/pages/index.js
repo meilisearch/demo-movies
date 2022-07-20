@@ -40,7 +40,7 @@ const Home = ({ host, apiKey }) => {
         <meta name="description" content={t('meta.description')} />
       </Head>
       {client && (
-        <InstantSearch indexName="movies" searchClient={client}>
+        <InstantSearch indexName="movies-en-US" searchClient={client}>
           <Configure hitsPerPage={24} attributesToHighlight={['title']} />
           <Wrapper>
             <Header />

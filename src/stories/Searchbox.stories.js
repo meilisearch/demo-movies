@@ -12,7 +12,7 @@ export default {
 
 export const Default = () => {
   return (
-    <InstantSearch indexName="movies" searchClient={{}}>
+    <InstantSearch indexName="movies-en-US" searchClient={{}}>
       <Searchbox />
     </InstantSearch>
   )
