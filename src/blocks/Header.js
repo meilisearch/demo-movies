@@ -6,6 +6,7 @@ import get from 'utils/get'
 import Container from 'components/Container'
 import Typography from 'components/Typography'
 import BaseSearchbox from 'components/Searchbox'
+import LanguageSwitcher from 'components/LanguageSwitcher'
 
 const Wrapper = styled(Container)`
   display: flex;
@@ -83,6 +84,7 @@ const Header = () => (
     </Logos>
     <Searchbox />
     <RightSection>
+      <LanguageSwitcher />
       <Toggle onChange={window.__setPreferredTheme} />
       <Github
         href="https://github.com/meilisearch/meilisearch"
