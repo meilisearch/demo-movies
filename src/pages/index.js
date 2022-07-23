@@ -10,6 +10,8 @@ import get from 'utils/get'
 import Header from 'blocks/Header'
 import Filters from 'blocks/Filters'
 import MoviesList from 'blocks/MoviesList/index'
+import { LANGUAGES } from 'data/constants'
+import { LanguageProvider } from 'context/LanguageContext'
 
 const Wrapper = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
@@ -20,6 +22,9 @@ const Wrapper = styled.div`
 const Home = ({ host, apiKey }) => {
   const { t } = useTranslation('common')
   const [client, setClient] = React.useState(null)
+  const [selectedLanguage, setSelectedLanguage] = React.useState(
+    LANGUAGES.English
+  )
 
   React.useEffect(() => {
     if (host && apiKey)
@@ -35,20 +40,25 @@ const Home = ({ host, apiKey }) => {
 
   return (
     <ClientProvider value={{ client, setClient }}>
-      <Head>
-        <title>{t('title')}</title>
-        <meta name="description" content={t('meta.description')} />
-      </Head>
-      {client && (
-        <InstantSearch indexName="movies-en-US" searchClient={client}>
-          <Configure hitsPerPage={24} attributesToHighlight={['title']} />
-          <Wrapper>
-            <Header />
-            <Filters />
-            <MoviesList />
-          </Wrapper>
-        </InstantSearch>
-      )}
+      <LanguageProvider value={{ selectedLanguage, setSelectedLanguage }}>
+        <Head>
+          <title>{t('title')}</title>
+          <meta name="description" content={t('meta.description')} />
+        </Head>
+        {client && (
+          <InstantSearch
+            indexName={selectedLanguage.indexName}
+            searchClient={client}
+          >
+            <Configure hitsPerPage={24} attributesToHighlight={['title']} />
+            <Wrapper>
+              <Header />
+              <Filters />
+              <MoviesList />
+            </Wrapper>
+          </InstantSearch>
+        )}
+      </LanguageProvider>
     </ClientProvider>
   )
 }
