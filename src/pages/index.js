@@ -23,7 +23,7 @@ const Home = ({ host, apiKey }) => {
   const { t } = useTranslation('common')
   const [client, setClient] = React.useState(null)
   const [selectedLanguage, setSelectedLanguage] = React.useState(
-    LANGUAGES.English
+    LANGUAGES.find(e => e.code === 'en-US')
   )
 
   React.useEffect(() => {

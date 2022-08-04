@@ -1,18 +1,12 @@
-export const LANGUAGES = {
-  English: {
+export const LANGUAGES = [
+  {
+    countryName: 'United State',
     code: 'en-US',
     indexName: 'movies-en-US',
   },
-  Japanese: {
+  {
+    countryName: 'Japan',
     code: 'ja-JP',
     indexName: 'movies-ja-JP',
   },
-  Mandarin: {
-    code: 'zh-CN',
-    indexName: 'movies-zh-CN',
-  },
-  Hebrew: {
-    code: 'he-IL',
-    indexName: 'movies-he-IL',
-  },
-}
+]

@@ -41,6 +41,9 @@ body.light {
   --results-bg: white;
   --language-switcher-bg: white;
   --selected-language-bg: var(--gray-200);
+  --selected-language-text: var(--gray-400);
+  --base-language-text: var(--gray-300);
+  --flag-border: var(--gray-200);
   --h3: var(--gray-700);
   --toggle-background: var(--gray-200);
   --input-bg-color: white;
@@ -83,6 +86,9 @@ body.dark {
   --results-bg: var(--gray-900);
   --language-switcher-bg: var(--gray-900);
   --selected-language-bg: var(--gray-700);
+  --selected-language-text: var(--gray-100);
+  --base-language-text: var(--gray-300);
+  --flag-border: var(--gray-300);
   --h3: var(--gray-100);
   --toggle-background: var(--gray-700);
   --input-bg-color: var(--gray-900);

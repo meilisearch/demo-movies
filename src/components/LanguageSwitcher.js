@@ -1,18 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 import {
   usePopoverState,
-  Popover,
+  Popover as ReakitPopover,
   PopoverDisclosure,
-  PopoverArrow,
-} from 'reakit/Popover';
-import LanguageContext from 'context/LanguageContext';
-import { LANGUAGES } from 'data/constants';
-import { Us, Cn, Jp, Il } from 'react-flags-select';
+} from 'reakit/Popover'
+import LanguageContext from 'context/LanguageContext'
+import { LANGUAGES } from 'data/constants'
+import Typography from 'components/Typography'
 
 const Container = styled.div`
   margin-right: 21px;
-`;
+`
 
 const PopoverContainer = styled.div`
   transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
@@ -23,7 +22,7 @@ const PopoverContainer = styled.div`
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
-`;
+`
 
 const Menu = styled.ul`
   background-color: var(--language-switcher-bg);
@@ -32,89 +31,103 @@ const Menu = styled.ul`
   margin: 0;
   padding: 0;
   border-radius: 6px;
-`;
+`
 const MenuItem = styled.li`
   display: flex;
   align-items: center;
-  justify-content: center;
   padding: 16px 24px;
-  gap: 10px;
   cursor: pointer;
+  transition: background-color 300ms;
+
+  color: ${({ selected }) =>
+    selected ? 'var(--selected-language-text)' : 'var(--base-language-text)'};
+
+  &:hover {
+    background-color: var(--selected-language-bg);
+  }
+
   background-color: ${({ selected }) =>
     selected ? 'var(--selected-language-bg)' : 'transparent'};
-`;
+`
 
 const StyledPopoverDisclosure = styled(PopoverDisclosure)`
   background-color: transparent;
-  color: var(--text-color);
   border: none;
-  outline: none;
-  font-size: 1.4rem;
   cursor: pointer;
-`;
+  padding: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 31px;
+  height: 22px;
+  border: 1px solid var(--flag-border);
+  box-sizing: content-box;
+`
 
-const StyledPopoverArrow = styled(PopoverArrow)`
-  color: var(--language-switcher-bg);
-`;
+const Popover = styled(ReakitPopover)`
+  border: 0;
+  background: none;
+  padding: 0;
+  border-radius: 6px;
+  overflow: hidden;
+`
+
+const SelectedLanguageFlag = styled.img`
+  display: inline-block;
+  width: 31px;
+  height: 22px;
+`
+
+const FlagImage = styled.img`
+  width: 24px;
+  height: 17px;
+`
+
+const CountryName = styled(Typography)`
+  margin-left: 6px;
+`
 
 const LanguageSwitcher = () => {
   const popover = usePopoverState({
     animated: 250,
     hideOnEsc: true,
-  });
+  })
   const { selectedLanguage, setSelectedLanguage } =
-    React.useContext(LanguageContext);
+    React.useContext(LanguageContext)
 
-  const handleLanguageSelection = (newSelectedLanguage) => {
-    setSelectedLanguage(newSelectedLanguage);
-    popover.hide();
-  };
-
-  const renderFlag = (code) => {
-    switch (code) {
-      case 'en-US': {
-        return <Us />;
-      }
-      case 'ja-JP': {
-        return <Jp />;
-      }
-      case 'zh-CN': {
-        return <Cn />;
-      }
-      case 'he-IL': {
-        return <Il />;
-      }
-    }
-  };
+  const handleLanguageSelection = newSelectedLanguage => {
+    setSelectedLanguage(newSelectedLanguage)
+    popover.hide()
+  }
 
   return (
     <Container>
       <StyledPopoverDisclosure {...popover} aria-label="Language selector">
-        {renderFlag(selectedLanguage.code)}
+        <SelectedLanguageFlag
+          src={`/images/flags/${selectedLanguage.code}.png`}
+          alt={selectedLanguage.code}
+        />
       </StyledPopoverDisclosure>
-      <Popover
-        {...popover}
-        aria-label="Language list"
-        style={{ border: 0, background: 'none', padding: 0 }}
-      >
+      <Popover {...popover} aria-label="Language list">
         <PopoverContainer>
-          <StyledPopoverArrow {...popover} />
           <Menu>
-            {Object.entries(LANGUAGES).map(([languageName, data]) => (
+            {LANGUAGES.map(data => (
               <MenuItem
                 key={data.code}
                 selected={data.code === selectedLanguage.code}
                 onClick={() => handleLanguageSelection(data)}
               >
-                {renderFlag(data.code)}
-                <div>{languageName}</div>
+                <FlagImage
+                  src={`/images/flags/${data.code}.png`}
+                  alt={data.code}
+                />
+                <CountryName>{data.countryName}</CountryName>
               </MenuItem>
             ))}
           </Menu>
         </PopoverContainer>
       </Popover>
     </Container>
-  );
-};
+  )
+}
 
-export default LanguageSwitcher;
+export default LanguageSwitcher
