@@ -1,6 +1,6 @@
 export const LANGUAGES = [
   {
-    countryName: 'United State',
+    countryName: 'United States',
     code: 'en-US',
     indexName: 'movies-en-US',
   },
