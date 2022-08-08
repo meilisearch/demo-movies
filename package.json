@@ -21,7 +21,7 @@
     "@meilisearch/instant-meilisearch": "^0.8.1",
     "dotenv": "^16.0.0",
     "lodash.get": "^4.4.2",
-    "next": "12.2.3",
+    "next": "12.2.4",
     "next-i18next": "^11.3.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
