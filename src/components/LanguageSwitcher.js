@@ -1,41 +1,60 @@
 import React from 'react'
 import styled from 'styled-components'
+// import {
+//   usePopoverState,
+//   Popover as ReakitPopover,
+//   PopoverDisclosure,
+// } from 'reakit/Popover'
+
 import {
-  usePopoverState,
-  Popover as ReakitPopover,
-  PopoverDisclosure,
-} from 'reakit/Popover'
+  useMenuState,
+  Menu as ReakitMenu,
+  MenuItem as ReakitMenuItem,
+  MenuButton as ReakitMenuButton,
+} from 'reakit/Menu'
+
 import LanguageContext from 'context/LanguageContext'
 import { LANGUAGES } from 'data/constants'
 import Typography from 'components/Typography'
+
+// TODO: Add LanguageSwitcher component to Storybook
 
 const Container = styled.div`
   margin-right: 21px;
 `
 
-const PopoverContainer = styled.div`
-  transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
-  opacity: 0;
-  transform-origin: top center;
-  transform: translate3d(0, -20px, 0);
-  [data-enter] & {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-`
-
-const Menu = styled.ul`
+const MenuContainer = styled.div`
   background-color: var(--language-switcher-bg);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--selected-language-border);
   color: var(--text-color);
   list-style: none;
   margin: 0;
   padding: 0;
   border-radius: 6px;
+
+  overflow: hidden;
+  transition: opacity 300ms, transform 300ms;
+  transform-origin: top center;
+  transform: translateY(0);
+  opacity: 0;
+  [data-enter] & {
+    transform: translateY(20px);
+    opacity: 1;
+  }
 `
-const MenuItem = styled.li`
+
+const Menu = styled(ReakitMenu)``
+
+const MenuItem = styled(ReakitMenuItem)`
+  margin: 0;
+  padding: 16px 24px;
+  border: 0;
+  outline: none;
   display: flex;
   align-items: center;
-  padding: 16px 24px;
+  width: 100%;
   cursor: pointer;
   transition: background-color 300ms;
 
@@ -50,7 +69,7 @@ const MenuItem = styled.li`
     selected ? 'var(--selected-language-bg)' : 'transparent'};
 `
 
-const StyledPopoverDisclosure = styled(PopoverDisclosure)`
+const MenuButton = styled(ReakitMenuButton)`
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -61,14 +80,6 @@ const StyledPopoverDisclosure = styled(PopoverDisclosure)`
   height: 22px;
   border: 1px solid var(--flag-border);
   box-sizing: content-box;
-`
-
-const Popover = styled(ReakitPopover)`
-  border: 0;
-  background: none;
-  padding: 0;
-  border-radius: 6px;
-  overflow: hidden;
 `
 
 const SelectedLanguageFlag = styled.img`
@@ -87,45 +98,45 @@ const CountryName = styled(Typography)`
 `
 
 const LanguageSwitcher = () => {
-  const popover = usePopoverState({
-    animated: 250,
-    hideOnEsc: true,
+  const menu = useMenuState({
+    animated: 300,
+    loop: true,
   })
+
   const { selectedLanguage, setSelectedLanguage } =
     React.useContext(LanguageContext)
 
   const handleLanguageSelection = newSelectedLanguage => {
     setSelectedLanguage(newSelectedLanguage)
-    popover.hide()
+    menu.hide()
   }
 
   return (
     <Container>
-      <StyledPopoverDisclosure {...popover} aria-label="Language selector">
+      <MenuButton {...menu} aria-label="Language selector">
         <SelectedLanguageFlag
           src={`/images/flags/${selectedLanguage.code}.png`}
           alt={selectedLanguage.code}
         />
-      </StyledPopoverDisclosure>
-      <Popover {...popover} aria-label="Language list">
-        <PopoverContainer>
-          <Menu>
-            {LANGUAGES.map(data => (
-              <MenuItem
-                key={data.code}
-                selected={data.code === selectedLanguage.code}
-                onClick={() => handleLanguageSelection(data)}
-              >
-                <FlagImage
-                  src={`/images/flags/${data.code}.png`}
-                  alt={data.code}
-                />
-                <CountryName>{data.countryName}</CountryName>
-              </MenuItem>
-            ))}
-          </Menu>
-        </PopoverContainer>
-      </Popover>
+      </MenuButton>
+      <Menu {...menu} aria-label="Language list">
+        <MenuContainer>
+          {LANGUAGES.map(data => (
+            <MenuItem
+              {...menu}
+              key={data.code}
+              selected={data.code === selectedLanguage.code}
+              onClick={() => handleLanguageSelection(data)}
+            >
+              <FlagImage
+                src={`/images/flags/${data.code}.png`}
+                alt={data.code}
+              />
+              <CountryName>{data.countryName}</CountryName>
+            </MenuItem>
+          ))}
+        </MenuContainer>
+      </Menu>
     </Container>
   )
 }

@@ -21,6 +21,7 @@
   --medium-purple: #7a6de5;
   --medium-purple-rgb: 122, 109, 229;
   --deep-blush: #e56d8c;
+  --medium-4: #e9e9f0;
 }
 
 body {
@@ -40,7 +41,8 @@ body.light {
   --filter-text: var(--gray-500);
   --results-bg: white;
   --language-switcher-bg: white;
-  --selected-language-bg: var(--gray-200);
+  --selected-language-bg: var(--medium-4);
+  --selected-language-border: var(--gray-200);
   --selected-language-text: var(--gray-400);
   --base-language-text: var(--gray-300);
   --flag-border: var(--gray-200);
@@ -85,7 +87,8 @@ body.dark {
   --filter-text: var(--gray-100);
   --results-bg: var(--gray-900);
   --language-switcher-bg: var(--gray-900);
-  --selected-language-bg: var(--gray-700);
+  --selected-language-bg: var(--gray-500);
+  --selected-language-border: var(--gray-500);
   --selected-language-text: var(--gray-100);
   --base-language-text: var(--gray-300);
   --flag-border: var(--gray-300);
