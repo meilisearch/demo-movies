@@ -1,10 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-// import {
-//   usePopoverState,
-//   Popover as ReakitPopover,
-//   PopoverDisclosure,
-// } from 'reakit/Popover'
 
 import {
   useMenuState,
@@ -16,8 +11,6 @@ import {
 import LanguageContext from 'context/LanguageContext'
 import { LANGUAGES } from 'data/constants'
 import Typography from 'components/Typography'
-
-// TODO: Add LanguageSwitcher component to Storybook
 
 const Container = styled.div`
   margin-right: 21px;
@@ -36,7 +29,6 @@ const MenuContainer = styled.div`
 
   overflow: hidden;
   transition: opacity 300ms, transform 300ms;
-  transform-origin: top center;
   transform: translateY(0);
   opacity: 0;
   [data-enter] & {
@@ -61,7 +53,8 @@ const MenuItem = styled(ReakitMenuItem)`
   color: ${({ selected }) =>
     selected ? 'var(--selected-language-text)' : 'var(--base-language-text)'};
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: var(--selected-language-bg);
   }
 
@@ -80,6 +73,7 @@ const MenuButton = styled(ReakitMenuButton)`
   height: 22px;
   border: 1px solid var(--flag-border);
   box-sizing: content-box;
+  outline: none;
 `
 
 const SelectedLanguageFlag = styled.img`
@@ -101,6 +95,8 @@ const LanguageSwitcher = () => {
   const menu = useMenuState({
     animated: 300,
     loop: true,
+    orientation: 'vertical',
+    placement: 'bottom',
   })
 
   const { selectedLanguage, setSelectedLanguage } =
