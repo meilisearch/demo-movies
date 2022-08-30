@@ -7,13 +7,16 @@ import {
   MenuItem as ReakitMenuItem,
   MenuButton as ReakitMenuButton,
 } from 'reakit/Menu'
-
+import get from 'utils/get'
 import LanguageContext from 'context/LanguageContext'
 import { LANGUAGES } from 'data/constants'
 import Typography from 'components/Typography'
 
 const Container = styled.div`
-  margin-right: 21px;
+  display: none;
+  @media (min-width: ${get('breakpoints.desktop')}) {
+    display: block;
+  }
 `
 
 const MenuContainer = styled.div`
@@ -91,7 +94,7 @@ const CountryName = styled(Typography)`
   margin-left: 6px;
 `
 
-const LanguageSwitcher = () => {
+const DesktopSwitcher = () => {
   const menu = useMenuState({
     animated: 300,
     loop: true,
@@ -137,4 +140,4 @@ const LanguageSwitcher = () => {
   )
 }
 
-export default LanguageSwitcher
+export default DesktopSwitcher
