@@ -75,3 +75,9 @@ Typo5.args = {
   children: 'I’m the typo5 variant',
   variant: 'typo5',
 }
+
+export const Typo6 = Template.bind({})
+Typo6.args = {
+  children: 'I’m the typo6 variant',
+  variant: 'typo6',
+}

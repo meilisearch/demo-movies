@@ -121,6 +121,15 @@ const variants = {
       line-height: 27px;
     `,
   },
+  typo6: {
+    tag: 'span',
+    style: css`
+      font-family: 'Barlow';
+      font-size: 16px;
+      line-height: 28px;
+      letter-spacing: 0.52px;
+    `,
+  },
 }
 
 const StyledTypography = styled.span`
@@ -153,6 +162,7 @@ Typography.propTypes = {
     'typo3',
     'typo4',
     'typo5',
+    'typo6',
   ]),
 }
 
