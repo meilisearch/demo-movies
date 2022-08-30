@@ -112,6 +112,15 @@ const variants = {
       line-height: 22px;
     `,
   },
+  typo5: {
+    tag: 'span',
+    style: css`
+      font-family: 'Barlow';
+      font-weight: 500;
+      font-size: 19px;
+      line-height: 27px;
+    `,
+  },
 }
 
 const StyledTypography = styled.span`
