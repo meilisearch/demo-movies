@@ -1,0 +1,62 @@
+import React from 'react'
+import styled from 'styled-components'
+import { Radio as ReakitRadio } from 'reakit/Radio'
+import Typography from 'components/Typography'
+
+const HiddenRadio = styled(ReakitRadio)`
+  opacity: 0;
+  height: 0;
+  width: 0;
+  display: block;
+`
+
+const Label = styled.label`
+  display: block;
+`
+
+const CardRadio = styled.div`
+  cursor: pointer;
+  border: 1px solid transparent;
+  color: var(-gray-200);
+  height: 40px;
+  min-width: 196px;
+  border-radius: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 20px;
+  transition: border 300ms, background-color 300ms;
+
+  &:hover,
+  &:focus-within,
+  ${HiddenRadio}:focus + & {
+    border: 1px solid var(--gray-300);
+  }
+  ${HiddenRadio}[aria-checked="true"] + & {
+    border: 1px solid var(--gray-400);
+    background-color: var(--gray-700);
+  }
+  ${HiddenRadio}[aria-checked="true"]:hover + &,
+  ${HiddenRadio}[aria-checked="true"]:focus + & {
+    border: 1px solid var(--gray-300);
+  }
+`
+
+const Icon = styled.img`
+  width: 32px;
+  height: 22px;
+  border-radius: 4px;
+  margin-right: 12px;
+`
+
+const Radio = ({ icon, title, radioState, value, ...props }) => (
+  <Label {...props}>
+    <HiddenRadio {...radioState} value={value} />
+    <CardRadio>
+      {icon && <Icon src={icon} alt={title} />}
+      <Typography>{title}</Typography>
+    </CardRadio>
+  </Label>
+)
+
+export default Radio
