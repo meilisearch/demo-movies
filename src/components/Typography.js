@@ -152,6 +152,7 @@ Typography.propTypes = {
     'typo2',
     'typo3',
     'typo4',
+    'typo5',
   ]),
 }
 
