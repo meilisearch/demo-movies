@@ -30,15 +30,16 @@ const CardRadio = styled.div`
   &:hover,
   &:focus-within,
   ${HiddenRadio}:focus + & {
-    border: 1px solid var(--gray-400);
+    border: 1px solid var(--settings-mobile-language-switcher-checked-border);
   }
   ${HiddenRadio}[aria-checked="true"] + & {
     border: 1px solid var(--gray-400);
-    background-color: var(--gray-700);
+    background-color: var(--settings-mobile-language-switcher-checked-bg);
   }
   ${HiddenRadio}[aria-checked="true"]:hover + &,
   ${HiddenRadio}[aria-checked="true"]:focus + & {
-    border: 1px solid var(--gray-300);
+    border: 1px solid
+      var(--settings-mobile-language-switcher-checked-border-focus);
   }
 `
 

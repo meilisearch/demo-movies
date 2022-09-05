@@ -74,6 +74,10 @@ body.light {
   --cast-section-title-mobile: var(--gray-400);
   --people-placeholder: var(--gray-200);
   --text-404: var(--gray-700);
+  --settings-mobile-dialog-bg: white;
+  --settings-mobile-language-switcher-checked-bg: var(--gray-100);
+  --settings-mobile-language-switcher-checked-border: var(--gray-300);
+  --settings-mobile-language-switcher-checked-border-focus: var(--gray-200);
 }
 
 body.dark {
@@ -121,4 +125,8 @@ body.dark {
   --cast-section-title-mobile: var(--gray-400);
   --people-placeholder: var(--gray-500);
   --text-404: white;
+  --settings-mobile-dialog-bg: var(--gray-600);
+  --settings-mobile-language-switcher-checked-bg: var(--gray-700);
+  --settings-mobile-language-switcher-checked-border: var(--gray-400);
+  --settings-mobile-language-switcher-checked-border-focus: var(--gray-300);
 }

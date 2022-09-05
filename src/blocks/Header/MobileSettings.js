@@ -34,7 +34,7 @@ const Backdrop = styled(DialogBackdrop)`
 
 const Content = styled(DialogContent)`
   position: relative;
-  background-color: var(--gray-600);
+  background-color: var(--settings-mobile-dialog-bg);
   border-top: 1px solid var(--gray-400);
   border-radius: 20px 20px 0px 0px;
   padding: 16px 32px 20px;
@@ -95,7 +95,7 @@ const MobileSettings = () => {
         <Settings width={20} />
       </DialogDisclosure>
       <Backdrop {...dialog}>
-        <Content {...dialog} aria-label="Welcome">
+        <Content {...dialog} aria-label="Settings">
           <Title variant="typo5">{t('settings')}</Title>
           <CloseButton onClick={dialog.hide}>
             <Cross width={18} />
