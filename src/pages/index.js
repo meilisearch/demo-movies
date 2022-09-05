@@ -12,6 +12,7 @@ import Filters from 'blocks/Filters'
 import MoviesList from 'blocks/MoviesList/index'
 import { LANGUAGES } from 'data/constants'
 import { LanguageProvider } from 'context/LanguageContext'
+import useLocalStorage from 'hooks/useLocalStorage'
 
 const Wrapper = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
@@ -20,11 +21,26 @@ const Wrapper = styled.div`
 `
 
 const Home = ({ host, apiKey }) => {
+  const [localStorageCountry, setLocalStorageCountry] =
+    useLocalStorage('country-preference')
+
   const { t } = useTranslation('common')
   const [client, setClient] = React.useState(null)
   const [selectedLanguage, setSelectedLanguage] = React.useState(
-    LANGUAGES.find(e => e.code === 'en-US')
+    LANGUAGES.find(e => e.code === localStorageCountry || e.code === 'en-US')
   )
+
+  const setSelectedCountry = React.useCallback(
+    country => {
+      setSelectedLanguage(country)
+      setLocalStorageCountry(country.code)
+    },
+    [setLocalStorageCountry]
+  )
+
+  React.useEffect(() => {
+    setSelectedLanguage(LANGUAGES.find(e => e.code === localStorageCountry))
+  }, [localStorageCountry])
 
   React.useEffect(() => {
     if (host && apiKey)
@@ -40,7 +56,9 @@ const Home = ({ host, apiKey }) => {
 
   return (
     <ClientProvider value={{ client, setClient }}>
-      <LanguageProvider value={{ selectedLanguage, setSelectedLanguage }}>
+      <LanguageProvider
+        value={{ selectedLanguage, setSelectedLanguage: setSelectedCountry }}
+      >
         <Head>
           <title>{t('title')}</title>
           <meta name="description" content={t('meta.description')} />
