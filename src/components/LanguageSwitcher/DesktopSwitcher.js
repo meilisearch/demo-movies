@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import {
   useMenuState,
@@ -40,7 +40,9 @@ const MenuContainer = styled.div`
   }
 `
 
-const Menu = styled(ReakitMenu)``
+const Menu = styled(ReakitMenu)`
+  outline: none;
+`
 
 const MenuItem = styled(ReakitMenuItem)`
   margin: 0;
@@ -52,17 +54,21 @@ const MenuItem = styled(ReakitMenuItem)`
   width: 100%;
   cursor: pointer;
   transition: background-color 300ms;
+  background-color: transparent;
+  color: var(--base-language-text);
 
-  color: ${({ selected }) =>
-    selected ? 'var(--selected-language-text)' : 'var(--base-language-text)'};
+  ${p =>
+    p.selected &&
+    css`
+      background-color: var(--selected-language-bg);
+      color: var(--selected-language-text);
+    `};
 
   &:hover,
   &:focus {
-    background-color: var(--selected-language-bg);
+    background-color: var(--hovered-language-bg);
+    color: var(--base-language-text);
   }
-
-  background-color: ${({ selected }) =>
-    selected ? 'var(--selected-language-bg)' : 'transparent'};
 `
 
 const MenuButton = styled(ReakitMenuButton)`

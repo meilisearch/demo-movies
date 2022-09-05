@@ -38,7 +38,7 @@ const MobileSwitcher = () => {
             title={data.countryName}
             value={data.code}
             icon={`/images/flags/${data.code}.png`}
-            onClick={() => handleLanguageSelection(data)}
+            onChange={() => handleLanguageSelection(data)}
           />
         ))}
       </Group>

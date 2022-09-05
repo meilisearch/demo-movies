@@ -30,7 +30,7 @@ const CardRadio = styled.div`
   &:hover,
   &:focus-within,
   ${HiddenRadio}:focus + & {
-    border: 1px solid var(--gray-300);
+    border: 1px solid var(--gray-400);
   }
   ${HiddenRadio}[aria-checked="true"] + & {
     border: 1px solid var(--gray-400);
@@ -49,9 +49,9 @@ const Icon = styled.img`
   margin-right: 12px;
 `
 
-const Radio = ({ icon, title, radioState, value, ...props }) => (
+const Radio = ({ icon, title, radioState, value, onChange, ...props }) => (
   <Label {...props}>
-    <HiddenRadio {...radioState} value={value} />
+    <HiddenRadio {...radioState} onChange={onChange} value={value} />
     <CardRadio>
       {icon && <Icon src={icon} alt={title} />}
       <Typography>{title}</Typography>

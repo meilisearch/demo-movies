@@ -42,6 +42,7 @@ body.light {
   --results-bg: white;
   --language-switcher-bg: white;
   --selected-language-bg: var(--medium-4);
+  --hovered-language-bg: var(--gray-100);
   --selected-language-border: var(--gray-200);
   --selected-language-text: var(--gray-400);
   --base-language-text: var(--gray-300);
@@ -88,6 +89,7 @@ body.dark {
   --results-bg: var(--gray-900);
   --language-switcher-bg: var(--gray-900);
   --selected-language-bg: var(--gray-500);
+  --hovered-language-bg: var(--gray-700);
   --selected-language-border: var(--gray-500);
   --selected-language-text: var(--gray-100);
   --base-language-text: var(--gray-300);
