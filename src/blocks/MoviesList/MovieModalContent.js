@@ -25,7 +25,11 @@ const Content = styled.div`
 
 const MovieModalContent = ({ dialog, hit }) => (
   <DialogBackdrop {...dialog}>
-    <DialogContent {...dialog} tabIndex={0} aria-label={hit?.title}>
+    <DialogContent
+      {...dialog}
+      tabIndex={0}
+      aria-label={hit?.title || 'Movie infos'}
+    >
       <Close rounded onClick={() => dialog.hide()}>
         <Cross width={15} />
       </Close>
