@@ -23,12 +23,9 @@ const Wrapper = styled.div`
 const Home = ({ host, apiKey }) => {
   const [localStorageCountry, setLocalStorageCountry] =
     useLocalStorage('country-preference')
-
   const { t } = useTranslation('common')
   const [client, setClient] = React.useState(null)
-  const [selectedLanguage, setSelectedLanguage] = React.useState(
-    LANGUAGES.find(e => e.code === localStorageCountry || e.code === 'en-US')
-  )
+  const [selectedLanguage, setSelectedLanguage] = React.useState(null)
 
   const setSelectedCountry = React.useCallback(
     country => {
@@ -39,7 +36,9 @@ const Home = ({ host, apiKey }) => {
   )
 
   React.useEffect(() => {
-    setSelectedLanguage(LANGUAGES.find(e => e.code === localStorageCountry))
+    const preferedLanguage = LANGUAGES.find(e => e.code === localStorageCountry)
+    const defaultLanguage = LANGUAGES.find(e => e.code === 'en-US')
+    setSelectedLanguage(preferedLanguage || defaultLanguage)
   }, [localStorageCountry])
 
   React.useEffect(() => {
