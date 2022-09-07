@@ -6,7 +6,7 @@ import get from 'utils/get'
 import Container from 'components/Container'
 import Typography from 'components/Typography'
 import BaseSearchbox from 'components/Searchbox'
-import LanguageSwitcher from 'components/LanguageSwitcher'
+import DesktopCountrySwitcher from 'components/CountrySwitcher/DesktopCountrySwitcher'
 import MobileSettings from './MobileSettings'
 import GitHub from './GitHubButton'
 
@@ -95,8 +95,8 @@ const Header = () => (
       <MobileSettings />
     </Logos>
     <Searchbox />
-    <RightSection>
-      <LanguageSwitcher />
+    <RightSection data-cy="settings-desktop">
+      <DesktopCountrySwitcher />
       <Toggle onChange={window.__setPreferredTheme} />
       <GitHubButton />
     </RightSection>

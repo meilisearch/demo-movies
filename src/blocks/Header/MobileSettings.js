@@ -12,7 +12,7 @@ import Typography from 'components/Typography'
 import { useTranslation } from 'next-i18next'
 import IconButton from 'components/IconButton'
 import Toggle from 'components/Toggle'
-import LanguageSwitcher from 'components/LanguageSwitcher'
+import MobileCountrySwitcher from 'components/CountrySwitcher/MobileCountrySwitcher'
 import Link from 'components/Link'
 import GitHubButton from './GitHubButton'
 
@@ -90,7 +90,7 @@ const MobileSettings = () => {
   const { t } = useTranslation('common')
 
   return (
-    <Container>
+    <Container data-cy="settings-mobile">
       <DialogDisclosure {...dialog}>
         <Settings width={20} />
       </DialogDisclosure>
@@ -114,7 +114,7 @@ const MobileSettings = () => {
               >
                 {t('countryPreference')}
               </Typography>
-              <LanguageSwitcher />
+              <MobileCountrySwitcher />
             </CountryPreference>
           </Section>
           <BottomSection>

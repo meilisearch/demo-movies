@@ -7,16 +7,12 @@ import {
   MenuItem as ReakitMenuItem,
   MenuButton as ReakitMenuButton,
 } from 'reakit/Menu'
-import get from 'utils/get'
 import LanguageContext from 'context/LanguageContext'
 import { LANGUAGES } from 'data/constants'
 import Typography from 'components/Typography'
 
 const Container = styled.div`
-  display: none;
-  @media (min-width: ${get('breakpoints.desktop')}) {
-    display: block;
-  }
+  margin-right: 21px;
 `
 
 const MenuContainer = styled.div`
@@ -122,7 +118,7 @@ const DesktopSwitcher = () => {
   }
 
   return (
-    <Container>
+    <Container data-cy="country-switcher-desktop">
       <MenuButton {...menu} aria-label="Language selector">
         <SelectedLanguageFlag
           src={`/images/flags/${selectedLanguage.code}.png`}

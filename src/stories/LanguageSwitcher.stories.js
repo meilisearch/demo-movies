@@ -1,12 +1,12 @@
 import React from 'react'
-import LanguageSwitcher from 'components/LanguageSwitcher'
+import DesktopCountrySwitcher from 'components/CountrySwitcher/DesktopCountrySwitcher'
 import Typography from 'components/Typography'
 import { LanguageProvider } from 'context/LanguageContext'
 import { LANGUAGES } from 'data/constants'
 
 export default {
-  title: 'Components/LanguageSwitcher',
-  component: LanguageSwitcher,
+  title: 'Components/CountrySwitcher',
+  component: DesktopCountrySwitcher,
   parameters: {
     layout: 'padded',
   },
@@ -18,7 +18,7 @@ const Template = args => {
   )
   return (
     <LanguageProvider value={{ selectedLanguage, setSelectedLanguage }}>
-      <LanguageSwitcher {...args} />
+      <DesktopCountrySwitcher {...args} />
     </LanguageProvider>
   )
 }
@@ -26,5 +26,5 @@ const Template = args => {
 export const Default = Template.bind({})
 Default.args = {
   href: '/',
-  children: <Typography>I’m a LanguageSwitcher</Typography>,
+  children: <Typography>I’m a CountrySwitcher</Typography>,
 }

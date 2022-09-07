@@ -1,16 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import get from 'utils/get'
 import LanguageContext from 'context/LanguageContext'
 import { LANGUAGES } from 'data/constants'
 import Radio from 'components/Radio'
 import { useRadioState, RadioGroup } from 'reakit/Radio'
 
 const Container = styled.div`
-  display: block;
-  @media (min-width: ${get('breakpoints.desktop')}) {
-    display: none;
-  }
+  margin-right: 21px;
 `
 
 const Group = styled(RadioGroup)`
@@ -29,7 +25,7 @@ const MobileSwitcher = () => {
   }
 
   return (
-    <Container>
+    <Container data-cy="country-switcher-mobile">
       <Group aria-label="countries">
         {LANGUAGES.map(data => (
           <Radio
