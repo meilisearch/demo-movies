@@ -62,13 +62,18 @@ const MenuItem = styled(ReakitMenuItem)`
     css`
       background-color: var(--selected-language-bg);
       color: var(--selected-language-text);
+      cursor: default;
     `};
 
-  &:hover,
-  &:focus {
-    background-color: var(--hovered-language-bg);
-    color: var(--base-language-text);
-  }
+  ${p =>
+    !p.selected &&
+    css`
+      &:hover,
+      &:focus {
+        background-color: var(--hovered-language-bg);
+        color: var(--base-language-text);
+      }
+    `};
 `
 
 const MenuButton = styled(ReakitMenuButton)`

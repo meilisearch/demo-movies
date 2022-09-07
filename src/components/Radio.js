@@ -38,8 +38,9 @@ const CardRadio = styled.div`
   }
   ${HiddenRadio}[aria-checked="true"]:hover + &,
   ${HiddenRadio}[aria-checked="true"]:focus + & {
-    border: 1px solid
-      var(--settings-mobile-language-switcher-checked-border-focus);
+    border: 1px solid var(--gray-400);
+    background-color: var(--settings-mobile-language-switcher-checked-bg);
+    cursor: default;
   }
 `
 
