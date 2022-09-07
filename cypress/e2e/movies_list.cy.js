@@ -3,7 +3,7 @@ const WAITING_TIME = 2000
 describe(`Home page`, () => {
   before(() => {
     localStorage.setItem('theme', 'dark')
-    cy.fixture('movies.json').then(movies => {
+    cy.fixture('movies-en-US.json').then(movies => {
       cy.addDocuments('movies-en-US', movies)
       cy.wait(WAITING_TIME)
     })
