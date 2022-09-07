@@ -29,6 +29,7 @@ const MovieModalContent = ({ dialog, hit }) => (
       {...dialog}
       tabIndex={0}
       aria-label={hit?.title || 'Movie infos'}
+      data-cy="movie-detail"
     >
       <Close rounded onClick={() => dialog.hide()}>
         <Cross width={15} />

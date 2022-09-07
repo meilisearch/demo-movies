@@ -19,10 +19,10 @@ describe(`Home page`, () => {
     cy.contains('What’s Trending')
   })
 
-  it('Should open a modal', () => {
-    cy.get('div[role="dialog"]').should('have.attr', 'hidden')
+  it.only('Should open a modal', () => {
+    cy.get('[data-cy="movie-detail"]').should('have.attr', 'hidden')
     cy.get('li').first().click()
-    cy.get('div[role="dialog"]').should('not.have.attr', 'hidden')
+    cy.get('[data-cy="movie-detail"]').should('not.have.attr', 'hidden')
   })
 
   it('Should have the movie title inside the modal', () => {
@@ -102,7 +102,7 @@ describe(`Home page`, () => {
 
   it('Should show `No provider found` when there is no provider', () => {
     cy.get('li').last().click()
-    cy.contains('No provider found')
+    cy.contains('Sorry, no provider currently offers this program 😢')
   })
 
   after(() => {
