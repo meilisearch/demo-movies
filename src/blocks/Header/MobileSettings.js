@@ -130,7 +130,7 @@ const MobileSettings = () => {
               <Typography>{t('poweredBy')}</Typography>
               <Typography>
                 <Link
-                  style={{ textDecoration: 'underline' }}
+                  style={{ textDecoration: 'underline', marginLeft: 3 }}
                   href="https://www.meilisearch.com/"
                   target="_blank"
                 >
