@@ -17,7 +17,7 @@ const Label = styled.label`
 const CardRadio = styled.div`
   cursor: pointer;
   border: 1px solid transparent;
-  color: var(-gray-200);
+  color: var(--settings-mobile-radio-text-color);
   height: 40px;
   min-width: 196px;
   border-radius: 40px;
@@ -36,12 +36,14 @@ const CardRadio = styled.div`
     border-color: var(--settings-mobile-radio-hover);
   }
   ${HiddenRadio}[aria-checked="true"] + & {
-    background-color: var(--settings-mobile-radio-checked-bg);
+    background-color: var(--settings-mobile-radio-checked-bg-hover);
+    border-color: var(--settings-mobile-radio-checked-border);
+    color: var(--settings-mobile-radio-checked-text-color);
   }
   ${HiddenRadio}[aria-checked="true"]:hover + &,
   ${HiddenRadio}[aria-checked="true"]:focus + & {
-    border-color: var(--settings-mobile-radio-checked-border);
-    background-color: var(--settings-mobile-radio-checked-bg);
+    background-color: var(--settings-mobile-radio-checked-bg-hover);
+    color: var(--settings-mobile-radio-checked-text-color);
     cursor: default;
   }
 `

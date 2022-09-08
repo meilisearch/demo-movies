@@ -78,10 +78,12 @@ body.light {
   --selected-language-text: var(--gray-400);
   --settings-mobile-dialog-bg: white;
   --settings-mobile-radio-default-border: var(--gray-300);
-  --settings-mobile-radio-checked-bg: var(--gray-200);
-  --settings-mobile-radio-checked-border: var(--gray-300);
+  --settings-mobile-radio-checked-border: var(--gray-400);
+  --settings-mobile-radio-checked-bg-hover: var(--gray-200);
   --settings-button-hover: var(--gray-400);
   --settings-mobile-radio-hover: var(--gray-500);
+  --settings-mobile-radio-text-color: var(--gray-400);
+  --settings-mobile-radio-checked-text-color: var(--gray-500);
 }
 
 body.dark {
@@ -133,8 +135,10 @@ body.dark {
   --selected-language-border: var(--gray-500);
   --settings-mobile-dialog-bg: var(--gray-600);
   --settings-mobile-radio-default-border: var(--gray-400);
-  --settings-mobile-radio-checked-bg: var(--gray-800);
   --settings-mobile-radio-checked-border: var(--gray-400);
+  --settings-mobile-radio-checked-bg-hover: var(--gray-800);
   --settings-button-hover: var(--gray-200);
   --settings-mobile-radio-hover: var(--gray-200);
+  --settings-mobile-radio-text-color: var(--gray-200);
+  --settings-mobile-radio-checked-text-color: var(--gray-200);
 }
