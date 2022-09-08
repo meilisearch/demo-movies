@@ -1,11 +1,6 @@
 import styled from 'styled-components'
 import IconLink from 'components/IconLink'
-import {
-  FacebookLogo,
-  ImdbLogo,
-  InstagramLogo,
-  TwitterLogo,
-} from 'components/icons'
+import { Facebook, Imdb, Instagram, Twitter } from 'components/icons'
 
 const Wrapper = styled.div`
   margin-top: 22px;
@@ -23,7 +18,7 @@ const Socials = ({ socials }) => {
           link={`https://www.imdb.com/title/${imdb_id}`}
           data-socials="imdb"
         >
-          <ImdbLogo height={30} />
+          <Imdb height={30} />
         </IconLink>
       )}
       {instagram_id && (
@@ -31,7 +26,7 @@ const Socials = ({ socials }) => {
           link={`https://www.instagram.com/${instagram_id}`}
           data-socials="instagram"
         >
-          <InstagramLogo height={30} />
+          <Instagram height={30} />
         </IconLink>
       )}
       {twitter_id && (
@@ -39,7 +34,7 @@ const Socials = ({ socials }) => {
           link={`https://twitter.com/${twitter_id}`}
           data-socials="twitter"
         >
-          <TwitterLogo height={30} />
+          <Twitter height={30} />
         </IconLink>
       )}
       {facebook_id && (
@@ -47,7 +42,7 @@ const Socials = ({ socials }) => {
           link={`https://www.facebook.com/${facebook_id}`}
           data-socials="facebook"
         >
-          <FacebookLogo height={30} />
+          <Facebook height={30} />
         </IconLink>
       )}
     </Wrapper>

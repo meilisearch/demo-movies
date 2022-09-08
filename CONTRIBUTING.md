@@ -74,6 +74,16 @@ Then, the easiest way to add the translations is to duplicate one of the existin
 For example, you might want to duplicate the `en` folder and rename it in `fr`. Then, you can translate its content.
 Don't forget to restart your server to see your changes !
 
+### Adding a new Country
+
+If you want to add a new country, you first have to make sure that the Meilisearch instance contains the documents for the given country, in an index of the form `movie-${lang}-${country}`.
+Then you can add your new country by doing the following:
+
+- add your new country flag inside the `public/images/flags/` folder (png format)
+- add your new country inside the `data/constants.js` file
+
+This will automatically add the new country inside the country dropdown, and make the switch between indexes for search when you switch from one country to an other.
+
 ## Git Guidelines
 
 ### Git Branches <!-- omit in toc -->

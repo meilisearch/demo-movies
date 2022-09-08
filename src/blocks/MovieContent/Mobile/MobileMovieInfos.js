@@ -31,6 +31,8 @@ const TagsAndDuration = styled.div`
 
 const Synopsis = styled.div`
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
 `
 
 const SynopsisTitle = styled(Typography)`

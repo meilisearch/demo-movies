@@ -6,6 +6,9 @@ import get from 'utils/get'
 import Container from 'components/Container'
 import Typography from 'components/Typography'
 import BaseSearchbox from 'components/Searchbox'
+import DesktopCountrySwitcher from 'components/CountrySwitcher/DesktopCountrySwitcher'
+import MobileSettings from './MobileSettings'
+import GitHub from './GitHubButton'
 
 const Wrapper = styled(Container)`
   display: flex;
@@ -36,32 +39,41 @@ const Logo = styled.img`
 `
 
 const Logos = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
   order: 1;
+  @media (min-width: ${get('breakpoints.desktop')}) {
+    flex-direction: column;
+    align-items: flex-start;
+    flex: initial;
+  }
 `
 
 const ByMeiliSearch = styled.a`
-  display: flex;
-  align-items: center;
-  margin-left: 8px;
-  color: var(--gray-300);
+  display: none;
+  @media (min-width: ${get('breakpoints.desktop')}) {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    color: var(--gray-300);
+  }
 `
 
 const RightSection = styled.div`
-  display: flex;
-  align-items: center;
-  order: 2;
-  margin-bottom: 32px;
+  display: none;
   @media (min-width: ${get('breakpoints.desktop')}) {
+    display: flex;
+    align-items: center;
     order: 3;
     margin-bottom: 0;
   }
 `
 
-const Github = styled.a`
-  color: var(--gray-300);
+const GitHubButton = styled(GitHub)`
   margin-left: 21px;
-  display: flex;
-  align-items: center;
 `
 
 const Header = () => (
@@ -80,26 +92,13 @@ const Header = () => (
           height={19}
         />
       </ByMeiliSearch>
+      <MobileSettings />
     </Logos>
     <Searchbox />
-    <RightSection>
+    <RightSection data-cy="settings-desktop">
+      <DesktopCountrySwitcher />
       <Toggle onChange={window.__setPreferredTheme} />
-      <Github
-        href="https://github.com/meilisearch/meilisearch"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <Image
-          src="/images/github.svg"
-          alt="GitHub logo"
-          layout="fixed"
-          width={16}
-          height={16}
-        />
-        <Typography variant="subtitle" style={{ marginLeft: 6 }}>
-          GitHub
-        </Typography>
-      </Github>
+      <GitHubButton />
     </RightSection>
   </Wrapper>
 )

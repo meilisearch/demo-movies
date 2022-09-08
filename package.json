@@ -13,7 +13,7 @@
     "cy:run": "cypress run",
     "icons": "npx @svgr/cli --title-prop --no-dimensions --replace-attr-values \"#000=currentColor\" -d src/components/icons src/components/icons/svg",
     "test": "concurrently --kill-others -s first \"yarn dev\" \"cypress run\"",
-    "test:watch": "concurrently --kill-others -s first \"yarn dev\" \"cypress open\"",
+    "test:watch": "concurrently --kill-others -s first \"yarn ci:dev\" \"cypress open\"",
     "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook"
   },
@@ -25,6 +25,7 @@
     "next-i18next": "^12.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-flags-select": "^2.2.3",
     "react-instantsearch-dom": "^6.32.0",
     "reakit": "^1.3.11",
     "sharp": "^0.30.7",
@@ -45,6 +46,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-cypress": "^2.11.3",
     "eslint-plugin-prettier": "^3.4.0",
+    "meilisearch": "^0.27.0",
     "prettier": "^2.3.2",
     "storybook-dark-mode": "^1.0.8"
   }

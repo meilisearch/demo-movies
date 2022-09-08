@@ -21,6 +21,7 @@
   --medium-purple: #7a6de5;
   --medium-purple-rgb: 122, 109, 229;
   --deep-blush: #e56d8c;
+  --medium-4: #e9e9f0;
 }
 
 body {
@@ -39,6 +40,7 @@ body.light {
   --300-400: var(--gray-300);
   --filter-text: var(--gray-500);
   --results-bg: white;
+  --base-language-text: var(--gray-300);
   --h3: var(--gray-700);
   --toggle-background: var(--gray-200);
   --input-bg-color: white;
@@ -66,6 +68,22 @@ body.light {
   --cast-section-title-mobile: var(--gray-400);
   --people-placeholder: var(--gray-200);
   --text-404: var(--gray-700);
+  /* Country Switcher */
+  --flag-border: var(--gray-300);
+  --flag-border-hover: var(--gray-500);
+  --language-switcher-bg: white;
+  --selected-language-bg: var(--medium-4);
+  --hovered-language-bg: var(--gray-100);
+  --selected-language-border: var(--gray-200);
+  --selected-language-text: var(--gray-400);
+  --settings-mobile-dialog-bg: white;
+  --settings-mobile-radio-default-border: var(--gray-300);
+  --settings-mobile-radio-checked-border: var(--gray-400);
+  --settings-mobile-radio-checked-bg-hover: var(--gray-200);
+  --settings-button-hover: var(--gray-400);
+  --settings-mobile-radio-hover: var(--gray-500);
+  --settings-mobile-radio-text-color: var(--gray-400);
+  --settings-mobile-radio-checked-text-color: var(--gray-500);
 }
 
 body.dark {
@@ -79,6 +97,8 @@ body.dark {
   --300-400: var(--gray-400);
   --filter-text: var(--gray-100);
   --results-bg: var(--gray-900);
+  --selected-language-text: var(--gray-100);
+  --base-language-text: var(--gray-300);
   --h3: var(--gray-100);
   --toggle-background: var(--gray-700);
   --input-bg-color: var(--gray-900);
@@ -106,4 +126,19 @@ body.dark {
   --cast-section-title-mobile: var(--gray-400);
   --people-placeholder: var(--gray-500);
   --text-404: white;
+  /* Country Switcher */
+  --flag-border: var(--gray-300);
+  --flag-border-hover: var(--gray-100);
+  --language-switcher-bg: var(--gray-900);
+  --selected-language-bg: var(--gray-500);
+  --hovered-language-bg: var(--gray-700);
+  --selected-language-border: var(--gray-500);
+  --settings-mobile-dialog-bg: var(--gray-600);
+  --settings-mobile-radio-default-border: var(--gray-400);
+  --settings-mobile-radio-checked-border: var(--gray-400);
+  --settings-mobile-radio-checked-bg-hover: var(--gray-800);
+  --settings-button-hover: var(--gray-200);
+  --settings-mobile-radio-hover: var(--gray-200);
+  --settings-mobile-radio-text-color: var(--gray-200);
+  --settings-mobile-radio-checked-text-color: var(--gray-200);
 }
