@@ -81,9 +81,16 @@ const MenuButton = styled(ReakitMenuButton)`
   overflow: hidden;
   width: 31px;
   height: 22px;
-  border: 1px solid var(--flag-border);
+  border-width: 1px;
+  border-style: solid;
+  border-color : var(--flag-border);
   box-sizing: content-box;
   outline: none;
+  transition: border-color 300ms;
+  &:hover,
+  &:focus {
+    border-color var(--flag-border-hover);
+  }
 `
 
 const SelectedLanguageFlag = styled.img`
