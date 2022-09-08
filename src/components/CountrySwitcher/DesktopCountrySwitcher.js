@@ -95,6 +95,8 @@ const SelectedLanguageFlag = styled.img`
 const FlagImage = styled.img`
   width: 24px;
   height: 17px;
+  border: 1px solid var(--gray-300);
+  border-radius: 3px;
 `
 
 const CountryName = styled(Typography)`
