@@ -25,20 +25,22 @@ const CardRadio = styled.div`
   align-items: center;
   justify-content: flex-start;
   padding: 0 20px;
-  transition: border 300ms, background-color 300ms;
+  transition: border-color 300ms, background-color 300ms;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--settings-mobile-language-switcher-checked-border);
 
   &:hover,
   &:focus-within,
   ${HiddenRadio}:focus + & {
-    border: 1px solid var(--settings-mobile-language-switcher-checked-border);
+    border-color: var(--settings-mobile-radio-hover);
   }
   ${HiddenRadio}[aria-checked="true"] + & {
-    border: 1px solid var(--gray-400);
     background-color: var(--settings-mobile-language-switcher-checked-bg);
   }
   ${HiddenRadio}[aria-checked="true"]:hover + &,
   ${HiddenRadio}[aria-checked="true"]:focus + & {
-    border: 1px solid var(--gray-400);
+    border-color: var(--settings-mobile-language-switcher-checked-border);
     background-color: var(--settings-mobile-language-switcher-checked-bg);
     cursor: default;
   }

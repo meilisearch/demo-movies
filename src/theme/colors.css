@@ -77,9 +77,10 @@ body.light {
   --selected-language-border: var(--gray-200);
   --selected-language-text: var(--gray-400);
   --settings-mobile-dialog-bg: white;
-  --settings-mobile-language-switcher-checked-bg: var(--gray-100);
+  --settings-mobile-language-switcher-checked-bg: var(--gray-200);
   --settings-mobile-language-switcher-checked-border: var(--gray-300);
   --settings-button-hover: var(--gray-400);
+  --settings-mobile-radio-hover: var(--gray-500);
 }
 
 body.dark {
@@ -130,7 +131,8 @@ body.dark {
   --hovered-language-bg: var(--gray-700);
   --selected-language-border: var(--gray-500);
   --settings-mobile-dialog-bg: var(--gray-600);
-  --settings-mobile-language-switcher-checked-bg: var(--gray-700);
+  --settings-mobile-language-switcher-checked-bg: var(--gray-800);
   --settings-mobile-language-switcher-checked-border: var(--gray-400);
   --settings-button-hover: var(--gray-200);
+  --settings-mobile-radio-hover: var(--gray-200);
 }
