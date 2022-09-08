@@ -23,7 +23,6 @@ const Container = styled.div`
 `
 
 const Settings = styled(SettingsIcon)`
-  color: var(--gray-300);
   margin-right: 12px;
 `
 
@@ -85,15 +84,24 @@ const BottomSection = styled.div`
   flex-direction: column;
 `
 
+const Disclosure = styled(DialogDisclosure)`
+  color: var(--gray-300);
+  transition: color 300ms;
+  &:hover,
+  &:focus {
+    color: var(--settings-button-hover);
+  }
+`
+
 const MobileSettings = () => {
   const dialog = useDialogState({ animated: true })
   const { t } = useTranslation('common')
 
   return (
     <Container data-cy="settings-mobile">
-      <DialogDisclosure {...dialog}>
+      <Disclosure {...dialog}>
         <Settings width={20} />
-      </DialogDisclosure>
+      </Disclosure>
       <Backdrop {...dialog}>
         <Content {...dialog} aria-label="Settings">
           <Title variant="typo5">{t('settings')}</Title>
