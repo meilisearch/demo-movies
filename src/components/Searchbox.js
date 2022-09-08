@@ -36,6 +36,7 @@ const StyledSearchbox = styled(IsSearchbox)`
     left: 16px;
   }
   input {
+    -webkit-appearance: none;
     width: 100%;
     height: 100%;
     padding-left: 48px;
