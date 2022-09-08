@@ -40,7 +40,7 @@ const Content = styled(DialogContent)`
   padding: 16px 32px 20px;
   height: auto;
   opacity: 1;
-  transition: transform 300ms;
+  transition: transform 300ms, background-color 300ms;
   transform-origin: top center;
   transform: translateY(100%);
   &[data-enter] {

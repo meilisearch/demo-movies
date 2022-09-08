@@ -49,6 +49,7 @@ const Icon = styled.img`
   height: 22px;
   border-radius: 4px;
   margin-right: 12px;
+  border: 1px solid var(--gray-300);
 `
 
 const Radio = ({ icon, title, radioState, value, onChange, ...props }) => (
