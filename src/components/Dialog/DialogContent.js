@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { Dialog as ReakitDialog } from 'reakit/Dialog'
 import get from 'utils/get'
 
-const Content = styled.div`
+const Dialog = styled(ReakitDialog)`
   ${p =>
     p.$animated &&
     css`
@@ -15,7 +15,6 @@ const Content = styled.div`
 
   outline: none;
   position: relative;
-  overflow: hidden;
   width: 100%;
   height: 100%;
   inset: 0;
@@ -33,8 +32,6 @@ const Content = styled.div`
   }
 `
 
-const DialogContent = props => (
-  <ReakitDialog as={Content} $animated={props.animated} {...props} />
-)
+const DialogContent = props => <Dialog $animated={props.animated} {...props} />
 
 export default DialogContent
