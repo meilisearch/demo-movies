@@ -32,7 +32,6 @@ const Backdrop = styled(DialogBackdrop)`
 `
 
 const Content = styled(DialogContent)`
-  position: relative;
   background-color: var(--settings-mobile-dialog-bg);
   border-top: 1px solid var(--gray-400);
   border-radius: 20px 20px 0px 0px;
@@ -49,8 +48,8 @@ const Content = styled(DialogContent)`
 
 const CloseButton = styled(IconButton)`
   position: absolute;
-  right: 32px;
-  top: 26px;
+  right: 0;
+  top: 10px;
 `
 
 const Title = styled(Typography)`
@@ -104,42 +103,44 @@ const MobileSettings = () => {
       </Disclosure>
       <Backdrop {...dialog}>
         <Content {...dialog} aria-label="Settings">
-          <Title variant="typo5">{t('settings')}</Title>
-          <CloseButton onClick={dialog.hide}>
-            <Cross width={18} />
-          </CloseButton>
-          <Section>
-            <Appearence>
-              <Typography variant="typo6">{t('appearance')}</Typography>
-              <Toggle onChange={window.__setPreferredTheme} />
-            </Appearence>
-          </Section>
-          <Section>
-            <CountryPreference>
-              <Typography
-                variant="typo6"
-                style={{ marginBottom: 16, display: 'block' }}
-              >
-                {t('countryPreference')}
-              </Typography>
-              <MobileCountrySwitcher />
-            </CountryPreference>
-          </Section>
-          <BottomSection>
-            <PoweredBy>
-              <Typography>{t('poweredBy')}</Typography>
-              <Typography>
-                <Link
-                  style={{ textDecoration: 'underline', marginLeft: 3 }}
-                  href="https://www.meilisearch.com/"
-                  target="_blank"
+          <div style={{ position: 'relative' }}>
+            <Title variant="typo5">{t('settings')}</Title>
+            <CloseButton onClick={dialog.hide}>
+              <Cross width={18} />
+            </CloseButton>
+            <Section>
+              <Appearence>
+                <Typography variant="typo6">{t('appearance')}</Typography>
+                <Toggle onChange={window.__setPreferredTheme} />
+              </Appearence>
+            </Section>
+            <Section>
+              <CountryPreference>
+                <Typography
+                  variant="typo6"
+                  style={{ marginBottom: 16, display: 'block' }}
                 >
-                  Meilisearch
-                </Link>
-              </Typography>
-            </PoweredBy>
-            <GitHubButton style={{ marginTop: 6 }} />
-          </BottomSection>
+                  {t('countryPreference')}
+                </Typography>
+                <MobileCountrySwitcher />
+              </CountryPreference>
+            </Section>
+            <BottomSection>
+              <PoweredBy>
+                <Typography>{t('poweredBy')}</Typography>
+                <Typography>
+                  <Link
+                    style={{ textDecoration: 'underline', marginLeft: 3 }}
+                    href="https://www.meilisearch.com/"
+                    target="_blank"
+                  >
+                    Meilisearch
+                  </Link>
+                </Typography>
+              </PoweredBy>
+              <GitHubButton style={{ marginTop: 6 }} />
+            </BottomSection>
+          </div>
         </Content>
       </Backdrop>
     </Container>
