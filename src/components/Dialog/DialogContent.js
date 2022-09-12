@@ -14,19 +14,21 @@ const Dialog = styled(ReakitDialog)`
     `};
 
   outline: none;
-  position: relative;
+  position: fixed;
   width: 100%;
-  height: 100%;
-  inset: 0;
+  max-width: 100%;
+  max-height: 100%;
   background-color: var(--dialog-bg-color);
   color: var(--movie-content-text-color);
-  z-index: 999;
+  z-index: 60;
+  overflow: auto;
 
   @media (min-width: ${get('breakpoints.desktop')}) {
     max-width: 1480px;
     width: 90%;
     height: 90%;
-    inset: 50% 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 12px;
   }
