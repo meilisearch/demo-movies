@@ -18,7 +18,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@meilisearch/instant-meilisearch": "^0.8.1",
+    "@meilisearch/instant-meilisearch": "^0.8.2",
     "dotenv": "^16.0.2",
     "lodash.get": "^4.4.2",
     "next": "12.3.0",
