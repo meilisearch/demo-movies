@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { Dialog as ReakitDialog } from 'reakit/Dialog'
 import get from 'utils/get'
 
-const Content = styled.div`
+const Dialog = styled(ReakitDialog)`
   ${p =>
     p.$animated &&
     css`
@@ -14,27 +14,26 @@ const Content = styled.div`
     `};
 
   outline: none;
-  position: relative;
-  overflow: hidden;
+  position: fixed;
   width: 100%;
-  height: 100%;
-  inset: 0;
+  max-width: 100%;
+  max-height: 100%;
   background-color: var(--dialog-bg-color);
   color: var(--movie-content-text-color);
-  z-index: 999;
+  z-index: 60;
+  overflow: auto;
 
   @media (min-width: ${get('breakpoints.desktop')}) {
     max-width: 1480px;
     width: 90%;
     height: 90%;
-    inset: 50% 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 12px;
   }
 `
 
-const DialogContent = props => (
-  <ReakitDialog as={Content} $animated={props.animated} {...props} />
-)
+const DialogContent = props => <Dialog $animated={props.animated} {...props} />
 
 export default DialogContent

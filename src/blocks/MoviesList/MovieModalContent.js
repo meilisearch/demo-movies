@@ -10,35 +10,25 @@ const Close = styled(IconButton)`
   position: absolute;
   top: 27px;
   right: 21px;
-
+  z-index: 90;
   @media (min-width: ${get('breakpoints.desktop')}) {
     top: 28px;
     right: 30px;
   }
 `
 
-const Content = styled.div`
-  overflow: auto;
-  width: 100%;
-  height: 100%;
-`
-
 const MovieModalContent = ({ dialog, hit }) => (
   <DialogBackdrop {...dialog}>
+    <Close rounded onClick={() => dialog.hide()}>
+      <Cross width={15} />
+    </Close>
     <DialogContent
       {...dialog}
       tabIndex={0}
       aria-label={hit?.title || 'Movie infos'}
       data-cy="movie-detail"
     >
-      <Close rounded onClick={() => dialog.hide()}>
-        <Cross width={15} />
-      </Close>
-      {hit && (
-        <Content>
-          <MovieContent hit={hit} />
-        </Content>
-      )}
+      {hit && <MovieContent hit={hit} />}
     </DialogContent>
   </DialogBackdrop>
 )
