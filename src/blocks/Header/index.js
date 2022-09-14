@@ -56,7 +56,7 @@ const ByMeiliSearch = styled.a`
   display: none;
   @media (min-width: ${get('breakpoints.desktop')}) {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     margin-left: 8px;
     color: var(--gray-300);
   }
@@ -88,8 +88,8 @@ const Header = () => (
           src="/images/meilisearch.svg"
           alt="Meilisearch logo"
           layout="fixed"
-          width={120}
-          height={19}
+          width={81}
+          height={12}
         />
       </ByMeiliSearch>
       <MobileSettings />
