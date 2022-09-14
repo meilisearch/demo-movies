@@ -28,7 +28,7 @@ const MovieModalContent = ({ dialog, hit }) => (
       aria-label={hit?.title || 'Movie infos'}
       data-cy="movie-detail"
     >
-      {hit && <MovieContent hit={hit} />}
+      {hit && dialog.visible && <MovieContent hit={hit} />}
     </DialogContent>
   </DialogBackdrop>
 )
