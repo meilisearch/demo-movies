@@ -67,7 +67,7 @@ const Home = ({ host, apiKey }) => {
             indexName={selectedLanguage.indexName}
             searchClient={client}
           >
-            <Configure hitsPerPage={24} attributesToHighlight={['title']} />
+            <Configure hitsPerPage={24} />
             <Wrapper>
               <Header />
               <Filters />
