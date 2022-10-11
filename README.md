@@ -21,7 +21,7 @@
 
 **Table of Contents**:
 
-- [Setup](#setup)
+- [Setup ✨](#setup)
 - [Run](#run)
 - [Build](#build)
   - [Generate build](#generate-build)
