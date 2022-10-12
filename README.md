@@ -45,7 +45,7 @@ npm install
 
 ## Environment variables
 
-To connect your Meilisearch instance and retrieve the movies two environment variables should be provided:
+To connect your Meilisearch instance and retrieve the movies, two environment variables should be provided:
 
 - HOST
 - API_KEY
