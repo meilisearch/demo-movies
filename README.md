@@ -22,6 +22,7 @@
 **Table of Contents**:
 
 - [Setup](#setup)
+- [Environment variables](#environment-variables)
 - [Run](#run)
 - [Build](#build)
   - [Generate build](#generate-build)
@@ -41,6 +42,15 @@ or
 ```bash
 npm install
 ```
+
+## Environment variables
+
+This project needs 2 environment variables to connect to your Meilisearch instance and retrieve the movies:
+
+- HOST
+- API_KEY
+
+An example can be found in the `.env.example` file. You can either rename this file into `.env`, or create a new file.
 
 ## Run
 

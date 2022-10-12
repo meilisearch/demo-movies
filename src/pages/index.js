@@ -84,8 +84,8 @@ export const getStaticProps = async ({ locale }) => {
   try {
     return {
       props: {
-        host: process.env.HOST,
-        apiKey: process.env.API_KEY,
+        host: process.env.HOST || 'http://0.0.0.0:7700',
+        apiKey: process.env.API_KEY || 'searchKey',
         ...(await serverSideTranslations(locale, ['common'])),
       },
     }
