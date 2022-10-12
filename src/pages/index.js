@@ -14,6 +14,9 @@ import { LANGUAGES } from 'data/constants'
 import { LanguageProvider } from 'context/LanguageContext'
 import useLocalStorage from 'hooks/useLocalStorage'
 
+const HOST = process.env.HOST || 'http://0.0.0.0:7700'
+const API_KEY = process.env.API_KEY || 'searchKey'
+
 const Wrapper = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
     padding: 0 50px 50px;
@@ -84,8 +87,8 @@ export const getStaticProps = async ({ locale }) => {
   try {
     return {
       props: {
-        host: process.env.HOST,
-        apiKey: process.env.API_KEY,
+        host: HOST,
+        apiKey: API_KEY,
         ...(await serverSideTranslations(locale, ['common'])),
       },
     }
