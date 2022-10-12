@@ -99,7 +99,7 @@ const Toggle = ({ onChange = () => {}, ...props }) => {
         <Moon width={12} style={{ marginLeft: 4 }} />
       </Span>
       <Span checked={!checked} style={{ opacity: checked ? '0' : '1' }}>
-        <Sun width={13} style={{ marginRight: 4 }} />
+        <Sun width={15} style={{ marginRight: 3 }} />
       </Span>
     </Label>
   )
