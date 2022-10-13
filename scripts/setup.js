@@ -4,7 +4,6 @@ const moviesJp = require('../assets/movies-ja-JP')
 
 const client = new MeiliSearch({
   host: 'http://0.0.0.0:7700',
-  apiKey: 'masterKey',
 })
 
 const indexes = [
