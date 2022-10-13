@@ -22,16 +22,22 @@
 **Table of Contents**:
 
 - [Setup](#setup)
-- [Environment variables](#environment-variables)
+  - [Install dependencies](#install-dependencies)
+  - [Run Meilisearch](#run-meilisearch)
+  - [Import movies](#import-movies)
 - [Run](#run)
 - [Build](#build)
   - [Generate build](#generate-build)
   - [Run your build](#run-your-build)
+- [Environment variables](#environment-variables)
+- [Compatibility with Meilisearch](#compatibility-with-meilisearch)
 - [Storybook](#storybook)
 
 <br/>
 
 ## Setup
+
+### Install dependencies
 
 ```bash
 yarn
@@ -43,14 +49,22 @@ or
 npm install
 ```
 
-## Environment variables
+### Run Meilisearch
 
-To connect your Meilisearch instance and retrieve the movies, two environment variables should be provided:
+You can run a Meilisearch instance locally with the following command:
 
-- HOST
-- API_KEY
+```
+docker run -it --rm \
+    -p 7700:7700 \
+    getmeili/meilisearch:v0.28.0 \
+    meilisearch --env="development"
+```
 
-An example can be found in the `.env.example` file. You can either rename this file into `.env`, or create a new file.
+### Import movies
+
+Run the following script in order to create the different indexes and upload the movies documents:
+
+`yarn setup`
 
 ## Run
 
@@ -105,6 +119,19 @@ Example:
 ```bash
 serve .next
 ```
+
+## Environment variables
+
+To connect to your own Meilisearch instance, two environment variables should be provided:
+
+- `HOST`: the URL of your Meilisearch instance
+- `API_KEY`: an API key with at least search rights
+
+You can use an `.env` file to provide the environement variables. An example can be found inside the `.env.example` file.
+
+## Compatibility with Meilisearch
+
+This package only guarantees the compatibility with the [version v0.28.0 of Meilisearch](https://github.com/meilisearch/meilisearch/releases/tag/v0.28.0).
 
 ## Storybook
 
