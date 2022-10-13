@@ -4,8 +4,8 @@ module.exports = defineConfig({
   viewportWidth: 1440,
   viewportHeight: 900,
   env: {
-    HOST: 'http://0.0.0.0:7700',
-    API_KEY: 'masterKey',
+    MEILISEARCH_HOST: 'http://0.0.0.0:7700',
+    MEILISEARCH_MASTER_KEY: 'masterKey',
   },
   e2e: {
     // We've imported your old cypress plugins here.
