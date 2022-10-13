@@ -47,8 +47,8 @@ npm install
 
 To connect your Meilisearch instance and retrieve the movies, two environment variables should be provided:
 
-- HOST
-- API_KEY
+- MEILISEARCH_HOST
+- MEILISEARCH_MASTER_KEY
 
 An example can be found in the `.env.example` file. You can either rename this file into `.env`, or create a new file.
 
