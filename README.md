@@ -22,16 +22,22 @@
 **Table of Contents**:
 
 - [Setup](#setup)
+  - [Install dependencies](#install-dependencies)
+  - [Run Meilisearch](#run-meilisearch)
+  - [Import movies](#import-movies)
 - [Environment variables](#environment-variables)
 - [Run](#run)
 - [Build](#build)
   - [Generate build](#generate-build)
   - [Run your build](#run-your-build)
+- [Compatibility with Meilisearch](#compatibility-with-meilisearch)
 - [Storybook](#storybook)
 
 <br/>
 
 ## Setup
+
+### Install dependencies
 
 ```bash
 yarn
@@ -42,6 +48,25 @@ or
 ```bash
 npm install
 ```
+
+### Run Meilisearch
+
+You can run a Meilisearch instance locally with the following command:
+
+```
+docker run -it --rm \
+    -p 7700:7700 \
+    -e MEILI_MASTER_KEY='masterKey'\
+    -v $(pwd)/meili_data:/meili_data \
+    getmeili/meilisearch:v0.28.0 \
+    meilisearch --env="development"
+```
+
+### Import movies
+
+Run the following script in order to create the different indexes and upload the movies documents:
+
+`yarn setup`
 
 ## Environment variables
 
@@ -105,6 +130,10 @@ Example:
 ```bash
 serve .next
 ```
+
+## Compatibility with Meilisearch
+
+This package only guarantees the compatibility with the [version v0.28.0 of Meilisearch](https://github.com/meilisearch/meilisearch/releases/tag/v0.28.0).
 
 ## Storybook
 
