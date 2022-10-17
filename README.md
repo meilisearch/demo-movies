@@ -71,7 +71,7 @@ Run the following script in order to create the different indexes and upload the
 To connect your Meilisearch instance and retrieve the movies, two environment variables should be provided:
 
 - MEILISEARCH_HOST
-- MEILISEARCH_MASTER_KEY
+- MEILISEARCH_API_KEY
 
 An example can be found in the `.env.example` file. You can either rename this file into `.env`, or create a new file.
 
