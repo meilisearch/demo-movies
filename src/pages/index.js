@@ -15,7 +15,7 @@ import { LanguageProvider } from 'context/LanguageContext'
 import useLocalStorage from 'hooks/useLocalStorage'
 
 const MEILISEARCH_HOST = process.env.MEILISEARCH_HOST || 'http://0.0.0.0:7700'
-const MEILISEARCH_MASTER_KEY = process.env.MEILISEARCH_MASTER_KEY || 'searchKey'
+const MEILISEARCH_API_KEY = process.env.MEILISEARCH_API_KEY || 'searchKey'
 
 const Wrapper = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
@@ -88,7 +88,7 @@ export const getStaticProps = async ({ locale }) => {
     return {
       props: {
         host: MEILISEARCH_HOST,
-        apiKey: MEILISEARCH_MASTER_KEY,
+        apiKey: MEILISEARCH_API_KEY,
         ...(await serverSideTranslations(locale, ['common'])),
       },
     }
