@@ -66,7 +66,6 @@ Run the following script in order to create the different indexes and upload the
 
 `yarn setup`
 
-
 ## Environment variables
 
 To connect your Meilisearch instance and retrieve the movies, two environment variables should be provided:
