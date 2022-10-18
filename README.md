@@ -66,15 +66,6 @@ Run the following script in order to create the different indexes and upload the
 
 `yarn setup`
 
-## Environment variables
-
-To connect your Meilisearch instance and retrieve the movies, two environment variables should be provided:
-
-- MEILISEARCH_HOST
-- MEILISEARCH_API_KEY
-
-An example can be found in the `.env.example` file. You can either rename this file into `.env`, or create a new file.
-
 ## Run
 
 ```bash
@@ -136,7 +127,7 @@ To connect to your own Meilisearch instance, two environment variables should be
 - `MEILISEARCH_HOST`: the URL of your Meilisearch instance
 - `MEILISEARCH_API_KEY`: an API key with at least search rights
 
-You can use an `.env` file to provide the environement variables. An example can be found inside the `.env.example` file.
+An example can be found in the `.env.example` file. You can either rename this file into `.env`, or create a new file.
 
 ## Compatibility with Meilisearch
 
