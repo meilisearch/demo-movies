@@ -133,8 +133,8 @@ serve .next
 
 To connect to your own Meilisearch instance, two environment variables should be provided:
 
-- `HOST`: the URL of your Meilisearch instance.
-- `API_KEY`: an API key with at least search rights.
+- `MEILISEARCH_HOST`: the URL of your Meilisearch instance
+- `MEILISEARCH_API_KEY`: an API key with at least search rights
 
 You can use an `.env` file to provide the environement variables. An example can be found inside the `.env.example` file.
 
