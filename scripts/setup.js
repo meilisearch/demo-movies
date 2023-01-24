@@ -1,6 +1,7 @@
 const { MeiliSearch } = require('meilisearch')
 const moviesEn = require('../assets/movies-en-US.json')
-const moviesJp = require('../assets/movies-ja-JP')
+const moviesJp = require('../assets/movies-ja-JP.json')
+const moviesTh = require('../assets/movies-th-TH.json')
 
 const client = new MeiliSearch({
   host: 'http://0.0.0.0:7700',
@@ -14,6 +15,10 @@ const indexes = [
   {
     indexName: 'movies-ja-JP',
     documents: moviesJp,
+  },
+  {
+    indexName: 'movies-th-TH',
+    documents: moviesTh,
   },
 ]
 
