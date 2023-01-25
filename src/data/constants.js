@@ -9,4 +9,9 @@ export const LANGUAGES = [
     code: 'ja-JP',
     indexName: 'movies-ja-JP',
   },
+  {
+    countryName: 'Thailand',
+    code: 'th-TH',
+    indexName: 'movies-th-TH',
+  },
 ]
