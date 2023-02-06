@@ -16,12 +16,13 @@ const Scripts = () => {
   if (process.env.NEXT_PUBLIC_APP_ENV !== 'production') {
     return null
   }
+  const fathomTrackingCode = process.env.NEXT_PUBLIC_FATHOM_TRACKING_CODE
   return (
     <>
       <Script
         id="fathom-script"
         src="https://cdn.usefathom.com/script.js"
-        data-site="VNCRAVTB"
+        data-site={fathomTrackingCode}
       />
     </>
   )
