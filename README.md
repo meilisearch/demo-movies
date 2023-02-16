@@ -146,3 +146,27 @@ or
 ```bash
 npm run storybook
 ```
+
+## Testing
+
+Tests are implemented using Cypress. To run the tests, first **launch a MeiliSearch instance**, then run:
+
+```bash
+yarn test
+```
+
+**Environment variables**
+
+Environment variables are configured in `cypress.config.js`:
+
+```js
+const { defineConfig } = require('cypress')
+
+module.exports = defineConfig({
+  // ...
+  env: {
+      MEILISEARCH_HOST: 'http://0.0.0.0:7700',
+      MEILISEARCH_API_KEY: 'masterKey',
+    }
+}
+```
