@@ -1,0 +1,1379 @@
+[
+  {
+    "id": 389,
+    "title": "12 Angry Men",
+    "overview": "",
+    "popularity": 36.025,
+    "release_date": "1957-04-10",
+    "runtime": 97,
+    "vote_average": 8.533,
+    "external_ids": {
+      "imdb_id": "tt0050083",
+      "wikidata_id": "Q2345",
+      "facebook_id": null,
+      "instagram_id": null,
+      "twitter_id": null
+    },
+    "poster_path": "https://image.tmdb.org/t/p/w780/ppd84D2i9W8jXmsyInGyihiSyqz.jpg",
+    "backdrop_path": "/qqHQsStV6exghCM7zbObuYBiYxw.jpg",
+    "keywords": [
+      "judge",
+      "jurors",
+      "sultriness",
+      "death penalty",
+      "father murder",
+      "puerto rico",
+      "anonymity",
+      "court case",
+      "heat",
+      "class",
+      "innocence",
+      "court",
+      "based on play or musical",
+      "courtroom",
+      "courtroom drama",
+      "one location"
+    ],
+    "providers": {
+      "buy": [
+        {
+          "name": "Apple iTunes",
+          "logo": "/peURlLlr8jggOwK53fJ5wdQl05y.jpg"
+        },
+        {
+          "name": "Google Play Movies",
+          "logo": "/tbEdFQDwx5LEVr8WpSeXQSIirVq.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "name": "Apple iTunes",
+          "logo": "/peURlLlr8jggOwK53fJ5wdQl05y.jpg"
+        },
+        {
+          "name": "Google Play Movies",
+          "logo": "/tbEdFQDwx5LEVr8WpSeXQSIirVq.jpg"
+        }
+      ]
+    },
+    "provider_names": [
+      "Apple iTunes",
+      "Google Play Movies"
+    ],
+    "genres": [
+      "หนังชีวิต"
+    ],
+    "crew": [
+      {
+        "name": "Henry Fonda",
+        "job": "Producer",
+        "id": 4958
+      },
+      {
+        "name": "Sidney Lumet",
+        "job": "Director",
+        "id": 39996
+      },
+      {
+        "name": "Reginald Rose",
+        "job": "Producer",
+        "id": 5246
+      }
+    ],
+    "cast": [
+      {
+        "id": 1936,
+        "character": "Juror 1",
+        "name": "Martin Balsam",
+        "profile_path": "/2j4LJJfTPQtvnjp8LfSGOvWFATO.jpg"
+      },
+      {
+        "id": 5247,
+        "character": "Juror 2",
+        "name": "John Fiedler",
+        "profile_path": "/6vfLLGeGuO6Ko0VRnyhgE2v6RUu.jpg"
+      },
+      {
+        "id": 5248,
+        "character": "Juror 3",
+        "name": "Lee J. Cobb",
+        "profile_path": "/yxMxBvM0PZwu7YXQamG0kFwt9DZ.jpg"
+      },
+      {
+        "id": 5249,
+        "character": "Juror 4",
+        "name": "E.G. Marshall",
+        "profile_path": "/bZeu3BhYFP99dwIMobFR2xuRfRy.jpg"
+      },
+      {
+        "id": 5250,
+        "character": "Juror 5",
+        "name": "Jack Klugman",
+        "profile_path": "/7nJaWFPn1ppfbp3Ai3CnTtUm0PE.jpg"
+      },
+      {
+        "id": 2651,
+        "character": "Juror 6",
+        "name": "Edward Binns",
+        "profile_path": "/yArh2xuVq6pGbecNmYSmT9FdOzC.jpg"
+      },
+      {
+        "id": 5251,
+        "character": "Juror 7",
+        "name": "Jack Warden",
+        "profile_path": "/hSShXiYMfRpMByaB5euZ59qCKN.jpg"
+      },
+      {
+        "id": 4958,
+        "character": "Juror 8",
+        "name": "Henry Fonda",
+        "profile_path": "/6wXWsqSXF3wCsGcwVqiszy6RX9X.jpg"
+      }
+    ]
+  },
+  {
+    "id": 429,
+    "title": "มือปืนเพชรตัดเพชร",
+    "overview": "",
+    "popularity": 64.048,
+    "release_date": "1966-12-23",
+    "runtime": 161,
+    "vote_average": 8.5,
+    "external_ids": {
+      "imdb_id": "tt0060196",
+      "wikidata_id": "Q41483",
+      "facebook_id": "GoodBadUglyMovie",
+      "instagram_id": null,
+      "twitter_id": null
+    },
+    "poster_path": "https://image.tmdb.org/t/p/w780/sOTQkPoEZd7ImsZBuXfu4BqZ6JS.jpg",
+    "backdrop_path": "/eoCSp75lxatmIa6aGqfnzwtbttd.jpg",
+    "keywords": [
+      "bounty hunter",
+      "refugee",
+      "gold",
+      "anti hero",
+      "gallows",
+      "hitman",
+      "army",
+      "outlaw",
+      "shootout",
+      "moral ambiguity",
+      "spaghetti western"
+    ],
+    "providers": {
+      "buy": [
+        {
+          "name": "Apple iTunes",
+          "logo": "/peURlLlr8jggOwK53fJ5wdQl05y.jpg"
+        },
+        {
+          "name": "Google Play Movies",
+          "logo": "/tbEdFQDwx5LEVr8WpSeXQSIirVq.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "name": "Apple iTunes",
+          "logo": "/peURlLlr8jggOwK53fJ5wdQl05y.jpg"
+        },
+        {
+          "name": "Google Play Movies",
+          "logo": "/tbEdFQDwx5LEVr8WpSeXQSIirVq.jpg"
+        }
+      ]
+    },
+    "provider_names": [
+      "Apple iTunes",
+      "Google Play Movies"
+    ],
+    "genres": [
+      "หนังคาวบอยตะวันตก"
+    ],
+    "crew": [
+      {
+        "name": "Sergio Leone",
+        "job": "Director",
+        "id": 4385
+      },
+      {
+        "name": "Alberto Grimaldi",
+        "job": "Producer",
+        "id": 5820
+      }
+    ],
+    "cast": [
+      {
+        "id": 190,
+        "character": "Blondie",
+        "name": "Clint Eastwood",
+        "profile_path": "/dU35NnjZ4aGw5abIJe3WXVf3Eey.jpg"
+      },
+      {
+        "id": 3265,
+        "character": "Tuco Ramirez",
+        "name": "Eli Wallach",
+        "profile_path": "/dPHiwftkNUtjufZgojqkSR2NHYD.jpg"
+      },
+      {
+        "id": 4078,
+        "character": "Sentenza / Angel Eyes",
+        "name": "Lee Van Cleef",
+        "profile_path": "/yQc5wjNCdRZzPp5E2wRPRYsEq9a.jpg"
+      },
+      {
+        "id": 5813,
+        "character": "Alcoholic Union Captain",
+        "name": "Aldo Giuffrè",
+        "profile_path": "/aT6eECl1R3YGYL4KatyIQrq0zG8.jpg"
+      },
+      {
+        "id": 5814,
+        "character": "Father Pablo Ramirez",
+        "name": "Luigi Pistilli",
+        "profile_path": "/bH5vmD2CMBHzJyBe0P0bL6iTUNL.jpg"
+      },
+      {
+        "id": 5815,
+        "character": "Maria",
+        "name": "Rada Rassimov",
+        "profile_path": "/xJhnSHn2vKp0MJ2KZaihrgqq0Mc.jpg"
+      },
+      {
+        "id": 1077276,
+        "character": "Storekeeper",
+        "name": "Enzo Petito",
+        "profile_path": null
+      },
+      {
+        "id": 1077277,
+        "character": "Tuco Henchman",
+        "name": "Claudio Scarchilli",
+        "profile_path": null
+      }
+    ]
+  },
+  {
+    "id": 163,
+    "title": "12 มงกุฎ ปล้นสุดโลก",
+    "overview": "สามปีมาแล้วนับแต่ แดนนี่ โอเชียน (จอร์จ คลูนีย์) และลูกทีม นำโดยผู้ได้รับการคัดสรรอย่าง รัสตี้ ไรอัน (แบรด พิตต์), มือกาวอนาคตไกล ไลนัส คอลด์เวล (แมตต์ เดมอน), ผู้ชำนาญงานระเบิด แบชเชอร์ ทาร์ (ดอน ชีเดล) และมืองัดแงะตู้นิรภัย แฟรงค์ แคตตัน (เบอร์นีย์ แมค) ได้ร่วมกันปล้นอย่างกล้าได้กล้าเสียและได้รับผลตอบแทนอย่างงามที่สุดในประวัติศาสตร์ ในการโจรกรรมนายทุนไร้หัวใจ เทอรี่ เบเนดิค (แอนดี้ การ์เซีย) จนเงินเกลี้ยงตู้นิรภัยที่ไม่มีใครสามารถผ่านเข้าไปได้ของเขาในลาสเวกัส  หลังจากการแบ่งสรรปันส่วนเงินจำนวน 160 ล้านเหรียญสหรัฐฯ แต่ละคนของกลุ่มโอเชียน อีเลเว่น อันฉาวโฉ่ ได้พยายามที่จะกลับเนื้อกลับตัว ใช้ชีวิตเรียบง่าย ทำตัวตามกฎหมาย...แต่นั่นได้พิสูจน์ว่าเป็นความท้าทายอย่างยิ่ง โดยเฉพาะสำหรับ เทสส์ (จูเลีย โรเบิร์ตส) ภรรยาผู้คับแค้นของแดนนี่",
+    "popularity": 26.055,
+    "release_date": "2004-12-09",
+    "runtime": 116,
+    "vote_average": 6.554,
+    "external_ids": {
+      "imdb_id": "tt0349903",
+      "wikidata_id": null,
+      "facebook_id": null,
+      "instagram_id": null,
+      "twitter_id": null
+    },
+    "poster_path": "https://image.tmdb.org/t/p/w780/Ad55M8newGWemFWCsMAkxO3fDwl.jpg",
+    "backdrop_path": "/5b5HrewiViLWEdMR4dmbd7ajQ8Q.jpg",
+    "keywords": [
+      "rome, italy",
+      "sequel",
+      "heist",
+      "fabergé egg",
+      "golden egg",
+      "goon"
+    ],
+    "providers": {
+      "buy": [
+        {
+          "name": "Apple iTunes",
+          "logo": "/peURlLlr8jggOwK53fJ5wdQl05y.jpg"
+        },
+        {
+          "name": "Google Play Movies",
+          "logo": "/tbEdFQDwx5LEVr8WpSeXQSIirVq.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "name": "Apple iTunes",
+          "logo": "/peURlLlr8jggOwK53fJ5wdQl05y.jpg"
+        },
+        {
+          "name": "Google Play Movies",
+          "logo": "/tbEdFQDwx5LEVr8WpSeXQSIirVq.jpg"
+        }
+      ],
+      "flatrate": [
+        {
+          "name": "HBO Go",
+          "logo": "/bxdNcDbk1ohVeOMmM3eusAAiTLw.jpg"
+        }
+      ]
+    },
+    "provider_names": [
+      "Apple iTunes",
+      "Google Play Movies",
+      "HBO Go"
+    ],
+    "genres": [
+      "ระทึกขวัญ",
+      "อาชญากรรม"
+    ],
+    "crew": [
+      {
+        "name": "Steven Soderbergh",
+        "job": "Director",
+        "id": 1884
+      },
+      {
+        "name": "Jerry Weintraub",
+        "job": "Producer",
+        "id": 1888
+      }
+    ],
+    "cast": [
+      {
+        "id": 1461,
+        "character": "Danny Ocean",
+        "name": "George Clooney",
+        "profile_path": "/kHiVY6r1k6juXrNetAYk2jILqn9.jpg"
+      },
+      {
+        "id": 287,
+        "character": "Rusty Ryan",
+        "name": "Brad Pitt",
+        "profile_path": "/oTB9vGIBacH5aQNS0pUM74QSWuf.jpg"
+      },
+      {
+        "id": 1892,
+        "character": "Linus Caldwell",
+        "name": "Matt Damon",
+        "profile_path": "/At3JgvaNeEN4Z4ESKlhhes85Xo3.jpg"
+      },
+      {
+        "id": 1922,
+        "character": "Isabel Lahiri",
+        "name": "Catherine Zeta-Jones",
+        "profile_path": "/8S3F1zdbQolPG6W0AW4u70F6xj9.jpg"
+      },
+      {
+        "id": 1271,
+        "character": "Terry Benedict",
+        "name": "Andy García",
+        "profile_path": "/s9sFJ2TEVYBThRuLTz7GnAaLisV.jpg"
+      },
+      {
+        "id": 1896,
+        "character": "Basher Tarr",
+        "name": "Don Cheadle",
+        "profile_path": "/lZpvHaRDSNqAEYUgaJed9Vxrx5p.jpg"
+      },
+      {
+        "id": 1897,
+        "character": "Frank Catton",
+        "name": "Bernie Mac",
+        "profile_path": "/bwMmpeu3whjhhaxt1UTCk7S5jmv.jpg"
+      },
+      {
+        "id": 1204,
+        "character": "Tess Ocean",
+        "name": "Julia Roberts",
+        "profile_path": "/AhQMyQ10kz5g8Y3Fp54GPhgDxQS.jpg"
+      }
+    ]
+  },
+  {
+    "id": 268,
+    "title": "แบทแมน",
+    "overview": "แจ็ก นิโคลสัน รับบทเป็นโจ๊กเกอร์ ผู้ซึ่งรอดตายจากอุบัติเหตุสารเคมีรั่วไหล, ไมเคิล คีตัน รับบทเป็นผู้ผดุงความยุติธรรมหลังหน้ากาก ผู้ซึ่งบอบช้ำทางจิตใจ เมื่อในวัยเด็กเขาได้เห็นพ่อแม่ถูกฆาตกรรมต่อหน้าต่อตา, คิม บาซิงเกอร์ รับบทเป็นนักข่าวสาวผู้เป็นที่หมายปองของสองหนุ่ม ในปฐมบทของภาพยนตร์แบทแมน",
+    "popularity": 43.729,
+    "release_date": "1989-06-23",
+    "runtime": 126,
+    "vote_average": 7.207,
+    "external_ids": {
+      "imdb_id": "tt0096895",
+      "wikidata_id": null,
+      "facebook_id": null,
+      "instagram_id": null,
+      "twitter_id": null
+    },
+    "poster_path": "https://image.tmdb.org/t/p/w780/5hrgX86pkt3v19lbVy7k2z53p16.jpg",
+    "backdrop_path": "/2va32apQP97gvUxaMnL5wYt4CRB.jpg",
+    "keywords": [
+      "double life",
+      "dual identity",
+      "chemical",
+      "crime fighter",
+      "villain",
+      "superhero",
+      "based on comic",
+      "organized crime",
+      "mobster",
+      "criminal",
+      "super power",
+      "madness",
+      "good versus evil"
+    ],
+    "providers": {
+      "buy": [
+        {
+          "name": "Apple iTunes",
+          "logo": "/peURlLlr8jggOwK53fJ5wdQl05y.jpg"
+        },
+        {
+          "name": "Google Play Movies",
+          "logo": "/tbEdFQDwx5LEVr8WpSeXQSIirVq.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "name": "Apple iTunes",
+          "logo": "/peURlLlr8jggOwK53fJ5wdQl05y.jpg"
+        }
+      ]
+    },
+    "provider_names": [
+      "Apple iTunes",
+      "Google Play Movies"
+    ],
+    "genres": [
+      "จินตนาการ",
+      "บู๊",
+      "อาชญากรรม"
+    ],
+    "crew": [
+      {
+        "name": "Tim Burton",
+        "job": "Director",
+        "id": 510
+      },
+      {
+        "name": "Peter Guber",
+        "job": "Producer",
+        "id": 3804
+      },
+      {
+        "name": "Jon Peters",
+        "job": "Producer",
+        "id": 3805
+      }
+    ],
+    "cast": [
+      {
+        "id": 2232,
+        "character": "Bruce Wayne / Batman",
+        "name": "Michael Keaton",
+        "profile_path": "/baeHNv3qrVsnApuKbZXiJOhqMnw.jpg"
+      },
+      {
+        "id": 514,
+        "character": "Jack Napier / The Joker",
+        "name": "Jack Nicholson",
+        "profile_path": "/6h12pZsgj3WWjMtykUgfLkLEBWz.jpg"
+      },
+      {
+        "id": 326,
+        "character": "Vicki Vale",
+        "name": "Kim Basinger",
+        "profile_path": "/iqQ4o2sRna7J1Z9KkB9Avp9CIsk.jpg"
+      },
+      {
+        "id": 3800,
+        "character": "Alicia Grissom",
+        "name": "Jerry Hall",
+        "profile_path": "/kInkl0xOfRhzA0x72JjIA5w2ugt.jpg"
+      },
+      {
+        "id": 4040,
+        "character": "Alexander Knox",
+        "name": "Robert Wuhl",
+        "profile_path": "/e01JiHVW5cdBkLu7aVDhRilfCvY.jpg"
+      },
+      {
+        "id": 3798,
+        "character": "Commissioner James Gordon",
+        "name": "Pat Hingle",
+        "profile_path": "/QBAxFVZQ0Hu6rxlFavhwUq0zug.jpg"
+      },
+      {
+        "id": 3799,
+        "character": "Harvey Dent",
+        "name": "Billy Dee Williams",
+        "profile_path": "/dCiHLiCapPuRwKkM1ytVZ7PwYQY.jpg"
+      },
+      {
+        "id": 3796,
+        "character": "Alfred Pennyworth",
+        "name": "Michael Gough",
+        "profile_path": "/owcwnV6dymBd9YIQKDPzVA5EtZX.jpg"
+      }
+    ]
+  },
+  {
+    "id": 107,
+    "title": "Snatch",
+    "overview": "",
+    "popularity": 32.435,
+    "release_date": "2000-09-01",
+    "runtime": 103,
+    "vote_average": 7.796,
+    "external_ids": {
+      "imdb_id": "tt0208092",
+      "wikidata_id": null,
+      "facebook_id": "snatch",
+      "instagram_id": null,
+      "twitter_id": null
+    },
+    "poster_path": "https://image.tmdb.org/t/p/w780/56mOJth6DJ6JhgoE2jtpilVqJO.jpg",
+    "backdrop_path": "/ysKahAEPP8h6MInuLjr0xuZOTjh.jpg",
+    "keywords": [
+      "england",
+      "gypsy",
+      "gambling",
+      "bare knuckle boxing",
+      "slang",
+      "robbery",
+      "trailer park",
+      "antwerp",
+      "boxer",
+      "gangster",
+      "pig",
+      "underground fighting",
+      "cult film",
+      "diamond heist",
+      "pikey"
+    ],
+    "providers": {
+      "buy": [
+        {
+          "name": "Apple iTunes",
+          "logo": "/peURlLlr8jggOwK53fJ5wdQl05y.jpg"
+        },
+        {
+          "name": "Google Play Movies",
+          "logo": "/tbEdFQDwx5LEVr8WpSeXQSIirVq.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "name": "Apple iTunes",
+          "logo": "/peURlLlr8jggOwK53fJ5wdQl05y.jpg"
+        }
+      ]
+    },
+    "provider_names": [
+      "Apple iTunes",
+      "Google Play Movies"
+    ],
+    "genres": [
+      "อาชญากรรม",
+      "ตลก"
+    ],
+    "crew": [
+      {
+        "name": "Guy Ritchie",
+        "job": "Director",
+        "id": 956
+      },
+      {
+        "name": "Matthew Vaughn",
+        "job": "Producer",
+        "id": 957
+      }
+    ],
+    "cast": [
+      {
+        "id": 976,
+        "character": "Turkish",
+        "name": "Jason Statham",
+        "profile_path": "/lldeQ91GwIVff43JBrpdbAAeYWj.jpg"
+      },
+      {
+        "id": 287,
+        "character": "Mickey O'Neil",
+        "name": "Brad Pitt",
+        "profile_path": "/oTB9vGIBacH5aQNS0pUM74QSWuf.jpg"
+      },
+      {
+        "id": 1115,
+        "character": "Tommy",
+        "name": "Stephen Graham",
+        "profile_path": "/rkavERf9KK4Yvs8V4HWrTaUwoHX.jpg"
+      },
+      {
+        "id": 1117,
+        "character": "Cousin Avi",
+        "name": "Dennis Farina",
+        "profile_path": "/4hEWe0ZcDpGlB3nRizLkVMcG13B.jpg"
+      },
+      {
+        "id": 1116,
+        "character": "Brick Top Polford",
+        "name": "Alan Ford",
+        "profile_path": "/nSlngfcFsCPENxiqCwZnB1twKuC.jpg"
+      },
+      {
+        "id": 1121,
+        "character": "Franky Four Fingers",
+        "name": "Benicio del Toro",
+        "profile_path": "/cVh4UgCMu6aAkZ2BqymTLV86FzZ.jpg"
+      },
+      {
+        "id": 980,
+        "character": "Bullet Tooth Tony",
+        "name": "Vinnie Jones",
+        "profile_path": "/tkYWG9gY2QpoBfOh4OWNz8yQfsw.jpg"
+      },
+      {
+        "id": 1119,
+        "character": "Vincent",
+        "name": "Robbie Gee",
+        "profile_path": "/mzzfbA0e4DWgxvIYjaryMolkiqm.jpg"
+      }
+    ]
+  },
+  {
+    "id": 170,
+    "title": "28 วันให้หลัง เชื้อเขมือบคน",
+    "overview": "หลังจากกลุ่มผู้ต่อสู้เพื่อสิทธิสัตว์ ได้บุกเข้าไปยังสถาบันวิจัยสัตว์เจริญพันธุ์ พวกเขาได้พบกับชิมแปนซี ที่ถูกขังและล่ามโซ่ ไว้เบื้องหน้าจอภาพจำนวนมหาศาล ที่แสดงผลของความรุนแรงอันน่าสยดสยอง พวกเขาเพิกเฉยต่อคำเตือนของนักวิจัยผู้ตื่นตระหนก ที่ว่าลิงชิมแปนซีเหล่านั้น 'ติดเชื้อ' และได้ปลดปล่อยพวกมันให้เป็นอิสระ จนเป็นเหตุให้ตกเป็นเหยื่อของการโจมตีอย่างบ้าเลือด ของบรรดาสัตว์ที่กำลังเดือดดาล  เมื่อทุกคนย้ายเข้าไปพักพิงที่ตึกนั้น พวกเขาได้ค้นพบสัญญาณวิทยุอัตโนมัติ ที่คอยคนตอบรับ จากกองทหารในแมนเชสเตอร์ ซึ่งบัญชาการโดย นายพล เฮนรี่ เวสท์ (คริสโตเฟอร์ เอคเคลสตัน) ผู้อ้างว่ามี 'คำตอบ' ของการติดเชื้อ และเชื้อเชิญให้ผู้รอดชีวิตทุกคน เข้ารวมกลุ่มกับพวกเขาที่ฐานทัพปิด เมื่อไม่ทางเลือกอื่นใดอีก ทั้งกลุ่มจึงมุ่งหน้าเดินทางขึ้นเหนือ ด้วยรถแท็กซี่สีดำของแฟรงค์ โดยหารู้ไม่ว่า กำลังจะเผชิญหน้ากับสิ่งที่เลวร้ายที่สุด!",
+    "popularity": 54.219,
+    "release_date": "2002-10-31",
+    "runtime": 113,
+    "vote_average": 7.2,
+    "external_ids": {
+      "imdb_id": "tt0289043",
+      "wikidata_id": null,
+      "facebook_id": null,
+      "instagram_id": null,
+      "twitter_id": null
+    },
+    "poster_path": "https://image.tmdb.org/t/p/w780/sQckQRt17VaWbo39GIu0TMOiszq.jpg",
+    "backdrop_path": "/veUl0QT8swshQ9Dz0fQ1k6ZkthD.jpg",
+    "keywords": [
+      "london, england",
+      "taxi",
+      "submachine gun",
+      "gas station",
+      "daughter",
+      "laboratory",
+      "hospital",
+      "zombie",
+      "brutality",
+      "church",
+      "rage",
+      "epidemic",
+      "cult film",
+      "military",
+      "virus",
+      "waking from coma",
+      "animal research"
+    ],
+    "providers": {},
+    "provider_names": [],
+    "genres": [
+      "สยองขวัญ",
+      "ระทึกขวัญ",
+      "นิยายวิทยาศาสตร์"
+    ],
+    "crew": [
+      {
+        "name": "Danny Boyle",
+        "job": "Director",
+        "id": 2034
+      },
+      {
+        "name": "Andrew Macdonald",
+        "job": "Producer",
+        "id": 2035
+      }
+    ],
+    "cast": [
+      {
+        "id": 2037,
+        "character": "Jim",
+        "name": "Cillian Murphy",
+        "profile_path": "/dm6V24NjjvjMiCtbMkc8Y2WPm2e.jpg"
+      },
+      {
+        "id": 2038,
+        "character": "Selena",
+        "name": "Naomie Harris",
+        "profile_path": "/pDFs4gSeKSyIF8PditvtHqAq687.jpg"
+      },
+      {
+        "id": 2039,
+        "character": "Frank",
+        "name": "Brendan Gleeson",
+        "profile_path": "/379TXtBPRrkBDrEBWPQ5v3up7kT.jpg"
+      },
+      {
+        "id": 2058,
+        "character": "Hannah",
+        "name": "Megan Burns",
+        "profile_path": "/noZ906Dg9eXh3ZndF7EYVo60hHT.jpg"
+      },
+      {
+        "id": 2040,
+        "character": "Major Henry West",
+        "name": "Christopher Eccleston",
+        "profile_path": "/46aeaZ1XLxHohlahDH7AwGKBuKs.jpg"
+      },
+      {
+        "id": 2050,
+        "character": "Mark",
+        "name": "Noah Huntley",
+        "profile_path": "/dAwfkCqQOFqADngR4vAE9lG7D8Z.jpg"
+      },
+      {
+        "id": 2052,
+        "character": "Jim's Father",
+        "name": "Christopher Dunne",
+        "profile_path": "/pu0atI2rsMIcmOmh9tuDwYid1bX.jpg"
+      },
+      {
+        "id": 2054,
+        "character": "Jim's Mother",
+        "name": "Emma Hitching",
+        "profile_path": "/4FC7IZr1CZCFOo5tjeBaXnnU5Bf.jpg"
+      }
+    ]
+  },
+  {
+    "id": 274,
+    "title": "อำมหิตไม่เงียบ",
+    "overview": "คลาริซ สตาร์ลิ่ง (โจดี้ ฟอสเตอร์) เอฟบีไอสาว ได้รับมอบหมายให้ตามหาหญิงสาวผู้สูญหาย เพื่อช่วยชีวิตเธอคนนั้นจากฆาตกรต่อเนื่องโรคจิตผู้ชอบถลกหนังเหยื่อทุกราย และเพื่อที่จะทำความเข้าใจความคิดเบื้องลึกของฆาตกรได้มากขึ้น คลาลิซ จึงได้เข้าไปหาเพื่อพูดคุยกับฆาตกรโรคจิตอีกคนที่ถูกจำคุกอยู่ คือ ฮันนิบาล เลกเตอร์ (แอนโธนี่ ฮอปกิ้นส์) ผู้เคยเป็นถึงจิตแพทย์และยังฉลาดเป็นกรด คลาริซ ที่ต้องการให้ ฮันนิบาล ช่วยในการตามหาฆาตกรจึงพยายามทำทุกวิถีทางให้ ฮันนิบาลยอมเผยข้อมูลที่เป็นประโยชน์กับการช่วยเหลือเหยื่อครั้งนี้ของเธอให้ได้",
+    "popularity": 13.85,
+    "release_date": "1991-02-14",
+    "runtime": 119,
+    "vote_average": 8.343,
+    "external_ids": {
+      "imdb_id": "tt0102926",
+      "wikidata_id": null,
+      "facebook_id": null,
+      "instagram_id": null,
+      "twitter_id": null
+    },
+    "poster_path": "https://image.tmdb.org/t/p/w780/rplLJ2hPcOQmkFhTqUte0MkEaO2.jpg",
+    "backdrop_path": "/aYcnDyLMnpKce1FOYUpZrXtgUye.jpg",
+    "keywords": [
+      "based on novel or book",
+      "fbi",
+      "kidnapping",
+      "psychopath",
+      "horror",
+      "murder",
+      "serial killer",
+      "psychological thriller",
+      "brutality",
+      "cannibal",
+      "moth",
+      "virginia"
+    ],
+    "providers": {
+      "buy": [
+        {
+          "name": "Apple iTunes",
+          "logo": "/peURlLlr8jggOwK53fJ5wdQl05y.jpg"
+        },
+        {
+          "name": "Google Play Movies",
+          "logo": "/tbEdFQDwx5LEVr8WpSeXQSIirVq.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "name": "Apple iTunes",
+          "logo": "/peURlLlr8jggOwK53fJ5wdQl05y.jpg"
+        },
+        {
+          "name": "Google Play Movies",
+          "logo": "/tbEdFQDwx5LEVr8WpSeXQSIirVq.jpg"
+        }
+      ]
+    },
+    "provider_names": [
+      "Apple iTunes",
+      "Google Play Movies"
+    ],
+    "genres": [
+      "อาชญากรรม",
+      "หนังชีวิต",
+      "ระทึกขวัญ"
+    ],
+    "crew": [
+      {
+        "name": "Jonathan Demme",
+        "job": "Director",
+        "id": 16294
+      },
+      {
+        "name": "Ronald M. Bozman",
+        "job": "Producer",
+        "id": 16296
+      },
+      {
+        "name": "Edward Saxon",
+        "job": "Producer",
+        "id": 16297
+      },
+      {
+        "name": "Kenneth Utt",
+        "job": "Producer",
+        "id": 16298
+      }
+    ],
+    "cast": [
+      {
+        "id": 1038,
+        "character": "Clarice M. Starling",
+        "name": "Jodie Foster",
+        "profile_path": "/AodjR16HMtbV8zZsUJdvJUSYxlo.jpg"
+      },
+      {
+        "id": 4173,
+        "character": "Dr. Hannibal Lecter",
+        "name": "Anthony Hopkins",
+        "profile_path": "/9ukJS2QWTJ22HcwR1ktMmoJ6RSL.jpg"
+      },
+      {
+        "id": 349,
+        "character": "Jack Crawford",
+        "name": "Scott Glenn",
+        "profile_path": "/t3t8UK98DnAPOZE8IGsEUCDjcjp.jpg"
+      },
+      {
+        "id": 15854,
+        "character": "Jame 'Buffalo Bill' Gumb",
+        "name": "Ted Levine",
+        "profile_path": "/4oqD1t4IQ06ssIogBs2Wlk95GDb.jpg"
+      },
+      {
+        "id": 16293,
+        "character": "Dr. Frederick Chilton",
+        "name": "Anthony Heald",
+        "profile_path": "/e0E6Z1Y0debr4mAHgj0HO7MYyXG.jpg"
+      },
+      {
+        "id": 31649,
+        "character": "Catherine Martin",
+        "name": "Brooke Smith",
+        "profile_path": "/bBWxi3qVAC15mzYFE4YgpOjWB5Z.jpg"
+      },
+      {
+        "id": 6930,
+        "character": "Senator Ruth Martin",
+        "name": "Diane Baker",
+        "profile_path": "/604pSqQ2EuieEv1P2BErJoCE5hJ.jpg"
+      },
+      {
+        "id": 51864,
+        "character": "Ardelia Mapp",
+        "name": "Kasi Lemmons",
+        "profile_path": "/hof1zuo2FRj83xNuJWl1sWUPMtS.jpg"
+      }
+    ]
+  },
+  {
+    "id": 101,
+    "title": "เพชฌฆาต..มหากาฬ",
+    "overview": "เรื่องราวของ ลีออง นักฆ่าชาวฝรั่งเศส ผู้เป็นมืออาชีพอย่างมากในงานของเขา เขาเป็นคนมีระเบียบแบบแผน และเป็นที่วางใจได้...ว่าจ้างเขาฆ่าใครแล้ว..ไม่มีพลาดแน่นอน !! แต่ในทางกลับกัน..เขาเป็นคนซื่อ ๆ ไม่ค่อยทันเล่ห์เหลี่ยมใคร จนเมื่อเขามีโอกาสย้ายมาเมืองใหญ่อย่างอเมริกาและที่นี่...ชีวิตของเขาต้องพบกับความเปลี่ยนแปลงมากมาย",
+    "popularity": 55.171,
+    "release_date": "1994-09-14",
+    "runtime": 111,
+    "vote_average": 8.32,
+    "external_ids": {
+      "imdb_id": "tt0110413",
+      "wikidata_id": null,
+      "facebook_id": null,
+      "instagram_id": null,
+      "twitter_id": null
+    },
+    "poster_path": "https://image.tmdb.org/t/p/w780/yI6X2cCM5YPJtxMhUd3dPGqDAhw.jpg",
+    "backdrop_path": "/jRJrQ72VLyEnVsvwfep8Xjlvu8c.jpg",
+    "keywords": [
+      "new york city",
+      "corruption",
+      "loss of loved one",
+      "assassin",
+      "police brutality",
+      "hotel room",
+      "s.w.a.t.",
+      "immigrant",
+      "hitman",
+      "training",
+      "revenge",
+      "murder",
+      "loneliness",
+      "neighbor",
+      "tragic love",
+      "cult film",
+      "city life",
+      "neo-noir",
+      "complex relationship"
+    ],
+    "providers": {},
+    "provider_names": [],
+    "genres": [
+      "อาชญากรรม",
+      "หนังชีวิต",
+      "บู๊"
+    ],
+    "crew": [
+      {
+        "name": "Luc Besson",
+        "job": "Director",
+        "id": 59
+      },
+      {
+        "name": "Patrice Ledoux",
+        "job": "Producer",
+        "id": 60
+      }
+    ],
+    "cast": [
+      {
+        "id": 1003,
+        "character": "Léon Montana",
+        "name": "Jean Reno",
+        "profile_path": "/q7dYamebioHRuvb9EWeSw8yTEfS.jpg"
+      },
+      {
+        "id": 524,
+        "character": "Mathilda Lando",
+        "name": "Natalie Portman",
+        "profile_path": "/zE90yInhhU8fLz1HgWpB9KPvGnE.jpg"
+      },
+      {
+        "id": 64,
+        "character": "Norman Stansfield",
+        "name": "Gary Oldman",
+        "profile_path": "/2v9FVVBUrrkW2m3QOcYkuhq9A6o.jpg"
+      },
+      {
+        "id": 1004,
+        "character": "Tony",
+        "name": "Danny Aiello",
+        "profile_path": "/e7Q6hgWilShqGZ572ByWF9eshMm.jpg"
+      },
+      {
+        "id": 1005,
+        "character": "Malky",
+        "name": "Peter Appel",
+        "profile_path": "/AvOZjWVwklfJHNHD2AwLmYRhSXw.jpg"
+      },
+      {
+        "id": 1010,
+        "character": "Mathilda's Father",
+        "name": "Michael Badalucco",
+        "profile_path": "/ntqAjxrBsyXbRzAaln4ynSBTE1r.jpg"
+      },
+      {
+        "id": 13420,
+        "character": "Mathilda's Mother",
+        "name": "Ellen Greene",
+        "profile_path": "/nJzE8dS38hxbALr5LZ88BYt8dm0.jpg"
+      },
+      {
+        "id": 122230,
+        "character": "Mathilda's Sister",
+        "name": "Elizabeth Regen",
+        "profile_path": "/2b2OsMuFacGHOltWazbYjQmleFy.jpg"
+      }
+    ]
+  },
+  {
+    "id": 185,
+    "title": "อะ คล็อกเวิร์ก ออเรนจ์ คนไขลาน",
+    "overview": "",
+    "popularity": 45.203,
+    "release_date": "1971-12-19",
+    "runtime": 136,
+    "vote_average": 8.221,
+    "external_ids": {
+      "imdb_id": "tt0066921",
+      "wikidata_id": null,
+      "facebook_id": "AClockworkOrangeFilm",
+      "instagram_id": null,
+      "twitter_id": null
+    },
+    "poster_path": "https://image.tmdb.org/t/p/w780/4sHeTAp65WrSSuc05nRBKddhBxO.jpg",
+    "backdrop_path": "/bR4U9n9YnZOvBUhOUNl316UNEyh.jpg",
+    "keywords": [
+      "london, england",
+      "street gang",
+      "robbery",
+      "sexuality",
+      "based on novel or book",
+      "parent child relationship",
+      "great britain",
+      "nihilism",
+      "social worker",
+      "society",
+      "dystopia",
+      "psychopath",
+      "satire",
+      "dark comedy",
+      "juvenile delinquent",
+      "cult film",
+      "sex crime",
+      "futuristic society"
+    ],
+    "providers": {
+      "buy": [
+        {
+          "name": "Apple iTunes",
+          "logo": "/peURlLlr8jggOwK53fJ5wdQl05y.jpg"
+        },
+        {
+          "name": "Google Play Movies",
+          "logo": "/tbEdFQDwx5LEVr8WpSeXQSIirVq.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "name": "Apple iTunes",
+          "logo": "/peURlLlr8jggOwK53fJ5wdQl05y.jpg"
+        },
+        {
+          "name": "Google Play Movies",
+          "logo": "/tbEdFQDwx5LEVr8WpSeXQSIirVq.jpg"
+        }
+      ]
+    },
+    "provider_names": [
+      "Apple iTunes",
+      "Google Play Movies"
+    ],
+    "genres": [
+      "นิยายวิทยาศาสตร์",
+      "หนังชีวิต"
+    ],
+    "crew": [
+      {
+        "name": "Stanley Kubrick",
+        "job": "Director",
+        "id": 240
+      },
+      {
+        "name": "Stanley Kubrick",
+        "job": "Producer",
+        "id": 240
+      }
+    ],
+    "cast": [
+      {
+        "id": 56890,
+        "character": "Alex",
+        "name": "Malcolm McDowell",
+        "profile_path": "/hL8ep4Hqj6izX7IlzE7Bbcfq62w.jpg"
+      },
+      {
+        "id": 2264,
+        "character": "Mr Alexander",
+        "name": "Patrick Magee",
+        "profile_path": "/99xStF5zQy6qkDxLnIVaKD3urzI.jpg"
+      },
+      {
+        "id": 2267,
+        "character": "Chief Guard",
+        "name": "Michael Bates",
+        "profile_path": "/53ciikCHIcr1thlDFvQtzNNbFAd.jpg"
+      },
+      {
+        "id": 2268,
+        "character": "Dim",
+        "name": "Warren Clarke",
+        "profile_path": "/ecBiugofrkuSk5tRu6IUpQDNGio.jpg"
+      },
+      {
+        "id": 117548,
+        "character": "Stage Actor",
+        "name": "John Clive",
+        "profile_path": "/byi1kf7LWeo5BtTCRonQOTzKjsQ.jpg"
+      },
+      {
+        "id": 2265,
+        "character": "Mrs. Alexander",
+        "name": "Adrienne Corri",
+        "profile_path": "/mrjM7TKfQybSEGQppwMZaCxjLhp.jpg"
+      },
+      {
+        "id": 2272,
+        "character": "Dr. Brodsky",
+        "name": "Carl Duering",
+        "profile_path": "/myca5caWA6rizVWuXdUT6UcbnhI.jpg"
+      },
+      {
+        "id": 2273,
+        "character": "Tramp",
+        "name": "Paul Farrell",
+        "profile_path": "/pobD8UuwqAWibufj4SUMnVUYj4p.jpg"
+      }
+    ]
+  },
+  {
+    "id": 162,
+    "title": "เอ็ดเวิร์ด มือกรรไกร",
+    "overview": "",
+    "popularity": 45.23,
+    "release_date": "1990-12-05",
+    "runtime": 105,
+    "vote_average": 7.714,
+    "external_ids": {
+      "imdb_id": "tt0099487",
+      "wikidata_id": null,
+      "facebook_id": null,
+      "instagram_id": null,
+      "twitter_id": null
+    },
+    "poster_path": "https://image.tmdb.org/t/p/w780/zmCob9ckBVHRpMOcsj7unpG8riU.jpg",
+    "backdrop_path": "/uNLIMPxknsV4n3IAEDpS1iqF5dm.jpg",
+    "keywords": [
+      "underdog",
+      "love at first sight",
+      "hairdresser",
+      "small town",
+      "scissors",
+      "inventor",
+      "burglar",
+      "isolation",
+      "sadness",
+      "symbolism",
+      "castle",
+      "fairy tale",
+      "unsociability",
+      "alone",
+      "flashback",
+      "tragic love",
+      "snow",
+      "gothic",
+      "told in flashback",
+      "christmas horror",
+      "christmas",
+      "artificial",
+      "hair salon",
+      "signs & wonders",
+      "love story",
+      "goth",
+      "frankenstein",
+      "topiary"
+    ],
+    "providers": {
+      "flatrate": [
+        {
+          "name": "Hotstar",
+          "logo": "/7Fl8ylPDclt3ZYgNbW2t7rbZE9I.jpg"
+        }
+      ]
+    },
+    "provider_names": [
+      "Hotstar"
+    ],
+    "genres": [
+      "จินตนาการ",
+      "หนังชีวิต",
+      "หนังรักโรแมนติก"
+    ],
+    "crew": [
+      {
+        "name": "Tim Burton",
+        "job": "Director",
+        "id": 510
+      },
+      {
+        "name": "Tim Burton",
+        "job": "Producer",
+        "id": 510
+      },
+      {
+        "name": "Denise Di Novi",
+        "job": "Producer",
+        "id": 1899
+      }
+    ],
+    "cast": [
+      {
+        "id": 85,
+        "character": "Edward Scissorhands",
+        "name": "Johnny Depp",
+        "profile_path": "/dHvp2FafEE5OGFy9kcX2l8oMIsH.jpg"
+      },
+      {
+        "id": 1920,
+        "character": "Kim",
+        "name": "Winona Ryder",
+        "profile_path": "/5yteOSY2lgGOgSWmRTlxqfY59MS.jpg"
+      },
+      {
+        "id": 1902,
+        "character": "Peg",
+        "name": "Dianne Wiest",
+        "profile_path": "/axqtFLgJNNz0N9i443USHCOvrmY.jpg"
+      },
+      {
+        "id": 1903,
+        "character": "Bill",
+        "name": "Alan Arkin",
+        "profile_path": "/aJUO84DmlxsUWLc4Vrx3NXUVMq4.jpg"
+      },
+      {
+        "id": 1904,
+        "character": "Jim",
+        "name": "Anthony Michael Hall",
+        "profile_path": "/nLthzoCuNxxd3KteIrnnMg1066G.jpg"
+      },
+      {
+        "id": 1905,
+        "character": "The Inventor",
+        "name": "Vincent Price",
+        "profile_path": "/zhIh0YkweGOjiARx0wKhzdpB6kS.jpg"
+      },
+      {
+        "id": 1907,
+        "character": "Joyce",
+        "name": "Kathy Baker",
+        "profile_path": "/c5MAs0tvUg9pdxbayxRAFLm0Qz5.jpg"
+      },
+      {
+        "id": 1908,
+        "character": "Kevin",
+        "name": "Robert Oliveri",
+        "profile_path": "/nVQaZ3cBGPXYzPheCoYpCV2Vz7I.jpg"
+      }
+    ]
+  },
+  {
+    "id": 111,
+    "title": "มาเฟียหน้าบาก",
+    "overview": "อัล ปาชิโนรับบทเป็นโทนี่ มอนแทนา ผู้ลี้ภัยจากคิวบาและกลายเป็นเจ้าพ่อนักค้ายาเสพติดผู้ยิ่งใหญ่แห่งฟลอริดา แต่แล้วความหายนะก็มาเยือนเมื่อเขากลายเป็นทั้งคนขายและคนเสพ",
+    "popularity": 69.141,
+    "release_date": "1983-12-09",
+    "runtime": 170,
+    "vote_average": 8.162,
+    "external_ids": {
+      "imdb_id": "tt0086250",
+      "wikidata_id": null,
+      "facebook_id": null,
+      "instagram_id": null,
+      "twitter_id": null
+    },
+    "poster_path": "https://image.tmdb.org/t/p/w780/okI7w6NPMIrIHrss2mMPRt8xUsS.jpg",
+    "backdrop_path": "/1qM2BYNE11Viby8ImC9LC00DgDr.jpg",
+    "keywords": [
+      "sibling relationship",
+      "miami, florida",
+      "corruption",
+      "loss of loved one",
+      "cuba",
+      "prohibition era",
+      "cocaine",
+      "gangster",
+      "rise and fall",
+      "remake",
+      "drug cartel",
+      "mafia",
+      "drug lord",
+      "bitterness",
+      "rise to power",
+      "miami beach",
+      "cuban refugees",
+      "drug war"
+    ],
+    "providers": {
+      "buy": [
+        {
+          "name": "Apple iTunes",
+          "logo": "/peURlLlr8jggOwK53fJ5wdQl05y.jpg"
+        },
+        {
+          "name": "Google Play Movies",
+          "logo": "/tbEdFQDwx5LEVr8WpSeXQSIirVq.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "name": "Apple iTunes",
+          "logo": "/peURlLlr8jggOwK53fJ5wdQl05y.jpg"
+        },
+        {
+          "name": "Google Play Movies",
+          "logo": "/tbEdFQDwx5LEVr8WpSeXQSIirVq.jpg"
+        }
+      ],
+      "flatrate": [
+        {
+          "name": "Amazon Prime Video",
+          "logo": "/emthp39XA2YScoYL1p0sdbAH2WA.jpg"
+        }
+      ]
+    },
+    "provider_names": [
+      "Apple iTunes",
+      "Google Play Movies",
+      "Amazon Prime Video"
+    ],
+    "genres": [
+      "บู๊",
+      "อาชญากรรม",
+      "หนังชีวิต"
+    ],
+    "crew": [
+      {
+        "name": "Brian De Palma",
+        "job": "Director",
+        "id": 1150
+      },
+      {
+        "name": "Martin Bregman",
+        "job": "Producer",
+        "id": 1151
+      }
+    ],
+    "cast": [
+      {
+        "id": 1158,
+        "character": "Tony Montana",
+        "name": "Al Pacino",
+        "profile_path": "/fMDFeVf0pjopTJbyRSLFwNDm8Wr.jpg"
+      },
+      {
+        "id": 1159,
+        "character": "Manny Ribera",
+        "name": "Steven Bauer",
+        "profile_path": "/wWIgfXMRyGFKBWhV9yc8CObNqfh.jpg"
+      },
+      {
+        "id": 1160,
+        "character": "Elvira Hancock",
+        "name": "Michelle Pfeiffer",
+        "profile_path": "/oGUmQBU87QXAsnaGleYaAjAXSlj.jpg"
+      },
+      {
+        "id": 1161,
+        "character": "Gina",
+        "name": "Mary Elizabeth Mastrantonio",
+        "profile_path": "/vbZ1E557K5oj34xLHR5ErO8wPCi.jpg"
+      },
+      {
+        "id": 1162,
+        "character": "Frank Lopez",
+        "name": "Robert Loggia",
+        "profile_path": "/mRSUgJnfprCNw83pyVfpfW7ryfK.jpg"
+      },
+      {
+        "id": 1163,
+        "character": "Mama Montana",
+        "name": "Miriam Colon",
+        "profile_path": "/q28HflnWv0tDOAiJYRWM7TR735W.jpg"
+      },
+      {
+        "id": 1164,
+        "character": "Omar Suarez",
+        "name": "F. Murray Abraham",
+        "profile_path": "/p2RYVGdrcP0m70BkkiKcwyrDeim.jpg"
+      },
+      {
+        "id": 1165,
+        "character": "Alejandro Sosa",
+        "name": "Paul Shenar",
+        "profile_path": "/kc0I4h9fTY8WP3wyQbwVWEzbmil.jpg"
+      }
+    ]
+  }
+]

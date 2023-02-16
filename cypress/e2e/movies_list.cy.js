@@ -11,6 +11,10 @@ describe(`Home page`, () => {
       cy.addDocuments('movies-ja-JP', movies)
       cy.wait(WAITING_TIME)
     })
+    cy.fixture('../../assets/movies-th-TH.json').then(movies => {
+      cy.addDocuments('movies-th-TH', movies)
+      cy.wait(WAITING_TIME)
+    })
   })
 
   beforeEach(() => {
@@ -64,17 +68,19 @@ describe(`Home page`, () => {
         '[data-cy="settings-desktop"] button[aria-label="Language selector"]'
       )
     })
-    it('Should have 2 country indexes', () => {
+    it('Should have 3 country indexes', () => {
       cy.get('[data-cy="country-switcher-desktop"]').click()
       cy.get(
         '[data-cy="settings-desktop"] div[aria-label="Language list"] > div'
       )
         .children()
-        .should('have.length', 2)
+        .should('have.length', 3)
     })
 
-    it('Should switch between country', () => {
+    it('Should switch between countries', () => {
       cy.get('ul.ais-Hits-list').children().contains('Batman')
+
+      // Switch to Japanese
       cy.get('[data-cy="country-switcher-desktop"]').click()
       cy.get(
         '[data-cy="settings-desktop"] div[aria-label="Language list"] > div'
@@ -83,6 +89,16 @@ describe(`Home page`, () => {
         .eq(1)
         .click()
       cy.get('ul.ais-Hits-list').children().contains('バットマン')
+
+      // Switch to Thai
+      cy.get('[data-cy="country-switcher-desktop"]').click()
+      cy.get(
+        '[data-cy="settings-desktop"] div[aria-label="Language list"] > div'
+      )
+        .children()
+        .eq(2)
+        .click()
+      cy.get('ul.ais-Hits-list').children().contains('แบทแมน')
     })
 
     it('Should save the country preferences inside localStorage', () => {

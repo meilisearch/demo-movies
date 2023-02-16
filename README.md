@@ -56,7 +56,7 @@ You can run a Meilisearch instance locally with the following command:
 ```
 docker run -it --rm \
     -p 7700:7700 \
-    getmeili/meilisearch:v0.28.0 \
+    getmeili/meilisearch:v0.30.0 \
     meilisearch --env="development"
 ```
 
@@ -131,7 +131,7 @@ An example can be found in the `.env.example` file. You can either rename this f
 
 ## Compatibility with Meilisearch
 
-This package only guarantees the compatibility with the [version v0.28.0 of Meilisearch](https://github.com/meilisearch/meilisearch/releases/tag/v0.28.0).
+This demo only guarantees the compatibility with the [version v0.30.0 of Meilisearch](https://github.com/meilisearch/meilisearch/releases/tag/v0.30.0).
 
 ## Storybook
 
