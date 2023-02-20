@@ -149,7 +149,7 @@ npm run storybook
 
 ## Testing
 
-Tests are implemented using Cypress. To run the tests, first **launch a MeiliSearch instance**, then run:
+Tests are implemented using Cypress. To run the tests, first **launch a Meilisearch instance**, then run:
 
 ```bash
 yarn test
