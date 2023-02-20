@@ -29,7 +29,7 @@ jobs:
       options: --user 1001
     services:
       meilisearch:
-        image: getmeili/meilisearch:v1.0
+        image: getmeili/meilisearch:v1.0.1
         env:
           MEILI_MASTER_KEY: "masterKey"
           MEILI_NO_ANALYTICS: "true"
