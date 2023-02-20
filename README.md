@@ -56,7 +56,7 @@ You can run a Meilisearch instance locally with the following command:
 ```
 docker run -it --rm \
     -p 7700:7700 \
-    getmeili/meilisearch:v0.30.0 \
+    getmeili/meilisearch:v1.0 \
     meilisearch --env="development"
 ```
 
@@ -131,7 +131,7 @@ An example can be found in the `.env.example` file. You can either rename this f
 
 ## Compatibility with Meilisearch
 
-This demo only guarantees the compatibility with the [version v0.30.0 of Meilisearch](https://github.com/meilisearch/meilisearch/releases/tag/v0.30.0).
+This demo only guarantees the compatibility with the [version v1.0 of Meilisearch](https://github.com/meilisearch/meilisearch/releases/tag/v1.0.0).
 
 ## Storybook
 
@@ -145,4 +145,28 @@ or
 
 ```bash
 npm run storybook
+```
+
+## Testing
+
+Tests are implemented using Cypress. To run the tests, first **launch a Meilisearch instance**, then run:
+
+```bash
+yarn test
+```
+
+**Environment variables**
+
+Environment variables are configured in `cypress.config.js`:
+
+```js
+const { defineConfig } = require('cypress')
+
+module.exports = defineConfig({
+  // ...
+  env: {
+      MEILISEARCH_HOST: 'http://0.0.0.0:7700',
+      MEILISEARCH_API_KEY: 'masterKey',
+    }
+}
 ```

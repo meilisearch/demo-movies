@@ -29,19 +29,19 @@ jobs:
       options: --user 1001
     services:
       meilisearch:
-        image: getmeili/meilisearch:v0.28.0
+        image: getmeili/meilisearch:v1.0.1
         env:
-          MEILI_MASTER_KEY: 'masterKey'
-          MEILI_NO_ANALYTICS: 'true'
+          MEILI_MASTER_KEY: "masterKey"
+          MEILI_NO_ANALYTICS: "true"
         ports:
-          - '7700:7700'
+          - "7700:7700"
     steps:
       - uses: actions/checkout@v3
       - name: Setup node and cache
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
+          cache: "yarn"
           cache-dependency-path: yarn.lock
       - name: Install dependencies
         run: yarn
@@ -49,10 +49,10 @@ jobs:
         uses: cypress-io/github-action@v4
         env:
           CYPRESS_MEILISEARCH_HOST: http://meilisearch:7700
-          CYPRESS_MEILISEARCH_API_KEY: 'masterKey'
+          CYPRESS_MEILISEARCH_API_KEY: "masterKey"
         with:
           start: yarn ci:dev
-          wait-on: 'http://localhost:3000'
+          wait-on: "http://localhost:3000"
           command: yarn cy:run
           config-file: cypress.config.js
       - uses: actions/upload-artifact@v3
