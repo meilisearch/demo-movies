@@ -1394,12 +1394,12 @@
   resolved "https://registry.yarnpkg.com/@mdx-js/util/-/util-1.6.22.tgz#219dfd89ae5b97a8801f015323ffa4b62f45718b"
   integrity sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==
 
-"@meilisearch/instant-meilisearch@^0.11.1":
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/@meilisearch/instant-meilisearch/-/instant-meilisearch-0.11.1.tgz#1b8fdbbfee9d67ed8dcab46cedfae05bc0ded11c"
-  integrity sha512-FOAp1Lh1CAoY1CIJ2aYBYqw3oHcgzYEOBarPcrNqBfw0wQXuj6rHgANGm21pSxl8BNHLyYX85ntyOcUfD5f03g==
+"@meilisearch/instant-meilisearch@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@meilisearch/instant-meilisearch/-/instant-meilisearch-0.12.0.tgz#5a8cdfd0d0f3b9ebc578dffb5e061bae051f4c10"
+  integrity sha512-DmiqrJvW5onR8pDxXWvg71p10rFx+4sLioZrteT3I033iOVyJbuOTglNMNUetHbRBiCaqJ4kNFx0Yj/fkGzzfg==
   dependencies:
-    meilisearch "^0.31.1"
+    meilisearch "^0.32.1"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -7953,6 +7953,13 @@ meilisearch@^0.31.1:
   version "0.31.1"
   resolved "https://registry.yarnpkg.com/meilisearch/-/meilisearch-0.31.1.tgz#c526274c3cda844e8ee8d9562cbd3febbe1b9508"
   integrity sha512-ajMieU0e25lLkT+05J0snX0Ycow1UofxIy5sag03flERUbjXq8ouVwkrJkW27JsKftIeDeffRRRr89LasU9+0w==
+  dependencies:
+    cross-fetch "^3.1.5"
+
+meilisearch@^0.32.1:
+  version "0.32.3"
+  resolved "https://registry.yarnpkg.com/meilisearch/-/meilisearch-0.32.3.tgz#cbc224014c3dddc818090f4b501029993f117b6a"
+  integrity sha512-EOgfBuRE5SiIPIpEDYe2HO0D7a4z5bexIgaAdJFma/dH5hx1kwO+u/qb2g3qKyjG+iA3l8MlmTj/Xd72uahaAw==
   dependencies:
     cross-fetch "^3.1.5"
 
