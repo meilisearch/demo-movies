@@ -3,8 +3,11 @@ const moviesEn = require('../assets/movies-en-US.json')
 const moviesJp = require('../assets/movies-ja-JP.json')
 const moviesTh = require('../assets/movies-th-TH.json')
 
+require('dotenv').config()
+
 const client = new MeiliSearch({
-  host: 'http://0.0.0.0:7700',
+  host: process.env.MEILISEARCH_URL,
+  apiKey: process.env.MEILISEARCH_ADMIN_KEY,
 })
 
 const indexes = [
@@ -22,10 +25,24 @@ const indexes = [
   },
 ]
 
+const settings = {
+  rankingRules: [
+    'typo',
+    'words',
+    'proximity',
+    'attribute',
+    'exactness',
+    'release_date:desc',
+    'popularity:desc',
+  ],
+  searchableAttributes: ['title'],
+}
+
 const setup = async () => {
   await Promise.all(
     indexes.map(async index => {
       const currentIndex = client.index(index.indexName)
+      await currentIndex.updateSettings(settings)
       await currentIndex.addDocuments(index.documents)
       console.log(`Documents added to ${index.indexName} index`)
     })
