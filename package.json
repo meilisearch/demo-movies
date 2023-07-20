@@ -3,19 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "ci:dev": "NODE_ENV=test next dev",
-    "build": "next build",
+    "dev": "setup && next dev",
+    "build": "yarn setup && next build",
     "start": "next start",
     "lint": "eslint --ext .js .",
     "lint:fix": "eslint --ext .js . --fix",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
     "icons": "npx @svgr/cli --title-prop --no-dimensions --replace-attr-values \"#000=currentColor\" -d src/components/icons src/components/icons/svg",
-    "test": "concurrently --kill-others -s first \"yarn dev\" \"cypress run\"",
-    "test:watch": "concurrently --kill-others -s first \"yarn ci:dev\" \"cypress open\"",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "setup": "node scripts/setup.js"
   },
   "dependencies": {
@@ -34,21 +27,15 @@
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
-    "@storybook/addon-actions": "^6.5.12",
-    "@storybook/addon-essentials": "^6.5.12",
-    "@storybook/addon-links": "^6.5.12",
-    "@storybook/react": "^6.5.12",
     "babel-loader": "^9.1.0",
     "babel-plugin-macros": "^3.1.0",
     "concurrently": "^7.6.0",
-    "cypress": "^12.8.1",
     "eslint": "7.32.0",
     "eslint-config-next": "11.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-cypress": "^2.11.3",
     "eslint-plugin-prettier": "^3.4.0",
     "meilisearch": "^0.31.1",
-    "prettier": "^2.3.2",
-    "storybook-dark-mode": "^1.1.2"
+    "prettier": "^2.3.2"
   }
 }
