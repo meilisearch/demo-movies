@@ -1394,12 +1394,12 @@
   resolved "https://registry.yarnpkg.com/@mdx-js/util/-/util-1.6.22.tgz#219dfd89ae5b97a8801f015323ffa4b62f45718b"
   integrity sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==
 
-"@meilisearch/instant-meilisearch@^0.11.1":
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/@meilisearch/instant-meilisearch/-/instant-meilisearch-0.11.1.tgz#1b8fdbbfee9d67ed8dcab46cedfae05bc0ded11c"
-  integrity sha512-FOAp1Lh1CAoY1CIJ2aYBYqw3oHcgzYEOBarPcrNqBfw0wQXuj6rHgANGm21pSxl8BNHLyYX85ntyOcUfD5f03g==
+"@meilisearch/instant-meilisearch@^0.13.5":
+  version "0.13.5"
+  resolved "https://registry.yarnpkg.com/@meilisearch/instant-meilisearch/-/instant-meilisearch-0.13.5.tgz#c6950b87db085ac20ecfc8dbfdcbe3fee98d2e8e"
+  integrity sha512-+3s1a+ejjqpvJROBKtxPRKjEeB9RoA/4VTwkNRmOf/XGl3PLpMcsrVHND/n2SSAi7nZmAs0vNMmt7ZbpmOazeQ==
   dependencies:
-    meilisearch "^0.31.1"
+    meilisearch "^0.34.0"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -4690,6 +4690,13 @@ cross-fetch@^3.1.5:
   dependencies:
     node-fetch "2.6.7"
 
+cross-fetch@^3.1.6:
+  version "3.1.8"
+  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.8.tgz#0327eba65fd68a7d119f8fb2bf9334a1a7956f82"
+  integrity sha512-cvA+JwZoU0Xq+h6WkMvAUqPEYy92Obet6UdKLfW60qn99ftItKjB5T+BkyWOFWe2pUyfQ+IJHmpOTznqk1M6Kg==
+  dependencies:
+    node-fetch "^2.6.12"
+
 cross-spawn@^6.0.0:
   version "6.0.5"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-6.0.5.tgz#4a5ec7c64dfae22c3a14124dbacdee846d80cbc4"
@@ -7956,6 +7963,13 @@ meilisearch@^0.31.1:
   dependencies:
     cross-fetch "^3.1.5"
 
+meilisearch@^0.34.0:
+  version "0.34.1"
+  resolved "https://registry.yarnpkg.com/meilisearch/-/meilisearch-0.34.1.tgz#9d003a81280a95394e52e2116e8244e3bca54555"
+  integrity sha512-7mrLp88JfrbvhAMhOjNPzHGd2iCLHgzNhkveMxppMOToMLQw4Ygof4ksQ9uFi7SKq3UwEhIoMoFT1rUHLD3vWQ==
+  dependencies:
+    cross-fetch "^3.1.6"
+
 memfs@^3.1.2:
   version "3.4.13"
   resolved "https://registry.yarnpkg.com/memfs/-/memfs-3.4.13.tgz#248a8bd239b3c240175cd5ec548de5227fc4f345"
@@ -8376,6 +8390,13 @@ node-fetch@^2.6.1, node-fetch@^2.6.7:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.9.tgz#7c7f744b5cc6eb5fd404e0c7a9fec630a55657e6"
   integrity sha512-DJm/CJkZkRjKKj4Zi4BsKVZh3ValV5IR5s7LVZnW+6YMh0W1BfNA8XSs6DLMGYlId5F3KnA70uu2qepcR08Qqg==
+  dependencies:
+    whatwg-url "^5.0.0"
+
+node-fetch@^2.6.12:
+  version "2.6.13"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.13.tgz#a20acbbec73c2e09f9007de5cda17104122e0010"
+  integrity sha512-StxNAxh15zr77QvvkmveSQ8uCQ4+v5FkvNTj0OESmiHu+VRi/gXArXtkWMElOsOUNLtUEvI4yS+rdtOHZTwlQA==
   dependencies:
     whatwg-url "^5.0.0"
 
