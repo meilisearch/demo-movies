@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { DialogBackdrop, DialogContent } from 'components/Dialog'
 import { Cross } from 'components/icons'
 import IconButton from 'components/IconButton'
-import MovieContent from 'blocks/MovieContent'
+import MovieContent from 'components/MovieContent'
 import get from 'utils/get'
 
 const Close = styled(IconButton)`
