@@ -45,13 +45,14 @@ const Home = ({ host, apiKey }) => {
   }, [localStorageCountry])
 
   React.useEffect(() => {
-    if (host && apiKey)
+    if (host && apiKey) {
       setClient(
         instantMeiliSearch(host, apiKey, {
           primaryKey: 'id',
           paginationTotalHits: 24,
         })
       )
+    }
   }, [host, apiKey])
 
   if (!host || !apiKey) return <div>{t('connexionFailed')}</div>
@@ -67,6 +68,7 @@ const Home = ({ host, apiKey }) => {
         </Head>
         {client && (
           <InstantSearch
+            future={{ preserveSharedStateOnUnmount: true }}
             indexName={selectedLanguage.indexName}
             searchClient={client.searchClient}
           >
