@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SearchBox as IsSearchbox } from 'react-instantsearch-dom'
+import { SearchBox as IsSearchbox } from 'react-instantsearch'
 import { Search, Cross } from 'components/icons'
 import get from 'utils/get'
 

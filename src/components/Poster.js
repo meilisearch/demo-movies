@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Image from 'next/image'
 
 const Wrapper = styled.div`
+  background-color: var(--gray-600);
   position: relative;
   border-radius: 8px;
   overflow: hidden;

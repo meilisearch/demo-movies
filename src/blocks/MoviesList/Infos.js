@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Stats } from 'react-instantsearch-dom'
+import { Stats } from 'react-instantsearch'
 import { useTranslation } from 'next-i18next'
 import get from 'utils/get'
 import Typography from 'components/Typography'

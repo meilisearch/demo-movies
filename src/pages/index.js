@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Head from 'next/head'
-import { InstantSearch, Configure } from 'react-instantsearch-dom'
+import { InstantSearch, Configure } from 'react-instantsearch'
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -68,7 +68,7 @@ const Home = ({ host, apiKey }) => {
         {client && (
           <InstantSearch
             indexName={selectedLanguage.indexName}
-            searchClient={client}
+            searchClient={client.searchClient}
           >
             <Configure hitsPerPage={24} />
             <Wrapper>
