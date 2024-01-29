@@ -16,7 +16,7 @@
     "test:watch": "concurrently --kill-others -s first \"yarn ci:dev\" \"cypress open\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "setup": "node scripts/setup.js"
+    "setup": "node scripts/seed.js"
   },
   "dependencies": {
     "@meilisearch/instant-meilisearch": "0.15.0",
