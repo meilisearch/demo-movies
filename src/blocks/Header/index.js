@@ -9,6 +9,7 @@ import BaseSearchbox from 'components/Searchbox'
 import DesktopCountrySwitcher from 'components/CountrySwitcher/DesktopCountrySwitcher'
 import MobileSettings from './MobileSettings'
 import GitHub from './GitHubButton'
+import { MEILISEARCH_URL } from 'constants'
 
 const Wrapper = styled(Container)`
   display: flex;
@@ -86,7 +87,7 @@ const Header = () => (
       <h1 style={{ margin: 0 }}>
         <Logo src="images/logo-light-mode.svg" alt="Where to Watch" />
       </h1>
-      <ByMeiliSearch href="https://www.meilisearch.com/" target="_blank">
+      <ByMeiliSearch href={MEILISEARCH_URL} target="_blank">
         <Typography style={{ marginRight: 4 }}>by</Typography>
         <Image
           src="/images/meilisearch.svg"
