@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import LanguageContext from 'context/LanguageContext'
-import { LANGUAGES } from 'data/constants'
+import { LANGUAGES } from 'constants.ts'
 import Radio from 'components/Radio'
 import { useRadioState, RadioGroup } from 'reakit/Radio'
 

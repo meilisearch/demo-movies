@@ -10,7 +10,7 @@ import get from 'utils/get'
 import Header from 'components/Header'
 import Filters from 'components/Filters'
 import MoviesList from 'components/MoviesList/index'
-import { LANGUAGES } from 'data/constants'
+import { LANGUAGES } from 'constants.ts'
 import { LanguageProvider } from 'context/LanguageContext'
 import useLocalStorage from 'hooks/useLocalStorage'
 

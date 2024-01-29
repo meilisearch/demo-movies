@@ -1,7 +1,7 @@
 import React from 'react'
 import Radio from 'components/Radio'
 import { useRadioState, RadioGroup } from 'reakit/Radio'
-import { LANGUAGES } from 'data/constants'
+import { LANGUAGES } from 'constants.ts'
 
 export default {
   title: 'Components/Radio',
