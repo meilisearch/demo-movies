@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Link from 'components/Link'
 import Image from 'next/image'
 import Typography from 'components/Typography'
-import { REPOSITORY_URL } from 'constants'
+import { REPOSITORY_URL } from 'data/constants'
 
 const GitHubLink = styled(Link)`
   color: var(--gray-300);

@@ -9,7 +9,7 @@ import BaseSearchbox from 'components/Searchbox'
 import DesktopCountrySwitcher from 'components/CountrySwitcher/DesktopCountrySwitcher'
 import MobileSettings from './MobileSettings'
 import GitHub from './GitHubButton'
-import { MEILISEARCH_URL } from 'constants'
+import { MEILISEARCH_URL } from 'data/constants'
 
 const Wrapper = styled(Container)`
   display: flex;

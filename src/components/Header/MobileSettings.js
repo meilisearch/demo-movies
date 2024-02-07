@@ -15,7 +15,7 @@ import Toggle from 'components/Toggle'
 import MobileCountrySwitcher from 'components/CountrySwitcher/MobileCountrySwitcher'
 import Link from 'components/Link'
 import GitHubButton from './GitHubButton'
-import { MEILISEARCH_URL } from 'constants'
+import { MEILISEARCH_URL } from 'data/constants'
 
 const Container = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
