@@ -15,6 +15,7 @@ import Toggle from 'components/Toggle'
 import MobileCountrySwitcher from 'components/CountrySwitcher/MobileCountrySwitcher'
 import Link from 'components/Link'
 import GitHubButton from './GitHubButton'
+import { MEILISEARCH_URL } from 'constants'
 
 const Container = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
@@ -131,7 +132,7 @@ const MobileSettings = () => {
                 <Typography>
                   <Link
                     style={{ textDecoration: 'underline', marginLeft: 3 }}
-                    href="https://www.meilisearch.com/"
+                    href={MEILISEARCH_URL}
                     target="_blank"
                   >
                     Meilisearch
