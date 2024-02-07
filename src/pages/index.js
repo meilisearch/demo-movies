@@ -10,7 +10,7 @@ import get from 'utils/get'
 import Header from 'components/Header'
 import Filters from 'components/Filters'
 import MoviesList from 'components/MoviesList/index'
-import { LANGUAGES } from 'constants.ts'
+import { LANGUAGES } from 'data/constants'
 import { LanguageProvider } from 'context/LanguageContext'
 import useLocalStorage from 'hooks/useLocalStorage'
 
@@ -50,6 +50,13 @@ const Home = ({ host, apiKey }) => {
         instantMeiliSearch(host, apiKey, {
           primaryKey: 'id',
           paginationTotalHits: 24,
+          meiliSearchParams: {
+            showRankingScoreDetails: true,
+            hybrid: {
+              semanticRatio: 0.9,
+              embedder: 'default',
+            },
+          },
         })
       )
     }
