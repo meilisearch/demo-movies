@@ -1582,10 +1582,10 @@
   resolved "https://registry.yarnpkg.com/@mdx-js/util/-/util-1.6.22.tgz#219dfd89ae5b97a8801f015323ffa4b62f45718b"
   integrity sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==
 
-"@meilisearch/instant-meilisearch@0.15.0":
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/@meilisearch/instant-meilisearch/-/instant-meilisearch-0.15.0.tgz#474e7bdab57e41ce9870153a084200a584344a14"
-  integrity sha512-rhpmquz7cZg0fI/qGy0HkrcpKXxQkeXIltCyHCbp1y6r/2EgFB2rwY9RDldoyhB8MzbvtHVu/GrUp+99Yxtx7A==
+"@meilisearch/instant-meilisearch@0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@meilisearch/instant-meilisearch/-/instant-meilisearch-0.16.0.tgz#9944b02961b5f67cdaa06bb70c75aa2e30ec6ce4"
+  integrity sha512-JdqG/Wq+8cbzwxz4DKLuUuTetpiAcpaGQaOvi2wJzzXyYfyoiGh3/F12XMY8CA/pfDRLZtrZpDYvYLcsH+QUqw==
   dependencies:
     meilisearch "^0.37.0"
 
