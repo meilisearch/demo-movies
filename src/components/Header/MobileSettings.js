@@ -16,6 +16,7 @@ import MobileCountrySwitcher from 'components/CountrySwitcher/MobileCountrySwitc
 import Link from 'components/Link'
 import GitHubButton from './GitHubButton'
 import { MEILISEARCH_URL } from 'data/constants'
+import Slider from 'components/Slider'
 
 const Container = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
@@ -58,30 +59,42 @@ const Title = styled(Typography)`
   text-align: center;
 `
 
-const Appearence = styled.div`
-  margin-top: 78px;
+const Label = styled(Typography)`
+  display: block;
+  margin-bottom: 16px;
+`
+
+const LabelValueWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`
+
+const Section = styled.div`
+  border-bottom: 1px solid var(--gray-500);
+  padding: 24px 0;
+`
+
+const ColorSchemeSection = styled(Section)`
   display: flex;
   justify-content: space-between;
 `
 
-const CountryPreference = styled.div``
+const LanguageSection = styled(Section)``
 
-const Section = styled.div`
-  border-bottom: 1px solid var(--gray-500);
-  padding-bottom: 24px;
-  padding-top: 12px;
-`
-
-const PoweredBy = styled.div`
-  color: var(--gray-300);
-  margin-top: 68px;
-`
-
-const BottomSection = styled.div`
+const BottomSection = styled(Section)`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border-bottom: none;
+`
+
+const HybridSearchSection = styled(Section)``
+
+const PoweredBy = styled.div`
+  color: var(--gray-300);
+  margin-top: 68px;
 `
 
 const Disclosure = styled(DialogDisclosure)`
@@ -96,6 +109,7 @@ const Disclosure = styled(DialogDisclosure)`
 const MobileSettings = () => {
   const dialog = useDialogState({ animated: true })
   const { t } = useTranslation('common')
+  const [semanticRatio, setSemanticRatio] = React.useState(0.7)
 
   return (
     <Container data-cy="settings-mobile">
@@ -105,27 +119,33 @@ const MobileSettings = () => {
       <Backdrop {...dialog}>
         <Content {...dialog} aria-label="Settings">
           <div style={{ position: 'relative' }}>
-            <Title variant="typo5">{t('settings')}</Title>
+            <Title variant="typo5">{t('menu.settings')}</Title>
             <CloseButton onClick={dialog.hide}>
               <Cross width={18} />
             </CloseButton>
-            <Section>
-              <Appearence>
-                <Typography variant="typo6">{t('appearance')}</Typography>
-                <Toggle onChange={window.__setPreferredTheme} />
-              </Appearence>
-            </Section>
-            <Section>
-              <CountryPreference>
-                <Typography
-                  variant="typo6"
-                  style={{ marginBottom: 16, display: 'block' }}
-                >
-                  {t('countryPreference')}
+            <HybridSearchSection>
+              <LabelValueWrapper>
+                <Label variant="typo6">{t('settings.semanticRatio')}</Label>
+                <Typography variant="default">
+                  {semanticRatio * 100}% semantic
                 </Typography>
-                <MobileCountrySwitcher />
-              </CountryPreference>
-            </Section>
+              </LabelValueWrapper>
+              <Slider
+                min={0}
+                max={1}
+                step={0.1}
+                defaultValue={semanticRatio}
+                onChangeComplete={setSemanticRatio}
+              />
+            </HybridSearchSection>
+            <LanguageSection>
+              <Label variant="typo6">{t('settings.movieLanguage')}</Label>
+              <MobileCountrySwitcher />
+            </LanguageSection>
+            <ColorSchemeSection>
+              <Label variant="typo6">{t('settings.colorScheme')}</Label>
+              <Toggle onChange={window.__setPreferredTheme} />
+            </ColorSchemeSection>
             <BottomSection>
               <PoweredBy>
                 <Typography>{t('poweredBy')}</Typography>
