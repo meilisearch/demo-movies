@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 const Wrapper = styled.div`
   background-color: var(--gray-600);

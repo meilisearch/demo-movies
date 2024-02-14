@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Typography from './Typography'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import get from 'utils/get'
 
 const Wrapper = styled.div``

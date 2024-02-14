@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'components/Link'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import Typography from 'components/Typography'
 import { REPOSITORY_URL } from 'data/constants'
 
