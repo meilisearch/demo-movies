@@ -9,7 +9,7 @@ const StyledLink = styled.a`
 `
 
 const Link = React.forwardRef(({ href, ...props }, ref) => (
-  <NextLink href={href} passHref>
+  <NextLink href={href} passHref legacyBehavior>
     <StyledLink ref={ref} {...props} />
   </NextLink>
 ))
