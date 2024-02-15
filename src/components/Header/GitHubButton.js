@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'components/Link'
-import Image from 'next/image'
+import Image from "next/image"
 import Typography from 'components/Typography'
 import { REPOSITORY_URL } from 'data/constants'
 
@@ -19,18 +19,12 @@ const GitHubButton = props => {
       rel="noreferrer"
       {...props}
     >
-      <Image
-        src="/images/github.svg"
-        alt="GitHub logo"
-        layout="fixed"
-        width={16}
-        height={16}
-      />
+      <Image src="/images/github.svg" alt="GitHub logo" width={16} height={16} />
       <Typography variant="subtitle" style={{ marginLeft: 6 }}>
         GitHub
       </Typography>
     </GitHubLink>
-  )
+  );
 }
 
 export default GitHubButton

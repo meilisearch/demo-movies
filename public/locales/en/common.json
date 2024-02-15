@@ -19,8 +19,15 @@
   "notFoundCta": "Bring me home",
   "processingTime": "in {{processingTime}}ms",
   "noProviderFound": "Sorry, no provider currently offers this program 😢",
-  "settings": "Settings",
-  "appearance": "Appearance",
-  "countryPreference": "Country preference",
-  "poweredBy": "Powered by"
+  "poweredBy": "Powered by",
+
+  "menu": {
+    "settings": "Settings"
+  },
+
+  "settings": {
+    "semanticRatio": "Semantic ratio",
+    "movieLanguage": "Movies language",
+    "colorScheme": "Appearance"
+  }
 }
