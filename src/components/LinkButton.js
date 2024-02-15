@@ -18,7 +18,7 @@ const LinkButton = ({ href, ...props }) => {
     <Link href={href} passHref legacyBehavior>
       <RedLink {...props} />
     </Link>
-  );
+  )
 }
 
 export default LinkButton
