@@ -1,15 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Typography from './Typography'
-import Image from "next/legacy/image"
+import Image from 'next/image'
 import get from 'utils/get'
-
-const Wrapper = styled.div``
-
-const ProfilePicture = styled(Image)`
-  object-fit: cover;
-  border-radius: 50%;
-`
 
 const Text = styled.div`
   text-align: center;
@@ -48,14 +41,14 @@ const PlaceholderProfilePicture = styled.div`
 const People = ({ people, ...props }) => {
   const { character = '', name = '', profile_path = '' } = people
   return (
-    <Wrapper {...props}>
+    <div {...props}>
       {profile_path ? (
-        <ProfilePicture
+        <Image
           src={`https://image.tmdb.org/t/p/w185/${profile_path}`}
           alt={name}
-          layout="responsive"
           width={100}
           height={100}
+          style={{ borderRadius: '50%', objectFit: 'cover' }}
         />
       ) : (
         <PlaceholderProfilePicture />
@@ -65,7 +58,7 @@ const People = ({ people, ...props }) => {
         <PeopleName variant="typo4">{name}</PeopleName>
         <CharacterName variant="typo4">{character}</CharacterName>
       </Text>
-    </Wrapper>
+    </div>
   )
 }
 
