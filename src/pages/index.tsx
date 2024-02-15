@@ -60,7 +60,7 @@ const Home = ({ host, apiKey }) => {
           meiliSearchParams: {
             hybrid: {
               semanticRatio: DEFAULT_SEMANTIC_RATIO,
-              embedder: 'default',
+              embedder: 'new',
             },
           },
         })

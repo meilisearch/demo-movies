@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from "next/image"
+import Image from 'next/image'
 import styled from 'styled-components'
 import Toggle from 'components/Toggle'
 import get from 'utils/get'
@@ -93,7 +93,8 @@ const Header = () => (
           src="/images/meilisearch.svg"
           alt="Meilisearch logo"
           width={81}
-          height={12} />
+          height={12}
+        />
       </ByMeiliSearch>
       <MobileSettings />
     </Logos>
