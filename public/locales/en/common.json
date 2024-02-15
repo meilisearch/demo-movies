@@ -6,7 +6,6 @@
   "connexionFailed": "Connexion to MeiliSearch failed",
   "movies": "Movies",
   "results": "Results",
-  "whatsTrending": "What’s Trending",
   "synopsis": "Synopsis",
   "overview": "Overview",
   "whereToWatch": "Where to Watch",
@@ -29,5 +28,10 @@
     "semanticRatio": "Semantic ratio",
     "movieLanguage": "Movies language",
     "colorScheme": "Appearance"
+  },
+
+  "home": {
+    "heading": "What's trending?",
+    "semanticLabel": "semantic"
   }
 }

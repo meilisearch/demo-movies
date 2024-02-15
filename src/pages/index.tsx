@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Head from 'next/head'
-import { InstantSearch, Configure } from 'react-instantsearch'
+import { InstantSearch, Configure, useInstantSearch } from 'react-instantsearch'
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
+import type { InstantMeiliSearchObject } from '@meilisearch/instant-meilisearch'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ClientProvider } from 'context/ClientContext'
+import SemanticRatioContext from 'context/SemanticRatioContext'
 import get from 'utils/get'
 import Header from 'components/Header'
-import Filters from 'components/Filters'
+import HeadingSection from 'components/HeadingSection'
 import MoviesList from 'components/MoviesList/index'
 import { LANGUAGES } from 'data/constants'
 import { LanguageProvider } from 'context/LanguageContext'
@@ -16,6 +18,8 @@ import useLocalStorage from 'hooks/useLocalStorage'
 
 const MEILISEARCH_HOST = process.env.MEILISEARCH_HOST || 'http://0.0.0.0:7700'
 const MEILISEARCH_API_KEY = process.env.MEILISEARCH_API_KEY || 'searchKey'
+
+const DEFAULT_SEMANTIC_RATIO = 0.9
 
 const Wrapper = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
@@ -27,8 +31,11 @@ const Home = ({ host, apiKey }) => {
   const [localStorageCountry, setLocalStorageCountry] =
     useLocalStorage('country-preference')
   const { t } = useTranslation('common')
-  const [client, setClient] = React.useState(null)
+  const [client, setClient] = React.useState<InstantMeiliSearchObject>(null)
   const [selectedLanguage, setSelectedLanguage] = React.useState(null)
+  const [semanticRatio, setSemanticRatio] = React.useState(
+    DEFAULT_SEMANTIC_RATIO
+  )
 
   const setSelectedCountry = React.useCallback(
     country => {
@@ -49,11 +56,10 @@ const Home = ({ host, apiKey }) => {
       setClient(
         instantMeiliSearch(host, apiKey, {
           primaryKey: 'id',
-          paginationTotalHits: 24,
+          finitePagination: true,
           meiliSearchParams: {
-            showRankingScoreDetails: true,
             hybrid: {
-              semanticRatio: 0.9,
+              semanticRatio: DEFAULT_SEMANTIC_RATIO,
               embedder: 'default',
             },
           },
@@ -61,6 +67,18 @@ const Home = ({ host, apiKey }) => {
       )
     }
   }, [host, apiKey])
+
+  useEffect(() => {
+    if (client) {
+      console.log('setting search params')
+      client.setMeiliSearchParams({
+        hybrid: {
+          semanticRatio,
+          embedder: 'default',
+        },
+      })
+    }
+  }, [semanticRatio, client])
 
   if (!host || !apiKey) return <div>{t('connexionFailed')}</div>
 
@@ -81,8 +99,12 @@ const Home = ({ host, apiKey }) => {
           >
             <Configure hitsPerPage={24} />
             <Wrapper>
-              <Header />
-              <Filters />
+              <SemanticRatioContext.Provider
+                value={{ semanticRatio, setSemanticRatio }}
+              >
+                <Header />
+                <HeadingSection />
+              </SemanticRatioContext.Provider>
               <MoviesList />
             </Wrapper>
           </InstantSearch>

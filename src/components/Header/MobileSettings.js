@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext } from 'react'
 import styled from 'styled-components'
 import { useDialogState } from 'reakit/Dialog'
 import {
@@ -17,6 +17,7 @@ import Link from 'components/Link'
 import GitHubButton from './GitHubButton'
 import { MEILISEARCH_URL } from 'data/constants'
 import Slider from 'components/Slider'
+import SemanticRatioContext from 'context/SemanticRatioContext'
 
 const Container = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
@@ -109,7 +110,7 @@ const Disclosure = styled(DialogDisclosure)`
 const MobileSettings = () => {
   const dialog = useDialogState({ animated: true })
   const { t } = useTranslation('common')
-  const [semanticRatio, setSemanticRatio] = React.useState(0.7)
+  const { semanticRatio, setSemanticRatio } = useContext(SemanticRatioContext)
 
   return (
     <Container data-cy="settings-mobile">
