@@ -7,7 +7,7 @@ import {
   MenuItem as ReakitMenuItem,
   MenuButton as ReakitMenuButton,
 } from 'reakit/Menu'
-import LanguageContext from 'context/LanguageContext'
+import LanguageContext from 'context/LanguageContext.ts'
 import { LANGUAGES } from 'data/constants'
 import Typography from 'components/Typography'
 

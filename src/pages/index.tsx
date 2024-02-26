@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Head from 'next/head'
-import { InstantSearch, Configure, useInstantSearch } from 'react-instantsearch'
+import { InstantSearch, useInstantSearch } from 'react-instantsearch'
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 import type { InstantMeiliSearchObject } from '@meilisearch/instant-meilisearch'
 import { useTranslation } from 'next-i18next'
@@ -13,7 +13,7 @@ import Header from 'components/Header'
 import HeadingSection from 'components/HeadingSection'
 import MoviesList from 'components/MoviesList/index'
 import { LANGUAGES } from 'data/constants'
-import { LanguageProvider } from 'context/LanguageContext'
+import { LanguageProvider } from 'context/LanguageContext.ts'
 import useLocalStorage from 'hooks/useLocalStorage'
 
 const MEILISEARCH_HOST = process.env.MEILISEARCH_HOST || 'http://0.0.0.0:7700'
@@ -114,7 +114,6 @@ const Home = ({ host, apiKey }) => {
             searchClient={client.searchClient}
           >
             <RefreshOnSemanticRatioChange semanticRatio={semanticRatio} />
-            <Configure hitsPerPage={24} />
             <Wrapper>
               <SemanticRatioContext.Provider
                 value={{ semanticRatio, setSemanticRatio }}
