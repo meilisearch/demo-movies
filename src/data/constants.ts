@@ -1,4 +1,5 @@
-export const MEILISEARCH_URL = 'https://meilisearch.com/?utm_campaign=wheretowatch&utm_source=preview'
+export const MEILISEARCH_URL =
+  'https://meilisearch.com/?utm_campaign=wheretowatch&utm_source=preview'
 
 export const REPOSITORY_URL = 'https://github.com/meilisearch/demo-movies'
 

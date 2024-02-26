@@ -3,7 +3,7 @@ import { createContext } from 'react'
 // Define the shape of our context
 interface SemanticRatioContextType {
   semanticRatio: number
-  setSemanticRatio: (value: number) => void
+  setSemanticRatio: (value: number) => void // eslint-disable-line no-unused-vars
 }
 
 // Create the context with a default value
