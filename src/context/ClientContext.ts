@@ -1,8 +1,9 @@
+import { InstantMeiliSearchObject } from '@meilisearch/instant-meilisearch'
 import React from 'react'
 
 const ClientContext = React.createContext({
   client: {},
-  setClient: () => {},
+  setClient: (meilisearch: InstantMeiliSearchObject) => {}, // eslint-disable-line no-unused-vars
 })
 
 export const ClientProvider = ClientContext.Provider
