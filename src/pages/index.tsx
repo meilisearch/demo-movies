@@ -19,13 +19,22 @@ import useLocalStorage from 'hooks/useLocalStorage'
 const MEILISEARCH_HOST = process.env.MEILISEARCH_HOST || 'http://0.0.0.0:7700'
 const MEILISEARCH_API_KEY = process.env.MEILISEARCH_API_KEY || 'searchKey'
 
-const DEFAULT_SEMANTIC_RATIO = 0.9
+const DEFAULT_SEMANTIC_RATIO = 0
 
 const Wrapper = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
     padding: 0 50px 50px;
   }
 `
+
+const RefreshOnSemanticRatioChange = ({ semanticRatio }) => {
+  const { refresh } = useInstantSearch()
+  useEffect(() => {
+    console.log('refreshing')
+    refresh()
+  }, [semanticRatio, refresh])
+  return null
+}
 
 const Home = ({ host, apiKey }) => {
   const [localStorageCountry, setLocalStorageCountry] =
@@ -70,13 +79,20 @@ const Home = ({ host, apiKey }) => {
 
   useEffect(() => {
     if (client) {
-      console.log('setting search params')
-      client.setMeiliSearchParams({
-        hybrid: {
-          semanticRatio,
-          embedder: 'default',
-        },
-      })
+      if (semanticRatio !== 0) {
+        console.log('setting search params with hybrid')
+        client.setMeiliSearchParams({
+          hybrid: {
+            semanticRatio,
+            embedder: 'default',
+          },
+        })
+      } else {
+        console.log('setting search params without hybrid')
+        client.setMeiliSearchParams({
+          hybrid: null,
+        })
+      }
     }
   }, [semanticRatio, client])
 
@@ -97,6 +113,7 @@ const Home = ({ host, apiKey }) => {
             indexName={selectedLanguage.indexName}
             searchClient={client.searchClient}
           >
+            <RefreshOnSemanticRatioChange semanticRatio={semanticRatio} />
             <Configure hitsPerPage={24} />
             <Wrapper>
               <SemanticRatioContext.Provider
