@@ -20,6 +20,7 @@ const MEILISEARCH_HOST = process.env.MEILISEARCH_HOST || 'http://0.0.0.0:7700'
 const MEILISEARCH_API_KEY = process.env.MEILISEARCH_API_KEY || 'searchKey'
 
 const DEFAULT_SEMANTIC_RATIO = 0
+const DEFAULT_EMBEDDER = 'default'
 
 const Wrapper = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
@@ -69,7 +70,7 @@ const Home = ({ host, apiKey }) => {
           meiliSearchParams: {
             hybrid: {
               semanticRatio: DEFAULT_SEMANTIC_RATIO,
-              embedder: 'new',
+              embedder: DEFAULT_EMBEDDER,
             },
           },
         })
@@ -78,22 +79,14 @@ const Home = ({ host, apiKey }) => {
   }, [host, apiKey])
 
   useEffect(() => {
-    if (client) {
-      if (semanticRatio !== 0) {
-        console.log('setting search params with hybrid')
-        client.setMeiliSearchParams({
-          hybrid: {
-            semanticRatio,
-            embedder: 'default',
-          },
-        })
-      } else {
-        console.log('setting search params without hybrid')
-        client.setMeiliSearchParams({
-          hybrid: null,
-        })
-      }
+    const hybrid = {
+      semanticRatio,
+      embedder: DEFAULT_EMBEDDER,
     }
+    console.log('🔄 Updating search params', hybrid)
+    client.setMeiliSearchParams({
+      hybrid,
+    })
   }, [semanticRatio, client])
 
   if (!host || !apiKey) return <div>{t('connexionFailed')}</div>
