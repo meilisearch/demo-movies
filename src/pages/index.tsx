@@ -79,6 +79,7 @@ const Home = ({ host, apiKey }) => {
   }, [host, apiKey])
 
   useEffect(() => {
+    if (!client) return
     const hybrid = {
       semanticRatio,
       embedder: DEFAULT_EMBEDDER,
