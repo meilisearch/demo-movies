@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import get from 'utils/get'
 import Typography from 'components/Typography'
@@ -6,7 +6,6 @@ import Container from 'components/Container'
 import { useTranslation } from 'next-i18next'
 import Slider from './Slider'
 import SemanticRatioContext from 'context/SemanticRatioContext'
-import { Tooltip, TooltipReference, useTooltipState } from 'reakit/Tooltip'
 
 const Wrapper = styled(Container)`
   display: none;
@@ -33,32 +32,22 @@ const LabelWrapper = styled.div`
   margin-bottom: 0.5rem;
 `
 
-const Label = styled(Typography)`
-  color: var(--800-100);
-`
-
-const HelpText = styled(TooltipReference)`
-  margin-left: 0.5rem;
-  display: inline-flex;
-`
-
 const HeadingSection = () => {
   const { t } = useTranslation('common')
   const { semanticRatio, setSemanticRatio } = useContext(SemanticRatioContext)
-  const tooltip = useTooltipState()
 
   return (
     <Wrapper>
       <Heading variant="h2">{t('home.heading')}</Heading>
       <SliderWrapper>
         <LabelWrapper>
-          <Label variant="default" as="label">
+          <Typography
+            variant="default"
+            as="label"
+            style={{ color: 'var(--800-100)' }}
+          >
             {semanticRatio * 100}% {t('home.semanticLabel')}
-          </Label>
-          <HelpText {...tooltip}>ℹ️</HelpText>
-          <Tooltip {...tooltip} style={{ padding: 16 }}>
-            {t('home.semanticTooltip')}
-          </Tooltip>
+          </Typography>
         </LabelWrapper>
         <Slider
           min={0}
