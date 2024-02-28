@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import styled from 'styled-components'
 import Head from 'next/head'
 import { InstantSearch, useInstantSearch } from 'react-instantsearch'
@@ -19,8 +19,8 @@ import useLocalStorage from 'hooks/useLocalStorage'
 const MEILISEARCH_HOST = process.env.MEILISEARCH_HOST || 'http://0.0.0.0:7700'
 const MEILISEARCH_API_KEY = process.env.MEILISEARCH_API_KEY || 'searchKey'
 
-const DEFAULT_SEMANTIC_RATIO = 0
-const DEFAULT_EMBEDDER = 'default'
+const DEFAULT_SEMANTIC_RATIO = 0.3
+const DEFAULT_EMBEDDER = 'small'
 
 const Wrapper = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
@@ -28,13 +28,32 @@ const Wrapper = styled.div`
   }
 `
 
-const RefreshOnSemanticRatioChange = ({ semanticRatio }) => {
+type SearchParamsUpdaterProps = {
+  setSearchParams: InstantMeiliSearchObject['setMeiliSearchParams']
+  semanticRatio: number
+}
+
+const SearchParamsUpdater = ({
+  setSearchParams,
+  semanticRatio,
+}: SearchParamsUpdaterProps) => {
   const { refresh } = useInstantSearch()
+
   useEffect(() => {
-    console.log('refreshing')
+    if (!setSearchParams) return
+
+    const hybrid = {
+      semanticRatio,
+      embedder: DEFAULT_EMBEDDER,
+    }
+    console.log('🔄 Updating search params', hybrid)
+    setSearchParams({
+      hybrid,
+    })
     refresh()
-  }, [semanticRatio, refresh])
-  return null
+  }, [semanticRatio, refresh, setSearchParams])
+
+  return null // This component doesn't render anything
 }
 
 const Home = ({ host, apiKey }) => {
@@ -78,17 +97,10 @@ const Home = ({ host, apiKey }) => {
     }
   }, [host, apiKey])
 
-  useEffect(() => {
-    if (!client) return
-    const hybrid = {
-      semanticRatio,
-      embedder: DEFAULT_EMBEDDER,
-    }
-    console.log('🔄 Updating search params', hybrid)
-    client.setMeiliSearchParams({
-      hybrid,
-    })
-  }, [semanticRatio, client])
+  const setSearchParams = useCallback(
+    params => client.setMeiliSearchParams(params),
+    [client]
+  )
 
   if (!host || !apiKey) return <div>{t('connexionFailed')}</div>
 
@@ -107,7 +119,10 @@ const Home = ({ host, apiKey }) => {
             indexName={selectedLanguage.indexName}
             searchClient={client.searchClient}
           >
-            <RefreshOnSemanticRatioChange semanticRatio={semanticRatio} />
+            <SearchParamsUpdater
+              setSearchParams={setSearchParams}
+              semanticRatio={semanticRatio}
+            />
             <Wrapper>
               <SemanticRatioContext.Provider
                 value={{ semanticRatio, setSemanticRatio }}

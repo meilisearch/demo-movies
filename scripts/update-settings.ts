@@ -49,13 +49,13 @@ async function main() {
             model: 'text-embedding-ada-002',
             documentTemplate: documentTemplate,
           },
-          // small: {
-          //   source: 'openAi',
-          //   apiKey: OPENAI_API_KEY,
-          //   dimensions: 1024,
-          //   model: 'text-embedding-3-small',
-          //   documentTemplate: documentTemplate,
-          // },
+          small: {
+            source: 'openAi',
+            apiKey: OPENAI_API_KEY,
+            dimensions: 1024,
+            model: 'text-embedding-3-small',
+            documentTemplate: documentTemplate,
+          },
         },
       },
     })
