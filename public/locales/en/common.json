@@ -6,7 +6,6 @@
   "connexionFailed": "Connexion to MeiliSearch failed",
   "movies": "Movies",
   "results": "Results",
-  "whatsTrending": "What’s Trending",
   "synopsis": "Synopsis",
   "overview": "Overview",
   "whereToWatch": "Where to Watch",
@@ -19,8 +18,21 @@
   "notFoundCta": "Bring me home",
   "processingTime": "in {{processingTime}}ms",
   "noProviderFound": "Sorry, no provider currently offers this program 😢",
-  "settings": "Settings",
-  "appearance": "Appearance",
-  "countryPreference": "Country preference",
-  "poweredBy": "Powered by"
+  "poweredBy": "Powered by",
+
+  "menu": {
+    "settings": "Settings"
+  },
+
+  "settings": {
+    "semanticRatio": "Semantic ratio",
+    "movieLanguage": "Movies language",
+    "colorScheme": "Appearance"
+  },
+
+  "home": {
+    "heading": "What's trending?",
+    "semanticLabel": "semantic",
+    "semanticTooltip": "Determines how semantic search affects the results."
+  }
 }

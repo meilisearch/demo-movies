@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Link from 'components/Link'
 import Image from 'next/image'
 import Typography from 'components/Typography'
+import { REPOSITORY_URL } from 'data/constants'
 
 const GitHubLink = styled(Link)`
   color: var(--gray-300);
@@ -13,7 +14,7 @@ const GitHubLink = styled(Link)`
 const GitHubButton = props => {
   return (
     <GitHubLink
-      href="https://github.com/meilisearch/meilisearch"
+      href={REPOSITORY_URL}
       target="_blank"
       rel="noreferrer"
       {...props}
@@ -21,7 +22,6 @@ const GitHubButton = props => {
       <Image
         src="/images/github.svg"
         alt="GitHub logo"
-        layout="fixed"
         width={16}
         height={16}
       />

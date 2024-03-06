@@ -48,9 +48,13 @@ const Custom404 = () => {
           <Image
             src="/images/404.svg"
             alt="404"
-            layout="responsive"
             width={933}
             height={448}
+            sizes="100vw"
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
           />
           <Title variant="h1">{t('notFoundTitle')}</Title>
           <Description variant="typo1">{t('notFoundDescription')}</Description>

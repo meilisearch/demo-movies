@@ -1,21 +1,26 @@
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
 import styled from 'styled-components'
 import Head from 'next/head'
-import { InstantSearch, Configure } from 'react-instantsearch-dom'
+import { InstantSearch, useInstantSearch } from 'react-instantsearch'
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
+import type { InstantMeiliSearchObject } from '@meilisearch/instant-meilisearch'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ClientProvider } from 'context/ClientContext'
+import SemanticRatioContext from 'context/SemanticRatioContext'
 import get from 'utils/get'
-import Header from 'blocks/Header'
-import Filters from 'blocks/Filters'
-import MoviesList from 'blocks/MoviesList/index'
+import Header from 'components/Header'
+import HeadingSection from 'components/HeadingSection'
+import MoviesList from 'components/MoviesList/index'
 import { LANGUAGES } from 'data/constants'
-import { LanguageProvider } from 'context/LanguageContext'
+import { LanguageProvider } from 'context/LanguageContext.ts'
 import useLocalStorage from 'hooks/useLocalStorage'
 
 const MEILISEARCH_HOST = process.env.MEILISEARCH_HOST || 'http://0.0.0.0:7700'
 const MEILISEARCH_API_KEY = process.env.MEILISEARCH_API_KEY || 'searchKey'
+
+const DEFAULT_SEMANTIC_RATIO = 0.5
+const DEFAULT_EMBEDDER = 'small'
 
 const Wrapper = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
@@ -23,12 +28,43 @@ const Wrapper = styled.div`
   }
 `
 
+type SearchParamsUpdaterProps = {
+  setSearchParams: InstantMeiliSearchObject['setMeiliSearchParams']
+  semanticRatio: number
+}
+
+const SearchParamsUpdater = ({
+  setSearchParams,
+  semanticRatio,
+}: SearchParamsUpdaterProps) => {
+  const { refresh } = useInstantSearch()
+
+  useEffect(() => {
+    if (!setSearchParams) return
+
+    const hybrid = {
+      semanticRatio,
+      embedder: DEFAULT_EMBEDDER,
+    }
+    console.log('🔄 Updating search params', hybrid)
+    setSearchParams({
+      hybrid,
+    })
+    refresh()
+  }, [semanticRatio, refresh, setSearchParams])
+
+  return null // This component doesn't render anything
+}
+
 const Home = ({ host, apiKey }) => {
   const [localStorageCountry, setLocalStorageCountry] =
     useLocalStorage('country-preference')
   const { t } = useTranslation('common')
-  const [client, setClient] = React.useState(null)
+  const [client, setClient] = React.useState<InstantMeiliSearchObject>(null)
   const [selectedLanguage, setSelectedLanguage] = React.useState(null)
+  const [semanticRatio, setSemanticRatio] = React.useState(
+    DEFAULT_SEMANTIC_RATIO
+  )
 
   const setSelectedCountry = React.useCallback(
     country => {
@@ -45,14 +81,26 @@ const Home = ({ host, apiKey }) => {
   }, [localStorageCountry])
 
   React.useEffect(() => {
-    if (host && apiKey)
+    if (host && apiKey) {
       setClient(
         instantMeiliSearch(host, apiKey, {
           primaryKey: 'id',
-          paginationTotalHits: 24,
+          finitePagination: true,
+          meiliSearchParams: {
+            hybrid: {
+              semanticRatio: DEFAULT_SEMANTIC_RATIO,
+              embedder: DEFAULT_EMBEDDER,
+            },
+          },
         })
       )
+    }
   }, [host, apiKey])
+
+  const setSearchParams = useCallback(
+    params => client.setMeiliSearchParams(params),
+    [client]
+  )
 
   if (!host || !apiKey) return <div>{t('connexionFailed')}</div>
 
@@ -67,13 +115,21 @@ const Home = ({ host, apiKey }) => {
         </Head>
         {client && (
           <InstantSearch
+            future={{ preserveSharedStateOnUnmount: true }}
             indexName={selectedLanguage.indexName}
-            searchClient={client}
+            searchClient={client.searchClient}
           >
-            <Configure hitsPerPage={24} />
+            <SearchParamsUpdater
+              setSearchParams={setSearchParams}
+              semanticRatio={semanticRatio}
+            />
             <Wrapper>
-              <Header />
-              <Filters />
+              <SemanticRatioContext.Provider
+                value={{ semanticRatio, setSemanticRatio }}
+              >
+                <Header />
+                <HeadingSection />
+              </SemanticRatioContext.Provider>
               <MoviesList />
             </Wrapper>
           </InstantSearch>

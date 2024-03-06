@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import styled from 'styled-components'
-import { Hits as ISHits } from 'react-instantsearch-dom'
+import { Hits as ISHits } from 'react-instantsearch'
 import { useTranslation } from 'next-i18next'
 import get from 'utils/get'
 import Container from 'components/Container'
@@ -12,7 +12,7 @@ import Card from 'components/Card'
 import { DialogDisclosure } from 'components/Dialog'
 
 const Hits = styled(ISHits)`
-  ul {
+  ol {
     padding: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);

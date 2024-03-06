@@ -15,7 +15,7 @@ const RedLink = styled.a`
 
 const LinkButton = ({ href, ...props }) => {
   return (
-    <Link href={href} passHref>
+    <Link href={href} passHref legacyBehavior>
       <RedLink {...props} />
     </Link>
   )

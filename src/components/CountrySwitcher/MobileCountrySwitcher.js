@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import LanguageContext from 'context/LanguageContext'
+import LanguageContext from 'context/LanguageContext.ts'
 import { LANGUAGES } from 'data/constants'
 import Radio from 'components/Radio'
 import { useRadioState, RadioGroup } from 'reakit/Radio'

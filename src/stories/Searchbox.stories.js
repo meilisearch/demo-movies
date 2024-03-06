@@ -1,6 +1,6 @@
 import React from 'react'
 import Searchbox from 'components/Searchbox'
-import { InstantSearch } from 'react-instantsearch-dom'
+import { InstantSearch } from 'react-instantsearch'
 
 export default {
   title: 'Components/Searchbox',

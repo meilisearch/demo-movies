@@ -1,7 +1,7 @@
 import { appWithTranslation } from 'next-i18next'
 import styled, { ThemeProvider } from 'styled-components'
 import GlobalStyle from 'theme/GlobalStyle'
-import theme from 'theme'
+import theme from 'theme/index.js'
 import 'theme/colors.css'
 import get from 'utils/get'
 import Script from 'next/script'
