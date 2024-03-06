@@ -15,9 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 18.19
       - name: Install dependencies
         run: yarn --dev
       - name: Run style check
@@ -38,9 +38,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Setup node and cache
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 18.19
           cache: "yarn"
           cache-dependency-path: yarn.lock
       - name: Install dependencies
