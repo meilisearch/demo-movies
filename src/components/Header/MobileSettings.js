@@ -15,7 +15,7 @@ import Toggle from 'components/Toggle'
 import MobileCountrySwitcher from 'components/CountrySwitcher/MobileCountrySwitcher'
 import Link from 'components/Link'
 import GitHubButton from './GitHubButton'
-import { MEILISEARCH_URL } from 'data/constants'
+import { MEILISEARCH_URL, SEMANTIC_RATIO_INFO_URL } from 'data/constants'
 import Slider from 'components/Slider'
 import SemanticRatioContext from 'context/SemanticRatioContext'
 
@@ -126,7 +126,15 @@ const MobileSettings = () => {
             </CloseButton>
             <HybridSearchSection>
               <LabelValueWrapper>
-                <Label variant="typo6">{t('settings.semanticRatio')}</Label>
+                <Label variant="typo6">
+                  {t('settings.semanticRatio')}{' '}
+                  <Link
+                    href={SEMANTIC_RATIO_INFO_URL}
+                    title="What is the semantic ratio?"
+                  >
+                    ℹ️
+                  </Link>
+                </Label>
                 <Typography variant="default">
                   {semanticRatio * 100}% semantic
                 </Typography>

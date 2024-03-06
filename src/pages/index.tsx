@@ -19,7 +19,7 @@ import useLocalStorage from 'hooks/useLocalStorage'
 const MEILISEARCH_HOST = process.env.MEILISEARCH_HOST || 'http://0.0.0.0:7700'
 const MEILISEARCH_API_KEY = process.env.MEILISEARCH_API_KEY || 'searchKey'
 
-const DEFAULT_SEMANTIC_RATIO = 0.3
+const DEFAULT_SEMANTIC_RATIO = 0.5
 const DEFAULT_EMBEDDER = 'small'
 
 const Wrapper = styled.div`

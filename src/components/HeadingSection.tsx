@@ -6,6 +6,8 @@ import Container from 'components/Container'
 import { useTranslation } from 'next-i18next'
 import Slider from './Slider'
 import SemanticRatioContext from 'context/SemanticRatioContext'
+import Link from 'next/link'
+import { SEMANTIC_RATIO_INFO_URL } from 'data/constants'
 
 const Wrapper = styled(Container)`
   display: none;
@@ -46,7 +48,13 @@ const HeadingSection = () => {
             as="label"
             style={{ color: 'var(--800-100)' }}
           >
-            {semanticRatio * 100}% {t('home.semanticLabel')}
+            {semanticRatio * 100}% {t('home.semanticLabel')}{' '}
+            <Link
+              href={SEMANTIC_RATIO_INFO_URL}
+              title="What is the semantic ratio?"
+            >
+              ℹ️
+            </Link>
           </Typography>
         </LabelWrapper>
         <Slider
