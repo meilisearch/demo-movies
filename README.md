@@ -43,12 +43,6 @@
 yarn
 ```
 
-or
-
-```bash
-npm install
-```
-
 ### Run Meilisearch
 
 You can run a Meilisearch instance locally with the following command:
@@ -56,7 +50,7 @@ You can run a Meilisearch instance locally with the following command:
 ```
 docker run -it --rm \
     -p 7700:7700 \
-    getmeili/meilisearch:v1.0 \
+    getmeili/meilisearch:v1.7 \
     meilisearch --env="development"
 ```
 
@@ -64,18 +58,16 @@ docker run -it --rm \
 
 Run the following script in order to create the different indexes and upload the movies documents:
 
+You need to run at least once this command to create the correct indexing settings:
+`yarn setup:settings`
+
+Then run the setup to index the data:
 `yarn setup`
 
 ## Run
 
 ```bash
 yarn dev
-```
-
-or
-
-```bash
-npm run dev
 ```
 
 Go to `http://localhost:3000/` and enjoy ! 🎉
@@ -90,12 +82,6 @@ You can generate a build of this project with the following command:
 yarn build
 ```
 
-or
-
-```bash
-npm run build
-```
-
 ### Run your build
 
 The above commands will generate an optimized version of the app, inside the `.next` folder.
@@ -104,12 +90,6 @@ You can then serve it with:
 
 ```bash
 yarn start
-```
-
-or
-
-```bash
-npm run start
 ```
 
 Or serve it with any web server of your choice.
@@ -131,7 +111,7 @@ An example can be found in the `.env.example` file. You can either rename this f
 
 ## Compatibility with Meilisearch
 
-This demo only guarantees the compatibility with the [version v1.0 of Meilisearch](https://github.com/meilisearch/meilisearch/releases/tag/v1.0.0).
+This demo only guarantees the compatibility with the [version v1.6 of Meilisearch](https://github.com/meilisearch/meilisearch/releases/tag/v1.6.0).
 
 ## Storybook
 
@@ -139,12 +119,6 @@ Storybook is a development environment for UI components. It allows you to brows
 
 ```bash
 yarn storybook
-```
-
-or
-
-```bash
-npm run storybook
 ```
 
 ## Testing

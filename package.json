@@ -16,7 +16,8 @@
     "test:watch": "concurrently --kill-others -s first \"yarn ci:dev\" \"cypress open\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "setup": "node scripts/seed.js"
+    "setup": "bun run scripts/seed.ts scripts/",
+    "setup:settings": "bun run scripts/update-settings.ts"
   },
   "dependencies": {
     "@meilisearch/instant-meilisearch": "0.16.0",
@@ -45,6 +46,7 @@
     "babel-loader": "^9.1.0",
     "babel-plugin-macros": "^3.1.0",
     "concurrently": "^7.6.0",
+    "bun": "1.1.3",
     "cypress": "^12.8.1",
     "eslint": "7.32.0",
     "eslint-config-next": "^14.1.0",
