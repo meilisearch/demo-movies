@@ -7,18 +7,23 @@ const Recommended = ({ id, dialog, prompt, limit }) => {
   const [recommendedMovies, setRecommendedMovies] = React.useState([])
 
   React.useEffect(() => {
-    fetch('http://51.159.80.95:7777/' + 'indexes/movies-en-US/recommend', {
-      headers: {
-        'Authorization': 'Bearer yk9xqAjxF6oRYWKmDno4gB3prBIBPIs1G2kCkrzZHmc',
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify({
-        id: id.toString(),
-        limit: limit,
-        prompt: prompt,
-      }),
-    })
+    fetch(
+      'https://ms-3373114e8985-11.dev.meilisearch.io/' +
+        'indexes/movies-en-US/recommend',
+      {
+        headers: {
+          'Authorization':
+            'Bearer b32af8ac316f185e58b584da2584ad70763e5f3c5470e98c9c72bb0c530ef182',
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify({
+          id: id.toString(),
+          limit: limit,
+          prompt: prompt,
+        }),
+      }
+    )
       .then(response => response.json())
       .then(data => {
         setRecommendedMovies(data.hits.slice(0, 5))
