@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Container from 'components/Container'
 import { MovieCard } from 'components/MoviesList'
 
-const Recommended = ({ id, dialog }) => {
+const Recommended = ({ id, dialog, prompt, limit }) => {
   const [recommendedMovies, setRecommendedMovies] = React.useState([])
 
   React.useEffect(() => {
@@ -15,7 +15,8 @@ const Recommended = ({ id, dialog }) => {
       method: 'POST',
       body: JSON.stringify({
         id: id.toString(),
-        limit: 100,
+        limit: limit,
+        prompt: prompt,
       }),
     })
       .then(response => response.json())
