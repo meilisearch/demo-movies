@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Star } from './icons'
 import get from '../utils/get'
@@ -17,9 +17,7 @@ const FavoriteIcon = styled(Star)`
   color: var(--koromiko);
 
   & path {
-    stroke: ${p => (p.$favorite ? undefined : 'black')};
-    stroke-width: ${p => (p.$favorite ? undefined : 1)};
-    fill: ${p => (p.$favorite ? 'currentColor' : 'none')};
+    fill: ${p => (p.$favorite ? 'currentColor' : 'gray')};
   }
 
   @media (min-width: ${get('breakpoints.desktop')}) {
@@ -40,9 +38,13 @@ const FavoriteIcon = styled(Star)`
   }
 `
 
-const Favorite = ({ hit }) => {
+const Favorite = ({ hit, type = 'movies' }) => {
   const { markFavorite, isFavorited } = useContext(FavoritesContext)
-  const [isFav, setIsFav] = useState(isFavorited('movies', hit.id))
+  const [isFav, setIsFav] = useState(false)
+
+  useEffect(() => {
+    setIsFav(!!isFavorited(type, hit.id))
+  }, [hit])
 
   return (
     <StarBlock>
@@ -50,7 +52,7 @@ const Favorite = ({ hit }) => {
         $favorite={isFav}
         onClick={() => {
           setIsFav(!isFav)
-          markFavorite('movies', hit)
+          markFavorite(type, hit)
         }}
       />
     </StarBlock>

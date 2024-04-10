@@ -86,7 +86,7 @@ const DesktopMovieInfos = ({ movie }) => {
             </KeyInfos>
             <Tags tags={genres} />
           </MainBlock>
-          <FavoriteBlock hit={movie} />
+          <FavoriteBlock type="movies" hit={movie} />
           <Description>{movie.overview}</Description>
         </Descriptions>
         <AdditionalInfos>
