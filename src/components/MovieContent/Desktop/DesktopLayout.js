@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import Providers from '../Providers'
 import DesktopMovieInfos from './DesktopMovieInfos'
@@ -6,6 +6,7 @@ import Cast from '../Cast'
 import Recommended from '../Recommended'
 import Typography from 'components/Typography'
 import { useTranslation } from 'next-i18next'
+import { CurrentMovieContext } from 'context/CurrentMovieContext'
 
 const Wrapper = styled.div`
   grid-template-columns: repeat(12, 1fr);
@@ -56,13 +57,34 @@ const CastSection = ({ cast }) => {
 
 const RecommendedSection = ({ id }) => {
   const { t } = useTranslation('common')
+  const { searchQuery } = useContext(CurrentMovieContext)
 
   return (
     <RecommendedWrapper>
       <RecommendedTitle as="h2" variant="typo3">
-        {t('recommended movies')}
+        {t('related movies')}
       </RecommendedTitle>
-      <Recommended id={id} />
+      <Recommended id={id} limit={200} />
+      {searchQuery && (
+        <>
+          <RecommendedTitle as="h2" variant="typo3">
+            {t('movies related to your search: ' + searchQuery)}
+          </RecommendedTitle>
+          <Recommended
+            id={id}
+            prompt={'User looked for ' + searchQuery}
+            limit={200}
+          />
+        </>
+      )}
+      <RecommendedTitle as="h2" variant="typo3">
+        {t('Movies you might like based on your favorites')}
+      </RecommendedTitle>
+      <Recommended
+        id={id}
+        prompt={'User likes cars and planes. Loves racing.'}
+        limit={600}
+      />
     </RecommendedWrapper>
   )
 }

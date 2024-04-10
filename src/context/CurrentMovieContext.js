@@ -7,10 +7,16 @@ const CurrentMovieContext = createContext({
 
 const CurrentMovieProvider = ({ children }) => {
   const [currentMovie, setCurrentMovie] = useState(null)
+  const [searchQuery, setSearchQuery] = useState('')
 
   return (
     <CurrentMovieContext.Provider
-      value={{ currentMovie, setMovie: setCurrentMovie }}
+      value={{
+        currentMovie,
+        setMovie: setCurrentMovie,
+        searchQuery,
+        setSearchQuery,
+      }}
     >
       {children}
     </CurrentMovieContext.Provider>
