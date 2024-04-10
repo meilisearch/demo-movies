@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import styled from 'styled-components'
 import Head from 'next/head'
 import { InstantSearch, useInstantSearch } from 'react-instantsearch'
@@ -17,10 +17,7 @@ import { LanguageProvider } from 'context/LanguageContext.ts'
 import MovieModalContent from 'components/MoviesList/MovieModalContent'
 import useLocalStorage from 'hooks/useLocalStorage'
 import { useDialogState } from 'reakit/Dialog'
-import {
-  CurrentMovieContext,
-  CurrentMovieProvider,
-} from 'context/CurrentMovieContext'
+import { CurrentMovieProvider } from 'context/CurrentMovieContext'
 import { FavoritesProvider } from 'context/FavoritesContext'
 
 export const MEILISEARCH_HOST =
@@ -74,7 +71,6 @@ const Home = ({ host, apiKey }) => {
   const [semanticRatio, setSemanticRatio] = React.useState(
     DEFAULT_SEMANTIC_RATIO
   )
-  const { currentMovie } = useContext(CurrentMovieContext)
   const dialog = useDialogState()
 
   const setSelectedCountry = React.useCallback(
