@@ -12,6 +12,7 @@ const StarBlock = styled.div`
 `
 
 const FavoriteIcon = styled(Star)`
+  position: relative;
   width: 40px;
   opacity: 100%;
   color: var(--koromiko);
@@ -21,7 +22,7 @@ const FavoriteIcon = styled(Star)`
   }
 
   @media (min-width: ${get('breakpoints.desktop')}) {
-    width: 40px;
+    width: 1.8em;
   }
 
   transition: transform 0.2s ease; // Smooth transition for the transform property

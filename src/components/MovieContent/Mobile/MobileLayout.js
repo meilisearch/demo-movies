@@ -9,6 +9,7 @@ import Cast from '../Cast'
 import BackdropImage from '../BackdropImage'
 import Poster from 'components/Poster'
 import { useTranslation } from 'next-i18next'
+import Favorite from '../../Favorite'
 
 const Wrapper = styled.div`
   height: 100%;

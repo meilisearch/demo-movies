@@ -6,6 +6,7 @@ import { useTranslation } from 'next-i18next'
 import Crews from '../Crews'
 import Socials from '../Socials'
 import Tags from '../Tags'
+import Favorite from '../../Favorite'
 
 const Description = styled(Typography)`
   margin-top: 10px;
@@ -19,8 +20,9 @@ const Wrapper = styled.div`
 
 const TitleAndDate = styled.div`
   display: flex;
-  align-items: baseline;
+  align-items: center;
   margin-top: 6px;
+  justify-content: space-between;
 `
 
 const TagsAndDuration = styled.div`
@@ -61,12 +63,13 @@ const MovieInfos = ({ movie }) => {
         size="big"
       />
       <TitleAndDate>
-        <Typography variant="h1" style={{ textTransform: 'uppercase' }}>
-          {title}
-        </Typography>
-        <Typography variant="typo4" style={{ marginLeft: 8 }}>
-          {release_year}
-        </Typography>
+        <div style={{ flex: true }}>
+          <Typography variant="h1" style={{ textTransform: 'uppercase' }}>
+            {title}
+          </Typography>
+          <Typography variant="typo4">{release_year}</Typography>
+        </div>
+        <Favorite type="movies" hit={movie} style={{ alignItems: 'rigth' }} />
       </TitleAndDate>
       <TagsAndDuration>
         <Tags tags={genres} />
