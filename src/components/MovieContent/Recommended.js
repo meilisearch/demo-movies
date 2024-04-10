@@ -8,8 +8,7 @@ const Recommended = ({ id, dialog, prompt, limit }) => {
 
   React.useEffect(() => {
     fetch(
-      'https://ms-3373114e8985-11.dev.meilisearch.io/' +
-        'indexes/movies-en-US/recommend',
+      'https://ms-3373114e8985-11.dev.meilisearch.io/indexes/movies-en-US/recommend',
       {
         headers: {
           'Authorization':
@@ -45,7 +44,8 @@ const Wrapper = styled(Container)`
   background-color: var(--results-bg);
   transition: background-color 300ms;
   box-shadow: 0px 0px 64px rgba(0, 0, 0, 0.06);
-  margin: 16px -10px 0;
+  margin-top: 16px;
+  margin-bottom: 16px;
   padding: 18px 10px;
   width: 100%;
   display: flex;

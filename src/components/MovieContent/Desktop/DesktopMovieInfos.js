@@ -43,11 +43,6 @@ const MainBlock = styled.div`
   flex-direction: column;
 `
 
-const FavoriteBlock = styled(Favorite)`
-  display: flex;
-  flex-direction: row;
-`
-
 const DesktopMovieInfos = ({ movie }) => {
   const {
     title,
@@ -72,9 +67,18 @@ const DesktopMovieInfos = ({ movie }) => {
         />
         <Descriptions>
           <MainBlock>
-            <Typography variant="h1" style={{ textTransform: 'uppercase' }}>
-              {title}
-            </Typography>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+              }}
+            >
+              <Typography variant="h1" style={{ textTransform: 'uppercase' }}>
+                {title}
+              </Typography>
+              <Favorite type="movies" hit={movie} />
+            </div>
             <KeyInfos>
               <Rating rating={Math.round((vote_average / 2) * 10) / 10} />
               <Typography variant="typo4" style={{ marginLeft: 20 }}>
@@ -86,7 +90,6 @@ const DesktopMovieInfos = ({ movie }) => {
             </KeyInfos>
             <Tags tags={genres} />
           </MainBlock>
-          <FavoriteBlock type="movies" hit={movie} />
           <Description>{movie.overview}</Description>
         </Descriptions>
         <AdditionalInfos>
