@@ -7,6 +7,7 @@ import Crews from '../Crews'
 import Socials from '../Socials'
 import BackdropImage from '../BackdropImage'
 import Tags from '../Tags'
+import Favorite from '../../Favorite'
 
 const Descriptions = styled.div`
   margin-left: 40px;
@@ -37,6 +38,16 @@ const Infos = styled.div`
   flex-direction: row;
 `
 
+const MainBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const FavoriteBlock = styled(Favorite)`
+  display: flex;
+  flex-direction: row;
+`
+
 const DesktopMovieInfos = ({ movie }) => {
   const {
     title,
@@ -60,19 +71,22 @@ const DesktopMovieInfos = ({ movie }) => {
           style={{ height: 360, flexShrink: 0 }}
         />
         <Descriptions>
-          <Typography variant="h1" style={{ textTransform: 'uppercase' }}>
-            {title}
-          </Typography>
-          <KeyInfos>
-            <Rating rating={Math.round((vote_average / 2) * 10) / 10} />
-            <Typography variant="typo4" style={{ marginLeft: 20 }}>
-              {release_year}
+          <MainBlock>
+            <Typography variant="h1" style={{ textTransform: 'uppercase' }}>
+              {title}
             </Typography>
-            <Typography variant="typo4" style={{ marginLeft: 26 }}>
-              {movie_duration}
-            </Typography>
-          </KeyInfos>
-          <Tags tags={genres} />
+            <KeyInfos>
+              <Rating rating={Math.round((vote_average / 2) * 10) / 10} />
+              <Typography variant="typo4" style={{ marginLeft: 20 }}>
+                {release_year}
+              </Typography>
+              <Typography variant="typo4" style={{ marginLeft: 26 }}>
+                {movie_duration}
+              </Typography>
+            </KeyInfos>
+            <Tags tags={genres} />
+          </MainBlock>
+          <FavoriteBlock hit={movie} />
           <Description>{movie.overview}</Description>
         </Descriptions>
         <AdditionalInfos>

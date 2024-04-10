@@ -21,6 +21,7 @@ import {
   CurrentMovieContext,
   CurrentMovieProvider,
 } from 'context/CurrentMovieContext'
+import { FavoritesProvider } from 'context/FavoritesContext'
 
 export const MEILISEARCH_HOST =
   process.env.MEILISEARCH_HOST || 'http://0.0.0.0:7700'
@@ -119,34 +120,36 @@ const Home = ({ host, apiKey }) => {
       <LanguageProvider
         value={{ selectedLanguage, setSelectedLanguage: setSelectedCountry }}
       >
-        <CurrentMovieProvider>
-          <Head>
-            <title>{t('title')}</title>
-            <meta name="description" content={t('meta.description')} />
-          </Head>
-          {client && (
-            <InstantSearch
-              future={{ preserveSharedStateOnUnmount: true }}
-              indexName={selectedLanguage.indexName}
-              searchClient={client.searchClient}
-            >
-              <SearchParamsUpdater
-                setSearchParams={setSearchParams}
-                semanticRatio={semanticRatio}
-              />
-              <Wrapper>
-                <SemanticRatioContext.Provider
-                  value={{ semanticRatio, setSemanticRatio }}
-                >
-                  <Header />
-                  <HeadingSection />
-                </SemanticRatioContext.Provider>
-                <MoviesList dialog={dialog} />
-                <MovieModalContent hit={currentMovie} dialog={dialog} />
-              </Wrapper>
-            </InstantSearch>
-          )}
-        </CurrentMovieProvider>
+        <FavoritesProvider>
+          <CurrentMovieProvider>
+            <Head>
+              <title>{t('title')}</title>
+              <meta name="description" content={t('meta.description')} />
+            </Head>
+            {client && (
+              <InstantSearch
+                future={{ preserveSharedStateOnUnmount: true }}
+                indexName={selectedLanguage.indexName}
+                searchClient={client.searchClient}
+              >
+                <SearchParamsUpdater
+                  setSearchParams={setSearchParams}
+                  semanticRatio={semanticRatio}
+                />
+                <Wrapper>
+                  <SemanticRatioContext.Provider
+                    value={{ semanticRatio, setSemanticRatio }}
+                  >
+                    <Header />
+                    <HeadingSection />
+                  </SemanticRatioContext.Provider>
+                  <MoviesList dialog={dialog} />
+                  <MovieModalContent dialog={dialog} />
+                </Wrapper>
+              </InstantSearch>
+            )}
+          </CurrentMovieProvider>
+        </FavoritesProvider>
       </LanguageProvider>
     </ClientProvider>
   )
