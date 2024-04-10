@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Providers from '../Providers'
 import DesktopMovieInfos from './DesktopMovieInfos'
 import Cast from '../Cast'
+import Recommended from '../Recommended'
 import Typography from 'components/Typography'
 import { useTranslation } from 'next-i18next'
 
@@ -30,6 +31,16 @@ const CastTitle = styled(Typography)`
   margin: 0;
 `
 
+const RecommendedWrapper = styled.section`
+  padding: 56px 50px 0;
+`
+
+const RecommendedTitle = styled(Typography)`
+  color: var(--cast-section-title-desktop);
+  text-transform: uppercase;
+  margin: 0;
+`
+
 const CastSection = ({ cast }) => {
   const { t } = useTranslation('common')
 
@@ -43,6 +54,19 @@ const CastSection = ({ cast }) => {
   )
 }
 
+const RecommendedSection = ({ id }) => {
+  const { t } = useTranslation('common')
+
+  return (
+    <RecommendedWrapper>
+      <RecommendedTitle as="h2" variant="typo3">
+        {t('recommended movies')}
+      </RecommendedTitle>
+      <Recommended id={id} />
+    </RecommendedWrapper>
+  )
+}
+
 const DesktopLayout = ({ hit }) => {
   const { cast = [], providers = {}, ...movie } = hit
   return (
@@ -51,6 +75,7 @@ const DesktopLayout = ({ hit }) => {
       <RightSection>
         <DesktopMovieInfos movie={movie} />
         <CastSection cast={cast} />
+        <RecommendedSection id={movie.id} />
       </RightSection>
     </Wrapper>
   )

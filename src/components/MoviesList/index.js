@@ -1,15 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { Hits as ISHits } from 'react-instantsearch'
 import { useTranslation } from 'next-i18next'
 import get from 'utils/get'
 import Container from 'components/Container'
 import Infos from './Infos'
-import { useDialogState } from 'reakit/Dialog'
-import MovieModalContent from './MovieModalContent'
 import Card from 'components/Card'
 import { DialogDisclosure } from 'components/Dialog'
+import { CurrentMovieContext } from 'context/CurrentMovieContext'
 
 const Hits = styled(ISHits)`
   ol {
@@ -49,40 +48,27 @@ const Disclosure = styled(DialogDisclosure)`
   transition: transform 300ms;
 `
 
-const MoviesList = () => {
-  const { t } = useTranslation('common')
-  const [currentMovie, setCurrentMovie] = React.useState()
-  const dialog = useDialogState()
-  const cardsRef = React.useRef([])
+const MovieCard = ({ dialog, hit }) => {
+  const { setMovie } = useContext(CurrentMovieContext)
 
-  React.useEffect(() => {
-    if (currentMovie && !dialog.visible) {
-      const timer = setTimeout(() => {
-        cardsRef.current[currentMovie.objectID].focus()
-      }, 0)
-      return () => clearTimeout(timer)
-    }
-  }, [dialog.visible])
+  return (
+    <Disclosure {...dialog} onClick={() => setMovie(hit)}>
+      <Card {...hit} />
+    </Disclosure>
+  )
+}
+
+const MoviesList = ({ dialog }) => {
+  const { t } = useTranslation('common')
 
   return (
     <Wrapper as="section">
       <Infos title={t('movies')} />
       <Hits
-        hitComponent={({ hit }) => (
-          <Disclosure
-            ref={ref => (cardsRef.current[hit.objectID] = ref)}
-            {...dialog}
-            onClick={() => {
-              setCurrentMovie(hit)
-            }}
-          >
-            <Card {...hit} />
-          </Disclosure>
-        )}
+        hitComponent={({ hit }) => <MovieCard dialog={dialog} hit={hit} />}
       />
-      <MovieModalContent hit={currentMovie} dialog={dialog} />
     </Wrapper>
   )
 }
 
-export default MoviesList
+export { MoviesList, MovieCard }

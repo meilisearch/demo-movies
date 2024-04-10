@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import Head from 'next/head'
 import { InstantSearch, useInstantSearch } from 'react-instantsearch'
@@ -11,13 +11,21 @@ import SemanticRatioContext from 'context/SemanticRatioContext'
 import get from 'utils/get'
 import Header from 'components/Header'
 import HeadingSection from 'components/HeadingSection'
-import MoviesList from 'components/MoviesList/index'
+import { MoviesList } from 'components/MoviesList/index'
 import { LANGUAGES } from 'data/constants'
 import { LanguageProvider } from 'context/LanguageContext.ts'
+import MovieModalContent from 'components/MoviesList/MovieModalContent'
 import useLocalStorage from 'hooks/useLocalStorage'
+import { useDialogState } from 'reakit/Dialog'
+import {
+  CurrentMovieContext,
+  CurrentMovieProvider,
+} from 'context/CurrentMovieContext'
 
-const MEILISEARCH_HOST = process.env.MEILISEARCH_HOST || 'http://0.0.0.0:7700'
-const MEILISEARCH_API_KEY = process.env.MEILISEARCH_API_KEY || 'searchKey'
+export const MEILISEARCH_HOST =
+  process.env.MEILISEARCH_HOST || 'http://0.0.0.0:7700'
+export const MEILISEARCH_API_KEY =
+  process.env.MEILISEARCH_API_KEY || 'searchKey'
 
 const DEFAULT_SEMANTIC_RATIO = 0.5
 const DEFAULT_EMBEDDER = 'small'
@@ -65,6 +73,8 @@ const Home = ({ host, apiKey }) => {
   const [semanticRatio, setSemanticRatio] = React.useState(
     DEFAULT_SEMANTIC_RATIO
   )
+  const { currentMovie } = useContext(CurrentMovieContext)
+  const dialog = useDialogState()
 
   const setSelectedCountry = React.useCallback(
     country => {
@@ -109,31 +119,34 @@ const Home = ({ host, apiKey }) => {
       <LanguageProvider
         value={{ selectedLanguage, setSelectedLanguage: setSelectedCountry }}
       >
-        <Head>
-          <title>{t('title')}</title>
-          <meta name="description" content={t('meta.description')} />
-        </Head>
-        {client && (
-          <InstantSearch
-            future={{ preserveSharedStateOnUnmount: true }}
-            indexName={selectedLanguage.indexName}
-            searchClient={client.searchClient}
-          >
-            <SearchParamsUpdater
-              setSearchParams={setSearchParams}
-              semanticRatio={semanticRatio}
-            />
-            <Wrapper>
-              <SemanticRatioContext.Provider
-                value={{ semanticRatio, setSemanticRatio }}
-              >
-                <Header />
-                <HeadingSection />
-              </SemanticRatioContext.Provider>
-              <MoviesList />
-            </Wrapper>
-          </InstantSearch>
-        )}
+        <CurrentMovieProvider>
+          <Head>
+            <title>{t('title')}</title>
+            <meta name="description" content={t('meta.description')} />
+          </Head>
+          {client && (
+            <InstantSearch
+              future={{ preserveSharedStateOnUnmount: true }}
+              indexName={selectedLanguage.indexName}
+              searchClient={client.searchClient}
+            >
+              <SearchParamsUpdater
+                setSearchParams={setSearchParams}
+                semanticRatio={semanticRatio}
+              />
+              <Wrapper>
+                <SemanticRatioContext.Provider
+                  value={{ semanticRatio, setSemanticRatio }}
+                >
+                  <Header />
+                  <HeadingSection />
+                </SemanticRatioContext.Provider>
+                <MoviesList dialog={dialog} />
+                <MovieModalContent hit={currentMovie} dialog={dialog} />
+              </Wrapper>
+            </InstantSearch>
+          )}
+        </CurrentMovieProvider>
       </LanguageProvider>
     </ClientProvider>
   )
