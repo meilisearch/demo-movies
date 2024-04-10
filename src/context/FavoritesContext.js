@@ -29,7 +29,7 @@ const FavoritesProvider = ({ children }) => {
       if (type === 'movies') {
         favorites[type].push({ id: data.id, title: data.title })
       } else {
-        favorites[type].push(data)
+        favorites[type].push({ id: data.id, name: data.name, role: 'actor' })
       }
     }
 
