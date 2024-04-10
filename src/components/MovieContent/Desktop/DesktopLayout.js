@@ -7,6 +7,7 @@ import Recommended from '../Recommended'
 import Typography from 'components/Typography'
 import { useTranslation } from 'next-i18next'
 import { CurrentMovieContext } from 'context/CurrentMovieContext'
+import { FavoritesContext } from 'context/FavoritesContext'
 
 const Wrapper = styled.div`
   grid-template-columns: repeat(12, 1fr);
@@ -58,6 +59,7 @@ const CastSection = ({ cast }) => {
 const RecommendedSection = ({ id }) => {
   const { t } = useTranslation('common')
   const { searchQuery } = useContext(CurrentMovieContext)
+  const { favorites } = useContext(FavoritesContext)
 
   return (
     <RecommendedWrapper>
@@ -82,8 +84,13 @@ const RecommendedSection = ({ id }) => {
       </RecommendedTitle>
       <Recommended
         id={id}
-        prompt={'User likes cars and planes. Loves racing.'}
-        limit={600}
+        prompt={
+          'movies: ' +
+          favorites['movies'].map(mov => mov['title']).join(', ') +
+          '. Actors: ' +
+          favorites['crew'].map(act => act['name']).join(', ')
+        }
+        limit={1000}
       />
     </RecommendedWrapper>
   )
