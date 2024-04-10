@@ -8,8 +8,6 @@ const CurrentMovieContext = createContext({
 const CurrentMovieProvider = ({ children }) => {
   const [currentMovie, setCurrentMovie] = useState(null)
 
-  console.log(currentMovie)
-
   return (
     <CurrentMovieContext.Provider
       value={{ currentMovie, setMovie: setCurrentMovie }}
