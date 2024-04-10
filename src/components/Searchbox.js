@@ -1,10 +1,9 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { SearchBox as IsSearchbox, useSearchBox } from 'react-instantsearch'
 import { Search, Cross } from 'components/icons'
 import get from 'utils/get'
 import { CurrentMovieContext } from 'context/CurrentMovieContext'
-
 
 const StyledSearchbox = styled(IsSearchbox)`
   width: 100%;
