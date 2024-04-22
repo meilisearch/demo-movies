@@ -18,15 +18,15 @@ const DESCRIPTION_MAXIMUM_WORDS = 100
 const indexesConfig = [
   {
     indexName: 'movies-en-US',
-    documentTemplate: `A movie titled '{{doc.title}}' {{ doc.release_date | date: '%B %d, %Y' }} whose description starts with {{doc.overview|truncatewords: ${DESCRIPTION_MAXIMUM_WORDS}}}`,
+    documentTemplate: `A movie titled '{{doc.title}}', released in {{ doc.release_date | date: '%B %d, %Y' }}, whose description starts with {{doc.overview|truncatewords: ${DESCRIPTION_MAXIMUM_WORDS}}}`,
   },
   {
     indexName: 'movies-ja-JP',
-    documentTemplate: `タイトルが '{{doc.title}}' で、概要が {{doc.overview|truncatewords: ${DESCRIPTION_MAXIMUM_WORDS}}} で始まる映画`,
+    documentTemplate: `映画のタイトルは '{{doc.title}}' で、{{ doc.release_date | date: '%Y年%m月%d日' }}に公開され、{{doc.overview|truncatewords: ${DESCRIPTION_MAXIMUM_WORDS}}}`,
   },
   {
     indexName: 'movies-th-TH',
-    documentTemplate: `ภาพยนตร์ชื่อ '{{doc.title}}' ซึ่งมีคำอธิบายขึ้นต้นด้วย {{doc.overview|truncatewords: ${DESCRIPTION_MAXIMUM_WORDS}}}`,
+    documentTemplate: `หนังชื่อ '{{doc.title}}' ฉายเมื่อ {{ doc.release_date | date: '%d %B %Y' }} ซึ่งเริ่มต้นด้วย {{doc.overview|truncatewords: ${DESCRIPTION_MAXIMUM_WORDS}}}`,
   },
 ]
 

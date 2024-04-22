@@ -2,7 +2,6 @@ import React, { useCallback, useEffect } from 'react'
 import styled from 'styled-components'
 import Head from 'next/head'
 import { InstantSearch, useInstantSearch } from 'react-instantsearch'
-import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 import type { InstantMeiliSearchObject } from '@meilisearch/instant-meilisearch'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -15,6 +14,7 @@ import MoviesList from 'components/MoviesList/index'
 import { LANGUAGES } from 'data/constants'
 import { LanguageProvider } from 'context/LanguageContext.ts'
 import useLocalStorage from 'hooks/useLocalStorage'
+import { createMeilisearchClient } from '../lib/createMeilisearchClient'
 
 const MEILISEARCH_HOST = process.env.MEILISEARCH_HOST || 'http://0.0.0.0:7700'
 const MEILISEARCH_API_KEY = process.env.MEILISEARCH_API_KEY || 'searchKey'
@@ -82,18 +82,7 @@ const Home = ({ host, apiKey }) => {
 
   React.useEffect(() => {
     if (host && apiKey) {
-      setClient(
-        instantMeiliSearch(host, apiKey, {
-          primaryKey: 'id',
-          finitePagination: true,
-          meiliSearchParams: {
-            hybrid: {
-              semanticRatio: DEFAULT_SEMANTIC_RATIO,
-              embedder: DEFAULT_EMBEDDER,
-            },
-          },
-        })
-      )
+      setClient(createMeilisearchClient(host, apiKey))
     }
   }, [host, apiKey])
 
