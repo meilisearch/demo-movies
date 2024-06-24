@@ -15,7 +15,7 @@ import Toggle from 'components/Toggle'
 import MobileCountrySwitcher from 'components/CountrySwitcher/MobileCountrySwitcher'
 import Link from 'components/Link'
 import GitHubButton from './GitHubButton'
-import { MEILISEARCH_URL, SEMANTIC_RATIO_INFO_URL } from 'data/constants'
+import { MEILISEARCH_URL, SEMANTIC_RATIO_INFO_URL } from '~/lib/constants'
 import Slider from 'components/Slider'
 import SemanticRatioContext from 'context/SemanticRatioContext'
 

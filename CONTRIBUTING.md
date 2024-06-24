@@ -80,7 +80,7 @@ If you want to add a new country, you first have to make sure that the Meilisear
 Then you can add your new country by doing the following:
 
 - add your new country flag inside the `public/images/flags/` folder (png format)
-- add your new country inside the `src/data/constants.ts` file
+- add your new country inside the `src/lib/constants.ts` file
 
 This will automatically add the new country inside the country dropdown, and make the switch between indexes for search when you switch from one country to an other.
 

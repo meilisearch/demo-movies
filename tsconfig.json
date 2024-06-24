@@ -6,6 +6,7 @@
       "esnext"
     ],
     "paths": {
+      "~/*": ["./src/*"],
       "context/*": ["./src/context/*"],
       "components/*": ["./src/components/*"],
       "data/*": ["./src/data/*"],

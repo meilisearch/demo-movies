@@ -7,7 +7,7 @@ import { useTranslation } from 'next-i18next'
 import Slider from './Slider'
 import SemanticRatioContext from 'context/SemanticRatioContext'
 import Link from 'next/link'
-import { SEMANTIC_RATIO_INFO_URL } from 'data/constants'
+import { SEMANTIC_RATIO_INFO_URL } from '~/lib/constants'
 
 const Wrapper = styled(Container)`
   display: none;

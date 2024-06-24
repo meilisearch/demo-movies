@@ -8,7 +8,7 @@ import {
   MenuButton as ReakitMenuButton,
 } from 'reakit/Menu'
 import LanguageContext from 'context/LanguageContext.ts'
-import { LANGUAGES } from 'data/constants'
+import { LANGUAGES } from '~/lib/constants'
 import Typography from 'components/Typography'
 
 const Container = styled.div`
