@@ -6593,6 +6593,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clsx@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "clsx@npm:2.1.1"
+  checksum: 10c0/c4c8eb865f8c82baab07e71bfa8897c73454881c4f99d6bc81585aecd7c441746c1399d08363dc096c550cceaf97bd4ce1e8854e1771e9998d9f94c4fe075839
+  languageName: node
+  linkType: hard
+
 "collapse-white-space@npm:^1.0.2":
   version: 1.0.6
   resolution: "collapse-white-space@npm:1.0.6"
@@ -18006,6 +18013,7 @@ __metadata:
     babel-loader: "npm:^9.1.0"
     babel-plugin-macros: "npm:^3.1.0"
     bun: "npm:1.1.3"
+    clsx: "npm:^2.1.1"
     concurrently: "npm:^7.6.0"
     cypress: "npm:^12.8.1"
     dotenv: "npm:^16.0.3"
