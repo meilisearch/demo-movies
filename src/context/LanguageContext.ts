@@ -1,5 +1,5 @@
 import React from 'react'
-import { LANGUAGES } from 'data/constants'
+import { LANGUAGES } from '~/lib/constants'
 
 type Language = (typeof LANGUAGES)[number]
 

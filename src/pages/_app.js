@@ -5,6 +5,7 @@ import theme from 'theme/index.js'
 import 'theme/colors.css'
 import get from 'utils/get'
 import Script from 'next/script'
+import '~/globals.css'
 
 const Wrapper = styled.div`
   @media (max-width: ${get('breakpoints.desktop')}) {

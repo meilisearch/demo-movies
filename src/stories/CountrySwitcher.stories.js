@@ -2,7 +2,7 @@ import React from 'react'
 import DesktopCountrySwitcher from 'components/CountrySwitcher/DesktopCountrySwitcher'
 import Typography from 'components/Typography'
 import { LanguageProvider } from 'context/LanguageContext.ts'
-import { LANGUAGES } from 'data/constants'
+import { LANGUAGES } from '~/lib/constants'
 
 export default {
   title: 'Components/CountrySwitcher',
