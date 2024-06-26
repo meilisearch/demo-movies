@@ -38,7 +38,7 @@ const CastSection = ({ cast }) => {
       <CastTitle as="h2" variant="typo3">
         {t('cast')}
       </CastTitle>
-      <Cast cast={cast} />
+      <Cast cast={cast} className="mt-4" />
     </CastWrapper>
   )
 }

@@ -1,22 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 import People from 'components/People'
-import get from 'utils/get'
-
-const Peoples = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 24px;
-
-  @media (min-width: ${get('breakpoints.desktop')}) {
-    margin-top: 22px;
-    grid-template-columns: repeat(8, 1fr);
-    grid-gap: 30px;
-  }
-`
+import clsx from 'clsx'
 
 const Cast = ({ cast, ...props }) => (
-  <Peoples {...props}>
+  <div {...props} className={clsx('flex flex-wrap gap-6', props.className)}>
     {cast.map((people, index) => (
       <People
         key={`${people?.name}-${people?.character || index}`}
@@ -24,7 +11,7 @@ const Cast = ({ cast, ...props }) => (
         data-cast={people?.name}
       />
     ))}
-  </Peoples>
+  </div>
 )
 
 export default Cast
