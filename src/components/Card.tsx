@@ -44,7 +44,7 @@ const Card = ({
   const releaseYear = new Date(release_date).getFullYear()
   return (
     <Wrapper {...props}>
-      <div className="rounded-lg overflow-hidden">
+      <div className="rounded-lg overflow-hidden mb-2">
         <TwicImg
           mode="contain"
           src={getTwicpicsUrl('tmdb', poster_path)}
