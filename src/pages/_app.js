@@ -1,10 +1,14 @@
 import { appWithTranslation } from 'next-i18next'
 import styled, { ThemeProvider } from 'styled-components'
+import { TwicInstall } from '@twicpics/components/react'
+
 import GlobalStyle from 'theme/GlobalStyle'
 import theme from 'theme/index.js'
 import 'theme/colors.css'
 import get from 'utils/get'
 import Script from 'next/script'
+
+import '@twicpics/components/style.css'
 import '~/globals.css'
 
 const Wrapper = styled.div`
@@ -34,6 +38,7 @@ export function App({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <TwicInstall domain="https://meilisearch.twic.pics" />
       <Scripts />
       <Wrapper>
         <Component {...pageProps} />

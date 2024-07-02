@@ -5,6 +5,7 @@ import DesktopMovieInfos from './DesktopMovieInfos'
 import Cast from '../Cast'
 import Typography from 'components/Typography'
 import { useTranslation } from 'next-i18next'
+import { Recommendations } from './Recommendations'
 
 const Wrapper = styled.div`
   grid-template-columns: repeat(12, 1fr);
@@ -20,37 +21,36 @@ const StyledProviders = styled(Providers)`
   background-color: var(--providers-bg-color);
 `
 
-const CastWrapper = styled.section`
-  padding: 56px 50px 0;
-`
-
-const CastTitle = styled(Typography)`
-  color: var(--cast-section-title-desktop);
-  text-transform: uppercase;
-  margin: 0;
-`
-
-const CastSection = ({ cast }) => {
-  const { t } = useTranslation('common')
-
+const SectionTitle = ({ children }) => {
   return (
-    <CastWrapper>
-      <CastTitle as="h2" variant="typo3">
-        {t('cast')}
-      </CastTitle>
-      <Cast cast={cast} className="mt-4" />
-    </CastWrapper>
+    <Typography
+      as="h2"
+      variant="typo3"
+      className="uppercase mb-4"
+      style={{ color: 'var(--cast-section-title-desktop)' }}
+    >
+      {children}
+    </Typography>
   )
 }
 
 const DesktopLayout = ({ hit }) => {
+  const { t } = useTranslation('common')
   const { cast = [], providers = {}, ...movie } = hit
   return (
     <Wrapper>
       <StyledProviders providers={providers} />
       <RightSection>
         <DesktopMovieInfos movie={movie} />
-        <CastSection cast={cast} />
+        <div className="px-14 py-12">
+          <SectionTitle>{t('cast')}</SectionTitle>
+          <Cast className="mt-4" cast={cast} />
+          <SectionTitle>{t('similar.heading')}</SectionTitle>
+          <Typography>
+            {t('similar.description', { title: movie.title })}
+          </Typography>
+          <Recommendations className="mt-4" movies={[movie]} />
+        </div>
       </RightSection>
     </Wrapper>
   )

@@ -23,3 +23,5 @@ export const LANGUAGES = [
     indexName: 'movies-th-TH',
   },
 ]
+
+export const MOVIE_POSTER_ASPECT_RATIO = '150/225'

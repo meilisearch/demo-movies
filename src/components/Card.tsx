@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Poster from 'components/Poster'
 import Typography from 'components/Typography'
 import Rating from 'components/Rating'
+import type { MovieCardProps } from '~/types'
 
 const Wrapper = styled.div`
   display: flex;
@@ -30,7 +31,7 @@ const Card = ({
   release_date = '',
   vote_average = '',
   ...props
-}) => {
+}: MovieCardProps) => {
   const releaseYear = new Date(release_date).getFullYear()
   return (
     <Wrapper {...props}>
