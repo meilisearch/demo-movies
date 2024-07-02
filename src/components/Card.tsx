@@ -5,7 +5,14 @@ import { getTwicpicsUrl } from '~/utils'
 import { MOVIE_POSTER_ASPECT_RATIO } from '~/lib/constants'
 import Typography from 'components/Typography'
 import Rating from 'components/Rating'
-import type { MovieCardProps } from '~/types'
+
+export interface CardProps {
+  id: number
+  poster_path: string
+  title: string
+  release_date: string
+  vote_average: string
+}
 
 const Wrapper = styled.div`
   display: flex;
@@ -33,7 +40,7 @@ const Card = ({
   release_date = '',
   vote_average = '',
   ...props
-}: MovieCardProps) => {
+}: CardProps) => {
   const releaseYear = new Date(release_date).getFullYear()
   return (
     <Wrapper {...props}>

@@ -1,9 +1,9 @@
-import type { MovieCardProps } from '~/types'
+import type { CardProps } from '~/components/Card'
 import clsx from 'clsx'
 import Card from '~/components/Card'
 
 interface RecommendationsProps {
-  movies: MovieCardProps[]
+  movies: CardProps[]
   className?: string
 }
 
