@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import Poster from 'components/Poster'
+import { TwicImg } from '@twicpics/components/react'
+import { getTwicpicsUrl } from '~/utils'
+import { MOVIE_POSTER_ASPECT_RATIO } from '~/lib/constants'
 import Typography from 'components/Typography'
 import Rating from 'components/Rating'
 import type { MovieCardProps } from '~/types'
@@ -35,7 +37,13 @@ const Card = ({
   const releaseYear = new Date(release_date).getFullYear()
   return (
     <Wrapper {...props}>
-      <Poster src={poster_path} alt={title} />
+      <div className="rounded-lg overflow-hidden">
+        <TwicImg
+          mode="contain"
+          src={getTwicpicsUrl('tmdb', poster_path)}
+          ratio={MOVIE_POSTER_ASPECT_RATIO}
+        />
+      </div>
       <Title variant="cardTitle">{title}</Title>
       <Info>
         <ReleaseYear variant="subtitle">{releaseYear}</ReleaseYear>
