@@ -10,12 +10,6 @@ import BackdropImage from '../BackdropImage'
 import Poster from 'components/Poster'
 import { useTranslation } from 'next-i18next'
 
-const Wrapper = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-`
-
 const StyledTabList = styled(TabList)`
   display: flex;
   width: 100%;
@@ -74,7 +68,7 @@ const MobileLayout = ({ hit }) => {
   const tab = useTabState()
   const { cast = [], providers = {} } = hit
   return (
-    <Wrapper>
+    <div className="h-full flex flex-col mb-24">
       <Head tab={tab} movie={hit} />
       <Content>
         <TabPanel {...tab}>
@@ -85,7 +79,7 @@ const MobileLayout = ({ hit }) => {
           <Providers providers={providers} />
         </TabPanel>
       </Content>
-    </Wrapper>
+    </div>
   )
 }
 
