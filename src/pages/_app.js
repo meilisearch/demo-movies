@@ -35,10 +35,11 @@ const Scripts = () => {
 
 // Template for every page
 export function App({ Component, pageProps }) {
+  const twicpicsDomain = process.env.NEXT_PUBLIC_TWICPICS_DOMAIN
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <TwicInstall domain="https://meilisearch.twic.pics" />
+      <TwicInstall domain={twicpicsDomain} />
       <Scripts />
       <Wrapper>
         <Component {...pageProps} />
