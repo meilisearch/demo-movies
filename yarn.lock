@@ -12112,6 +12112,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"meilisearch@npm:^0.41.0":
+  version: 0.41.0
+  resolution: "meilisearch@npm:0.41.0"
+  dependencies:
+    cross-fetch: "npm:^3.1.6"
+  checksum: 10c0/de384d438f0bc09984543830bab1f29aa370e512254ae596dcc9a146871821fe1305e0755817ddb9c790e7bd95f1be83c9101faf49cab6faf6bfae0c226885a0
+  languageName: node
+  linkType: hard
+
 "memfs@npm:^3.1.2":
   version: 3.4.13
   resolution: "memfs@npm:3.4.13"
@@ -18031,7 +18040,7 @@ __metadata:
     eslint-plugin-cypress: "npm:^2.11.3"
     eslint-plugin-prettier: "npm:^3.4.0"
     lodash.get: "npm:^4.4.2"
-    meilisearch: "npm:^0.37.0"
+    meilisearch: "npm:^0.41.0"
     next: "npm:^14.1.0"
     next-i18next: "npm:^12.1.0"
     ofetch: "npm:^1.3.3"
