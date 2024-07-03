@@ -29,7 +29,7 @@ const Text = styled(Typography)`
   margin-left: 8px;
 `
 
-const Rating = ({ rating, withText, size = 'normal', ...props }) => (
+const Rating = ({ rating, withText = false, size = 'normal', ...props }) => (
   <StarsContainer {...props} $size={size}>
     {[...Array(5)].map((e, i) => (
       <StarComponent key={i} $active={i < Math.round(rating)} $size={size} />
