@@ -38,37 +38,37 @@ const SectionTitle = ({ children }) => {
 
 const DesktopLayout = ({ hit }) => {
   const { t } = useTranslation('common')
-  const { cast = [], providers = {}, ...movie } = hit
+  const movie = React.useMemo(() => hit, [hit])
 
-  // const { client } = useMeilisearch()
-  // const { selectedLanguage } = useContext(LanguageContext)
-  // const [similarMovies, setSimilarMovies] = useState([])
+  const { client } = useMeilisearch()
+  const { selectedLanguage } = useContext(LanguageContext)
+  const [similarMovies, setSimilarMovies] = useState([])
 
-  // useEffect(() => {
-  //   const fetchSimilarMovies = async () => {
-  //     const results = await client
-  //       .index(selectedLanguage.indexName)
-  //       .searchSimilarDocuments({ id: movie.id }, { limit: 3 })
-  //     setSimilarMovies(results.hits)
-  //   }
-  //   fetchSimilarMovies()
-  // }, [movie])
+  useEffect(() => {
+    const fetchSimilarMovies = async () => {
+      const results = await client
+        .index(selectedLanguage.indexName)
+        .searchSimilarDocuments({ id: movie.id }, { limit: 3 })
+      setSimilarMovies(results.hits)
+    }
+    fetchSimilarMovies()
+  }, [movie, client, selectedLanguage])
 
   console.log('render desktop layout')
 
   return (
     <Wrapper>
-      <StyledProviders providers={providers} />
+      <StyledProviders providers={movie.providers} />
       <RightSection>
         <DesktopMovieInfos movie={movie} />
         <div className="px-14 py-12">
           <SectionTitle>{t('cast')}</SectionTitle>
-          <Cast className="mt-4" cast={cast} />
+          <Cast className="mt-4" cast={movie.cast} />
           <SectionTitle>{t('similar.heading')}</SectionTitle>
           <Typography>
             {t('similar.description', { title: movie.title })}
           </Typography>
-          <Recommendations className="mt-4" movies={[movie]} />
+          <Recommendations className="mt-4" movies={[similarMovies]} />
         </div>
       </RightSection>
     </Wrapper>
