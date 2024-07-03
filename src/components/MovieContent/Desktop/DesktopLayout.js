@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Providers from '../Providers'
 import DesktopMovieInfos from './DesktopMovieInfos'
@@ -6,6 +6,8 @@ import Cast from '../Cast'
 import Typography from 'components/Typography'
 import { useTranslation } from 'next-i18next'
 import { Recommendations } from './Recommendations'
+import LanguageContext from '~/context/LanguageContext'
+import { useMeilisearch } from '~/hooks/useMeilisearch'
 
 const Wrapper = styled.div`
   grid-template-columns: repeat(12, 1fr);
@@ -37,6 +39,23 @@ const SectionTitle = ({ children }) => {
 const DesktopLayout = ({ hit }) => {
   const { t } = useTranslation('common')
   const { cast = [], providers = {}, ...movie } = hit
+
+  // const { client } = useMeilisearch()
+  // const { selectedLanguage } = useContext(LanguageContext)
+  // const [similarMovies, setSimilarMovies] = useState([])
+
+  // useEffect(() => {
+  //   const fetchSimilarMovies = async () => {
+  //     const results = await client
+  //       .index(selectedLanguage.indexName)
+  //       .searchSimilarDocuments({ id: movie.id }, { limit: 3 })
+  //     setSimilarMovies(results.hits)
+  //   }
+  //   fetchSimilarMovies()
+  // }, [movie])
+
+  console.log('render desktop layout')
+
   return (
     <Wrapper>
       <StyledProviders providers={providers} />

@@ -16,8 +16,8 @@ import { LanguageProvider } from 'context/LanguageContext.ts'
 import useLocalStorage from 'hooks/useLocalStorage'
 import { createMeilisearchClient } from '../lib/createMeilisearchClient'
 
-const MEILISEARCH_HOST = process.env.MEILISEARCH_HOST || 'http://0.0.0.0:7700'
-const MEILISEARCH_API_KEY = process.env.MEILISEARCH_API_KEY || 'searchKey'
+const MEILISEARCH_HOST = process.env.NEXT_PUBLIC_MEILISEARCH_HOST
+const MEILISEARCH_API_KEY = process.env.NEXT_PUBLIC_MEILISEARCH_API_KEY
 
 const DEFAULT_SEMANTIC_RATIO = 0.5
 const DEFAULT_EMBEDDER = 'small'
