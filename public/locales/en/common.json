@@ -38,6 +38,6 @@
 
   "similar": {
     "heading": "Similar movies",
-    "description": "Watch movies similar to {{title}}"
+    "description": "Watch movies similar to {{title}}."
   }
 }

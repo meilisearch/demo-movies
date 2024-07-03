@@ -7,7 +7,10 @@ interface RecommendationsProps {
   className?: string
 }
 
-export function Recommendations({ movies, className }: RecommendationsProps) {
+export default function Recommendations({
+  movies,
+  className,
+}: RecommendationsProps) {
   return (
     <div className={clsx('', className)}>
       {movies.length === 0 ? (

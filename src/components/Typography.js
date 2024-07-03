@@ -133,7 +133,6 @@ const variants = {
 }
 
 const StyledTypography = styled.span`
-  margin: 0;
   transition: color 300ms;
   ${p => p.$variant.style};
 `
