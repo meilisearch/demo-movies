@@ -5,19 +5,13 @@ import { getTwicpicsUrl } from '~/utils'
 import { MOVIE_POSTER_ASPECT_RATIO } from '~/lib/constants'
 import Typography from 'components/Typography'
 import Rating from 'components/Rating'
+import { MovieData } from '~/types'
+import clsx from 'clsx'
 
-export interface CardProps {
-  id: number
-  poster_path: string
-  title: string
-  release_date: string
-  vote_average: string
+type CardProps = MovieData & {
+  className?: string
+  imageClassName?: string
 }
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`
 
 const Title = styled(Typography)`
   color: var(--800-100);
@@ -25,38 +19,38 @@ const Title = styled(Typography)`
 
 const ReleaseYear = styled(Typography)`
   color: var(--gray-300);
-  margin-right: 16px;
-`
-
-const Info = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
 `
 
 const Card = ({
   poster_path = '',
   title = '',
   release_date = '',
-  vote_average = '',
+  vote_average,
   ...props
 }: CardProps) => {
   const releaseYear = new Date(release_date).getFullYear()
   return (
-    <Wrapper {...props}>
-      <div className="rounded-lg overflow-hidden mb-2">
+    <div className={clsx('flex flex-col', props.className)}>
+      <div
+        className={clsx(
+          'rounded-lg overflow-hidden mb-2',
+          props.imageClassName
+        )}
+      >
         <TwicImg
-          mode="contain"
           src={getTwicpicsUrl('tmdb', poster_path)}
           ratio={MOVIE_POSTER_ASPECT_RATIO}
+          className="w-full h-full object-cover"
         />
       </div>
-      <Title variant="cardTitle">{title}</Title>
-      <Info>
+      <Title variant="cardTitle" className="text-wrap">
+        {title}
+      </Title>
+      <div className="flex items-center flex-wrap space-x-4">
         <ReleaseYear variant="subtitle">{releaseYear}</ReleaseYear>
         <Rating rating={Math.round((vote_average / 2) * 10) / 10} />
-      </Info>
-    </Wrapper>
+      </div>
+    </div>
   )
 }
 

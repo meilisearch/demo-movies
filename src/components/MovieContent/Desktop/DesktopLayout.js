@@ -48,13 +48,11 @@ const DesktopLayout = ({ hit }) => {
     const fetchSimilarMovies = async () => {
       const results = await client
         .index(selectedLanguage.indexName)
-        .searchSimilarDocuments({ id: movie.id }, { limit: 3 })
+        .searchSimilarDocuments({ id: movie.id, limit: 3 })
       setSimilarMovies(results.hits)
     }
     fetchSimilarMovies()
   }, [movie, client, selectedLanguage])
-
-  console.log('render desktop layout')
 
   return (
     <Wrapper>
@@ -68,7 +66,7 @@ const DesktopLayout = ({ hit }) => {
           <Typography>
             {t('similar.description', { title: movie.title })}
           </Typography>
-          <Recommendations className="mt-4" movies={[similarMovies]} />
+          <Recommendations className="mt-4" movies={similarMovies} />
         </div>
       </RightSection>
     </Wrapper>
