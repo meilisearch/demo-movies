@@ -24,7 +24,9 @@ const Head = ({ tab, movie }) => {
   const { t } = useTranslation('common')
   const { backdrop_path, poster_path } = movie
   return (
-    <BackdropImage $image={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}>
+    <BackdropImage
+      imageUrl={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
+    >
       <Poster
         src={poster_path}
         alt={movie.title}

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import get from 'utils/get'
 
-const BackdropImage = styled.div`
+const Wrapper = styled.div`
   background: linear-gradient(
       to bottom,
       rgba(var(--movie-content-image-gradient), 0.5) 0%,
@@ -24,4 +24,8 @@ const BackdropImage = styled.div`
     padding: 246px 50px 0;
   }
 `
+
+const BackdropImage = ({ children, imageUrl }) => {
+  return <Wrapper $image={imageUrl}>{children}</Wrapper>
+}
 export default BackdropImage
