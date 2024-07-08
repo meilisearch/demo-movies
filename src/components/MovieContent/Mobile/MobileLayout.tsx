@@ -97,7 +97,7 @@ const MobileLayout = ({ hit }) => {
   const { t } = useTranslation('common')
 
   return (
-    <div className="h-full flex flex-col mb-24">
+    <div className="h-full flex flex-col">
       <Head tab={tab} movie={movie} />
       <Content>
         <TabPanel {...tab}>
@@ -111,7 +111,7 @@ const MobileLayout = ({ hit }) => {
               title: movie.title,
             })}
           >
-            <Providers title={movie.title} providers={movie.providers} />
+            <Providers providers={movie.providers} />
           </SectionLayout>
         </TabPanel>
         <TabPanel {...tab}>
