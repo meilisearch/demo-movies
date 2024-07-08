@@ -48,8 +48,8 @@ jobs:
       - name: Browser tests
         uses: cypress-io/github-action@v4
         env:
-          CYPRESS_NEXT_PUBLIC_MEILISEARCH_HOST: http://meilisearch:7700
-          CYPRESS_NEXT_PUBLIC_MEILISEARCH_API_KEY: "masterKey"
+          CYPRESS_MEILISEARCH_HOST: http://meilisearch:7700
+          CYPRESS_MEILISEARCH_API_KEY: "masterKey"
         with:
           start: yarn ci:dev
           wait-on: "http://localhost:3000"
