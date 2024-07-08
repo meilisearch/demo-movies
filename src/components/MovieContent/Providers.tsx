@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import { useTranslation } from 'next-i18next'
 import { Buy, Rent, Stream } from 'components/icons'
 import get from 'utils/get'
-import SectionHeading from './Mobile/SectionHeading'
 
 const providersList = {
   'Apple iTunes': 'https://tv.apple.com',
@@ -50,11 +49,6 @@ const ProviderList = styled.div`
   }
 `
 
-const ProviderImage = styled.img`
-  width: 100%;
-  border-radius: 11px;
-`
-
 const NoProviderMessage = styled(Typography)`
   margin: 34px 0;
   text-align: center;
@@ -70,10 +64,11 @@ const Provider = ({ provider }) => {
       href={externalLink || null}
       target={externalLink ? '_blank' : null}
     >
-      <ProviderImage
+      <img
         src={`https://image.tmdb.org/t/p/w185/${provider.logo}`}
         alt={provider.name}
         title={provider.name}
+        className="w-full rounded-xl"
       />
     </ProviderTag>
   )
@@ -99,15 +94,17 @@ const List = ({ title, icon, providers, ...props }) => (
 
 const providerTypeConfig = {
   buy: {
-    icon: <Buy height={20} />,
+    icon: <Buy title="Buy" titleId={'buy-provider-icon'} height={20} />,
     titleTranslationKey: 'buy',
   },
   rent: {
-    icon: <Rent height={20} />,
+    icon: <Rent title="Rent" titleId={'rent-provider-icon'} height={20} />,
     titleTranslationKey: 'rent',
   },
   flatrate: {
-    icon: <Stream height={20} />,
+    icon: (
+      <Stream title="Stream" titleId={'stream-provider-icon'} height={20} />
+    ),
     titleTranslationKey: 'stream',
   },
 }
