@@ -133,7 +133,6 @@ const variants = {
 }
 
 const StyledTypography = styled.span`
-  margin: 0;
   transition: color 300ms;
   ${p => p.$variant.style};
 `
@@ -142,7 +141,13 @@ const Typography = ({ variant = 'default', ...props }) => {
   const safeVariant = variants[variant] || variants.default
   const { tag = 'span', style = css`` } = safeVariant
   return (
-    <StyledTypography as={tag} {...style} $variant={safeVariant} {...props} />
+    <StyledTypography
+      as={tag}
+      {...style}
+      $variant={safeVariant}
+      {...props}
+      className={props.className}
+    />
   )
 }
 

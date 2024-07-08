@@ -16,21 +16,29 @@ import { LanguageProvider } from 'context/LanguageContext.ts'
 import useLocalStorage from 'hooks/useLocalStorage'
 import { createMeilisearchClient } from '../lib/createMeilisearchClient'
 
-const MEILISEARCH_HOST = process.env.MEILISEARCH_HOST || 'http://0.0.0.0:7700'
-const MEILISEARCH_API_KEY = process.env.MEILISEARCH_API_KEY || 'searchKey'
+const MEILISEARCH_HOST = process.env.NEXT_PUBLIC_MEILISEARCH_HOST
+const MEILISEARCH_API_KEY = process.env.NEXT_PUBLIC_MEILISEARCH_API_KEY
 
 const DEFAULT_SEMANTIC_RATIO = 0.5
 const DEFAULT_EMBEDDER = 'small'
 
-const Wrapper = styled.div`
-  @media (min-width: ${get('breakpoints.desktop')}) {
-    padding: 0 50px 50px;
-  }
-`
-
 type SearchParamsUpdaterProps = {
   setSearchParams: InstantMeiliSearchObject['setMeiliSearchParams']
   semanticRatio: number
+}
+
+export const getStaticProps = async ({ locale }) => {
+  try {
+    return {
+      props: {
+        host: MEILISEARCH_HOST,
+        apiKey: MEILISEARCH_API_KEY,
+        ...(await serverSideTranslations(locale, ['common'])),
+      },
+    }
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 const SearchParamsUpdater = ({
@@ -55,6 +63,12 @@ const SearchParamsUpdater = ({
 
   return null // This component doesn't render anything
 }
+
+const Wrapper = styled.div`
+  @media (min-width: ${get('breakpoints.desktop')}) {
+    padding: 0 50px 50px;
+  }
+`
 
 const Home = ({ host, apiKey }) => {
   const [localStorageCountry, setLocalStorageCountry] =
@@ -126,20 +140,6 @@ const Home = ({ host, apiKey }) => {
       </LanguageProvider>
     </ClientProvider>
   )
-}
-
-export const getStaticProps = async ({ locale }) => {
-  try {
-    return {
-      props: {
-        host: MEILISEARCH_HOST,
-        apiKey: MEILISEARCH_API_KEY,
-        ...(await serverSideTranslations(locale, ['common'])),
-      },
-    }
-  } catch (err) {
-    console.log(err)
-  }
 }
 
 export default Home

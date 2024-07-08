@@ -7,7 +7,6 @@
   "movies": "Movies",
   "results": "Results",
   "synopsis": "Synopsis",
-  "overview": "Overview",
   "whereToWatch": "Where to Watch",
   "cast": "Cast",
   "buy": "Buy",
@@ -34,5 +33,21 @@
     "heading": "What's trending?",
     "semanticLabel": "semantic",
     "semanticTooltip": "Determines how semantic search affects the results."
+  },
+
+  "overview": {
+    "heading": "Overview"
+  },
+
+  "platforms": {
+    "heading": "Platforms",
+    "description": "Find platforms to watch {{title}}.",
+    "mobileDescription": "Where can I watch {{title}}?"
+  },
+
+  "similar": {
+    "heading": "Similar movies",
+    "mobileHeading": "Similar",
+    "description": "Watch movies similar to {{title}}."
   }
 }

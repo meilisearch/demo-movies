@@ -1,10 +1,19 @@
 import { InstantMeiliSearchObject } from '@meilisearch/instant-meilisearch'
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 
-const ClientContext = React.createContext({
-  client: {},
-  setClient: (meilisearch: InstantMeiliSearchObject) => {}, // eslint-disable-line no-unused-vars
-})
+interface ClientContextProps {
+  client: InstantMeiliSearchObject | null
+  setClient: Dispatch<SetStateAction<InstantMeiliSearchObject | null>>
+}
+
+const clientContextDefaultValue: ClientContextProps = {
+  client: null,
+  setClient: () => {},
+}
+
+const ClientContext = React.createContext<ClientContextProps>(
+  clientContextDefaultValue
+)
 
 export const ClientProvider = ClientContext.Provider
 export const ClientConsumer = ClientContext.Consumer

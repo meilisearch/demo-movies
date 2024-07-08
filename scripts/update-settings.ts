@@ -1,6 +1,6 @@
 import { Task } from 'meilisearch'
 import { ofetch } from 'ofetch'
-import { checkEnv } from './utils'
+import { checkEnv, isUsingMeilisearchCloud } from './utils'
 
 type TaskResponse = {
   taskUid: Task['uid']
@@ -33,15 +33,19 @@ const indexesConfig = [
 async function main() {
   console.log(`Connecting to: ${MEILISEARCH_HOST}`)
 
-  await ofetch<TaskResponse>(`${MEILISEARCH_HOST}/experimental-features`, {
-    method: 'PATCH',
-    headers: {
-      Authorization: `Bearer ${MEILISEARCH_ADMIN_API_KEY}`,
-    },
-    body: {
-      vectorStore: true,
-    },
-  })
+  const shouldEnableVectorStore = !isUsingMeilisearchCloud(MEILISEARCH_HOST)
+  if (shouldEnableVectorStore) {
+    console.log('Enabling vector store')
+    await ofetch<TaskResponse>(`${MEILISEARCH_HOST}/experimental-features`, {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${MEILISEARCH_ADMIN_API_KEY}`,
+      },
+      body: {
+        vectorStore: true,
+      },
+    })
+  }
 
   for (const { indexName, documentTemplate } of indexesConfig) {
     const endpoint = `${MEILISEARCH_HOST}/indexes/${indexName}/settings`

@@ -41,14 +41,14 @@ const PlaceholderProfilePicture = styled.div`
 const People = ({ people, ...props }) => {
   const { character = '', name = '', profile_path = '' } = people
   return (
-    <div {...props}>
+    <div {...props} className="max-w-[100px]">
       {profile_path ? (
         <Image
           src={`https://image.tmdb.org/t/p/w185/${profile_path}`}
           alt={name}
           width={100}
           height={100}
-          style={{ borderRadius: '50%', objectFit: 'cover' }}
+          className="rounded-full h-[100px] w-[100px] object-cover"
         />
       ) : (
         <PlaceholderProfilePicture />

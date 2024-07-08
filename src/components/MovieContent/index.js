@@ -2,8 +2,14 @@ import React from 'react'
 import MobileLayout from './Mobile/MobileLayout'
 import DesktopLayout from './Desktop/DesktopLayout'
 
+const hasMobileDeviceWindowWidth = () => {
+  return window.innerWidth < 1024
+}
+
 const MovieContent = ({ hit }) => {
-  const [mobile, setMobile] = React.useState(undefined)
+  const [isMobileDevice, setMobileDevice] = React.useState(
+    hasMobileDeviceWindowWidth()
+  )
   const releaseDate = new Date(hit.release_date)
   const release_year = releaseDate.getFullYear()
 
@@ -14,12 +20,12 @@ const MovieContent = ({ hit }) => {
   }`
 
   const Layout = React.useMemo(
-    () => (mobile ? MobileLayout : DesktopLayout),
-    [mobile]
+    () => (isMobileDevice ? MobileLayout : DesktopLayout),
+    [isMobileDevice]
   )
   React.useEffect(() => {
     const updateMobile = () => {
-      setMobile(window.innerWidth < 1024 ? true : false)
+      setMobileDevice(hasMobileDeviceWindowWidth())
     }
 
     updateMobile()
@@ -29,9 +35,7 @@ const MovieContent = ({ hit }) => {
     }
   }, [])
 
-  return typeof mobile !== 'undefined' ? (
-    <Layout hit={{ ...hit, release_year, movie_duration }} />
-  ) : null
+  return <Layout hit={{ ...hit, release_year, movie_duration }} />
 }
 
 export default MovieContent

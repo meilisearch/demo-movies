@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   aspect-ratio: 150/225;
 `
 
+// TODO: refactor to use TwicImg
 const Poster = ({ src = '', alt = '', ...props }) => (
   <Wrapper {...props}>
     <Image

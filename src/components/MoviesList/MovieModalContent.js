@@ -17,20 +17,22 @@ const Close = styled(IconButton)`
   }
 `
 
-const MovieModalContent = ({ dialog, hit }) => (
-  <DialogBackdrop {...dialog}>
-    <Close rounded onClick={() => dialog.hide()}>
-      <Cross width={15} />
-    </Close>
-    <DialogContent
-      {...dialog}
-      tabIndex={0}
-      aria-label={hit?.title || 'Movie infos'}
-      data-cy="movie-detail"
-    >
-      {hit && dialog.visible && <MovieContent hit={hit} />}
-    </DialogContent>
-  </DialogBackdrop>
-)
+const MovieModalContent = ({ dialog, hit }) => {
+  return (
+    <DialogBackdrop {...dialog}>
+      <Close rounded onClick={() => dialog.hide()}>
+        <Cross width={15} />
+      </Close>
+      <DialogContent
+        {...dialog}
+        tabIndex={0}
+        aria-label={hit?.title || 'Movie infos'}
+        data-cy="movie-detail"
+      >
+        {hit && dialog.visible && <MovieContent hit={hit} />}
+      </DialogContent>
+    </DialogBackdrop>
+  )
+}
 
-export default MovieModalContent
+export default React.memo(MovieModalContent)

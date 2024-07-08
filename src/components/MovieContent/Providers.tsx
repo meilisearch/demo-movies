@@ -33,22 +33,9 @@ const providersList = {
   'Epix': 'https://www.epix.com/',
 }
 
-const Wrapper = styled.section`
-  grid-column: 1 / 3;
-  padding: 56px 28px;
-`
-
 const ListTitleText = styled(Typography)`
   text-transform: uppercase;
   margin-left: 16px;
-`
-
-const TitleWrapper = styled.h3`
-  display: flex;
-`
-
-const ListWrapper = styled.div`
-  margin-top: 56px;
 `
 
 const ProviderList = styled.div`
@@ -60,11 +47,6 @@ const ProviderList = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
     grid-template-columns: repeat(3, 1fr);
   }
-`
-
-const ProviderImage = styled.img`
-  width: 100%;
-  border-radius: 11px;
 `
 
 const NoProviderMessage = styled(Typography)`
@@ -82,27 +64,23 @@ const Provider = ({ provider }) => {
       href={externalLink || null}
       target={externalLink ? '_blank' : null}
     >
-      <ProviderImage
+      <img
         src={`https://image.tmdb.org/t/p/w185/${provider.logo}`}
         alt={provider.name}
         title={provider.name}
+        className="w-full rounded-xl"
       />
     </ProviderTag>
   )
 }
 
-const List = ({
-  title,
-  icon,
-  providers,
-  'data-provider-type': dataProviderType,
-}) => (
-  <ListWrapper>
-    <TitleWrapper>
+const List = ({ title, icon, providers, ...props }) => (
+  <div {...props}>
+    <Typography variant="h3" className="flex items-center space-x-4">
       {icon}
       <ListTitleText variant="typo4">{title}</ListTitleText>
-    </TitleWrapper>
-    <ProviderList data-provider-type={dataProviderType}>
+    </Typography>
+    <ProviderList>
       {providers?.map(provider => (
         <Provider
           key={provider.name}
@@ -111,53 +89,64 @@ const List = ({
         />
       ))}
     </ProviderList>
-  </ListWrapper>
+  </div>
 )
 
-const Providers = ({ providers, ...props }) => {
+const providerTypeConfig = {
+  buy: {
+    icon: <Buy title="Buy" titleId={'buy-provider-icon'} height={20} />,
+    titleTranslationKey: 'buy',
+  },
+  rent: {
+    icon: <Rent title="Rent" titleId={'rent-provider-icon'} height={20} />,
+    titleTranslationKey: 'rent',
+  },
+  flatrate: {
+    icon: (
+      <Stream title="Stream" titleId={'stream-provider-icon'} height={20} />
+    ),
+    titleTranslationKey: 'stream',
+  },
+}
+
+const Providers = ({
+  providers,
+  ...props
+}: {
+  providers: { buy?: any[]; rent?: any[]; flatrate?: any[] }
+}) => {
   const { t } = useTranslation('common')
-  const { buy = [], rent = [], flatrate: stream = [] } = providers
-  const hasProvider = buy.length > 0 || rent.length > 0 || stream.length > 0
+  const hasProvider =
+    providers.buy?.length > 0 ||
+    providers.rent?.length > 0 ||
+    providers.flatrate?.length > 0
+
   return (
-    <Wrapper {...props}>
-      <Typography
-        variant="h2"
-        style={{ textAlign: 'center', display: 'inline-block' }}
-      >
-        {t('title')}
-      </Typography>
+    <div {...props}>
       <div>
         {!hasProvider && (
           <NoProviderMessage variant="typo1">
             {t('noProviderFound')}
           </NoProviderMessage>
         )}
-        {stream.length > 0 && (
-          <List
-            title={t('stream')}
-            icon={<Stream height={20} />}
-            providers={stream}
-            data-provider-type="stream"
-          />
-        )}
-        {rent.length > 0 && (
-          <List
-            title={t('rent')}
-            icon={<Rent height={20} />}
-            providers={rent}
-            data-provider-type="rent"
-          />
-        )}
-        {buy.length > 0 && (
-          <List
-            title={t('buy')}
-            icon={<Buy height={20} />}
-            providers={buy}
-            data-provider-type="buy"
-          />
+
+        {hasProvider && (
+          <div className="space-y-8">
+            {Object.entries(providerTypeConfig).map(
+              ([providerType, config]) =>
+                providers[providerType]?.length > 0 && (
+                  <List
+                    key={providerType}
+                    title={t(config.titleTranslationKey)}
+                    icon={config.icon}
+                    providers={providers[providerType]}
+                  />
+                )
+            )}
+          </div>
         )}
       </div>
-    </Wrapper>
+    </div>
   )
 }
 
