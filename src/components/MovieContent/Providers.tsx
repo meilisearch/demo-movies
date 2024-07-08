@@ -113,13 +113,13 @@ const Providers = ({
   providers,
   ...props
 }: {
-  providers: { buy: any[]; rent: any[]; flatrate: any[] }
+  providers: { buy?: any[]; rent?: any[]; flatrate?: any[] }
 }) => {
   const { t } = useTranslation('common')
   const hasProvider =
-    providers.buy.length > 0 ||
-    providers.rent.length > 0 ||
-    providers.flatrate.length > 0
+    providers.buy?.length > 0 ||
+    providers.rent?.length > 0 ||
+    providers.flatrate?.length > 0
 
   return (
     <div {...props}>
