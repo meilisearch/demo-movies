@@ -1,49 +1,29 @@
-import { useContext, useEffect, useState, useMemo, Suspense } from 'react'
+import { useMemo } from 'react'
 import { useTranslation } from 'next-i18next'
 import Providers from '~/components/MovieContent/Providers'
 import DesktopMovieInfos from '~/components/MovieContent/Desktop/DesktopMovieInfos'
 import Cast from '~/components/MovieContent/Cast'
 import Typography from '~/components/Typography'
-import Recommendations from '~/components/MovieContent/Desktop/Recommendations'
-import SectionTitle from '~/components/MovieContent/SectionTitle'
-import LanguageContext from '~/context/LanguageContext'
-import { useMeilisearch } from '~/hooks/useMeilisearch'
-import { MovieData } from '~/types'
-
-interface SimilarMoviesQuery {
-  status: 'loading' | 'success' | 'error'
-  hits: MovieData[]
-}
+import Recommendations from '~/components/MovieContent/Recommendations'
+import SectionTitle from '~/components/MovieContent/Desktop/SectionTitle'
+import { useSimilarMovies } from '~/hooks/useSimilarMovies'
 
 const DesktopLayout = ({ hit }) => {
   const { t } = useTranslation('common')
   const movie = useMemo(() => hit, [hit])
-
-  const { client } = useMeilisearch()
-  const { selectedLanguage } = useContext(LanguageContext)
-  const [similarMoviesQuery, setSimilarMoviesQuery] =
-    useState<SimilarMoviesQuery>({ status: 'loading', hits: [] })
-
-  useEffect(() => {
-    const fetchSimilarMovies = async () => {
-      try {
-        const results = await client
-          .index(selectedLanguage.indexName)
-          .searchSimilarDocuments<MovieData>({ id: movie.id, limit: 7 })
-        setSimilarMoviesQuery({ status: 'success', hits: results.hits })
-      } catch (error) {
-        setSimilarMoviesQuery({ status: 'error', hits: [] })
-      }
-    }
-    fetchSimilarMovies()
-  }, [movie, client, selectedLanguage])
+  const similarMoviesQuery = useSimilarMovies(movie.id)
 
   return (
     <div className="grid grid-cols-12">
-      <Providers
-        className="bg-[var(--providers-bg-color)]"
-        providers={movie.providers}
-      />
+      <div className="col-start-1 col-end-3 px-4 py-12 bg-[var(--providers-bg-color)]">
+        <SectionTitle className="mb-4">{t('title')}</SectionTitle>
+        <div className="mb-8">
+          <Typography>
+            {t('platforms.description', { title: movie.title })}
+          </Typography>
+        </div>
+        <Providers providers={movie.providers} />
+      </div>
       <div className="col-start-3 col-end-[-1] pb-16">
         <DesktopMovieInfos movie={movie} />
         <div className="px-14 py-12">
@@ -64,7 +44,7 @@ const DesktopLayout = ({ hit }) => {
             <Typography>Error while loading similar movies.</Typography>
           )}
           {similarMoviesQuery.status === 'success' && (
-            <Recommendations movies={similarMoviesQuery.hits} />
+            <Recommendations movies={similarMoviesQuery.data} />
           )}
         </div>
       </div>

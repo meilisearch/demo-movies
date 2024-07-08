@@ -27,7 +27,7 @@ const Infos = ({ title }) => {
   const { t } = useTranslation('common')
 
   return (
-    <div className="md:flex md:items-baseline space-x-4 mb-6">
+    <div className="flex items-baseline space-x-4 mb-6">
       <Typography variant="h3" className="text-[var(--h3)]">
         {title}
       </Typography>
