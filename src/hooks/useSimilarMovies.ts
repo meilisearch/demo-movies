@@ -8,6 +8,9 @@ interface SimilarMoviesQuery {
   hits: MovieData[]
 }
 
+const DEFAULT_EMBEDDER =
+  process.env.NEXT_PUBLIC_MEILISEARCH_EMBEDDER ?? 'default'
+
 export const useSimilarMovies = (movieId: string) => {
   const { client } = useMeilisearch()
   const { selectedLanguage } = useContext(LanguageContext)
@@ -21,7 +24,11 @@ export const useSimilarMovies = (movieId: string) => {
       try {
         const results = await client
           .index(selectedLanguage.indexName)
-          .searchSimilarDocuments<MovieData>({ id: movieId, limit: 7 })
+          .searchSimilarDocuments<MovieData>({
+            id: movieId,
+            limit: 7,
+            embedder: DEFAULT_EMBEDDER,
+          })
         setQuery({ status: 'success', hits: results.hits })
       } catch (error) {
         setQuery({ status: 'error', hits: [] })
