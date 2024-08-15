@@ -16,7 +16,8 @@
     "test:watch": "concurrently --kill-others -s first \"yarn ci:dev\" \"cypress open\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "setup": "bun run scripts/seed.ts scripts/",
+    "setup": "bun run setup:settings && bun run setup:seed ",
+    "setup:seed": "bun run scripts/seed.ts",
     "setup:settings": "bun run scripts/update-settings.ts"
   },
   "dependencies": {
