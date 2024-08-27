@@ -52,7 +52,7 @@ async function main() {
   console.log(`Connecting to: ${MEILISEARCH_HOST}`)
 
   const shouldEnableVectorStore = !isUsingMeilisearchCloud(MEILISEARCH_HOST)
-  // On Meilisearch Cloud, feature needs to be enabled manually
+  // On Meilisearch Cloud, feature needs to be enabled via the UI
   if (shouldEnableVectorStore) {
     console.log('Enabling vector store')
     await ofetch<TaskResponse>(`${MEILISEARCH_HOST}/experimental-features`, {
