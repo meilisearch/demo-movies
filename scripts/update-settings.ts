@@ -28,14 +28,14 @@ const indexesConfig = [
     indexName: 'movies-en-US',
     documentTemplate: `A movie titled '{{doc.title}}' that released in {{ doc.release_date | date: '%Y' }}. The movie genres are: {{doc.genres}}. The storyline is about: {{doc.overview|truncatewords: ${DESCRIPTION_MAXIMUM_WORDS}}}`,
   },
-  {
-    indexName: 'movies-ja-JP',
-    documentTemplate: `映画のタイトルは '{{doc.title}}' で、{{ doc.release_date | date: '%Y年' }}に公開され、ジャンルは: {{doc.genres}}。あらすじは: {{doc.overview|truncatewords: ${DESCRIPTION_MAXIMUM_WORDS}}}`,
-  },
-  {
-    indexName: 'movies-th-TH',
-    documentTemplate: `หนังชื่อ '{{doc.title}}' ฉายเมื่อ {{ doc.release_date | date: '%Y' }} ซึ่งเริ่มต้นด้วย {{doc.genres}}. เรื่องย่อเกี่ยวกับ: {{doc.overview|truncatewords: ${DESCRIPTION_MAXIMUM_WORDS}}}`,
-  },
+  // {
+  //   indexName: 'movies-ja-JP',
+  //   documentTemplate: `映画のタイトルは '{{doc.title}}' で、{{ doc.release_date | date: '%Y年' }}に公開され、ジャンルは: {{doc.genres}}。あらすじは: {{doc.overview|truncatewords: ${DESCRIPTION_MAXIMUM_WORDS}}}`,
+  // },
+  // {
+  //   indexName: 'movies-th-TH',
+  //   documentTemplate: `หนังชื่อ '{{doc.title}}' ฉายเมื่อ {{ doc.release_date | date: '%Y' }} ซึ่งเริ่มต้นด้วย {{doc.genres}}. เรื่องย่อเกี่ยวกับ: {{doc.overview|truncatewords: ${DESCRIPTION_MAXIMUM_WORDS}}}`,
+  // },
 ]
 
 const apiPatchRequest = (url: string, body: any) => {
@@ -67,19 +67,18 @@ async function main() {
   }
 
   for (const { indexName, documentTemplate } of indexesConfig) {
-    const indexEndpoint = `${MEILISEARCH_HOST}/indexes/${indexName}`
+    // const indexEndpoint = `${MEILISEARCH_HOST}/indexes/${indexName}`
+    // console.log(`Updating ${indexName} primary key...`)
+    // try {
+    //   const task = await apiPatchRequest(indexEndpoint, {
+    //     primaryKey: DOCUMENT_PRIMARY_KEY,
+    //   })
+    //   console.log('Enqueued task uid', task.taskUid)
+    // } catch (error) {
+    //   console.error('Error: ', JSON.stringify(error))
+    // }
+
     const settingsEndpoint = `${MEILISEARCH_HOST}/indexes/${indexName}/settings`
-
-    console.log(`Updating ${indexName} primary key...`)
-    try {
-      const task = await apiPatchRequest(indexEndpoint, {
-        primaryKey: DOCUMENT_PRIMARY_KEY,
-      })
-      console.log('Enqueued task uid', task.taskUid)
-    } catch (error) {
-      console.error('Error: ', JSON.stringify(error))
-    }
-
     console.log(`Updating ${indexName} embedders...`)
     try {
       const task = await apiPatchRequest(settingsEndpoint, {
@@ -105,9 +104,7 @@ async function main() {
       console.error('Error: ', JSON.stringify(error))
     }
   }
-  console.log(
-    `All tasks enqueued! Check tasks status via: https://cloud.meilisearch.com/`
-  )
+  console.log(`Done! Check tasks status via: https://cloud.meilisearch.com/`)
 }
 
 main()

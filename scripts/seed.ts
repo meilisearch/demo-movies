@@ -36,7 +36,7 @@ const setup = async () => {
     indexes.map(async index => {
       const currentIndex = client.index(index.indexName)
       const task = await currentIndex.addDocuments(index.documents)
-      console.log('Enqueued task: ', task)
+      console.log('Enqueued task with uid', task.taskUid)
     })
   )
   console.log(
