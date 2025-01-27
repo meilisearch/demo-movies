@@ -53,7 +53,7 @@ const Disclosure = styled(DialogDisclosure)`
 const MoviesList = () => {
   const { t } = useTranslation('common')
   const [movie, setMovie] = React.useState(null)
-  const { currentMovie, setCurrentMovie } = React.useContext(MovieContext)
+  const { currentMovie } = React.useContext(MovieContext)
   const dialog = useDialogState()
   const cardsRef = React.useRef([])
 
