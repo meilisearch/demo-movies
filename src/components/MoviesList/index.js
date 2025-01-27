@@ -10,6 +10,7 @@ import { useDialogState } from 'reakit/Dialog'
 import MovieModalContent from './MovieModalContent'
 import Card from 'components/Card'
 import { DialogDisclosure } from 'components/Dialog'
+import { MovieContext, MovieContextProvider } from '~/context/MovieContext'
 
 const Hits = styled(ISHits)`
   ol {
@@ -51,7 +52,8 @@ const Disclosure = styled(DialogDisclosure)`
 
 const MoviesList = () => {
   const { t } = useTranslation('common')
-  const [currentMovie, setCurrentMovie] = React.useState()
+  const [movie, setMovie] = React.useState(null)
+  const { currentMovie, setCurrentMovie } = React.useContext(MovieContext)
   const dialog = useDialogState()
   const cardsRef = React.useRef([])
 
@@ -65,23 +67,27 @@ const MoviesList = () => {
   }, [dialog.visible])
 
   return (
-    <Wrapper as="section">
-      <Infos title={t('movies')} />
-      <Hits
-        hitComponent={({ hit }) => (
-          <Disclosure
-            ref={ref => (cardsRef.current[hit.objectID] = ref)}
-            {...dialog}
-            onClick={() => {
-              setCurrentMovie(hit)
-            }}
-          >
-            <Card {...hit} />
-          </Disclosure>
-        )}
-      />
-      <MovieModalContent hit={currentMovie} dialog={dialog} />
-    </Wrapper>
+    <MovieContextProvider
+      value={{ currentMovie: movie, setCurrentMovie: setMovie }}
+    >
+      <Wrapper as="section">
+        <Infos title={t('movies')} />
+        <Hits
+          hitComponent={({ hit }) => (
+            <Disclosure
+              ref={ref => (cardsRef.current[hit.objectID] = ref)}
+              {...dialog}
+              onClick={() => {
+                setMovie(hit)
+              }}
+            >
+              <Card {...hit} />
+            </Disclosure>
+          )}
+        />
+        <MovieModalContent hit={movie} dialog={dialog} />
+      </Wrapper>
+    </MovieContextProvider>
   )
 }
 
