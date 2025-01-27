@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { TwicImg } from '@twicpics/components/react'
 import Typography from 'components/Typography'
 import Rating from 'components/Rating'
-import Poster from 'components/Poster'
 import Crews from '../Crews'
 import Socials from '../Socials'
 import BackdropImage from '../BackdropImage'
 import Tags from '../Tags'
+import { getTwicpicsUrl } from '~/utils'
+import { MOVIE_POSTER_ASPECT_RATIO } from '~/lib/constants'
 
 const Descriptions = styled.div`
   margin-left: 40px;
@@ -54,10 +56,11 @@ const DesktopMovieInfos = ({ movie }) => {
       imageUrl={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
     >
       <Infos>
-        <Poster
-          src={poster_path}
+        <TwicImg
+          src={getTwicpicsUrl('tmdb', poster_path)}
           alt={movie.title}
-          style={{ height: 360, flexShrink: 0 }}
+          ratio={MOVIE_POSTER_ASPECT_RATIO}
+          className="object-cover w-[240px] h-[360px] shrink-0 rounded-lg"
         />
         <Descriptions>
           <Typography variant="h1" style={{ textTransform: 'uppercase' }}>
