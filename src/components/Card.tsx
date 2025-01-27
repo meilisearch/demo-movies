@@ -41,6 +41,7 @@ const Card = ({
           src={getTwicpicsUrl('tmdb', poster_path)}
           ratio={MOVIE_POSTER_ASPECT_RATIO}
           className="w-full h-full object-cover"
+          alt={title}
         />
       </div>
       <Title variant="cardTitle" className="text-wrap">

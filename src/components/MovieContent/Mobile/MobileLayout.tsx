@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { useTranslation } from 'next-i18next'
 import styled from 'styled-components'
+import { TwicImg } from '@twicpics/components/react'
 import { useTabState } from 'reakit/Tab'
 import { Tab, TabList, TabPanel } from 'components/Tab'
 import Typography from 'components/Typography'
@@ -8,10 +9,11 @@ import Providers from '../Providers'
 import MobileMovieInfos from './MobileMovieInfos'
 import Cast from '../Cast'
 import BackdropImage from '../BackdropImage'
-import Poster from 'components/Poster'
 import SectionHeading from './SectionHeading'
 import Recommendations from '../Recommendations'
 import { useSimilarMovies } from '~/hooks/useSimilarMovies'
+import { getTwicpicsUrl } from '~/utils'
+import { MOVIE_POSTER_ASPECT_RATIO } from '~/lib/constants'
 
 const StyledTabList = styled(TabList)`
   display: flex;
@@ -27,10 +29,11 @@ const Head = ({ tab, movie }) => {
     <BackdropImage
       imageUrl={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
     >
-      <Poster
-        src={poster_path}
+      <TwicImg
+        src={getTwicpicsUrl('tmdb', poster_path)}
         alt={movie.title}
-        style={{ height: 360, flexShrink: 0, marginTop: 120 }}
+        ratio={MOVIE_POSTER_ASPECT_RATIO}
+        className="object-cover w-[240px] h-[360px] shrink-0 rounded-lg mt-32"
       />
       <StyledTabList {...tab} aria-label="movie tabs">
         <Tab {...tab} id="overview">
