@@ -3,6 +3,7 @@ const { defineConfig } = require('cypress')
 module.exports = defineConfig({
   viewportWidth: 1440,
   viewportHeight: 900,
+  // These environment variables are only used for cypress commands
   env: {
     MEILISEARCH_HOST: 'http://0.0.0.0:7700',
     MEILISEARCH_API_KEY: 'masterKey',

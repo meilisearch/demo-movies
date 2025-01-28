@@ -1,4 +1,8 @@
-const WAITING_TIME = 2000
+import enLocale from '../../public/locales/en/common.json'
+
+const WAITING_TIME = 1000
+
+const LIST_SELECTOR = '.ais-Hits-list'
 
 describe(`Home page`, () => {
   before(() => {
@@ -24,23 +28,24 @@ describe(`Home page`, () => {
   })
 
   it('Should visit the Home page', () => {
-    cy.url().should('match', new RegExp(Cypress.config('baseUrl')))
-    cy.contains('What’s Trending')
+    const baseUrl = Cypress.config('baseUrl')
+    cy.url().should('match', new RegExp(baseUrl))
+    cy.contains(enLocale.home.heading)
   })
 
   it('Should contain movies', () => {
-    cy.contains('What’s Trending')
-    cy.get('ul.ais-Hits-list').children().should('have.length', 11)
+    cy.contains(enLocale.home.heading)
+    cy.get(LIST_SELECTOR).children().should('have.length', 11)
   })
 
   it('Should search for a movie', () => {
     cy.get('input[type="search"]').type('scarface')
-    cy.get('ul.ais-Hits-list').children().should('have.length', 1)
+    cy.get(LIST_SELECTOR).children().should('have.length', 1)
   })
 
   it('Should clear the input field', () => {
     cy.get('input[type="search"]').clear()
-    cy.get('ul.ais-Hits-list').children().should('have.length', 11)
+    cy.get(LIST_SELECTOR).children().should('have.length', 11)
   })
 
   context('dark/light mode', () => {
@@ -78,7 +83,7 @@ describe(`Home page`, () => {
     })
 
     it('Should switch between countries', () => {
-      cy.get('ul.ais-Hits-list').children().contains('Batman')
+      cy.get(LIST_SELECTOR).children().contains('Batman')
 
       // Switch to Japanese
       cy.get('[data-cy="country-switcher-desktop"]').click()
@@ -88,7 +93,7 @@ describe(`Home page`, () => {
         .children()
         .eq(1)
         .click()
-      cy.get('ul.ais-Hits-list').children().contains('バットマン')
+      cy.get(LIST_SELECTOR).children().contains('バットマン')
 
       // Switch to Thai
       cy.get('[data-cy="country-switcher-desktop"]').click()
@@ -98,7 +103,7 @@ describe(`Home page`, () => {
         .children()
         .eq(2)
         .click()
-      cy.get('ul.ais-Hits-list').children().contains('แบทแมน')
+      cy.get(LIST_SELECTOR).children().contains('แบทแมน')
     })
 
     it('Should save the country preferences inside localStorage', () => {
@@ -119,7 +124,7 @@ describe(`Home page`, () => {
       )
       cy.visit('/')
       cy.wait(WAITING_TIME)
-      cy.get('ul.ais-Hits-list').children().contains('バットマン')
+      cy.get(LIST_SELECTOR).children().contains('バットマン')
     })
   })
 
