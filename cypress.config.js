@@ -6,6 +6,7 @@ module.exports = defineConfig({
   env: {
     MEILISEARCH_HOST: 'http://0.0.0.0:7700',
     MEILISEARCH_API_KEY: 'masterKey',
+    TWICPICS_DOMAIN: 'https://meilisearch.twic.pics',
   },
   e2e: {
     // We've imported your old cypress plugins here.
