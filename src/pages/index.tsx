@@ -19,6 +19,9 @@ import { createMeilisearchClient } from '../lib/createMeilisearchClient'
 const MEILISEARCH_HOST = process.env.NEXT_PUBLIC_MEILISEARCH_HOST
 const MEILISEARCH_API_KEY = process.env.NEXT_PUBLIC_MEILISEARCH_API_KEY
 
+console.log('MEILISEARCH_HOST', MEILISEARCH_HOST)
+console.log('MEILISEARCH_API_KEY', MEILISEARCH_API_KEY)
+
 const DEFAULT_SEMANTIC_RATIO = 0.5
 const DEFAULT_EMBEDDER =
   process.env.NEXT_PUBLIC_MEILISEARCH_EMBEDDER ?? 'default'
