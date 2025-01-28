@@ -1,13 +1,17 @@
 import enLocale from '../../public/locales/en/common.json'
 
-const WAITING_TIME = 1000
+const WAITING_TIME = 150
 
 const LIST_SELECTOR = '.ais-Hits-list'
 
 describe(`Home page`, () => {
   before(() => {
     localStorage.setItem('theme', 'dark')
+
+    cy.enableVectorSearch()
+
     cy.fixture('../../assets/movies-en-US.json').then(movies => {
+      console.log('Adding documents to index', movies)
       cy.addDocuments('movies-en-US', movies)
       cy.wait(WAITING_TIME)
     })

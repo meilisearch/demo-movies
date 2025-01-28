@@ -10,9 +10,15 @@ function createClient() {
   })
 }
 
-Cypress.Commands.add('enableVectorSearch', () => {
+Cypress.Commands.add('enableVectorSearch', async () => {
   try {
-    // TODO: Implement
+    await fetch(`${MEILISEARCH_HOST}/experimental-features/`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ vectorStore: true }),
+    })
   } catch (error) {
     console.log({ error })
   }
