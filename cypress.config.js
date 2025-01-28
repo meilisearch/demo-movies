@@ -4,9 +4,9 @@ module.exports = defineConfig({
   viewportWidth: 1440,
   viewportHeight: 900,
   env: {
-    MEILISEARCH_HOST: 'http://0.0.0.0:7700',
-    MEILISEARCH_API_KEY: 'masterKey',
-    TWICPICS_DOMAIN: 'https://meilisearch.twic.pics',
+    NEXT_PUBLIC_MEILISEARCH_HOST: 'http://0.0.0.0:7700',
+    NEXT_PUBLIC_MEILISEARCH_API_KEY: 'masterKey',
+    NEXT_PUBLIC_TWICPICS_DOMAIN: 'https://meilisearch.twic.pics',
   },
   e2e: {
     // We've imported your old cypress plugins here.
