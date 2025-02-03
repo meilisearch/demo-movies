@@ -15,6 +15,10 @@ import { useSimilarMovies } from '~/hooks/useSimilarMovies'
 import { getTwicpicsUrl } from '~/utils'
 import { MOVIE_POSTER_ASPECT_RATIO } from '~/lib/constants'
 
+const TAB_ID_OVERVIEW = 'overview'
+const TAB_ID_PLATFORMS = 'whereTowatch'
+const TAB_ID_SIMILAR = 'similar'
+
 const StyledTabList = styled(TabList)`
   display: flex;
   width: 100%;
@@ -36,13 +40,13 @@ const Head = ({ tab, movie }) => {
         className="object-cover w-[240px] h-[360px] shrink-0 rounded-lg mt-32"
       />
       <StyledTabList {...tab} aria-label="movie tabs">
-        <Tab {...tab} id="overview">
+        <Tab {...tab} id={TAB_ID_OVERVIEW}>
           <Typography variant="typo1">{t('overview.heading')}</Typography>
         </Tab>
-        <Tab {...tab} id="whereTowatch">
+        <Tab {...tab} id={TAB_ID_PLATFORMS}>
           <Typography variant="typo1">{t('platforms.heading')}</Typography>
         </Tab>
-        <Tab {...tab} id="similar">
+        <Tab {...tab} id={TAB_ID_SIMILAR}>
           <Typography variant="typo1">{t('similar.mobileHeading')}</Typography>
         </Tab>
       </StyledTabList>
@@ -96,7 +100,7 @@ const SectionLayout = ({
 }
 
 const MobileLayout = ({ hit }) => {
-  const tab = useTabState()
+  const tab = useTabState({ selectedId: TAB_ID_SIMILAR })
   const movie = useMemo(() => hit, [hit])
   const similarMoviesQuery = useSimilarMovies(hit.id)
   const { t } = useTranslation('common')

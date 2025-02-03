@@ -6,7 +6,7 @@ export default function SectionTitle({ children, className }) {
     <Typography
       as="h2"
       variant="typo3"
-      className={clsx('uppercase', className)}
+      className={clsx('', className)}
       style={{ color: 'var(--cast-section-title-desktop)' }}
     >
       {children}

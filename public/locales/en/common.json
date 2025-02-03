@@ -47,6 +47,7 @@
 
   "similar": {
     "heading": "Similar movies",
+    "dynamicHeading": "More like {{title}}",
     "mobileHeading": "Similar",
     "description": "Watch movies similar to {{title}}."
   }

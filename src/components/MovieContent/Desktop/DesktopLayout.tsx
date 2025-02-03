@@ -48,12 +48,8 @@ const DesktopLayout = ({ hit }) => {
       <div className="col-start-3 col-end-[-1] pb-16">
         <DesktopMovieInfos movie={movie} />
         <div className="px-14 py-12 space-y-8">
-          <SectionLayout heading={t('cast')}>
-            <Cast cast={movie.cast} movie={movie} />
-          </SectionLayout>
           <SectionLayout
-            heading={t('similar.heading')}
-            description={t('similar.description', { title: movie.title })}
+            heading={t('similar.dynamicHeading', { title: movie.title })}
           >
             {similarMoviesQuery.status === 'loading' && (
               <Typography>Loading...</Typography>
@@ -64,6 +60,9 @@ const DesktopLayout = ({ hit }) => {
             {similarMoviesQuery.status === 'success' && (
               <SimilarMovies movies={similarMoviesQuery.data} />
             )}
+          </SectionLayout>
+          <SectionLayout heading={t('cast')}>
+            <Cast cast={movie.cast} movie={movie} />
           </SectionLayout>
         </div>
       </div>
