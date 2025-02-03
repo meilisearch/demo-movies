@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import styled from 'styled-components'
-import { Hits as ISHits } from 'react-instantsearch'
+import { Configure, Hits as ISHits } from 'react-instantsearch'
 import { useTranslation } from 'next-i18next'
 import get from 'utils/get'
 import Infos from './Infos'
@@ -57,7 +57,8 @@ const MoviesList = () => {
     <MovieContextProvider
       value={{ currentMovie: movie, setCurrentMovie: setMovie }}
     >
-      <Infos title={t('movies')} />
+      <Infos title={t('results.label')} />
+      <Configure hitsPerPage={8} />
       <Hits
         hitComponent={({ hit }) => (
           <Disclosure
@@ -76,7 +77,7 @@ const MoviesList = () => {
           variant="typo4"
           style={{ color: 'var(--text-color-secondary)' }}
         >
-          Only showing the first 20 results.
+          Only showing the first 8 results.
         </Typography>
       </div>
       <MovieModalContent hit={movie} dialog={dialog} />

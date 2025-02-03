@@ -136,8 +136,8 @@ const Home = ({ host, apiKey }) => {
                 <HeadingSection />
               </SemanticRatioContext.Provider>
               <ResultsContainer>
-                <Recommendations host={host} apiKey={apiKey} />
                 <MoviesList />
+                <Recommendations />
               </ResultsContainer>
             </Wrapper>
           </InstantSearch>

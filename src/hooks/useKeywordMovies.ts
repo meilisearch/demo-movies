@@ -18,6 +18,7 @@ export function useKeywordMovies(keyword: string) {
           .index(selectedLanguage.indexName)
           .search<MovieData>('', {
             filter: [`keywords = '${keyword}'`],
+            limit: 8,
           })
         setQuery({ status: 'success', hits: results.hits })
       } catch (error) {

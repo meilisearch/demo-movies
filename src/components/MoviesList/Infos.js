@@ -39,7 +39,7 @@ const Infos = ({ title }) => {
                 <NbResults variant="typo1">
                   {`${nbHits.toLocaleString()}`}
                 </NbResults>
-                <ResultsText variant="typo1">{t('results')}</ResultsText>
+                <ResultsText variant="typo1">{t('countLabel')}</ResultsText>
                 <ProcessingTime variant="typo4">
                   {t('processingTime', {
                     processingTime: processingTimeMS.toLocaleString(),
