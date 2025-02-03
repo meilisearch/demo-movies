@@ -5,8 +5,6 @@ import { Configure, Hits as ISHits } from 'react-instantsearch'
 import { useTranslation } from 'next-i18next'
 import get from 'utils/get'
 import Infos from './Infos'
-import { useDialogState } from 'reakit/Dialog'
-import MovieModalContent from './MovieModalContent'
 import Card from 'components/Card'
 import { DialogDisclosure } from 'components/Dialog'
 import { MovieContext } from '~/context/MovieContext'
@@ -36,10 +34,9 @@ const Disclosure = styled(DialogDisclosure)`
   transition: transform 300ms;
 `
 
-const MoviesList = () => {
+const MoviesList = ({ dialog }) => {
   const { t } = useTranslation('common')
   const { setCurrentMovie } = React.useContext(MovieContext)
-  const dialog = useDialogState()
   const cardsRef = React.useRef([])
 
   return (
@@ -60,7 +57,6 @@ const MoviesList = () => {
           </Disclosure>
         )}
       />
-      <MovieModalContent dialog={dialog} />
     </>
   )
 }

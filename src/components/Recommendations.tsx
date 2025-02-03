@@ -1,7 +1,7 @@
 import React from 'react'
 import { useInstantSearch } from 'react-instantsearch'
 import { MovieData } from '~/types'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, useContext } from 'react'
 import debounce from 'lodash.debounce'
 import { useKeywordsMovies } from '~/hooks/useKeywordsMovies'
 import Card from './Card'
@@ -9,6 +9,8 @@ import get from '~/utils/get'
 import styled from 'styled-components'
 import { useTranslation } from 'next-i18next'
 import Typography from './Typography'
+import { DialogDisclosure } from '~/components/Dialog'
+import { MovieContext } from '~/context/MovieContext'
 
 const DEBOUNCE_DELAY_MS = 250
 
@@ -27,10 +29,25 @@ const ListItem = styled.li`
   list-style-type: none;
 `
 
-export default function Recommendations() {
+const Disclosure = styled(DialogDisclosure)`
+  transform: scale(1);
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
+  transition: transform 300ms;
+`
+
+type RecommendationsProps = {
+  dialog: any // We should properly type this, but for now using any to match the JS version
+}
+
+export default function Recommendations({ dialog }: RecommendationsProps) {
   const { t } = useTranslation('common')
   const instantSearch = useInstantSearch()
   const [topKeywords, setTopKeywords] = useState<string[]>([])
+  const { setCurrentMovie } = useContext(MovieContext)
+  const cardsRef = React.useRef([])
 
   const keywordsOccurrences = useMemo(() => {
     const movies = instantSearch.results?.hits as MovieData[]
@@ -85,7 +102,15 @@ export default function Recommendations() {
               <List>
                 {movies.map(movie => (
                   <ListItem key={movie.id}>
-                    <Card {...movie} />
+                    <Disclosure
+                      ref={ref => (cardsRef.current[movie.id] = ref)}
+                      {...dialog}
+                      onClick={() => {
+                        setCurrentMovie(movie)
+                      }}
+                    >
+                      <Card {...movie} />
+                    </Disclosure>
                   </ListItem>
                 ))}
               </List>

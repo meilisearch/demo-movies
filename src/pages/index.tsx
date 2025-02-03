@@ -17,8 +17,10 @@ import useLocalStorage from 'hooks/useLocalStorage'
 import { createMeilisearchClient } from '../lib/createMeilisearchClient'
 import Recommendations from '~/components/Recommendations'
 import ResultsContainer from '~/components/ResultsContainer'
-import { MovieContext, MovieContextProvider } from '~/context/MovieContext'
+import { MovieContextProvider } from '~/context/MovieContext'
 import type { MovieData } from '~/types'
+import { useDialogState } from 'reakit/Dialog'
+import MovieModalContent from '~/components/MoviesList/MovieModalContent'
 import {
   DEFAULT_SEMANTIC_RATIO,
   DEFAULT_EMBEDDER,
@@ -84,6 +86,7 @@ const Home = ({ host, apiKey }) => {
     DEFAULT_SEMANTIC_RATIO
   )
   const [currentMovie, setCurrentMovie] = React.useState<MovieData | null>(null)
+  const dialog = useDialogState()
 
   const setSelectedCountry = React.useCallback(
     country => {
@@ -140,9 +143,10 @@ const Home = ({ host, apiKey }) => {
               </SemanticRatioContext.Provider>
               <MovieContextProvider value={{ currentMovie, setCurrentMovie }}>
                 <ResultsContainer>
-                  <MoviesList />
-                  <Recommendations />
+                  <MoviesList dialog={dialog} />
+                  <Recommendations dialog={dialog} />
                 </ResultsContainer>
+                <MovieModalContent dialog={dialog} />
               </MovieContextProvider>
             </Wrapper>
           </InstantSearch>
