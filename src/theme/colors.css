@@ -84,6 +84,9 @@ body.light {
   --settings-mobile-radio-hover: var(--gray-500);
   --settings-mobile-radio-text-color: var(--gray-400);
   --settings-mobile-radio-checked-text-color: var(--gray-500);
+
+  /* Starting to refactor the colors */
+  --text-color-secondary: var(--gray-300);
 }
 
 body.dark {
@@ -141,4 +144,7 @@ body.dark {
   --settings-mobile-radio-hover: var(--gray-200);
   --settings-mobile-radio-text-color: var(--gray-200);
   --settings-mobile-radio-checked-text-color: var(--gray-200);
+
+  /* Starting to refactor the colors */
+  --text-color-secondary: var(--gray-400);
 }

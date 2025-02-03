@@ -11,6 +11,7 @@ import MovieModalContent from './MovieModalContent'
 import Card from 'components/Card'
 import { DialogDisclosure } from 'components/Dialog'
 import { MovieContext, MovieContextProvider } from '~/context/MovieContext'
+import Typography from '~/components/Typography'
 
 const Hits = styled(ISHits)`
   ol {
@@ -85,6 +86,14 @@ const MoviesList = () => {
             </Disclosure>
           )}
         />
+        <div className="flex mt-8 justify-center">
+          <Typography
+            variant="typo4"
+            style={{ color: 'var(--text-color-secondary)' }}
+          >
+            Only showing the first 20 results.
+          </Typography>
+        </div>
         <MovieModalContent hit={movie} dialog={dialog} />
       </Wrapper>
     </MovieContextProvider>
