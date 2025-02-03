@@ -60,6 +60,7 @@ const MoviesList = () => {
       <Infos title={t('results.label')} />
       <Configure hitsPerPage={8} />
       <Hits
+        className="mb-8"
         hitComponent={({ hit }) => (
           <Disclosure
             ref={ref => (cardsRef.current[hit.objectID] = ref)}
@@ -72,14 +73,14 @@ const MoviesList = () => {
           </Disclosure>
         )}
       />
-      <div className="flex mt-8 justify-center">
+      {/* <div className="flex mt-8 justify-center">
         <Typography
           variant="typo4"
           style={{ color: 'var(--text-color-secondary)' }}
         >
           Only showing the first 8 results.
         </Typography>
-      </div>
+      </div> */}
       <MovieModalContent hit={movie} dialog={dialog} />
     </MovieContextProvider>
   )

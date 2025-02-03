@@ -7,7 +7,8 @@ export interface MovieData {
   keywords: string[]
 }
 
-export interface MoviesQuery {
+export type Query<T> = {
   status: 'loading' | 'success' | 'error'
-  hits: MovieData[]
+  data: T
+  error: Error | null
 }
