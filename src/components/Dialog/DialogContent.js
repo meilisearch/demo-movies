@@ -1,3 +1,4 @@
+import React from 'react'
 import styled, { css } from 'styled-components'
 import { Dialog as ReakitDialog } from 'reakit/Dialog'
 import get from 'utils/get'
@@ -34,6 +35,10 @@ const Dialog = styled(ReakitDialog)`
   }
 `
 
-const DialogContent = props => <Dialog $animated={props.animated} {...props} />
+const DialogContent = React.forwardRef((props, ref) => (
+  <Dialog $animated={props.animated} ref={ref} {...props} />
+))
+
+DialogContent.displayName = 'DialogContent'
 
 export default DialogContent
