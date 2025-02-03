@@ -38,25 +38,4 @@ const Rating = ({ rating, withText = false, size = 'normal', ...props }) => (
   </StarsContainer>
 )
 
-Rating.propTypes = {
-  /**
-   * Note given
-   */
-  rating: PropTypes.number,
-  /**
-   * Wether or not it should display the notation next to the stars
-   */
-  withText: PropTypes.bool,
-  /**
-   * Size of the stars
-   */
-  size: PropTypes.oneOf(['normal', 'big']),
-}
-
-Rating.defaultProps = {
-  rating: 0,
-  withText: false,
-  size: 'normal',
-}
-
 export default Rating

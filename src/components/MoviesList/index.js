@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { Hits as ISHits } from 'react-instantsearch'
 import { useTranslation } from 'next-i18next'
 import get from 'utils/get'
-import Container from 'components/Container'
 import Infos from './Infos'
 import { useDialogState } from 'reakit/Dialog'
 import MovieModalContent from './MovieModalContent'
@@ -26,19 +25,6 @@ const Hits = styled(ISHits)`
   }
   li {
     list-style-type: none;
-  }
-`
-
-const Wrapper = styled(Container)`
-  background-color: var(--results-bg);
-  transition: background-color 300ms;
-  box-shadow: 0px 0px 64px rgba(0, 0, 0, 0.06);
-  margin: 16px -10px 0;
-  padding: 18px 10px;
-  @media (min-width: ${get('breakpoints.desktop')}) {
-    border-radius: 12px;
-    padding: 40px 80px;
-    margin: 0 auto;
   }
 `
 
@@ -71,31 +57,29 @@ const MoviesList = () => {
     <MovieContextProvider
       value={{ currentMovie: movie, setCurrentMovie: setMovie }}
     >
-      <Wrapper as="section">
-        <Infos title={t('movies')} />
-        <Hits
-          hitComponent={({ hit }) => (
-            <Disclosure
-              ref={ref => (cardsRef.current[hit.objectID] = ref)}
-              {...dialog}
-              onClick={() => {
-                setMovie(hit)
-              }}
-            >
-              <Card {...hit} />
-            </Disclosure>
-          )}
-        />
-        <div className="flex mt-8 justify-center">
-          <Typography
-            variant="typo4"
-            style={{ color: 'var(--text-color-secondary)' }}
+      <Infos title={t('movies')} />
+      <Hits
+        hitComponent={({ hit }) => (
+          <Disclosure
+            ref={ref => (cardsRef.current[hit.objectID] = ref)}
+            {...dialog}
+            onClick={() => {
+              setMovie(hit)
+            }}
           >
-            Only showing the first 20 results.
-          </Typography>
-        </div>
-        <MovieModalContent hit={movie} dialog={dialog} />
-      </Wrapper>
+            <Card {...hit} />
+          </Disclosure>
+        )}
+      />
+      <div className="flex mt-8 justify-center">
+        <Typography
+          variant="typo4"
+          style={{ color: 'var(--text-color-secondary)' }}
+        >
+          Only showing the first 20 results.
+        </Typography>
+      </div>
+      <MovieModalContent hit={movie} dialog={dialog} />
     </MovieContextProvider>
   )
 }

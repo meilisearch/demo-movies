@@ -4,4 +4,10 @@ export interface MovieData {
   title: string
   release_date: string
   vote_average: number
+  keywords: string[]
+}
+
+export interface MoviesQuery {
+  status: 'loading' | 'success' | 'error'
+  hits: MovieData[]
 }

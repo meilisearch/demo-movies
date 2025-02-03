@@ -3,10 +3,7 @@ import { useMeilisearch } from './useMeilisearch'
 import { useContext, useEffect, useState } from 'react'
 import LanguageContext from '~/context/LanguageContext'
 
-const DEFAULT_EMBEDDER =
-  process.env.NEXT_PUBLIC_MEILISEARCH_EMBEDDER ?? 'default'
-
-export const useSimilarMovies = (movieId: string) => {
+export function useKeywordMovies(keyword: string) {
   const { client } = useMeilisearch()
   const { selectedLanguage } = useContext(LanguageContext)
   const [query, setQuery] = useState<MoviesQuery>({
@@ -19,10 +16,8 @@ export const useSimilarMovies = (movieId: string) => {
       try {
         const results = await client
           .index(selectedLanguage.indexName)
-          .searchSimilarDocuments<MovieData>({
-            id: movieId,
-            limit: 7,
-            embedder: DEFAULT_EMBEDDER,
+          .search<MovieData>('', {
+            filter: [`keywords = '${keyword}'`],
           })
         setQuery({ status: 'success', hits: results.hits })
       } catch (error) {
@@ -30,7 +25,7 @@ export const useSimilarMovies = (movieId: string) => {
       }
     }
     fetchSimilarMovies()
-  }, [movieId, client, selectedLanguage])
+  }, [keyword, client, selectedLanguage])
 
   return {
     status: query.status,

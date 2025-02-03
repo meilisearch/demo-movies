@@ -15,16 +15,14 @@ import { LANGUAGES } from '~/lib/constants'
 import { LanguageProvider } from 'context/LanguageContext.ts'
 import useLocalStorage from 'hooks/useLocalStorage'
 import { createMeilisearchClient } from '../lib/createMeilisearchClient'
-
-const MEILISEARCH_HOST = process.env.NEXT_PUBLIC_MEILISEARCH_HOST
-const MEILISEARCH_API_KEY = process.env.NEXT_PUBLIC_MEILISEARCH_API_KEY
-
-console.log('MEILISEARCH_HOST', MEILISEARCH_HOST)
-console.log('MEILISEARCH_API_KEY', MEILISEARCH_API_KEY)
-
-const DEFAULT_SEMANTIC_RATIO = 0.5
-const DEFAULT_EMBEDDER =
-  process.env.NEXT_PUBLIC_MEILISEARCH_EMBEDDER ?? 'default'
+import Recommendations from '~/components/Recommendations'
+import ResultsContainer from '~/components/ResultsContainer'
+import {
+  DEFAULT_SEMANTIC_RATIO,
+  DEFAULT_EMBEDDER,
+  MEILISEARCH_HOST,
+  MEILISEARCH_API_KEY,
+} from '~/constants'
 
 type SearchParamsUpdaterProps = {
   setSearchParams: InstantMeiliSearchObject['setMeiliSearchParams']
@@ -137,7 +135,10 @@ const Home = ({ host, apiKey }) => {
                 <Header />
                 <HeadingSection />
               </SemanticRatioContext.Provider>
-              <MoviesList />
+              <ResultsContainer>
+                <Recommendations host={host} apiKey={apiKey} />
+                <MoviesList />
+              </ResultsContainer>
             </Wrapper>
           </InstantSearch>
         )}

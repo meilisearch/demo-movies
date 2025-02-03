@@ -112,8 +112,4 @@ Toggle.propTypes = {
   onChange: PropTypes.func,
 }
 
-Toggle.defaultProps = {
-  onChange: () => {},
-}
-
 export default Toggle
