@@ -4,15 +4,15 @@ import Card from '~/components/Card'
 import { MovieContext } from '~/context/MovieContext'
 import type { MovieData } from '~/types'
 
-interface RecommendationsProps {
+interface SimilarMoviesProps {
   movies: MovieData[]
   className?: string
 }
 
-export default function Recommendations({
+export default function SimilarMovies({
   movies,
   className,
-}: RecommendationsProps) {
+}: SimilarMoviesProps) {
   const { setCurrentMovie } = React.useContext(MovieContext)
   return (
     <div className={clsx('', className)}>
@@ -26,7 +26,7 @@ export default function Recommendations({
             <button
               key={movie.id}
               onClick={() => setCurrentMovie(movie)}
-              className="text-left"
+              className="text-left flex"
             >
               <Card
                 id={movie.id}

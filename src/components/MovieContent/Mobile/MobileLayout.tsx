@@ -10,7 +10,7 @@ import MobileMovieInfos from './MobileMovieInfos'
 import Cast from '../Cast'
 import BackdropImage from '../BackdropImage'
 import SectionHeading from './SectionHeading'
-import Recommendations from '../Recommendations'
+import SimilarMovies from '../SimilarMovies'
 import { useSimilarMovies } from '~/hooks/useSimilarMovies'
 import { getTwicpicsUrl } from '~/utils'
 import { MOVIE_POSTER_ASPECT_RATIO } from '~/lib/constants'
@@ -131,7 +131,7 @@ const MobileLayout = ({ hit }) => {
               <Typography>Error while loading similar movies.</Typography>
             )}
             {similarMoviesQuery.status === 'success' && (
-              <Recommendations movies={similarMoviesQuery.data} />
+              <SimilarMovies movies={similarMoviesQuery.data} />
             )}
           </SectionLayout>
         </TabPanel>

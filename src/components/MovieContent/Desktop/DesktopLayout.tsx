@@ -4,7 +4,7 @@ import Providers from '~/components/MovieContent/Providers'
 import DesktopMovieInfos from '~/components/MovieContent/Desktop/DesktopMovieInfos'
 import Cast from '~/components/MovieContent/Cast'
 import Typography from '~/components/Typography'
-import Recommendations from '~/components/MovieContent/Recommendations'
+import SimilarMovies from '~/components/MovieContent/SimilarMovies'
 import SectionTitle from '~/components/MovieContent/Desktop/SectionTitle'
 import { useSimilarMovies } from '~/hooks/useSimilarMovies'
 
@@ -62,7 +62,7 @@ const DesktopLayout = ({ hit }) => {
               <Typography>Error while loading similar movies.</Typography>
             )}
             {similarMoviesQuery.status === 'success' && (
-              <Recommendations movies={similarMoviesQuery.data} />
+              <SimilarMovies movies={similarMoviesQuery.data} />
             )}
           </SectionLayout>
         </div>
