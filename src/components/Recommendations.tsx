@@ -29,7 +29,7 @@ const ListItem = styled.li`
   list-style-type: none;
 `
 
-const Disclosure = styled(DialogDisclosure)`
+const Disclosure = styled(DialogDisclosure as any)`
   transform: scale(1);
   &:hover,
   &:focus {
