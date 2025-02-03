@@ -17,6 +17,8 @@ import useLocalStorage from 'hooks/useLocalStorage'
 import { createMeilisearchClient } from '../lib/createMeilisearchClient'
 import Recommendations from '~/components/Recommendations'
 import ResultsContainer from '~/components/ResultsContainer'
+import { MovieContext, MovieContextProvider } from '~/context/MovieContext'
+import type { MovieData } from '~/types'
 import {
   DEFAULT_SEMANTIC_RATIO,
   DEFAULT_EMBEDDER,
@@ -81,6 +83,7 @@ const Home = ({ host, apiKey }) => {
   const [semanticRatio, setSemanticRatio] = React.useState(
     DEFAULT_SEMANTIC_RATIO
   )
+  const [currentMovie, setCurrentMovie] = React.useState<MovieData | null>(null)
 
   const setSelectedCountry = React.useCallback(
     country => {
@@ -135,10 +138,12 @@ const Home = ({ host, apiKey }) => {
                 <Header />
                 <HeadingSection />
               </SemanticRatioContext.Provider>
-              <ResultsContainer>
-                <MoviesList />
-                <Recommendations />
-              </ResultsContainer>
+              <MovieContextProvider value={{ currentMovie, setCurrentMovie }}>
+                <ResultsContainer>
+                  <MoviesList />
+                  <Recommendations />
+                </ResultsContainer>
+              </MovieContextProvider>
             </Wrapper>
           </InstantSearch>
         )}

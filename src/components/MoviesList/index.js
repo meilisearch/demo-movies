@@ -9,7 +9,7 @@ import { useDialogState } from 'reakit/Dialog'
 import MovieModalContent from './MovieModalContent'
 import Card from 'components/Card'
 import { DialogDisclosure } from 'components/Dialog'
-import { MovieContext, MovieContextProvider } from '~/context/MovieContext'
+import { MovieContext } from '~/context/MovieContext'
 
 const Hits = styled(ISHits)`
   ol {
@@ -38,24 +38,12 @@ const Disclosure = styled(DialogDisclosure)`
 
 const MoviesList = () => {
   const { t } = useTranslation('common')
-  const [movie, setMovie] = React.useState(null)
-  const { currentMovie } = React.useContext(MovieContext)
+  const { setCurrentMovie } = React.useContext(MovieContext)
   const dialog = useDialogState()
   const cardsRef = React.useRef([])
 
-  React.useEffect(() => {
-    if (currentMovie && !dialog.visible) {
-      const timer = setTimeout(() => {
-        cardsRef.current[currentMovie.objectID].focus()
-      }, 0)
-      return () => clearTimeout(timer)
-    }
-  }, [dialog.visible])
-
   return (
-    <MovieContextProvider
-      value={{ currentMovie: movie, setCurrentMovie: setMovie }}
-    >
+    <>
       <Infos title={t('results.label')} />
       <Configure hitsPerPage={8} />
       <Hits
@@ -65,23 +53,15 @@ const MoviesList = () => {
             ref={ref => (cardsRef.current[hit.objectID] = ref)}
             {...dialog}
             onClick={() => {
-              setMovie(hit)
+              setCurrentMovie(hit)
             }}
           >
             <Card {...hit} />
           </Disclosure>
         )}
       />
-      {/* <div className="flex mt-8 justify-center">
-        <Typography
-          variant="typo4"
-          style={{ color: 'var(--text-color-secondary)' }}
-        >
-          Only showing the first 8 results.
-        </Typography>
-      </div> */}
-      <MovieModalContent hit={movie} dialog={dialog} />
-    </MovieContextProvider>
+      <MovieModalContent dialog={dialog} />
+    </>
   )
 }
 
