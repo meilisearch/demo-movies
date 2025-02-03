@@ -38,15 +38,11 @@ const Disclosure = styled(DialogDisclosure)`
   transition: transform 300ms;
 `
 
-type RecommendationsProps = {
-  dialog: any // We should properly type this, but for now using any to match the JS version
-}
-
-export default function Recommendations({ dialog }: RecommendationsProps) {
+export default function Recommendations() {
   const { t } = useTranslation('common')
   const instantSearch = useInstantSearch()
   const [topKeywords, setTopKeywords] = useState<string[]>([])
-  const { setCurrentMovie } = useContext(MovieContext)
+  const { setCurrentMovie, dialog } = useContext(MovieContext)
   const cardsRef = React.useRef([])
 
   const keywordsOccurrences = useMemo(() => {

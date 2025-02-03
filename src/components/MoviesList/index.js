@@ -34,9 +34,9 @@ const Disclosure = styled(DialogDisclosure)`
   transition: transform 300ms;
 `
 
-const MoviesList = ({ dialog }) => {
+const MoviesList = () => {
   const { t } = useTranslation('common')
-  const { setCurrentMovie } = React.useContext(MovieContext)
+  const { setCurrentMovie, dialog } = React.useContext(MovieContext)
   const cardsRef = React.useRef([])
 
   return (

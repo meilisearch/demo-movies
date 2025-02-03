@@ -141,10 +141,12 @@ const Home = ({ host, apiKey }) => {
                 <Header />
                 <HeadingSection />
               </SemanticRatioContext.Provider>
-              <MovieContextProvider value={{ currentMovie, setCurrentMovie }}>
+              <MovieContextProvider
+                value={{ currentMovie, setCurrentMovie, dialog }}
+              >
                 <ResultsContainer>
-                  <MoviesList dialog={dialog} />
-                  <Recommendations dialog={dialog} />
+                  <MoviesList />
+                  <Recommendations />
                 </ResultsContainer>
                 <MovieModalContent dialog={dialog} />
               </MovieContextProvider>
