@@ -10,7 +10,6 @@ import MovieModalContent from './MovieModalContent'
 import Card from 'components/Card'
 import { DialogDisclosure } from 'components/Dialog'
 import { MovieContext, MovieContextProvider } from '~/context/MovieContext'
-import Typography from '~/components/Typography'
 
 const Hits = styled(ISHits)`
   ol {
