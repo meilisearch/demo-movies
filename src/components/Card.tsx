@@ -8,7 +8,10 @@ import Rating from 'components/Rating'
 import { MovieData } from '~/types'
 import clsx from 'clsx'
 
-type CardProps = MovieData & {
+type CardProps = Pick<
+  MovieData,
+  'id' | 'poster_path' | 'title' | 'release_date' | 'vote_average'
+> & {
   className?: string
   imageClassName?: string
 }

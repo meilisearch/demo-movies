@@ -171,8 +171,4 @@ Typography.propTypes = {
   ]),
 }
 
-Typography.defaultProps = {
-  variant: 'default',
-}
-
 export default Typography

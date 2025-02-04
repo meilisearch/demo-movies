@@ -4,4 +4,11 @@ export interface MovieData {
   title: string
   release_date: string
   vote_average: number
+  keywords: string[]
+}
+
+export type Query<T> = {
+  status: 'loading' | 'success' | 'error'
+  data: T
+  error: Error | null
 }

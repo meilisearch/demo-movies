@@ -4,8 +4,6 @@
     "description": ""
   },
   "connexionFailed": "Connexion to MeiliSearch failed",
-  "movies": "Movies",
-  "results": "Results",
   "synopsis": "Synopsis",
   "whereToWatch": "Where to Watch",
   "cast": "Cast",
@@ -50,5 +48,11 @@
     "dynamicHeading": "More like {{title}}",
     "mobileHeading": "Similar",
     "description": "Watch movies similar to {{title}}."
+  },
+
+  "results": {
+    "countLabel": "results",
+    "label": "Search results",
+    "keywordRecommendations": "More {{keyword}} movies"
   }
 }

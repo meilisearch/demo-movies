@@ -15,16 +15,18 @@ import { LANGUAGES } from '~/lib/constants'
 import { LanguageProvider } from 'context/LanguageContext.ts'
 import useLocalStorage from 'hooks/useLocalStorage'
 import { createMeilisearchClient } from '../lib/createMeilisearchClient'
-
-const MEILISEARCH_HOST = process.env.NEXT_PUBLIC_MEILISEARCH_HOST
-const MEILISEARCH_API_KEY = process.env.NEXT_PUBLIC_MEILISEARCH_API_KEY
-
-console.log('MEILISEARCH_HOST', MEILISEARCH_HOST)
-console.log('MEILISEARCH_API_KEY', MEILISEARCH_API_KEY)
-
-const DEFAULT_SEMANTIC_RATIO = 0.5
-const DEFAULT_EMBEDDER =
-  process.env.NEXT_PUBLIC_MEILISEARCH_EMBEDDER ?? 'default'
+import Recommendations from '~/components/Recommendations'
+import ResultsContainer from '~/components/ResultsContainer'
+import { MovieContextProvider } from '~/context/MovieContext'
+import type { MovieData } from '~/types'
+import { useDialogState } from 'reakit/Dialog'
+import MovieModalContent from '~/components/MoviesList/MovieModalContent'
+import {
+  DEFAULT_SEMANTIC_RATIO,
+  DEFAULT_EMBEDDER,
+  MEILISEARCH_HOST,
+  MEILISEARCH_API_KEY,
+} from '~/constants'
 
 type SearchParamsUpdaterProps = {
   setSearchParams: InstantMeiliSearchObject['setMeiliSearchParams']
@@ -83,6 +85,8 @@ const Home = ({ host, apiKey }) => {
   const [semanticRatio, setSemanticRatio] = React.useState(
     DEFAULT_SEMANTIC_RATIO
   )
+  const [currentMovie, setCurrentMovie] = React.useState<MovieData | null>(null)
+  const dialog = useDialogState()
 
   const setSelectedCountry = React.useCallback(
     country => {
@@ -137,7 +141,15 @@ const Home = ({ host, apiKey }) => {
                 <Header />
                 <HeadingSection />
               </SemanticRatioContext.Provider>
-              <MoviesList />
+              <MovieContextProvider
+                value={{ currentMovie, setCurrentMovie, dialog }}
+              >
+                <ResultsContainer>
+                  <MoviesList />
+                  <Recommendations />
+                </ResultsContainer>
+                <MovieModalContent dialog={dialog} />
+              </MovieContextProvider>
             </Wrapper>
           </InstantSearch>
         )}

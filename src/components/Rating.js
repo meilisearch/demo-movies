@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Star } from 'components/icons'
 import get from 'utils/get'
@@ -37,26 +36,5 @@ const Rating = ({ rating, withText = false, size = 'normal', ...props }) => (
     {withText && <Text variant="typo2">{rating}</Text>}
   </StarsContainer>
 )
-
-Rating.propTypes = {
-  /**
-   * Note given
-   */
-  rating: PropTypes.number,
-  /**
-   * Wether or not it should display the notation next to the stars
-   */
-  withText: PropTypes.bool,
-  /**
-   * Size of the stars
-   */
-  size: PropTypes.oneOf(['normal', 'big']),
-}
-
-Rating.defaultProps = {
-  rating: 0,
-  withText: false,
-  size: 'normal',
-}
 
 export default Rating

@@ -18,7 +18,7 @@ const Close = styled(IconButton)`
   }
 `
 
-const MovieModalContent = ({ dialog, hit }) => {
+const MovieModalContent = ({ dialog }) => {
   const { currentMovie } = useContext(MovieContext)
   const contentRef = useRef(null)
 
@@ -37,10 +37,10 @@ const MovieModalContent = ({ dialog, hit }) => {
         {...dialog}
         ref={contentRef}
         tabIndex={0}
-        aria-label={hit?.title || 'Movie infos'}
+        aria-label={currentMovie?.title || 'Movie infos'}
         data-cy="movie-detail"
       >
-        {hit && dialog.visible && <MovieContent hit={hit} />}
+        {currentMovie && dialog.visible && <MovieContent hit={currentMovie} />}
       </DialogContent>
     </DialogBackdrop>
   )
