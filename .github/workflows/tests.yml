@@ -52,12 +52,12 @@ jobs:
           wait-on: "http://localhost:3000"
           command: yarn cy:run
           config-file: cypress.config.js
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: cypress-screenshots
           path: cypress/screenshots
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: cypress-videos
