@@ -50,15 +50,15 @@ You can run a Meilisearch instance locally with the following command:
 ```
 docker run -it --rm \
     -p 7700:7700 \
-    getmeili/meilisearch:v1.7 \
+    getmeili/meilisearch:latest \
     meilisearch --env="development"
 ```
 
 ### Import movies
 
-Run the following script in order to create the different indexes and upload the movies documents:
+Run the following script to create the different indexes and upload the movies documents:
 
-You need to run at least once this command to create the correct indexing settings:
+You need to run this command at least once to create the correct indexing settings:
 `yarn setup:settings`
 
 Then run the setup to index the data:
@@ -70,7 +70,7 @@ Then run the setup to index the data:
 yarn dev
 ```
 
-Go to `http://localhost:3000/` and enjoy ! 🎉
+Go to `http://localhost:3000/` and enjoy! 🎉
 
 ## Build
 
@@ -84,9 +84,7 @@ yarn build
 
 ### Run your build
 
-The above commands will generate an optimized version of the app, inside the `.next` folder.
-
-You can then serve it with:
+You can serve the generated build with:
 
 ```bash
 yarn start
@@ -107,11 +105,11 @@ To connect to your own Meilisearch instance, two environment variables should be
 - `MEILISEARCH_HOST`: the URL of your Meilisearch instance
 - `MEILISEARCH_API_KEY`: an API key with at least search rights
 
-An example can be found in the `.env.example` file. You can either rename this file into `.env`, or create a new file.
+You can copy the existing `.env.example` file as `.env` and update the values accordingly.
 
 ## Compatibility with Meilisearch
 
-This demo only guarantees the compatibility with the [version v1.6 of Meilisearch](https://github.com/meilisearch/meilisearch/releases/tag/v1.6.0).
+This demo only guarantees compatibility with Meilisearch versions ≥ 1.13.
 
 ## Storybook
 
