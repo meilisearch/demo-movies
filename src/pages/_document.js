@@ -77,11 +77,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <body className="dark">
           {/* Google Tag Manager (noscript) */}
           <noscript>
-            <iframe 
+            <iframe
               src="https://www.googletagmanager.com/ns.html?id=GTM-TNSCGVBH"
-              height="0" 
-              width="0" 
-              style={{display:'none',visibility:'hidden'}}
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
             />
           </noscript>
           {/* End Google Tag Manager (noscript) */}
