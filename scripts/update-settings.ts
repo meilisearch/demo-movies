@@ -35,16 +35,7 @@ async function main() {
 
   const shouldEnableVectorStore = !isUsingMeilisearchCloud(MEILISEARCH_HOST)
   if (shouldEnableVectorStore) {
-    console.log('Enabling vector store')
-    await ofetch<TaskResponse>(`${MEILISEARCH_HOST}/experimental-features`, {
-      method: 'PATCH',
-      headers: {
-        Authorization: `Bearer ${MEILISEARCH_ADMIN_API_KEY}`,
-      },
-      body: {
-        vectorStore: true,
-      },
-    })
+    console.log('Skipping vector store experimental feature (enabled by default in v1.13.0)')
   }
 
   for (const { indexName, documentTemplate } of indexesConfig) {

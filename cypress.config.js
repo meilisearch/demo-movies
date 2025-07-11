@@ -4,7 +4,7 @@ module.exports = defineConfig({
   viewportWidth: 1440,
   viewportHeight: 900,
   env: {
-    MEILISEARCH_HOST: 'http://0.0.0.0:7700',
+    MEILISEARCH_HOST: 'http://localhost:7700',
     MEILISEARCH_API_KEY: 'masterKey',
   },
   e2e: {
