@@ -128,7 +128,7 @@ const Home = ({ host, apiKey }) => {
           <InstantSearch
             future={{ preserveSharedStateOnUnmount: true }}
             indexName={selectedLanguage.indexName}
-            searchClient={client.searchClient}
+            searchClient={client.searchClient as any}
           >
             <SearchParamsUpdater
               setSearchParams={setSearchParams}
