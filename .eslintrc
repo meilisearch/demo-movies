@@ -2,10 +2,9 @@
   "env": {
     "browser": true,
     "es2021": true,
-    "node": true,
-    "cypress/globals": true
+    "node": true
   },
-  "extends": ["next", "prettier", "eslint:recommended", "plugin:cypress/recommended"],
+  "extends": ["next", "prettier", "eslint:recommended"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -13,14 +12,13 @@
     "sourceType": "module",
     "ecmaVersion": 12
   },
-  "plugins": ["react", "prettier", "cypress"],
+  "plugins": ["react", "prettier"],
   "settings": {
     "react": {
       "version": "detect"
     }
   },
   "rules": {
-    "cypress/no-unnecessary-waiting": "off",
     "react/jsx-closing-bracket-location": [2, "tag-aligned"],
     "import/no-anonymous-default-export": "off",
     "no-unused-vars": [

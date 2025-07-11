@@ -24,12 +24,9 @@ jobs:
         run: yarn lint
   cypress-run:
     runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
-      options: --user 1001
     services:
       meilisearch:
-        image: getmeili/meilisearch:v1.0.1
+        image: getmeili/meilisearch:v1.13.0
         env:
           MEILI_MASTER_KEY: "masterKey"
           MEILI_NO_ANALYTICS: "true"
@@ -45,6 +42,17 @@ jobs:
           cache-dependency-path: yarn.lock
       - name: Install dependencies
         run: yarn
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.1.3
+      - name: Wait for Meilisearch to be ready
+        run: |
+          until curl -s http://localhost:7700/health | grep -q '"status":"available"'; do
+            echo "Waiting for Meilisearch..."
+            sleep 2
+          done
+      # Skip setup scripts in CI - cypress tests will handle data seeding
       - name: Browser tests
         uses: cypress-io/github-action@v4
         with:
@@ -52,12 +60,16 @@ jobs:
           wait-on: "http://localhost:3000"
           command: yarn cy:run
           config-file: cypress.config.js
-      - uses: actions/upload-artifact@v3
+        env:
+          NEXT_PUBLIC_MEILISEARCH_HOST: http://localhost:7700
+          NEXT_PUBLIC_MEILISEARCH_API_KEY: masterKey
+          NODE_ENV: test
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: cypress-screenshots
           path: cypress/screenshots
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: cypress-videos
