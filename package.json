@@ -17,7 +17,11 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "setup": "bun run scripts/seed.ts scripts/",
-    "setup:settings": "bun run scripts/update-settings.ts"
+    "setup:settings": "bun run scripts/update-settings.ts",
+    "sync:meilisearch": "bun run scripts/sync-meilisearch-data.ts",
+    "setup:embedders": "bun run scripts/configure-embedders.ts",
+    "setup:chat": "bun run scripts/setup-movie-advisor-chat.ts",
+    "chat:demo": "bun run scripts/movie-advisor-demo-fixed.ts"
   },
   "dependencies": {
     "@meilisearch/instant-meilisearch": "0.16.0",
@@ -43,6 +47,7 @@
     "@storybook/addon-essentials": "^6.5.12",
     "@storybook/addon-links": "^6.5.12",
     "@storybook/react": "^6.5.12",
+    "@types/node": "^24.0.12",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@types/styled-components": "^5.1.34",
@@ -50,6 +55,7 @@
     "babel-loader": "^9.1.0",
     "babel-plugin-macros": "^3.1.0",
     "bun": "1.1.3",
+    "chalk": "^5.4.1",
     "concurrently": "^7.6.0",
     "cypress": "^12.8.1",
     "eslint": "7.32.0",
@@ -59,6 +65,8 @@
     "eslint-plugin-prettier": "^3.4.0",
     "meilisearch": "^0.41.0",
     "ofetch": "^1.3.3",
+    "ora": "^8.2.0",
+    "playwright": "^1.54.0",
     "postcss": "^8.4.38",
     "prettier": "^2.3.2",
     "storybook-dark-mode": "^1.1.2",

@@ -33,19 +33,8 @@ const indexesConfig = [
 async function main() {
   console.log(`Connecting to: ${MEILISEARCH_HOST}`)
 
-  const shouldEnableVectorStore = !isUsingMeilisearchCloud(MEILISEARCH_HOST)
-  if (shouldEnableVectorStore) {
-    console.log('Enabling vector store')
-    await ofetch<TaskResponse>(`${MEILISEARCH_HOST}/experimental-features`, {
-      method: 'PATCH',
-      headers: {
-        Authorization: `Bearer ${MEILISEARCH_ADMIN_API_KEY}`,
-      },
-      body: {
-        vectorStore: true,
-      },
-    })
-  }
+  // Vector store is enabled by default in newer versions of Meilisearch
+  // No need to enable it as an experimental feature
 
   for (const { indexName, documentTemplate } of indexesConfig) {
     const endpoint = `${MEILISEARCH_HOST}/indexes/${indexName}/settings`
