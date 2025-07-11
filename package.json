@@ -19,7 +19,7 @@
     "@meilisearch/instant-meilisearch": "0.16.0",
     "@twicpics/components": "^0.29.2",
     "clsx": "^2.1.1",
-    "dotenv": "^16.0.3",
+    "dotenv": "^17.2.0",
     "lodash.debounce": "^4.0.8",
     "lodash.get": "^4.4.2",
     "next": "^14.1.0",
