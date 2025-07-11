@@ -24,9 +24,6 @@ jobs:
         run: yarn lint
   cypress-run:
     runs-on: ubuntu-latest
-    container:
-      image: cypress/included:12.17.4
-      options: --user 1001
     services:
       meilisearch:
         image: getmeili/meilisearch:v1.13.0
@@ -54,15 +51,15 @@ jobs:
           yarn setup:settings
           yarn setup
         env:
-          MEILISEARCH_HOST: http://meilisearch:7700
+          MEILISEARCH_HOST: http://localhost:7700
           MEILISEARCH_API_KEY: masterKey
           MEILISEARCH_ADMIN_API_KEY: masterKey
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          NEXT_PUBLIC_MEILISEARCH_HOST: http://meilisearch:7700
+          NEXT_PUBLIC_MEILISEARCH_HOST: http://localhost:7700
           NEXT_PUBLIC_MEILISEARCH_API_KEY: masterKey
       - name: Wait for Meilisearch to be ready
         run: |
-          until curl -s http://meilisearch:7700/health | grep -q '"status":"available"'; do
+          until curl -s http://localhost:7700/health | grep -q '"status":"available"'; do
             echo "Waiting for Meilisearch..."
             sleep 2
           done
@@ -73,6 +70,10 @@ jobs:
           wait-on: "http://localhost:3000"
           command: yarn cy:run
           config-file: cypress.config.js
+        env:
+          NEXT_PUBLIC_MEILISEARCH_HOST: http://localhost:7700
+          NEXT_PUBLIC_MEILISEARCH_API_KEY: masterKey
+          NODE_ENV: test
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

@@ -32,6 +32,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           {/* Google Tag Manager - Only in production */}
+          {/* eslint-disable-next-line @next/next/next-script-for-ga */}
           {process.env.NODE_ENV === 'production' && (
             <script
               dangerouslySetInnerHTML={{
