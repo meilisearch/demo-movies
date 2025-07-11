@@ -46,23 +46,13 @@ jobs:
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.1.3
-      - name: Setup Meilisearch
-        run: |
-          yarn setup:settings
-          yarn setup
-        env:
-          MEILISEARCH_HOST: http://localhost:7700
-          MEILISEARCH_API_KEY: masterKey
-          MEILISEARCH_ADMIN_API_KEY: masterKey
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          NEXT_PUBLIC_MEILISEARCH_HOST: http://localhost:7700
-          NEXT_PUBLIC_MEILISEARCH_API_KEY: masterKey
       - name: Wait for Meilisearch to be ready
         run: |
           until curl -s http://localhost:7700/health | grep -q '"status":"available"'; do
             echo "Waiting for Meilisearch..."
             sleep 2
           done
+      # Skip setup scripts in CI - cypress tests will handle data seeding
       - name: Browser tests
         uses: cypress-io/github-action@v4
         with:
