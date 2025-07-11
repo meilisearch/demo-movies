@@ -18,7 +18,7 @@ export function useKeywordsMovies(keywords: string[]) {
   useEffect(() => {
     const fetchSimilarMovies = async () => {
       try {
-        const results = await client.multiSearch<MovieData>({
+        const results = await client.multiSearch({
           queries: keywords.map(keyword => ({
             indexUid: selectedLanguage.indexName,
             filter: [`keywords = '${makeStringSafeForFilters(keyword)}'`],
@@ -28,7 +28,7 @@ export function useKeywordsMovies(keywords: string[]) {
         setQuery({
           status: 'success',
           data: results.results.reduce((acc, result, currentIndex) => {
-            acc[keywords[currentIndex]] = result.hits
+            acc[keywords[currentIndex]] = result.hits as MovieData[]
             return acc
           }, {} as Record<string, MovieData[]>),
           error: null,
