@@ -2653,10 +2653,10 @@
     "@swc/counter" "^0.1.3"
     tslib "^2.4.0"
 
-"@twicpics/components@^0.29.2":
-  version "0.29.3"
-  resolved "https://registry.yarnpkg.com/@twicpics/components/-/components-0.29.3.tgz#d7841f21f1cd6275736bb1c468ef64b405bdb8c4"
-  integrity sha512-Pidpa7o3uSMZnxWxgDyTUCh8m0g5STdVCxPyUfzxyOdj2+IGznPHcxUyQ8RnHq0RFAuFjACuQRKhbQ7bECbu7w==
+"@twicpics/components@^0.33.0":
+  version "0.33.0"
+  resolved "https://registry.yarnpkg.com/@twicpics/components/-/components-0.33.0.tgz#86c3b1910da64cf4321cd78004f4c2833f4bf11a"
+  integrity sha512-HEvk8gq8Ynr7+bMpu3o1IgugFBglZYlFPr3HBzrEPiuDWZlLVJYMk2IaPiOVzXP8Q0NaX9eRIcZ9vklmdxKo9g==
 
 "@types/dom-speech-recognition@^0.0.1":
   version "0.0.1"
