@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@meilisearch/instant-meilisearch": "^0.27.0",
-    "@twicpics/components": "^0.29.2",
+    "@twicpics/components": "^0.33.0",
     "clsx": "^2.1.1",
     "dotenv": "^17.2.0",
     "lodash.debounce": "^4.0.8",
