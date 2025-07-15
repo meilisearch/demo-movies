@@ -12,6 +12,7 @@ import '@twicpics/components/style.css'
 import '~/globals.css'
 
 const Wrapper = styled.div`
+  min-height: 100vh;
   @media (max-width: ${get('breakpoints.desktop')}) {
     padding: 48px 10px 0;
   }
@@ -39,7 +40,9 @@ export function App({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <TwicInstall domain={twicpicsDomain} />
+      {twicpicsDomain && twicpicsDomain !== 'demo' && (
+        <TwicInstall domain={twicpicsDomain} />
+      )}
       <Scripts />
       <Wrapper>
         <Component {...pageProps} />

@@ -45,7 +45,7 @@ yarn build                  # Production build
 yarn start                  # Start production server
 
 # Component development
-yarn storyboard             # Storybook on port 6006
+yarn storybook              # Storybook on port 6006
 yarn icons                  # Generate React components from SVGs
 ```
 
@@ -135,3 +135,36 @@ yarn cypress run --spec "cypress/e2e/movies_list.cy.js"
 1. Translations in `public/locales/`
 2. Use `next-i18next` for i18n
 3. Language switching persists to localStorage
+
+## 🤖 AI Movie Advisor Chat Integration
+
+The application includes an AI-powered chat feature that provides movie recommendations through natural conversation.
+
+### Architecture
+- **Component**: `src/components/ChatPanel/` - Integrated chat panel with responsive layout
+- **API**: Uses Meilisearch's `/chats/{workspace}/chat/completions` endpoint
+- **State**: Chat state managed locally within the component
+- **Layout**: Automatically adjusts main content width when chat is open
+
+### Key Features
+1. **Conversational Interface**
+   - Real-time streaming responses
+   - Search progress indicators showing which queries are being run
+   - Movie source carousel displaying which movies informed the response
+
+2. **Movie Source Display**
+   - `MovieCarousel` component shows referenced movies
+   - Clickable movie cards that open detail modal
+   - Horizontal scrolling with navigation buttons
+
+3. **Layout Integration**
+   - Chat panel slides in from the right
+   - Main content resizes to prevent overlap
+   - Movie grid adjusts from 8 to 4 columns when chat is open
+   - Mobile responsive with full-screen chat on small devices
+
+### Implementation Details
+- Uses Server-Sent Events (SSE) for streaming responses
+- Parses tool calls for `_meiliSearchProgress` and `_meiliSearchSources`
+- Example queries auto-submit on click for better UX
+- Styled with CSS-in-JS using styled-components

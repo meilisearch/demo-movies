@@ -21,6 +21,7 @@ import { MovieContextProvider } from '~/context/MovieContext'
 import type { MovieData } from '~/types'
 import { useDialogState } from 'reakit/Dialog'
 import MovieModalContent from '~/components/MoviesList/MovieModalContent'
+import ChatPanel from '~/components/ChatPanel'
 import {
   DEFAULT_SEMANTIC_RATIO,
   DEFAULT_EMBEDDER,
@@ -60,7 +61,6 @@ const SearchParamsUpdater = ({
       semanticRatio,
       embedder: DEFAULT_EMBEDDER,
     }
-    console.log('🔄 Updating search params', hybrid)
     setSearchParams({
       hybrid,
     })
@@ -69,6 +69,24 @@ const SearchParamsUpdater = ({
 
   return null // This component doesn't render anything
 }
+
+const AppContainer = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+`
+
+const MainContent = styled.div<{ $chatOpen: boolean }>`
+  width: ${props => props.$chatOpen ? 'calc(100% - 400px)' : '100%'};
+  transition: width 0.3s ease-in-out;
+  overflow-x: hidden;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    transform: ${props => props.$chatOpen ? 'translateX(-100%)' : 'translateX(0)'};
+    transition: transform 0.3s ease-in-out;
+  }
+`
 
 const Wrapper = styled.div`
   @media (min-width: ${get('breakpoints.desktop')}) {
@@ -87,6 +105,7 @@ const Home = ({ host, apiKey }) => {
   )
   const [currentMovie, setCurrentMovie] = React.useState<MovieData | null>(null)
   const dialog = useDialogState()
+  const [chatOpen, setChatOpen] = React.useState(false)
 
   const setSelectedCountry = React.useCallback(
     country => {
@@ -124,35 +143,40 @@ const Home = ({ host, apiKey }) => {
           <title>{t('title')}</title>
           <meta name="description" content={t('meta.description')} />
         </Head>
-        {client && (
-          <InstantSearch
-            future={{ preserveSharedStateOnUnmount: true }}
-            indexName={selectedLanguage.indexName}
-            searchClient={client.searchClient as any}
-          >
-            <SearchParamsUpdater
-              setSearchParams={setSearchParams}
-              semanticRatio={semanticRatio}
-            />
-            <Wrapper>
-              <SemanticRatioContext.Provider
-                value={{ semanticRatio, setSemanticRatio }}
+        <AppContainer>
+          <MainContent $chatOpen={chatOpen}>
+            {client && (
+              <InstantSearch
+                future={{ preserveSharedStateOnUnmount: true }}
+                indexName={selectedLanguage.indexName}
+                searchClient={client.searchClient as any}
               >
-                <Header />
-                <HeadingSection />
-              </SemanticRatioContext.Provider>
-              <MovieContextProvider
-                value={{ currentMovie, setCurrentMovie, dialog }}
-              >
-                <ResultsContainer>
-                  <MoviesList />
-                  <Recommendations />
-                </ResultsContainer>
-                <MovieModalContent dialog={dialog} />
-              </MovieContextProvider>
-            </Wrapper>
-          </InstantSearch>
-        )}
+                <SearchParamsUpdater
+                  setSearchParams={setSearchParams}
+                  semanticRatio={semanticRatio}
+                />
+                <Wrapper>
+                  <SemanticRatioContext.Provider
+                    value={{ semanticRatio, setSemanticRatio }}
+                  >
+                    <Header />
+                    <HeadingSection />
+                  </SemanticRatioContext.Provider>
+                  <MovieContextProvider
+                    value={{ currentMovie, setCurrentMovie, dialog }}
+                  >
+                    <ResultsContainer chatOpen={chatOpen}>
+                      <MoviesList chatOpen={chatOpen} />
+                      <Recommendations />
+                    </ResultsContainer>
+                    <MovieModalContent dialog={dialog} />
+                  </MovieContextProvider>
+                </Wrapper>
+              </InstantSearch>
+            )}
+          </MainContent>
+          <ChatPanel isOpen={chatOpen} setIsOpen={setChatOpen} />
+        </AppContainer>
       </LanguageProvider>
     </ClientProvider>
   )
