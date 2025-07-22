@@ -76,7 +76,9 @@ const AppContainer = styled.div`
   position: relative;
 `
 
-const MainContent = styled.div<{ $chatOpen: boolean }>`
+const MainContent = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== '$chatOpen',
+})<{ $chatOpen: boolean }>`
   width: ${props => props.$chatOpen ? 'calc(100% - 500px)' : '100%'};
   transition: width 0.3s ease-in-out;
   overflow-x: hidden;

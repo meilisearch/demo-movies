@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect, useContext } from 'react'
 import styled from 'styled-components'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { Cross, Send } from '~/components/icons'
 import LanguageContext from '~/context/LanguageContext'
 import { MEILISEARCH_HOST, MEILISEARCH_API_KEY } from '~/constants'
@@ -30,7 +32,9 @@ interface ChatPanelProps {
   setIsOpen: (open: boolean) => void
 }
 
-const PanelContainer = styled.div<{ isOpen: boolean }>`
+const PanelContainer = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== 'isOpen',
+})<{ isOpen: boolean }>`
   position: fixed;
   top: 0;
   right: ${props => props.isOpen ? '0' : '-500px'};
@@ -255,6 +259,163 @@ const ExampleSection = styled.div`
   }
 `
 
+const TypingIndicator = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--color-assistant-message);
+  border-radius: 16px;
+  border-bottom-left-radius: 4px;
+  margin-bottom: 16px;
+  max-width: 85%;
+  
+  .dots {
+    display: flex;
+    gap: 4px;
+  }
+  
+  .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--color-text-secondary);
+    border-radius: 50%;
+    animation: typing 1.4s infinite ease-in-out;
+    
+    &:nth-child(1) { animation-delay: 0s; }
+    &:nth-child(2) { animation-delay: 0.2s; }
+    &:nth-child(3) { animation-delay: 0.4s; }
+  }
+  
+  @keyframes typing {
+    0%, 60%, 100% { opacity: 0.3; transform: scale(0.8); }
+    30% { opacity: 1; transform: scale(1); }
+  }
+`
+
+const LoadingText = styled.span`
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  font-style: italic;
+`
+
+const ErrorAlert = styled.div`
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  position: relative;
+  
+  .error-title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  
+  .error-description {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #991b1b;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: #dc2626;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    
+    &:hover {
+      background: #fecaca;
+    }
+  }
+`
+
+const MarkdownContent = styled.div`
+  p {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  
+  h1 { font-size: 18px; }
+  h2 { font-size: 16px; }
+  h3 { font-size: 14px; }
+  h4 { font-size: 13px; }
+  
+  ul, ol {
+    margin-bottom: 8px;
+    padding-left: 20px;
+  }
+  
+  li {
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  
+  strong {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  
+  em {
+    font-style: italic;
+  }
+  
+  code {
+    background: var(--color-tool-bg);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+    font-size: 12px;
+  }
+  
+  pre {
+    background: var(--color-tool-bg);
+    padding: 12px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin-bottom: 8px;
+    
+    code {
+      background: none;
+      padding: 0;
+    }
+  }
+  
+  blockquote {
+    border-left: 3px solid var(--color-primary);
+    padding-left: 12px;
+    margin-bottom: 8px;
+    color: var(--color-text-secondary);
+    font-style: italic;
+  }
+  
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`
+
 const exampleQueries = [
   "Movies similar to Inception",
   "Show me feel-good family movies",
@@ -265,6 +426,7 @@ export default function ChatPanel({ isOpen, setIsOpen }: ChatPanelProps) {
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const messagesEndRef = useRef<null | HTMLDivElement>(null)
   const { selectedLanguage } = useContext(LanguageContext)
 
@@ -288,6 +450,7 @@ export default function ChatPanel({ isOpen, setIsOpen }: ChatPanelProps) {
     setMessages(prev => [...prev, userMessage])
     setInput('')
     setIsLoading(true)
+    setError(null) // Clear any previous errors
 
     try {
       const response = await fetch(`${MEILISEARCH_HOST}/chats/movie-advisor/chat/completions`, {
@@ -342,7 +505,8 @@ export default function ChatPanel({ isOpen, setIsOpen }: ChatPanelProps) {
       })
 
       if (!response.ok) {
-        throw new Error('Failed to get response')
+        const errorText = await response.text().catch(() => '')
+        throw new Error(`Failed to get response (${response.status}): ${errorText || response.statusText}`)
       }
 
       const reader = response.body?.getReader()
@@ -452,10 +616,12 @@ export default function ChatPanel({ isOpen, setIsOpen }: ChatPanelProps) {
       }
     } catch (error) {
       console.error('Chat error:', error)
+      const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred'
+      setError(errorMessage)
       setMessages(prev => [...prev, {
         id: Date.now().toString(),
         role: 'assistant',
-        content: 'Sorry, I encountered an error. Please try again.'
+        content: 'Sorry, I encountered an error processing your request. Please check your connection and try again.'
       }])
     } finally {
       setIsLoading(false)
@@ -481,6 +647,19 @@ export default function ChatPanel({ isOpen, setIsOpen }: ChatPanelProps) {
         </Header>
 
         <MessagesContainer>
+          {error && (
+            <ErrorAlert>
+              <div className="error-title">Connection Error</div>
+              <div className="error-description">{error}</div>
+              <button 
+                className="close-button"
+                onClick={() => setError(null)}
+              >
+                <Cross width={16} height={16} />
+              </button>
+            </ErrorAlert>
+          )}
+          
           {messages.length === 0 ? (
             <WelcomeMessage>
               <div>
@@ -532,11 +711,53 @@ export default function ChatPanel({ isOpen, setIsOpen }: ChatPanelProps) {
                   <MovieCarousel movies={message.sources} />
                 )}
                 <MessageBubble role={message.role}>
-                  {message.content}
+                  {message.role === 'assistant' ? (
+                    <MarkdownContent>
+                      <ReactMarkdown 
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                          p: ({ children }) => <p>{children}</p>,
+                          h1: ({ children }) => <h1>{children}</h1>,
+                          h2: ({ children }) => <h2>{children}</h2>,
+                          h3: ({ children }) => <h3>{children}</h3>,
+                          h4: ({ children }) => <h4>{children}</h4>,
+                          ul: ({ children }) => <ul>{children}</ul>,
+                          ol: ({ children }) => <ol>{children}</ol>,
+                          li: ({ children }) => <li>{children}</li>,
+                          strong: ({ children }) => <strong>{children}</strong>,
+                          em: ({ children }) => <em>{children}</em>,
+                          code: ({ children }) => <code>{children}</code>,
+                          pre: ({ children }) => <pre>{children}</pre>,
+                          blockquote: ({ children }) => <blockquote>{children}</blockquote>,
+                          a: ({ children, href }) => (
+                            <a href={href} target="_blank" rel="noopener noreferrer">
+                              {children}
+                            </a>
+                          ),
+                        }}
+                      >
+                        {message.content}
+                      </ReactMarkdown>
+                    </MarkdownContent>
+                  ) : (
+                    message.content
+                  )}
                 </MessageBubble>
               </React.Fragment>
             ))
           )}
+          
+          {isLoading && (
+            <TypingIndicator>
+              <LoadingText>AI is thinking</LoadingText>
+              <div className="dots">
+                <div className="dot"></div>
+                <div className="dot"></div>
+                <div className="dot"></div>
+              </div>
+            </TypingIndicator>
+          )}
+          
           <div ref={messagesEndRef} />
         </MessagesContainer>
 
