@@ -16,7 +16,8 @@ const Hits = styled(ISHits)`
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 11px;
     @media (min-width: ${get('breakpoints.desktop')}) {
-      grid-template-columns: repeat(8, 1fr);
+      grid-template-columns: ${props =>
+        props.$chatOpen ? 'repeat(4, 1fr)' : 'repeat(8, 1fr)'};
       grid-gap: 20px;
     }
   }
@@ -34,7 +35,7 @@ const Disclosure = styled(DialogDisclosure)`
   transition: transform 300ms;
 `
 
-const MoviesList = () => {
+const MoviesList = ({ chatOpen }) => {
   const { t } = useTranslation('common')
   const { setCurrentMovie, dialog } = React.useContext(MovieContext)
   const cardsRef = React.useRef([])
@@ -45,6 +46,7 @@ const MoviesList = () => {
       <Configure hitsPerPage={8} />
       <Hits
         className="mb-8"
+        $chatOpen={chatOpen}
         hitComponent={({ hit }) => (
           <Disclosure
             ref={ref => (cardsRef.current[hit.objectID] = ref)}

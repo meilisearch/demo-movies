@@ -49,3 +49,6 @@ yarn-error.log*
 # meilisearch
 data.ms
 
+meilisearch-macos-apple-silicon
+dev.log
+test-results/

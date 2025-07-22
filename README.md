@@ -29,6 +29,8 @@
 - [Build](#build)
   - [Generate build](#generate-build)
   - [Run your build](#run-your-build)
+- [Features](#features)
+  - [AI Movie Advisor](#ai-movie-advisor)
 - [Environment variables](#environment-variables)
 - [Compatibility with Meilisearch](#compatibility-with-meilisearch)
 - [Storybook](#storybook)
@@ -97,6 +99,24 @@ Example:
 ```bash
 serve .next
 ```
+
+## Features
+
+### AI Movie Advisor
+
+The demo includes an integrated AI-powered movie advisor chat feature that helps users discover movies through natural conversation. 
+
+**Key capabilities:**
+- Ask for movie recommendations based on mood, genre, or similarity to other films
+- Get personalized suggestions with visual movie cards showing the sources
+- See which movies the AI referenced when crafting its response
+
+**Example queries:**
+- "Movies similar to Inception"
+- "Show me feel-good family movies"
+- "Best sci-fi movies from 2023"
+
+The chat panel seamlessly integrates with the search interface, automatically adjusting the layout to ensure all content remains visible.
 
 ## Environment variables
 
