@@ -9,6 +9,7 @@ import BaseSearchbox from 'components/Searchbox'
 import DesktopCountrySwitcher from 'components/CountrySwitcher/DesktopCountrySwitcher'
 import MobileSettings from './MobileSettings'
 import GitHub from './GitHubButton'
+import AskAIButton from 'components/AskAIButton'
 import { MEILISEARCH_URL } from '~/lib/constants'
 
 const Wrapper = styled(Container)`
@@ -23,15 +24,25 @@ const Wrapper = styled(Container)`
   }
 `
 
-const Searchbox = styled(BaseSearchbox)`
+const SearchContainer = styled.div`
   display: flex;
   order: 3;
   margin-top: 20px;
+  align-items: center;
+  gap: 12px;
   @media (min-width: ${get('breakpoints.desktop')}) {
     order: 2;
     flex: 1;
     justify-content: center;
     margin: 0 48px;
+  }
+`
+
+const Searchbox = styled(BaseSearchbox)`
+  display: flex;
+  flex: 1;
+  @media (min-width: ${get('breakpoints.desktop')}) {
+    max-width: 600px;
   }
 `
 
@@ -81,7 +92,7 @@ const GitHubButton = styled(GitHub)`
   margin-left: 21px;
 `
 
-const Header = () => (
+const Header = ({ chatOpen, setChatOpen }) => (
   <Wrapper>
     <Logos>
       <h1 style={{ margin: 0 }}>
@@ -98,7 +109,10 @@ const Header = () => (
       </ByMeiliSearch>
       <MobileSettings />
     </Logos>
-    <Searchbox />
+    <SearchContainer>
+      <Searchbox />
+      <AskAIButton onClick={() => setChatOpen(!chatOpen)} />
+    </SearchContainer>
     <RightSection data-cy="settings-desktop">
       <DesktopCountrySwitcher />
       <Toggle onChange={window.__setPreferredTheme} />

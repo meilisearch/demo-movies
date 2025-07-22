@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useContext } from 'react'
 import styled from 'styled-components'
-import { MessageSquare, Cross, Send } from '~/components/icons'
+import { Cross, Send } from '~/components/icons'
 import LanguageContext from '~/context/LanguageContext'
 import { MEILISEARCH_HOST, MEILISEARCH_API_KEY } from '~/constants'
 import MovieCarousel from './MovieCarousel'
@@ -53,35 +53,6 @@ const PanelContainer = styled.div<{ isOpen: boolean }>`
   }
 `
 
-const ToggleButton = styled.button<{ isOpen: boolean }>`
-  position: fixed;
-  right: ${props => props.isOpen ? '400px' : '20px'};
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--color-primary);
-  color: white;
-  border: none;
-  border-radius: ${props => props.isOpen ? '8px 0 0 8px' : '8px'};
-  padding: 16px;
-  cursor: pointer;
-  z-index: 1000;
-  transition: right 0.3s ease-in-out, border-radius 0.3s ease-in-out;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  box-shadow: ${props => props.isOpen ? '-2px 2px 8px rgba(0, 0, 0, 0.15)' : '0 2px 8px rgba(0, 0, 0, 0.15)'};
-
-  &:hover {
-    background: var(--color-primary-hover);
-  }
-
-  @media (max-width: 768px) {
-    right: ${props => props.isOpen ? 'calc(100% - 60px)' : '20px'};
-    z-index: 1001;
-  }
-`
 
 const Header = styled.div`
   display: flex;
@@ -501,12 +472,7 @@ export default function ChatPanel({ isOpen, setIsOpen }: ChatPanelProps) {
   }
 
   return (
-    <>
-      <ToggleButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? <Cross width={20} height={20} /> : <><MessageSquare width={20} height={20} /> Ask AI</>}
-      </ToggleButton>
-
-      <PanelContainer isOpen={isOpen}>
+    <PanelContainer isOpen={isOpen}>
         <Header>
           <Title>Movie Advisor AI</Title>
           <CloseButton onClick={() => setIsOpen(false)}>
@@ -587,6 +553,5 @@ export default function ChatPanel({ isOpen, setIsOpen }: ChatPanelProps) {
           </SendButton>
         </InputContainer>
       </PanelContainer>
-    </>
   )
 }

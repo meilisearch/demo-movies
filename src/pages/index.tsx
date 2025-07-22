@@ -159,7 +159,7 @@ const Home = ({ host, apiKey }) => {
                   <SemanticRatioContext.Provider
                     value={{ semanticRatio, setSemanticRatio }}
                   >
-                    <Header />
+                    <Header chatOpen={chatOpen} setChatOpen={setChatOpen} />
                     <HeadingSection />
                   </SemanticRatioContext.Provider>
                   <MovieContextProvider
