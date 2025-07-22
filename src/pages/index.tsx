@@ -77,7 +77,7 @@ const AppContainer = styled.div`
 `
 
 const MainContent = styled.div<{ $chatOpen: boolean }>`
-  width: ${props => props.$chatOpen ? 'calc(100% - 400px)' : '100%'};
+  width: ${props => props.$chatOpen ? 'calc(100% - 500px)' : '100%'};
   transition: width 0.3s ease-in-out;
   overflow-x: hidden;
   

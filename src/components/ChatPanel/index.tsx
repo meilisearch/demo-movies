@@ -33,9 +33,9 @@ interface ChatPanelProps {
 const PanelContainer = styled.div<{ isOpen: boolean }>`
   position: fixed;
   top: 0;
-  right: ${props => props.isOpen ? '0' : '-400px'};
+  right: ${props => props.isOpen ? '0' : '-500px'};
   height: 100vh;
-  width: 400px;
+  width: 500px;
   background: var(--color-background);
   border-left: ${props => props.isOpen ? '1px solid var(--color-border)' : 'none'};
   transition: right 0.3s ease-in-out, border 0.3s ease-in-out;
