@@ -1,6 +1,5 @@
-import React, { useRef, useState, useContext } from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
-import { MovieContext } from '~/context/MovieContext'
 
 interface MovieSource {
   title: string
@@ -65,15 +64,9 @@ const EnhancedMovieCard = styled.div`
   background: white;
   border-radius: 8px;
   overflow: hidden;
-  cursor: pointer;
   transition: all 0.2s ease;
   border: 1px solid var(--color-border);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
 `
 
 const MoviePoster = styled.div.withConfig({
@@ -168,7 +161,6 @@ const ScrollButton = styled.button.withConfig({
 `
 
 const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
-  const { setCurrentMovie, dialog } = useContext(MovieContext)
   const trackRef = useRef<HTMLDivElement>(null)
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(true)
@@ -219,29 +211,6 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
           {movies.map((movie) => (
             <EnhancedMovieCard
               key={movie.id}
-              onClick={() => {
-                // Convert movie source to full MovieData format expected by context
-                const movieData = {
-                  id: Number(movie.id),
-                  title: movie.title,
-                  poster_path: movie.poster_path || '',
-                  release_date: movie.release_date || '',
-                  vote_average: movie.vote_average || 0,
-                  // Add required fields with default values
-                  overview: '',
-                  genres: [],
-                  spoken_languages: [],
-                  runtime: 0,
-                  backdrop_path: '',
-                  production_countries: [],
-                  tagline: '',
-                  cast: [],
-                  crew: [],
-                  watch_providers: []
-                }
-                setCurrentMovie(movieData)
-                dialog.show()
-              }}
             >
               <MoviePoster poster={formatPosterUrl(movie.poster_path)}>
                 {!movie.poster_path && (
