@@ -16,7 +16,8 @@ const Hits = styled(ISHits)`
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 11px;
     @media (min-width: ${get('breakpoints.desktop')}) {
-      grid-template-columns: ${props => props.$chatOpen ? 'repeat(4, 1fr)' : 'repeat(8, 1fr)'};
+      grid-template-columns: ${props =>
+        props.$chatOpen ? 'repeat(4, 1fr)' : 'repeat(8, 1fr)'};
       grid-gap: 20px;
     }
   }
