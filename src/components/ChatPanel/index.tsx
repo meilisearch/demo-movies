@@ -522,16 +522,21 @@ export default function ChatPanel({ isOpen, setIsOpen }: ChatPanelProps) {
       setMessages(prev => [...prev, assistantMessage])
 
       if (reader) {
+        let buffer = ''
         while (true) {
           const { value, done } = await reader.read()
           if (done) break
 
-          const chunk = decoder.decode(value)
-          const lines = chunk.split('\n')
+          const chunk = decoder.decode(value, { stream: true })
+          buffer += chunk
+          const lines = buffer.split('\n')
+          
+          // Keep the last incomplete line in the buffer
+          buffer = lines.pop() || ''
 
           for (const line of lines) {
             if (line.startsWith('data: ')) {
-              const data = line.slice(6)
+              const data = line.slice(6).trim()
               if (data === '[DONE]') continue
 
               try {
