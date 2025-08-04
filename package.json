@@ -22,7 +22,7 @@
     "dotenv": "^17.2.0",
     "lodash.debounce": "^4.0.8",
     "lodash.get": "^4.4.2",
-    "next": "^14.2.30",
+    "next": "^15.4.5",
     "next-i18next": "^12.1.0",
     "rc-slider": "^10.5.0",
     "react": "^18.2.0",
