@@ -1,5 +1,6 @@
 /* eslint-disable react/display-name */
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Script from 'next/script'
 import { ServerStyleSheet } from 'styled-components'
 
 class MyDocument extends Document {
@@ -28,12 +29,31 @@ class MyDocument extends Document {
     }
   }
   render() {
+    const isProduction = process.env.NODE_ENV === 'production'
     return (
       <Html>
         <Head>
+          {isProduction && (
+            <Script
+              id="gtag-consent"
+              strategy="beforeInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                  });
+                `,
+              }}
+            />
+          )}
           {/* Google Tag Manager - Only in production */}
           {/* eslint-disable-next-line @next/next/next-script-for-ga */}
-          {process.env.NODE_ENV === 'production' && (
+          {isProduction && (
             <script
               dangerouslySetInnerHTML={{
                 __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -45,6 +65,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             />
           )}
           {/* End Google Tag Manager */}
+          {/* Start cookieyes banner */}
+          {isProduction && (
+            <Script
+              id="cookieyes"
+              src="https://cdn-cookieyes.com/client_data/0ec5a8e516eccaa724a461f6/script.js"
+              strategy="afterInteractive"
+            />
+          )}
+          {/* End cookieyes banner */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
@@ -79,7 +108,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </Head>
         <body className="dark">
           {/* Google Tag Manager (noscript) - Only in production */}
-          {process.env.NODE_ENV === 'production' && (
+          {isProduction && (
             <noscript>
               <iframe
                 src="https://www.googletagmanager.com/ns.html?id=GTM-TNSCGVBH"
