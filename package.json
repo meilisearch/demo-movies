@@ -45,7 +45,7 @@
     "babel-loader": "^10.0.0",
     "babel-plugin-macros": "^3.1.0",
     "babel-plugin-styled-components": "^2.1.4",
-    "bun": "1.1.30",
+    "bun": "1.2.21",
     "eslint": "7.32.0",
     "eslint-config-next": "^14.1.0",
     "eslint-config-prettier": "^8.3.0",
