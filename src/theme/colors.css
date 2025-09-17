@@ -87,6 +87,20 @@ body.light {
 
   /* Starting to refactor the colors */
   --text-color-secondary: var(--gray-300);
+  
+  /* Chat Panel Colors */
+  --color-background: var(--bg-color);
+  --color-border: var(--input-border);
+  --color-primary: var(--medium-purple);
+  --color-primary-hover: #6b5dd4;
+  --color-text: var(--text-color);
+  --color-text-secondary: var(--gray-300);
+  --color-header-bg: var(--results-bg);
+  --color-hover-bg: var(--hovered-language-bg);
+  --color-user-message: var(--medium-purple);
+  --color-assistant-message: var(--dialog-bg-color);
+  --color-tool-bg: rgba(122, 109, 229, 0.1);
+  --color-input-bg: var(--input-bg-color);
 }
 
 body.dark {
@@ -147,4 +161,18 @@ body.dark {
 
   /* Starting to refactor the colors */
   --text-color-secondary: var(--gray-400);
+  
+  /* Chat Panel Colors */
+  --color-background: var(--bg-color);
+  --color-border: var(--input-border);
+  --color-primary: var(--royal-blue);
+  --color-primary-hover: #3c4bc7;
+  --color-text: var(--text-color);
+  --color-text-secondary: var(--gray-400);
+  --color-header-bg: var(--results-bg);
+  --color-hover-bg: var(--hovered-language-bg);
+  --color-user-message: var(--royal-blue);
+  --color-assistant-message: var(--gray-800);
+  --color-tool-bg: rgba(75, 90, 216, 0.2);
+  --color-input-bg: var(--input-bg-color);
 }
