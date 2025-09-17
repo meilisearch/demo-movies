@@ -575,14 +575,22 @@ export default function ChatPanel({ isOpen, setIsOpen }: ChatPanelProps) {
                       try {
                         const args = JSON.parse(toolCall.function.arguments)
                         const sources = args.sources || []
-                        
-                        assistantMessage.sources = sources.map((doc: any) => ({
+
+                        const newSources = sources.map((doc: any) => ({
                           title: doc.title,
                           id: doc.id || doc.objectID,
                           poster_path: doc.poster_path,
                           release_date: doc.release_date,
                           vote_average: doc.vote_average
                         }))
+
+                        // Accumulate sources instead of replacing them
+                        const existingSources = assistantMessage.sources || []
+                        const existingIds = new Set(existingSources.map(s => s.id))
+
+                        // Only add sources that don't already exist (avoid duplicates)
+                        const uniqueNewSources = newSources.filter(source => !existingIds.has(source.id))
+                        assistantMessage.sources = [...existingSources, ...uniqueNewSources]
 
                         setMessages(prev => {
                           const newMessages = [...prev]
