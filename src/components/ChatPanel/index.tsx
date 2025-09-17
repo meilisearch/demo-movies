@@ -453,14 +453,14 @@ export default function ChatPanel({ isOpen, setIsOpen }: ChatPanelProps) {
     setError(null) // Clear any previous errors
 
     try {
-      const response = await fetch(`${MEILISEARCH_HOST}/chats/movie-advisor/chat/completions`, {
+      const response = await fetch(`${MEILISEARCH_HOST}/chats/cloud/chat/completions`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${MEILISEARCH_API_KEY}`
         },
         body: JSON.stringify({
-          model: 'gpt-3.5-turbo',
+          model: 'o3',
           messages: [
             ...messages.map(m => ({ role: m.role, content: m.content })),
             { role: 'user', content: userMessage.content }
@@ -647,7 +647,7 @@ export default function ChatPanel({ isOpen, setIsOpen }: ChatPanelProps) {
         <Header>
           <Title>Movie Advisor AI</Title>
           <CloseButton onClick={() => setIsOpen(false)}>
-            <Cross width={20} height={20} />
+            <Cross width={20} height={20} title="Close" titleId="close-chat" />
           </CloseButton>
         </Header>
 
@@ -660,7 +660,7 @@ export default function ChatPanel({ isOpen, setIsOpen }: ChatPanelProps) {
                 className="close-button"
                 onClick={() => setError(null)}
               >
-                <Cross width={16} height={16} />
+                <Cross width={16} height={16} title="Close" titleId="close-error" />
               </button>
             </ErrorAlert>
           )}
@@ -775,7 +775,7 @@ export default function ChatPanel({ isOpen, setIsOpen }: ChatPanelProps) {
             disabled={isLoading}
           />
           <SendButton type="submit" disabled={!input.trim() || isLoading}>
-            <Send width={18} height={18} />
+            <Send width={18} height={18} title="Send" titleId="send-message" />
           </SendButton>
         </InputContainer>
       </PanelContainer>
