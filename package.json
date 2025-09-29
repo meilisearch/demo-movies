@@ -16,7 +16,7 @@
     "setup:settings": "bun run scripts/update-settings.ts"
   },
   "dependencies": {
-    "@meilisearch/instant-meilisearch": "^0.27.0",
+    "@meilisearch/instant-meilisearch": "^0.28.0",
     "@twicpics/components": "^0.29.2",
     "clsx": "^2.1.1",
     "dotenv": "^17.2.0",
